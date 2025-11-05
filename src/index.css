@@ -21,6 +21,21 @@
     text-rendering: optimizeLegibility;
   }
   
+  /* Performance optimizations */
+  img {
+    content-visibility: auto;
+    contain-intrinsic-size: 300px 200px;
+  }
+  
+  /* GPU acceleration for animations */
+  .animate-on-scroll,
+  .hero-fade-in,
+  .animate-slide-in-left,
+  .animate-slide-in-right {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+  }
+  
   /* Respect user's motion preferences */
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -30,6 +45,15 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
+    }
+    
+    /* Disable transforms for reduced motion */
+    .animate-on-scroll,
+    .hero-fade-in,
+    .animate-slide-in-left,
+    .animate-slide-in-right {
+      will-change: auto;
+      transform: none !important;
     }
   }
 }
@@ -49,7 +73,7 @@
   }
   
   .btn-primary:hover {
-    background: linear-gradient(to right, #0e7490, #0e7490);
+    background: linear-gradient(to right, #0e7490, #0e7490) !important;
   }
   
   .btn-primary:focus {
@@ -158,6 +182,90 @@
   .animate-on-scroll.in-view {
     opacity: 1 !important;
     transform: translateY(0) !important;
+  }
+
+  /* Enhanced text readability on blue backgrounds */
+  .blue-section-text {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .blue-section-card {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  /* Performance optimized background patterns */
+  .enhanced-bg-pattern {
+    contain: layout style paint;
+    transform: translateZ(0);
+  }
+  
+  /* Fallback for older browsers without backdrop-filter support */
+  @supports not (backdrop-filter: blur(8px)) {
+    .blue-section-card {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+  }
+  
+  /* Responsive optimizations */
+  @media (max-width: 768px) {
+    .blue-section-card {
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    
+    /* Reduce complex gradients on mobile for better performance */
+    .enhanced-bg-pattern {
+      opacity: 0.1;
+    }
+    
+    /* Optimize animations for mobile */
+    .animate-on-scroll,
+    .hero-fade-in {
+      transition-duration: 0.3s;
+    }
+    
+    /* Reduce shadow complexity on mobile */
+    .shadow-strong {
+      box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .shadow-medium {
+      box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  /* Ultra-wide screen optimizations */
+  @media (min-width: 1920px) {
+    .enhanced-bg-pattern {
+      contain: strict;
+    }
+  }
+  
+  /* Print styles */
+  @media print {
+    .enhanced-bg-pattern,
+    .blue-section-card {
+      background: white !important;
+      backdrop-filter: none !important;
+    }
+    
+    .animate-on-scroll,
+    .hero-fade-in {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .blue-section-text {
+      text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+    }
+    
+    .blue-section-card {
+      border: 2px solid rgba(255, 255, 255, 0.8);
+    }
   }
 
   @keyframes slide-in-left {

@@ -9,4 +9,28 @@ export default defineConfig({
       '@': '/src',
     },
   },
+  build: {
+    // Performance optimizations
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+        },
+      },
+    },
+    // Enable CSS code splitting
+    cssCodeSplit: true,
+    // Optimize chunk size
+    chunkSizeWarningLimit: 1000,
+  },
+  // Optimize dev server
+  server: {
+    hmr: {
+      overlay: false,
+    },
+  },
+  // CSS optimization
+  css: {
+    devSourcemap: true,
+  },
 })

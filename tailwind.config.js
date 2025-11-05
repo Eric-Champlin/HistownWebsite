@@ -90,6 +90,18 @@ export default {
       transitionTimingFunction: {
         'ease-out-custom': 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
       },
+      screens: {
+        'xs': '475px',
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+        // Performance-focused breakpoints
+        'mobile-only': {'max': '767px'},
+        'tablet-only': {'min': '768px', 'max': '1023px'},
+        'desktop-only': {'min': '1024px'},
+      },
       boxShadow: {
         'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
         'medium': '0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
