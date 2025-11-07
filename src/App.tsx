@@ -22,6 +22,9 @@ function App() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('in-view');
+        } else {
+          // Remove the class when element goes out of view to allow re-animation
+          entry.target.classList.remove('in-view');
         }
       });
     }, observerOptions);
@@ -119,7 +122,7 @@ function App() {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <div className="bg-white" style={{ paddingBottom: '4rem', marginBottom: '-2rem' }}>
+      <div className="bg-white" style={{ paddingBottom: '6rem', marginBottom: '-4rem' }}>
         <header className="section-container section-padding">
         <h1 
           className="heading-primary text-center hero-fade-in opacity-0 translate-y-8 transition-all duration-1000 ease-out"
@@ -132,7 +135,7 @@ function App() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 hero-fade-in opacity-0 translate-y-8 transition-all duration-1000 ease-out">
           <a 
             href={homeContent.hero.primaryCta.href}
-            className="btn-primary text-center"
+            className="btn-primary text-center transform hover:scale-105 transition-all duration-300"
             style={{
               background: 'linear-gradient(to right, #0e7490, #0891b2)',
               color: 'white'
@@ -143,7 +146,7 @@ function App() {
           {homeContent.hero.secondaryCta && (
             <a 
               href={homeContent.hero.secondaryCta.href}
-              className="btn-outline text-center"
+              className="btn-outline text-center transform hover:scale-105 transition-all duration-300"
             >
               {homeContent.hero.secondaryCta.label}
             </a>
@@ -154,111 +157,25 @@ function App() {
       
 
       {/* Programs Section - Dance Classes, Music Classes, Featured Programs */}
-      <main className="relative bg-gradient-to-br from-cyan-400 via-cyan-600 to-cyan-800 overflow-hidden" style={{ clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)', marginTop: '-2rem', paddingTop: '4rem', marginBottom: '-2rem', paddingBottom: '4rem' }}>
-        {/* EXTREME DETAIL Background Pattern - Programs Section */}
-        <div className="absolute inset-0">
-          {/* Base atmospheric foundation with extreme depth - matching purple reference */}
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/40 via-cyan-200/32 to-cyan-900/50"></div>
-          <div className="absolute inset-0 bg-gradient-to-tl from-cyan-100/38 via-cyan-300/28 to-cyan-800/45"></div>
-          <div className="absolute inset-0 bg-gradient-to-tr from-cyan-200/35 via-cyan-400/25 to-cyan-950/48"></div>
-          <div className="absolute inset-0 bg-gradient-to-bl from-cyan-300/40 via-cyan-500/22 to-cyan-700/42"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-150/30 via-cyan-600/18 to-cyan-850/38"></div>
-          
-          {/* Multi-layered 3D lighting system with extreme complexity - purple reference level */}
-          <div className="absolute inset-0" style={{
-            backgroundImage: `
-              radial-gradient(ellipse 2200px 1400px at 10% 5%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.48) 6%, rgba(255, 255, 255, 0.42) 12%, rgba(255, 255, 255, 0.36) 18%, rgba(255, 255, 255, 0.30) 24%, rgba(255, 255, 255, 0.25) 30%, rgba(255, 255, 255, 0.20) 36%, rgba(255, 255, 255, 0.16) 42%, rgba(255, 255, 255, 0.12) 48%, rgba(255, 255, 255, 0.08) 54%, rgba(255, 255, 255, 0.05) 60%, rgba(255, 255, 255, 0.03) 66%, rgba(255, 255, 255, 0.01) 72%, transparent 78%),
-              radial-gradient(ellipse 2000px 1100px at 90% 95%, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.45) 8%, rgba(255, 255, 255, 0.38) 16%, rgba(255, 255, 255, 0.32) 24%, rgba(255, 255, 255, 0.26) 32%, rgba(255, 255, 255, 0.21) 40%, rgba(255, 255, 255, 0.16) 48%, rgba(255, 255, 255, 0.12) 56%, rgba(255, 255, 255, 0.08) 64%, rgba(255, 255, 255, 0.05) 72%, rgba(255, 255, 255, 0.02) 80%, transparent 88%),
-              radial-gradient(ellipse 2400px 800px at 50% 50%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.38) 10%, rgba(255, 255, 255, 0.32) 20%, rgba(255, 255, 255, 0.26) 30%, rgba(255, 255, 255, 0.21) 40%, rgba(255, 255, 255, 0.16) 50%, rgba(255, 255, 255, 0.12) 60%, rgba(255, 255, 255, 0.08) 70%, rgba(255, 255, 255, 0.04) 80%, transparent 90%),
-              radial-gradient(circle 1000px at 2% 88%, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.40) 10%, rgba(255, 255, 255, 0.33) 20%, rgba(255, 255, 255, 0.26) 30%, rgba(255, 255, 255, 0.20) 40%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.10) 60%, rgba(255, 255, 255, 0.06) 70%, rgba(255, 255, 255, 0.03) 80%, rgba(255, 255, 255, 0.01) 90%, transparent 100%),
-              radial-gradient(circle 900px at 98% 12%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.38) 12%, rgba(255, 255, 255, 0.31) 24%, rgba(255, 255, 255, 0.24) 36%, rgba(255, 255, 255, 0.18) 48%, rgba(255, 255, 255, 0.13) 60%, rgba(255, 255, 255, 0.08) 72%, rgba(255, 255, 255, 0.04) 84%, transparent 96%),
-              radial-gradient(circle 800px at 20% 20%, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.33) 15%, rgba(255, 255, 255, 0.26) 30%, rgba(255, 255, 255, 0.20) 45%, rgba(255, 255, 255, 0.14) 60%, rgba(255, 255, 255, 0.08) 75%, rgba(255, 255, 255, 0.03) 90%, transparent 100%),
-              radial-gradient(circle 700px at 80% 80%, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.31) 18%, rgba(255, 255, 255, 0.24) 36%, rgba(255, 255, 255, 0.17) 54%, rgba(255, 255, 255, 0.11) 72%, rgba(255, 255, 255, 0.05) 90%, transparent 100%)
-            `
-          }}></div>
-          
-          {/* Ultra-complex conic lighting with 3D depth - purple reference level */}
-          <div className="absolute inset-0 opacity-70" style={{
-            backgroundImage: `
-              conic-gradient(from 12deg at 15% 3%, transparent 0deg, rgba(255, 255, 255, 0.50) 6deg, rgba(255, 255, 255, 0.45) 12deg, rgba(255, 255, 255, 0.40) 18deg, rgba(255, 255, 255, 0.35) 24deg, rgba(255, 255, 255, 0.30) 30deg, rgba(255, 255, 255, 0.25) 36deg, rgba(255, 255, 255, 0.20) 42deg, rgba(255, 255, 255, 0.16) 48deg, rgba(255, 255, 255, 0.12) 54deg, rgba(255, 255, 255, 0.08) 60deg, rgba(255, 255, 255, 0.05) 66deg, rgba(255, 255, 255, 0.02) 72deg, rgba(255, 255, 255, 0.01) 78deg, transparent 84deg),
-              conic-gradient(from 192deg at 85% 97%, transparent 0deg, rgba(255, 255, 255, 0.48) 9deg, rgba(255, 255, 255, 0.42) 18deg, rgba(255, 255, 255, 0.36) 27deg, rgba(255, 255, 255, 0.30) 36deg, rgba(255, 255, 255, 0.25) 45deg, rgba(255, 255, 255, 0.20) 54deg, rgba(255, 255, 255, 0.15) 63deg, rgba(255, 255, 255, 0.11) 72deg, rgba(255, 255, 255, 0.07) 81deg, rgba(255, 255, 255, 0.04) 90deg, rgba(255, 255, 255, 0.02) 99deg, rgba(255, 255, 255, 0.01) 108deg, transparent 117deg),
-              conic-gradient(from 102deg at 92% 18%, transparent 0deg, rgba(255, 255, 255, 0.42) 8deg, rgba(255, 255, 255, 0.36) 16deg, rgba(255, 255, 255, 0.30) 24deg, rgba(255, 255, 255, 0.25) 32deg, rgba(255, 255, 255, 0.20) 40deg, rgba(255, 255, 255, 0.15) 48deg, rgba(255, 255, 255, 0.11) 56deg, rgba(255, 255, 255, 0.07) 64deg, rgba(255, 255, 255, 0.04) 72deg, rgba(255, 255, 255, 0.02) 80deg, rgba(255, 255, 255, 0.01) 88deg, transparent 96deg),
-              conic-gradient(from 282deg at 8% 82%, transparent 0deg, rgba(255, 255, 255, 0.40) 12deg, rgba(255, 255, 255, 0.34) 24deg, rgba(255, 255, 255, 0.28) 36deg, rgba(255, 255, 255, 0.22) 48deg, rgba(255, 255, 255, 0.17) 60deg, rgba(255, 255, 255, 0.12) 72deg, rgba(255, 255, 255, 0.08) 84deg, rgba(255, 255, 255, 0.04) 96deg, rgba(255, 255, 255, 0.02) 108deg, rgba(255, 255, 255, 0.01) 120deg, transparent 132deg),
-              conic-gradient(from 152deg at 55% 65%, transparent 0deg, rgba(255, 255, 255, 0.35) 15deg, rgba(255, 255, 255, 0.29) 30deg, rgba(255, 255, 255, 0.23) 45deg, rgba(255, 255, 255, 0.18) 60deg, rgba(255, 255, 255, 0.13) 75deg, rgba(255, 255, 255, 0.08) 90deg, rgba(255, 255, 255, 0.04) 105deg, rgba(255, 255, 255, 0.02) 120deg, transparent 135deg)
-            `
-          }}></div>
-          
-          {/* Extreme atmospheric ray system with 3D perspective - purple reference level */}
-          <div className="absolute inset-0 opacity-55">
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/45 to-transparent transform -skew-y-30 origin-top-left"></div>
-            <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-l from-transparent via-white/42 to-transparent transform skew-y-30 origin-bottom-right"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/38 to-transparent transform -skew-y-25 origin-center"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/35 to-transparent transform skew-y-25 origin-center"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/32 to-transparent transform -skew-y-20 origin-top"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/30 to-transparent transform skew-y-20 origin-bottom"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/28 to-transparent transform -skew-y-15"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/26 to-transparent transform skew-y-15"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/24 to-transparent transform -skew-y-10"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/22 to-transparent transform skew-y-10"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-y-5"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/18 to-transparent transform skew-y-5"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/16 to-transparent transform -skew-y-2"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/14 to-transparent transform skew-y-2"></div>
-          </div>
-          
-          {/* Ultra-complex 3D depth field matrix - purple reference level */}
-          <div className="absolute inset-0 opacity-48">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/45 via-white/32 to-white/38"></div>
-            <div className="absolute inset-0 bg-gradient-to-tl from-white/42 via-white/30 to-white/35"></div>
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/38 via-white/28 to-white/32"></div>
-            <div className="absolute inset-0 bg-gradient-to-bl from-white/35 via-white/26 to-white/30"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-white/32 via-white/24 to-white/28"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-white/22 to-white/26"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-white/28 via-white/20 to-white/24"></div>
-            <div className="absolute inset-0 bg-gradient-to-b from-white/26 via-white/18 to-white/22"></div>
-            <div className="absolute inset-0 bg-gradient-to-br from-white/24 via-white/16 to-white/20"></div>
-            <div className="absolute inset-0 bg-gradient-to-tl from-white/22 via-white/14 to-white/18"></div>
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-white/12 to-white/16"></div>
-            <div className="absolute inset-0 bg-gradient-to-bl from-white/18 via-white/10 to-white/14"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-white/16 via-white/8 to-white/12"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-white/14 via-white/6 to-white/10"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-white/12 via-white/5 to-white/8"></div>
-            <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/4 to-white/6"></div>
-          </div>
-          
-          {/* Maximum detail geometric line system - purple reference level */}
-          <div className="absolute inset-0 opacity-40" style={{
-            backgroundImage: `
-              linear-gradient(2deg, transparent 3%, rgba(255, 255, 255, 0.35) 8%, rgba(255, 255, 255, 0.30) 13%, rgba(255, 255, 255, 0.26) 18%, rgba(255, 255, 255, 0.22) 23%, rgba(255, 255, 255, 0.18) 28%, rgba(255, 255, 255, 0.15) 33%, rgba(255, 255, 255, 0.12) 38%, rgba(255, 255, 255, 0.09) 43%, rgba(255, 255, 255, 0.07) 48%, rgba(255, 255, 255, 0.05) 53%, rgba(255, 255, 255, 0.03) 58%, rgba(255, 255, 255, 0.02) 63%, rgba(255, 255, 255, 0.01) 68%, transparent 73%),
-              linear-gradient(18deg, transparent 5%, rgba(255, 255, 255, 0.32) 10%, rgba(255, 255, 255, 0.28) 15%, rgba(255, 255, 255, 0.24) 20%, rgba(255, 255, 255, 0.20) 25%, rgba(255, 255, 255, 0.17) 30%, rgba(255, 255, 255, 0.14) 35%, rgba(255, 255, 255, 0.11) 40%, rgba(255, 255, 255, 0.08) 45%, rgba(255, 255, 255, 0.06) 50%, rgba(255, 255, 255, 0.04) 55%, rgba(255, 255, 255, 0.02) 60%, rgba(255, 255, 255, 0.01) 65%, transparent 70%),
-              linear-gradient(34deg, transparent 7%, rgba(255, 255, 255, 0.30) 12%, rgba(255, 255, 255, 0.26) 17%, rgba(255, 255, 255, 0.22) 22%, rgba(255, 255, 255, 0.19) 27%, rgba(255, 255, 255, 0.16) 32%, rgba(255, 255, 255, 0.13) 37%, rgba(255, 255, 255, 0.10) 42%, rgba(255, 255, 255, 0.07) 47%, rgba(255, 255, 255, 0.05) 52%, rgba(255, 255, 255, 0.03) 57%, rgba(255, 255, 255, 0.01) 62%, transparent 67%),
-              linear-gradient(50deg, transparent 9%, rgba(255, 255, 255, 0.28) 14%, rgba(255, 255, 255, 0.24) 19%, rgba(255, 255, 255, 0.21) 24%, rgba(255, 255, 255, 0.18) 29%, rgba(255, 255, 255, 0.15) 34%, rgba(255, 255, 255, 0.12) 39%, rgba(255, 255, 255, 0.09) 44%, rgba(255, 255, 255, 0.06) 49%, rgba(255, 255, 255, 0.04) 54%, rgba(255, 255, 255, 0.02) 59%, transparent 64%),
-              linear-gradient(66deg, transparent 11%, rgba(255, 255, 255, 0.26) 16%, rgba(255, 255, 255, 0.22) 21%, rgba(255, 255, 255, 0.19) 26%, rgba(255, 255, 255, 0.16) 31%, rgba(255, 255, 255, 0.13) 36%, rgba(255, 255, 255, 0.10) 41%, rgba(255, 255, 255, 0.07) 46%, rgba(255, 255, 255, 0.05) 51%, rgba(255, 255, 255, 0.03) 56%, rgba(255, 255, 255, 0.01) 61%, transparent 66%),
-              linear-gradient(82deg, transparent 13%, rgba(255, 255, 255, 0.24) 18%, rgba(255, 255, 255, 0.21) 23%, rgba(255, 255, 255, 0.18) 28%, rgba(255, 255, 255, 0.15) 33%, rgba(255, 255, 255, 0.12) 38%, rgba(255, 255, 255, 0.09) 43%, rgba(255, 255, 255, 0.06) 48%, rgba(255, 255, 255, 0.04) 53%, rgba(255, 255, 255, 0.02) 58%, transparent 63%),
-              linear-gradient(98deg, transparent 15%, rgba(255, 255, 255, 0.22) 20%, rgba(255, 255, 255, 0.19) 25%, rgba(255, 255, 255, 0.16) 30%, rgba(255, 255, 255, 0.13) 35%, rgba(255, 255, 255, 0.10) 40%, rgba(255, 255, 255, 0.07) 45%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.03) 55%, rgba(255, 255, 255, 0.01) 60%, transparent 65%),
-              linear-gradient(114deg, transparent 17%, rgba(255, 255, 255, 0.20) 22%, rgba(255, 255, 255, 0.17) 27%, rgba(255, 255, 255, 0.14) 32%, rgba(255, 255, 255, 0.11) 37%, rgba(255, 255, 255, 0.08) 42%, rgba(255, 255, 255, 0.06) 47%, rgba(255, 255, 255, 0.04) 52%, rgba(255, 255, 255, 0.02) 57%, transparent 62%),
-              linear-gradient(130deg, transparent 19%, rgba(255, 255, 255, 0.18) 24%, rgba(255, 255, 255, 0.15) 29%, rgba(255, 255, 255, 0.12) 34%, rgba(255, 255, 255, 0.09) 39%, rgba(255, 255, 255, 0.07) 44%, rgba(255, 255, 255, 0.05) 49%, rgba(255, 255, 255, 0.03) 54%, rgba(255, 255, 255, 0.01) 59%, transparent 64%),
-              linear-gradient(146deg, transparent 21%, rgba(255, 255, 255, 0.16) 26%, rgba(255, 255, 255, 0.13) 31%, rgba(255, 255, 255, 0.10) 36%, rgba(255, 255, 255, 0.08) 41%, rgba(255, 255, 255, 0.06) 46%, rgba(255, 255, 255, 0.04) 51%, rgba(255, 255, 255, 0.02) 56%, transparent 61%),
-              linear-gradient(-14deg, transparent 23%, rgba(255, 255, 255, 0.14) 28%, rgba(255, 255, 255, 0.11) 33%, rgba(255, 255, 255, 0.09) 38%, rgba(255, 255, 255, 0.07) 43%, rgba(255, 255, 255, 0.05) 48%, rgba(255, 255, 255, 0.03) 53%, rgba(255, 255, 255, 0.01) 58%, transparent 63%),
-              linear-gradient(-30deg, transparent 25%, rgba(255, 255, 255, 0.12) 30%, rgba(255, 255, 255, 0.10) 35%, rgba(255, 255, 255, 0.08) 40%, rgba(255, 255, 255, 0.06) 45%, rgba(255, 255, 255, 0.04) 50%, rgba(255, 255, 255, 0.02) 55%, transparent 60%),
-              linear-gradient(-46deg, transparent 27%, rgba(255, 255, 255, 0.10) 32%, rgba(255, 255, 255, 0.08) 37%, rgba(255, 255, 255, 0.06) 42%, rgba(255, 255, 255, 0.04) 47%, rgba(255, 255, 255, 0.02) 52%, transparent 57%),
-              linear-gradient(-62deg, transparent 29%, rgba(255, 255, 255, 0.08) 34%, rgba(255, 255, 255, 0.06) 39%, rgba(255, 255, 255, 0.04) 44%, rgba(255, 255, 255, 0.02) 49%, transparent 54%),
-              linear-gradient(-78deg, transparent 31%, rgba(255, 255, 255, 0.06) 36%, rgba(255, 255, 255, 0.04) 41%, rgba(255, 255, 255, 0.02) 46%, transparent 51%)
-            `
-          }}></div>
-          
-          {/* Ultra-detailed 3D shadow and highlight system - purple reference level */}
-          <div className="absolute inset-0 opacity-25" style={{
-            backgroundImage: `
-              radial-gradient(ellipse 800px 400px at 12% 88%, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.15) 20%, rgba(0, 0, 0, 0.10) 40%, rgba(0, 0, 0, 0.06) 60%, rgba(0, 0, 0, 0.03) 80%, transparent 95%),
-              radial-gradient(ellipse 700px 350px at 88% 12%, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.13) 25%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.04) 75%, transparent 90%),
-              radial-gradient(ellipse 900px 200px at 50% 98%, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.10) 30%, rgba(0, 0, 0, 0.05) 60%, rgba(0, 0, 0, 0.02) 80%, transparent 95%),
-              radial-gradient(circle 500px at 20% 20%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.08) 35%, rgba(255, 255, 255, 0.04) 65%, rgba(255, 255, 255, 0.02) 85%, transparent 95%),
-              radial-gradient(circle 450px at 80% 80%, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.07) 40%, rgba(255, 255, 255, 0.03) 70%, rgba(255, 255, 255, 0.01) 90%, transparent 100%),
-              radial-gradient(circle 400px at 65% 35%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 45%, rgba(255, 255, 255, 0.02) 75%, transparent 95%)
-            `
-          }}></div>
-        </div>
+      <main 
+        className="relative overflow-hidden" 
+        style={{ 
+          clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)', 
+          marginTop: '-4rem', 
+          paddingTop: '6rem', 
+          marginBottom: '-4rem', 
+          paddingBottom: '6rem',
+          backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/w_2400,q_100,f_jpg,e_sharpen:100/v1762365784/blue-texture_yyysa2)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          imageRendering: 'crisp-edges',
+          filter: 'contrast(1.1) saturate(1.05)'
+        }}
+      >
+        {/* Dark overlay for better text contrast */}
+        <div className="absolute inset-0 bg-black/20"></div>
+
         <section className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20 section-padding">
           {/* Dance Classes - Image Left, Text Right */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch mb-20 animate-on-scroll">
@@ -281,7 +198,7 @@ function App() {
               </p>
               <a 
                 href="/programs/dance"
-                className="bg-gradient-to-r from-histown-accent to-histown-primary hover:from-histown-accent hover:to-histown-primary-dark text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 drop-shadow-lg uppercase tracking-wide inline-block w-fit"
+                className="bg-gradient-to-r from-histown-accent to-histown-primary hover:from-histown-accent hover:to-histown-primary-dark text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 drop-shadow-lg uppercase tracking-wide inline-block w-fit transform hover:scale-105"
               >
                 LEARN MORE
               </a>
@@ -300,7 +217,7 @@ function App() {
               </p>
               <a 
                 href="/programs/music"
-                className="bg-gradient-to-r from-histown-accent to-histown-primary hover:from-histown-accent hover:to-histown-primary-dark text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 drop-shadow-lg uppercase tracking-wide inline-block w-fit"
+                className="bg-gradient-to-r from-histown-accent to-histown-primary hover:from-histown-accent hover:to-histown-primary-dark text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 drop-shadow-lg uppercase tracking-wide inline-block w-fit transform hover:scale-105"
               >
                 LEARN MORE
               </a>
@@ -337,7 +254,7 @@ function App() {
               </p>
               <a 
                 href="/programs/featured"
-                className="bg-gradient-to-r from-histown-accent to-histown-primary hover:from-histown-accent hover:to-histown-primary-dark text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 drop-shadow-lg uppercase tracking-wide inline-block w-fit"
+                className="bg-gradient-to-r from-histown-accent to-histown-primary hover:from-histown-accent hover:to-histown-primary-dark text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 drop-shadow-lg uppercase tracking-wide inline-block w-fit transform hover:scale-105"
               >
                 LEARN MORE
               </a>
@@ -347,14 +264,20 @@ function App() {
       </main>
 
       {/* Testimonials Section */}
-      <section className="bg-white py-16 md:py-24" style={{ marginTop: '-2rem', paddingTop: '4rem', marginBottom: '-2rem', paddingBottom: '4rem' }}>
+      <section className="bg-white py-16 md:py-24" style={{ marginTop: '-4rem', paddingTop: '6rem', marginBottom: '-4rem', paddingBottom: '6rem' }}>
         <div className="max-w-6xl mx-auto px-12 sm:px-16 lg:px-20">
           {/* Title */}
           <div className="text-center mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-            <h2 className="text-4xl md:text-5xl font-black uppercase mb-4 relative inline-block" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
+            <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
               TESTIMONIALS
-              <div className="h-1 w-72 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-2 mx-auto"></div>
             </h2>
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <div className="h-1 w-20 bg-gradient-to-r from-transparent to-histown-primary rounded-full"></div>
+              <div className="w-3 h-3 bg-histown-accent rounded-full"></div>
+              <div className="h-1 w-40 bg-gradient-to-r from-histown-primary via-histown-accent to-histown-primary rounded-full"></div>
+              <div className="w-3 h-3 bg-histown-accent rounded-full"></div>
+              <div className="h-1 w-20 bg-gradient-to-r from-histown-primary to-transparent rounded-full"></div>
+            </div>
           </div>
 
           {/* Images */}
@@ -404,120 +327,38 @@ function App() {
       </section>
 
       {/* Why Us Section */}
-      <section className="relative bg-gradient-to-br from-cyan-400 via-cyan-600 to-cyan-800 py-16 md:py-24 overflow-hidden" style={{ clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)', marginTop: '-2rem', paddingTop: '4rem', marginBottom: '-2rem', paddingBottom: '4rem' }}>
-          {/* EXTREME DETAIL Background Pattern - Why Us Section */}
-          <div className="absolute inset-0">
-            {/* Base atmospheric foundation with extreme depth - matching purple reference */}
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/40 via-cyan-200/32 to-cyan-900/50"></div>
-            <div className="absolute inset-0 bg-gradient-to-tl from-cyan-100/38 via-cyan-300/28 to-cyan-800/45"></div>
-            <div className="absolute inset-0 bg-gradient-to-tr from-cyan-200/35 via-cyan-400/25 to-cyan-950/48"></div>
-            <div className="absolute inset-0 bg-gradient-to-bl from-cyan-300/40 via-cyan-500/22 to-cyan-700/42"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-150/30 via-cyan-600/18 to-cyan-850/38"></div>
-            
-            {/* Multi-layered 3D lighting system with extreme complexity - purple reference level */}
-            <div className="absolute inset-0" style={{
-              backgroundImage: `
-                radial-gradient(ellipse 2200px 1400px at 10% 5%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.48) 6%, rgba(255, 255, 255, 0.42) 12%, rgba(255, 255, 255, 0.36) 18%, rgba(255, 255, 255, 0.30) 24%, rgba(255, 255, 255, 0.25) 30%, rgba(255, 255, 255, 0.20) 36%, rgba(255, 255, 255, 0.16) 42%, rgba(255, 255, 255, 0.12) 48%, rgba(255, 255, 255, 0.08) 54%, rgba(255, 255, 255, 0.05) 60%, rgba(255, 255, 255, 0.03) 66%, rgba(255, 255, 255, 0.01) 72%, transparent 78%),
-                radial-gradient(ellipse 2000px 1100px at 90% 95%, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.45) 8%, rgba(255, 255, 255, 0.38) 16%, rgba(255, 255, 255, 0.32) 24%, rgba(255, 255, 255, 0.26) 32%, rgba(255, 255, 255, 0.21) 40%, rgba(255, 255, 255, 0.16) 48%, rgba(255, 255, 255, 0.12) 56%, rgba(255, 255, 255, 0.08) 64%, rgba(255, 255, 255, 0.05) 72%, rgba(255, 255, 255, 0.02) 80%, transparent 88%),
-                radial-gradient(ellipse 2400px 800px at 50% 50%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.38) 10%, rgba(255, 255, 255, 0.32) 20%, rgba(255, 255, 255, 0.26) 30%, rgba(255, 255, 255, 0.21) 40%, rgba(255, 255, 255, 0.16) 50%, rgba(255, 255, 255, 0.12) 60%, rgba(255, 255, 255, 0.08) 70%, rgba(255, 255, 255, 0.04) 80%, transparent 90%),
-                radial-gradient(circle 1000px at 2% 88%, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.40) 10%, rgba(255, 255, 255, 0.33) 20%, rgba(255, 255, 255, 0.26) 30%, rgba(255, 255, 255, 0.20) 40%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.10) 60%, rgba(255, 255, 255, 0.06) 70%, rgba(255, 255, 255, 0.03) 80%, rgba(255, 255, 255, 0.01) 90%, transparent 100%),
-                radial-gradient(circle 900px at 98% 12%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.38) 12%, rgba(255, 255, 255, 0.31) 24%, rgba(255, 255, 255, 0.24) 36%, rgba(255, 255, 255, 0.18) 48%, rgba(255, 255, 255, 0.13) 60%, rgba(255, 255, 255, 0.08) 72%, rgba(255, 255, 255, 0.04) 84%, transparent 96%),
-                radial-gradient(circle 800px at 20% 20%, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.33) 15%, rgba(255, 255, 255, 0.26) 30%, rgba(255, 255, 255, 0.20) 45%, rgba(255, 255, 255, 0.14) 60%, rgba(255, 255, 255, 0.08) 75%, rgba(255, 255, 255, 0.03) 90%, transparent 100%),
-                radial-gradient(circle 700px at 80% 80%, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.31) 18%, rgba(255, 255, 255, 0.24) 36%, rgba(255, 255, 255, 0.17) 54%, rgba(255, 255, 255, 0.11) 72%, rgba(255, 255, 255, 0.05) 90%, transparent 100%)
-              `
-            }}></div>
-            
-            {/* Ultra-complex conic lighting with 3D depth - purple reference level */}
-            <div className="absolute inset-0 opacity-70" style={{
-              backgroundImage: `
-                conic-gradient(from 12deg at 15% 3%, transparent 0deg, rgba(255, 255, 255, 0.50) 6deg, rgba(255, 255, 255, 0.45) 12deg, rgba(255, 255, 255, 0.40) 18deg, rgba(255, 255, 255, 0.35) 24deg, rgba(255, 255, 255, 0.30) 30deg, rgba(255, 255, 255, 0.25) 36deg, rgba(255, 255, 255, 0.20) 42deg, rgba(255, 255, 255, 0.16) 48deg, rgba(255, 255, 255, 0.12) 54deg, rgba(255, 255, 255, 0.08) 60deg, rgba(255, 255, 255, 0.05) 66deg, rgba(255, 255, 255, 0.02) 72deg, rgba(255, 255, 255, 0.01) 78deg, transparent 84deg),
-                conic-gradient(from 192deg at 85% 97%, transparent 0deg, rgba(255, 255, 255, 0.48) 9deg, rgba(255, 255, 255, 0.42) 18deg, rgba(255, 255, 255, 0.36) 27deg, rgba(255, 255, 255, 0.30) 36deg, rgba(255, 255, 255, 0.25) 45deg, rgba(255, 255, 255, 0.20) 54deg, rgba(255, 255, 255, 0.15) 63deg, rgba(255, 255, 255, 0.11) 72deg, rgba(255, 255, 255, 0.07) 81deg, rgba(255, 255, 255, 0.04) 90deg, rgba(255, 255, 255, 0.02) 99deg, rgba(255, 255, 255, 0.01) 108deg, transparent 117deg),
-                conic-gradient(from 102deg at 92% 18%, transparent 0deg, rgba(255, 255, 255, 0.42) 8deg, rgba(255, 255, 255, 0.36) 16deg, rgba(255, 255, 255, 0.30) 24deg, rgba(255, 255, 255, 0.25) 32deg, rgba(255, 255, 255, 0.20) 40deg, rgba(255, 255, 255, 0.15) 48deg, rgba(255, 255, 255, 0.11) 56deg, rgba(255, 255, 255, 0.07) 64deg, rgba(255, 255, 255, 0.04) 72deg, rgba(255, 255, 255, 0.02) 80deg, rgba(255, 255, 255, 0.01) 88deg, transparent 96deg),
-                conic-gradient(from 282deg at 8% 82%, transparent 0deg, rgba(255, 255, 255, 0.40) 12deg, rgba(255, 255, 255, 0.34) 24deg, rgba(255, 255, 255, 0.28) 36deg, rgba(255, 255, 255, 0.22) 48deg, rgba(255, 255, 255, 0.17) 60deg, rgba(255, 255, 255, 0.12) 72deg, rgba(255, 255, 255, 0.08) 84deg, rgba(255, 255, 255, 0.04) 96deg, rgba(255, 255, 255, 0.02) 108deg, rgba(255, 255, 255, 0.01) 120deg, transparent 132deg),
-                conic-gradient(from 152deg at 55% 65%, transparent 0deg, rgba(255, 255, 255, 0.35) 15deg, rgba(255, 255, 255, 0.29) 30deg, rgba(255, 255, 255, 0.23) 45deg, rgba(255, 255, 255, 0.18) 60deg, rgba(255, 255, 255, 0.13) 75deg, rgba(255, 255, 255, 0.08) 90deg, rgba(255, 255, 255, 0.04) 105deg, rgba(255, 255, 255, 0.02) 120deg, transparent 135deg)
-              `
-            }}></div>
-            
-            {/* Extreme atmospheric ray system with 3D perspective - purple reference level */}
-            <div className="absolute inset-0 opacity-55">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/45 to-transparent transform -skew-y-30 origin-top-left"></div>
-              <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-l from-transparent via-white/42 to-transparent transform skew-y-30 origin-bottom-right"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/38 to-transparent transform -skew-y-25 origin-center"></div>
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/35 to-transparent transform skew-y-25 origin-center"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/32 to-transparent transform -skew-y-20 origin-top"></div>
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/30 to-transparent transform skew-y-20 origin-bottom"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/28 to-transparent transform -skew-y-15"></div>
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/26 to-transparent transform skew-y-15"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/24 to-transparent transform -skew-y-10"></div>
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/22 to-transparent transform skew-y-10"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-y-5"></div>
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/18 to-transparent transform skew-y-5"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/16 to-transparent transform -skew-y-2"></div>
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/14 to-transparent transform skew-y-2"></div>
-            </div>
-            
-            {/* Ultra-complex 3D depth field matrix - purple reference level */}
-            <div className="absolute inset-0 opacity-48">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/45 via-white/32 to-white/38"></div>
-              <div className="absolute inset-0 bg-gradient-to-tl from-white/42 via-white/30 to-white/35"></div>
-              <div className="absolute inset-0 bg-gradient-to-tr from-white/38 via-white/28 to-white/32"></div>
-              <div className="absolute inset-0 bg-gradient-to-bl from-white/35 via-white/26 to-white/30"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/32 via-white/24 to-white/28"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-white/22 to-white/26"></div>
-              <div className="absolute inset-0 bg-gradient-to-l from-white/28 via-white/20 to-white/24"></div>
-              <div className="absolute inset-0 bg-gradient-to-b from-white/26 via-white/18 to-white/22"></div>
-              <div className="absolute inset-0 bg-gradient-to-br from-white/24 via-white/16 to-white/20"></div>
-              <div className="absolute inset-0 bg-gradient-to-tl from-white/22 via-white/14 to-white/18"></div>
-              <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-white/12 to-white/16"></div>
-              <div className="absolute inset-0 bg-gradient-to-bl from-white/18 via-white/10 to-white/14"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/16 via-white/8 to-white/12"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-white/14 via-white/6 to-white/10"></div>
-              <div className="absolute inset-0 bg-gradient-to-l from-white/12 via-white/5 to-white/8"></div>
-              <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/4 to-white/6"></div>
-            </div>
-            
-            {/* Maximum detail geometric line system - purple reference level */}
-            <div className="absolute inset-0 opacity-40" style={{
-              backgroundImage: `
-                linear-gradient(2deg, transparent 3%, rgba(255, 255, 255, 0.35) 8%, rgba(255, 255, 255, 0.30) 13%, rgba(255, 255, 255, 0.26) 18%, rgba(255, 255, 255, 0.22) 23%, rgba(255, 255, 255, 0.18) 28%, rgba(255, 255, 255, 0.15) 33%, rgba(255, 255, 255, 0.12) 38%, rgba(255, 255, 255, 0.09) 43%, rgba(255, 255, 255, 0.07) 48%, rgba(255, 255, 255, 0.05) 53%, rgba(255, 255, 255, 0.03) 58%, rgba(255, 255, 255, 0.02) 63%, rgba(255, 255, 255, 0.01) 68%, transparent 73%),
-                linear-gradient(18deg, transparent 5%, rgba(255, 255, 255, 0.32) 10%, rgba(255, 255, 255, 0.28) 15%, rgba(255, 255, 255, 0.24) 20%, rgba(255, 255, 255, 0.20) 25%, rgba(255, 255, 255, 0.17) 30%, rgba(255, 255, 255, 0.14) 35%, rgba(255, 255, 255, 0.11) 40%, rgba(255, 255, 255, 0.08) 45%, rgba(255, 255, 255, 0.06) 50%, rgba(255, 255, 255, 0.04) 55%, rgba(255, 255, 255, 0.02) 60%, rgba(255, 255, 255, 0.01) 65%, transparent 70%),
-                linear-gradient(34deg, transparent 7%, rgba(255, 255, 255, 0.30) 12%, rgba(255, 255, 255, 0.26) 17%, rgba(255, 255, 255, 0.22) 22%, rgba(255, 255, 255, 0.19) 27%, rgba(255, 255, 255, 0.16) 32%, rgba(255, 255, 255, 0.13) 37%, rgba(255, 255, 255, 0.10) 42%, rgba(255, 255, 255, 0.07) 47%, rgba(255, 255, 255, 0.05) 52%, rgba(255, 255, 255, 0.03) 57%, rgba(255, 255, 255, 0.01) 62%, transparent 67%),
-                linear-gradient(50deg, transparent 9%, rgba(255, 255, 255, 0.28) 14%, rgba(255, 255, 255, 0.24) 19%, rgba(255, 255, 255, 0.21) 24%, rgba(255, 255, 255, 0.18) 29%, rgba(255, 255, 255, 0.15) 34%, rgba(255, 255, 255, 0.12) 39%, rgba(255, 255, 255, 0.09) 44%, rgba(255, 255, 255, 0.06) 49%, rgba(255, 255, 255, 0.04) 54%, rgba(255, 255, 255, 0.02) 59%, transparent 64%),
-                linear-gradient(66deg, transparent 11%, rgba(255, 255, 255, 0.26) 16%, rgba(255, 255, 255, 0.22) 21%, rgba(255, 255, 255, 0.19) 26%, rgba(255, 255, 255, 0.16) 31%, rgba(255, 255, 255, 0.13) 36%, rgba(255, 255, 255, 0.10) 41%, rgba(255, 255, 255, 0.07) 46%, rgba(255, 255, 255, 0.05) 51%, rgba(255, 255, 255, 0.03) 56%, rgba(255, 255, 255, 0.01) 61%, transparent 66%),
-                linear-gradient(82deg, transparent 13%, rgba(255, 255, 255, 0.24) 18%, rgba(255, 255, 255, 0.21) 23%, rgba(255, 255, 255, 0.18) 28%, rgba(255, 255, 255, 0.15) 33%, rgba(255, 255, 255, 0.12) 38%, rgba(255, 255, 255, 0.09) 43%, rgba(255, 255, 255, 0.06) 48%, rgba(255, 255, 255, 0.04) 53%, rgba(255, 255, 255, 0.02) 58%, transparent 63%),
-                linear-gradient(98deg, transparent 15%, rgba(255, 255, 255, 0.22) 20%, rgba(255, 255, 255, 0.19) 25%, rgba(255, 255, 255, 0.16) 30%, rgba(255, 255, 255, 0.13) 35%, rgba(255, 255, 255, 0.10) 40%, rgba(255, 255, 255, 0.07) 45%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.03) 55%, rgba(255, 255, 255, 0.01) 60%, transparent 65%),
-                linear-gradient(114deg, transparent 17%, rgba(255, 255, 255, 0.20) 22%, rgba(255, 255, 255, 0.17) 27%, rgba(255, 255, 255, 0.14) 32%, rgba(255, 255, 255, 0.11) 37%, rgba(255, 255, 255, 0.08) 42%, rgba(255, 255, 255, 0.06) 47%, rgba(255, 255, 255, 0.04) 52%, rgba(255, 255, 255, 0.02) 57%, transparent 62%),
-                linear-gradient(130deg, transparent 19%, rgba(255, 255, 255, 0.18) 24%, rgba(255, 255, 255, 0.15) 29%, rgba(255, 255, 255, 0.12) 34%, rgba(255, 255, 255, 0.09) 39%, rgba(255, 255, 255, 0.07) 44%, rgba(255, 255, 255, 0.05) 49%, rgba(255, 255, 255, 0.03) 54%, rgba(255, 255, 255, 0.01) 59%, transparent 64%),
-                linear-gradient(146deg, transparent 21%, rgba(255, 255, 255, 0.16) 26%, rgba(255, 255, 255, 0.13) 31%, rgba(255, 255, 255, 0.10) 36%, rgba(255, 255, 255, 0.08) 41%, rgba(255, 255, 255, 0.06) 46%, rgba(255, 255, 255, 0.04) 51%, rgba(255, 255, 255, 0.02) 56%, transparent 61%),
-                linear-gradient(-14deg, transparent 23%, rgba(255, 255, 255, 0.14) 28%, rgba(255, 255, 255, 0.11) 33%, rgba(255, 255, 255, 0.09) 38%, rgba(255, 255, 255, 0.07) 43%, rgba(255, 255, 255, 0.05) 48%, rgba(255, 255, 255, 0.03) 53%, rgba(255, 255, 255, 0.01) 58%, transparent 63%),
-                linear-gradient(-30deg, transparent 25%, rgba(255, 255, 255, 0.12) 30%, rgba(255, 255, 255, 0.10) 35%, rgba(255, 255, 255, 0.08) 40%, rgba(255, 255, 255, 0.06) 45%, rgba(255, 255, 255, 0.04) 50%, rgba(255, 255, 255, 0.02) 55%, transparent 60%),
-                linear-gradient(-46deg, transparent 27%, rgba(255, 255, 255, 0.10) 32%, rgba(255, 255, 255, 0.08) 37%, rgba(255, 255, 255, 0.06) 42%, rgba(255, 255, 255, 0.04) 47%, rgba(255, 255, 255, 0.02) 52%, transparent 57%),
-                linear-gradient(-62deg, transparent 29%, rgba(255, 255, 255, 0.08) 34%, rgba(255, 255, 255, 0.06) 39%, rgba(255, 255, 255, 0.04) 44%, rgba(255, 255, 255, 0.02) 49%, transparent 54%),
-                linear-gradient(-78deg, transparent 31%, rgba(255, 255, 255, 0.06) 36%, rgba(255, 255, 255, 0.04) 41%, rgba(255, 255, 255, 0.02) 46%, transparent 51%)
-              `
-            }}></div>
-            
-            {/* Ultra-detailed 3D shadow and highlight system - purple reference level */}
-            <div className="absolute inset-0 opacity-25" style={{
-              backgroundImage: `
-                radial-gradient(ellipse 800px 400px at 12% 88%, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.15) 20%, rgba(0, 0, 0, 0.10) 40%, rgba(0, 0, 0, 0.06) 60%, rgba(0, 0, 0, 0.03) 80%, transparent 95%),
-                radial-gradient(ellipse 700px 350px at 88% 12%, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.13) 25%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.04) 75%, transparent 90%),
-                radial-gradient(ellipse 900px 200px at 50% 98%, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.10) 30%, rgba(0, 0, 0, 0.05) 60%, rgba(0, 0, 0, 0.02) 80%, transparent 95%),
-                radial-gradient(circle 500px at 20% 20%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.08) 35%, rgba(255, 255, 255, 0.04) 65%, rgba(255, 255, 255, 0.02) 85%, transparent 95%),
-                radial-gradient(circle 450px at 80% 80%, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.07) 40%, rgba(255, 255, 255, 0.03) 70%, rgba(255, 255, 255, 0.01) 90%, transparent 100%),
-                radial-gradient(circle 400px at 65% 35%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 45%, rgba(255, 255, 255, 0.02) 75%, transparent 95%)
-              `
-            }}></div>
-            
-
-          </div>
-          <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
+      <section 
+        className="relative py-16 md:py-24 overflow-hidden" 
+        style={{ 
+          clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)', 
+          marginTop: '-4rem', 
+          paddingTop: '6rem', 
+          marginBottom: '-4rem', 
+          paddingBottom: '6rem',
+          backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/w_2400,q_100,f_jpg,e_sharpen:100/v1762365784/blue-texture_yyysa2)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          imageRendering: 'crisp-edges',
+          filter: 'contrast(1.1) saturate(1.05)'
+        }}
+      >
+        {/* Dark overlay for better text contrast */}
+        <div className="absolute inset-0 bg-black/20"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
             {/* Title */}
-            <div className="text-center mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-              <h2 className="text-4xl md:text-5xl font-black uppercase mb-4 relative inline-block text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
+            <div className="text-center mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out flex flex-col items-center">
+              <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
                 WHY US?
-                <div className="h-1 w-48 bg-gradient-to-r from-white via-white/80 to-transparent rounded-full mt-2 mx-auto"></div>
               </h2>
+              <div className="flex items-center justify-center space-x-2 mb-4" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))' }}>
+                <div className="h-1 w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
+                <div className="w-3 h-3 bg-white/80 rounded-full"></div>
+                <div className="h-1 w-40 bg-gradient-to-r from-white via-white/80 to-white rounded-full"></div>
+                <div className="w-3 h-3 bg-white/80 rounded-full"></div>
+                <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
+              </div>
             </div>
 
             {/* Description */}
@@ -545,8 +386,8 @@ function App() {
               {/* His Glory */}
               <div className="text-center bg-white p-8 rounded-2xl shadow-lg animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
                 <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                  <svg className="w-16 h-16 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M10 2v6H6v4h4v10h4V12h4V8h-4V2h-4z"/>
+                  <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS GLORY</h3>
@@ -572,186 +413,166 @@ function App() {
         </section>
 
       {/* Meet Our Team Section */}
-      <section className="bg-white py-16 md:py-24" style={{ marginTop: '-2rem', paddingTop: '4rem', marginBottom: '-2rem', paddingBottom: '4rem' }}>
-        <div className="max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
-          {/* Title */}
-          <div className="text-center mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-            <h2 className="text-4xl md:text-5xl font-black uppercase mb-4 relative inline-block" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
+      <section 
+        className="bg-gradient-to-br from-gray-50 via-white to-gray-100 py-20 md:py-32 relative overflow-hidden" 
+        style={{ 
+          clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 100%)', 
+          marginTop: '-4rem', 
+          paddingTop: '6rem', 
+          marginBottom: '-4rem', 
+          paddingBottom: '6rem' 
+        }}
+      >
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-histown-primary rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-40 h-40 bg-histown-accent rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-histown-secondary rounded-full blur-2xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-12 sm:px-16 lg:px-20 relative z-10">
+          {/* Enhanced Title */}
+          <div className="text-center mb-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+            <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block text-black" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
               MEET OUR TEAM
-              <div className="h-1 w-72 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-2 mx-auto"></div>
             </h2>
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <div className="h-1 w-20 bg-gradient-to-r from-transparent to-histown-primary rounded-full"></div>
+              <div className="w-3 h-3 bg-histown-accent rounded-full"></div>
+              <div className="h-1 w-40 bg-gradient-to-r from-histown-primary via-histown-accent to-histown-primary rounded-full"></div>
+              <div className="w-3 h-3 bg-histown-accent rounded-full"></div>
+              <div className="h-1 w-20 bg-gradient-to-r from-histown-primary to-transparent rounded-full"></div>
+            </div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Meet the passionate individuals who bring faith, creativity, and excellence to every class!
+            </p>
           </div>
 
-          {/* Team Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Enhanced Team Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 -mt-8">
             {/* Owners */}
-            <div className="text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
-              <div className="w-64 h-64 mx-auto mb-6 rounded-2xl overflow-hidden shadow-lg">
-                <LazyImage
-                  src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762307104/H0VTGeM_wqdtuw.png"
-                  alt="Studio Owners"
-                  className="w-64 h-64"
-                />
+            <div className="group text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
+              <div className="relative mb-8">
+                <div className="w-72 h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 transform group-hover:scale-105 bg-gradient-to-br from-histown-primary/10 to-histown-accent/10 p-2">
+                  <div className="w-full h-full rounded-2xl overflow-hidden">
+                    <LazyImage
+                      src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762307104/H0VTGeM_wqdtuw.png"
+                      alt="Studio Owners"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                  </div>
+                </div>
+                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-histown-primary to-histown-accent text-white px-6 py-2 rounded-full shadow-lg">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold uppercase text-histown-text mb-2">OWNERS</h3>
-              <p className="text-histown-text-muted">Leading with passion and faith</p>
+              <div className="bg-white rounded-2xl p-6 shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 h-40 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-2xl font-bold uppercase text-histown-text mb-3 group-hover:text-histown-primary transition-colors duration-300">OWNERS</h3>
+                  <p className="text-histown-text-muted text-lg leading-relaxed">Leading with passion and faith, creating a nurturing environment</p>
+                </div>
+              </div>
             </div>
 
             {/* Dancers */}
-            <div className="text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
-              <div className="w-64 h-64 mx-auto mb-6 rounded-2xl overflow-hidden shadow-lg">
-                <LazyImage
-                  src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762307103/5dfj0Ng_z8qr1f.png"
-                  alt="Dance Instructors"
-                  className="w-64 h-64"
-                />
+            <div className="group text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
+              <div className="relative mb-8">
+                <div className="w-72 h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 transform group-hover:scale-105 bg-gradient-to-br from-histown-accent/10 to-histown-secondary/10 p-2">
+                  <div className="w-full h-full rounded-2xl overflow-hidden">
+                    <LazyImage
+                      src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762307103/5dfj0Ng_z8qr1f.png"
+                      alt="Dance Instructors"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                  </div>
+                </div>
+                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-histown-accent to-histown-secondary text-white px-6 py-2 rounded-full shadow-lg">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                  </svg>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold uppercase text-histown-text mb-2">DANCERS</h3>
-              <p className="text-histown-text-muted">Inspiring movement and grace</p>
+              <div className="bg-white rounded-2xl p-6 shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 h-40 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-2xl font-bold uppercase text-histown-text mb-3 group-hover:text-histown-primary transition-colors duration-300">DANCERS</h3>
+                  <p className="text-histown-text-muted text-lg leading-relaxed">Inspiring movement and grace through artistic technique</p>
+                </div>
+              </div>
             </div>
 
             {/* Musicians */}
-            <div className="text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
-              <div className="w-64 h-64 mx-auto mb-6 rounded-2xl overflow-hidden shadow-lg">
-                <LazyImage
-                  src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762307104/zYc8QQs_no8iw4.png"
-                  alt="Music Instructors"
-                  className="w-64 h-64"
-                />
+            <div className="group text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
+              <div className="relative mb-8">
+                <div className="w-72 h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 transform group-hover:scale-105 bg-gradient-to-br from-histown-secondary/10 to-histown-primary/10 p-2">
+                  <div className="w-full h-full rounded-2xl overflow-hidden">
+                    <LazyImage
+                      src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762307104/zYc8QQs_no8iw4.png"
+                      alt="Music Instructors"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                  </div>
+                </div>
+                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-histown-secondary to-histown-primary text-white px-6 py-2 rounded-full shadow-lg">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.49 6-3.31 6-6.72h-1.7z"/>
+                  </svg>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold uppercase text-histown-text mb-2">MUSICIANS</h3>
-              <p className="text-histown-text-muted">Creating harmony and melody</p>
+              <div className="bg-white rounded-2xl p-6 shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 h-40 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-2xl font-bold uppercase text-histown-text mb-3 group-hover:text-histown-primary transition-colors duration-300">MUSICIANS</h3>
+                  <p className="text-histown-text-muted text-lg leading-relaxed">Creating harmony and melody that touches hearts and souls</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Next Steps Section */}
-      <section className="bg-gradient-to-br from-cyan-400 via-cyan-600 to-cyan-800 py-20 md:py-32 relative overflow-hidden" style={{ clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 100%)', marginTop: '-2rem', paddingTop: '4rem', marginBottom: '-2rem', paddingBottom: '4rem' }}>
-        {/* EXTREME DETAIL Background Pattern - Next Steps Section */}
-        <div className="absolute inset-0">
-          {/* Base atmospheric foundation with extreme depth - matching purple reference */}
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/40 via-cyan-200/32 to-cyan-900/50"></div>
-          <div className="absolute inset-0 bg-gradient-to-tl from-cyan-100/38 via-cyan-300/28 to-cyan-800/45"></div>
-          <div className="absolute inset-0 bg-gradient-to-tr from-cyan-200/35 via-cyan-400/25 to-cyan-950/48"></div>
-          <div className="absolute inset-0 bg-gradient-to-bl from-cyan-300/40 via-cyan-500/22 to-cyan-700/42"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-150/30 via-cyan-600/18 to-cyan-850/38"></div>
-          
-          {/* Multi-layered 3D lighting system with extreme complexity - purple reference level */}
-          <div className="absolute inset-0" style={{
-            backgroundImage: `
-              radial-gradient(ellipse 2200px 1400px at 10% 5%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.48) 6%, rgba(255, 255, 255, 0.42) 12%, rgba(255, 255, 255, 0.36) 18%, rgba(255, 255, 255, 0.30) 24%, rgba(255, 255, 255, 0.25) 30%, rgba(255, 255, 255, 0.20) 36%, rgba(255, 255, 255, 0.16) 42%, rgba(255, 255, 255, 0.12) 48%, rgba(255, 255, 255, 0.08) 54%, rgba(255, 255, 255, 0.05) 60%, rgba(255, 255, 255, 0.03) 66%, rgba(255, 255, 255, 0.01) 72%, transparent 78%),
-              radial-gradient(ellipse 2000px 1100px at 90% 95%, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.45) 8%, rgba(255, 255, 255, 0.38) 16%, rgba(255, 255, 255, 0.32) 24%, rgba(255, 255, 255, 0.26) 32%, rgba(255, 255, 255, 0.21) 40%, rgba(255, 255, 255, 0.16) 48%, rgba(255, 255, 255, 0.12) 56%, rgba(255, 255, 255, 0.08) 64%, rgba(255, 255, 255, 0.05) 72%, rgba(255, 255, 255, 0.02) 80%, transparent 88%),
-              radial-gradient(ellipse 2400px 800px at 50% 50%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.38) 10%, rgba(255, 255, 255, 0.32) 20%, rgba(255, 255, 255, 0.26) 30%, rgba(255, 255, 255, 0.21) 40%, rgba(255, 255, 255, 0.16) 50%, rgba(255, 255, 255, 0.12) 60%, rgba(255, 255, 255, 0.08) 70%, rgba(255, 255, 255, 0.04) 80%, transparent 90%),
-              radial-gradient(circle 1000px at 2% 88%, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.40) 10%, rgba(255, 255, 255, 0.33) 20%, rgba(255, 255, 255, 0.26) 30%, rgba(255, 255, 255, 0.20) 40%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.10) 60%, rgba(255, 255, 255, 0.06) 70%, rgba(255, 255, 255, 0.03) 80%, rgba(255, 255, 255, 0.01) 90%, transparent 100%),
-              radial-gradient(circle 900px at 98% 12%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.38) 12%, rgba(255, 255, 255, 0.31) 24%, rgba(255, 255, 255, 0.24) 36%, rgba(255, 255, 255, 0.18) 48%, rgba(255, 255, 255, 0.13) 60%, rgba(255, 255, 255, 0.08) 72%, rgba(255, 255, 255, 0.04) 84%, transparent 96%),
-              radial-gradient(circle 800px at 20% 20%, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.33) 15%, rgba(255, 255, 255, 0.26) 30%, rgba(255, 255, 255, 0.20) 45%, rgba(255, 255, 255, 0.14) 60%, rgba(255, 255, 255, 0.08) 75%, rgba(255, 255, 255, 0.03) 90%, transparent 100%),
-              radial-gradient(circle 700px at 80% 80%, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.31) 18%, rgba(255, 255, 255, 0.24) 36%, rgba(255, 255, 255, 0.17) 54%, rgba(255, 255, 255, 0.11) 72%, rgba(255, 255, 255, 0.05) 90%, transparent 100%)
-            `
-          }}></div>
-          
-          {/* Ultra-complex conic lighting with 3D depth - purple reference level */}
-          <div className="absolute inset-0 opacity-70" style={{
-            backgroundImage: `
-              conic-gradient(from 12deg at 15% 3%, transparent 0deg, rgba(255, 255, 255, 0.50) 6deg, rgba(255, 255, 255, 0.45) 12deg, rgba(255, 255, 255, 0.40) 18deg, rgba(255, 255, 255, 0.35) 24deg, rgba(255, 255, 255, 0.30) 30deg, rgba(255, 255, 255, 0.25) 36deg, rgba(255, 255, 255, 0.20) 42deg, rgba(255, 255, 255, 0.16) 48deg, rgba(255, 255, 255, 0.12) 54deg, rgba(255, 255, 255, 0.08) 60deg, rgba(255, 255, 255, 0.05) 66deg, rgba(255, 255, 255, 0.02) 72deg, rgba(255, 255, 255, 0.01) 78deg, transparent 84deg),
-              conic-gradient(from 192deg at 85% 97%, transparent 0deg, rgba(255, 255, 255, 0.48) 9deg, rgba(255, 255, 255, 0.42) 18deg, rgba(255, 255, 255, 0.36) 27deg, rgba(255, 255, 255, 0.30) 36deg, rgba(255, 255, 255, 0.25) 45deg, rgba(255, 255, 255, 0.20) 54deg, rgba(255, 255, 255, 0.15) 63deg, rgba(255, 255, 255, 0.11) 72deg, rgba(255, 255, 255, 0.07) 81deg, rgba(255, 255, 255, 0.04) 90deg, rgba(255, 255, 255, 0.02) 99deg, rgba(255, 255, 255, 0.01) 108deg, transparent 117deg),
-              conic-gradient(from 102deg at 92% 18%, transparent 0deg, rgba(255, 255, 255, 0.42) 8deg, rgba(255, 255, 255, 0.36) 16deg, rgba(255, 255, 255, 0.30) 24deg, rgba(255, 255, 255, 0.25) 32deg, rgba(255, 255, 255, 0.20) 40deg, rgba(255, 255, 255, 0.15) 48deg, rgba(255, 255, 255, 0.11) 56deg, rgba(255, 255, 255, 0.07) 64deg, rgba(255, 255, 255, 0.04) 72deg, rgba(255, 255, 255, 0.02) 80deg, rgba(255, 255, 255, 0.01) 88deg, transparent 96deg),
-              conic-gradient(from 282deg at 8% 82%, transparent 0deg, rgba(255, 255, 255, 0.40) 12deg, rgba(255, 255, 255, 0.34) 24deg, rgba(255, 255, 255, 0.28) 36deg, rgba(255, 255, 255, 0.22) 48deg, rgba(255, 255, 255, 0.17) 60deg, rgba(255, 255, 255, 0.12) 72deg, rgba(255, 255, 255, 0.08) 84deg, rgba(255, 255, 255, 0.04) 96deg, rgba(255, 255, 255, 0.02) 108deg, rgba(255, 255, 255, 0.01) 120deg, transparent 132deg),
-              conic-gradient(from 152deg at 55% 65%, transparent 0deg, rgba(255, 255, 255, 0.35) 15deg, rgba(255, 255, 255, 0.29) 30deg, rgba(255, 255, 255, 0.23) 45deg, rgba(255, 255, 255, 0.18) 60deg, rgba(255, 255, 255, 0.13) 75deg, rgba(255, 255, 255, 0.08) 90deg, rgba(255, 255, 255, 0.04) 105deg, rgba(255, 255, 255, 0.02) 120deg, transparent 135deg)
-            `
-          }}></div>
-          
-          {/* Extreme atmospheric ray system with 3D perspective - purple reference level */}
-          <div className="absolute inset-0 opacity-55">
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/45 to-transparent transform -skew-y-30 origin-top-left"></div>
-            <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-l from-transparent via-white/42 to-transparent transform skew-y-30 origin-bottom-right"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/38 to-transparent transform -skew-y-25 origin-center"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/35 to-transparent transform skew-y-25 origin-center"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/32 to-transparent transform -skew-y-20 origin-top"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/30 to-transparent transform skew-y-20 origin-bottom"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/28 to-transparent transform -skew-y-15"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/26 to-transparent transform skew-y-15"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/24 to-transparent transform -skew-y-10"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/22 to-transparent transform skew-y-10"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-y-5"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/18 to-transparent transform skew-y-5"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/16 to-transparent transform -skew-y-2"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/14 to-transparent transform skew-y-2"></div>
-          </div>
-          
-          {/* Ultra-complex 3D depth field matrix - purple reference level */}
-          <div className="absolute inset-0 opacity-48">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/45 via-white/32 to-white/38"></div>
-            <div className="absolute inset-0 bg-gradient-to-tl from-white/42 via-white/30 to-white/35"></div>
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/38 via-white/28 to-white/32"></div>
-            <div className="absolute inset-0 bg-gradient-to-bl from-white/35 via-white/26 to-white/30"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-white/32 via-white/24 to-white/28"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-white/22 to-white/26"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-white/28 via-white/20 to-white/24"></div>
-            <div className="absolute inset-0 bg-gradient-to-b from-white/26 via-white/18 to-white/22"></div>
-            <div className="absolute inset-0 bg-gradient-to-br from-white/24 via-white/16 to-white/20"></div>
-            <div className="absolute inset-0 bg-gradient-to-tl from-white/22 via-white/14 to-white/18"></div>
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-white/12 to-white/16"></div>
-            <div className="absolute inset-0 bg-gradient-to-bl from-white/18 via-white/10 to-white/14"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-white/16 via-white/8 to-white/12"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-white/14 via-white/6 to-white/10"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-white/12 via-white/5 to-white/8"></div>
-            <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/4 to-white/6"></div>
-          </div>
-          
-          {/* Maximum detail geometric line system - purple reference level */}
-          <div className="absolute inset-0 opacity-40" style={{
-            backgroundImage: `
-              linear-gradient(2deg, transparent 3%, rgba(255, 255, 255, 0.35) 8%, rgba(255, 255, 255, 0.30) 13%, rgba(255, 255, 255, 0.26) 18%, rgba(255, 255, 255, 0.22) 23%, rgba(255, 255, 255, 0.18) 28%, rgba(255, 255, 255, 0.15) 33%, rgba(255, 255, 255, 0.12) 38%, rgba(255, 255, 255, 0.09) 43%, rgba(255, 255, 255, 0.07) 48%, rgba(255, 255, 255, 0.05) 53%, rgba(255, 255, 255, 0.03) 58%, rgba(255, 255, 255, 0.02) 63%, rgba(255, 255, 255, 0.01) 68%, transparent 73%),
-              linear-gradient(18deg, transparent 5%, rgba(255, 255, 255, 0.32) 10%, rgba(255, 255, 255, 0.28) 15%, rgba(255, 255, 255, 0.24) 20%, rgba(255, 255, 255, 0.20) 25%, rgba(255, 255, 255, 0.17) 30%, rgba(255, 255, 255, 0.14) 35%, rgba(255, 255, 255, 0.11) 40%, rgba(255, 255, 255, 0.08) 45%, rgba(255, 255, 255, 0.06) 50%, rgba(255, 255, 255, 0.04) 55%, rgba(255, 255, 255, 0.02) 60%, rgba(255, 255, 255, 0.01) 65%, transparent 70%),
-              linear-gradient(34deg, transparent 7%, rgba(255, 255, 255, 0.30) 12%, rgba(255, 255, 255, 0.26) 17%, rgba(255, 255, 255, 0.22) 22%, rgba(255, 255, 255, 0.19) 27%, rgba(255, 255, 255, 0.16) 32%, rgba(255, 255, 255, 0.13) 37%, rgba(255, 255, 255, 0.10) 42%, rgba(255, 255, 255, 0.07) 47%, rgba(255, 255, 255, 0.05) 52%, rgba(255, 255, 255, 0.03) 57%, rgba(255, 255, 255, 0.01) 62%, transparent 67%),
-              linear-gradient(50deg, transparent 9%, rgba(255, 255, 255, 0.28) 14%, rgba(255, 255, 255, 0.24) 19%, rgba(255, 255, 255, 0.21) 24%, rgba(255, 255, 255, 0.18) 29%, rgba(255, 255, 255, 0.15) 34%, rgba(255, 255, 255, 0.12) 39%, rgba(255, 255, 255, 0.09) 44%, rgba(255, 255, 255, 0.06) 49%, rgba(255, 255, 255, 0.04) 54%, rgba(255, 255, 255, 0.02) 59%, transparent 64%),
-              linear-gradient(66deg, transparent 11%, rgba(255, 255, 255, 0.26) 16%, rgba(255, 255, 255, 0.22) 21%, rgba(255, 255, 255, 0.19) 26%, rgba(255, 255, 255, 0.16) 31%, rgba(255, 255, 255, 0.13) 36%, rgba(255, 255, 255, 0.10) 41%, rgba(255, 255, 255, 0.07) 46%, rgba(255, 255, 255, 0.05) 51%, rgba(255, 255, 255, 0.03) 56%, rgba(255, 255, 255, 0.01) 61%, transparent 66%),
-              linear-gradient(82deg, transparent 13%, rgba(255, 255, 255, 0.24) 18%, rgba(255, 255, 255, 0.21) 23%, rgba(255, 255, 255, 0.18) 28%, rgba(255, 255, 255, 0.15) 33%, rgba(255, 255, 255, 0.12) 38%, rgba(255, 255, 255, 0.09) 43%, rgba(255, 255, 255, 0.06) 48%, rgba(255, 255, 255, 0.04) 53%, rgba(255, 255, 255, 0.02) 58%, transparent 63%),
-              linear-gradient(98deg, transparent 15%, rgba(255, 255, 255, 0.22) 20%, rgba(255, 255, 255, 0.19) 25%, rgba(255, 255, 255, 0.16) 30%, rgba(255, 255, 255, 0.13) 35%, rgba(255, 255, 255, 0.10) 40%, rgba(255, 255, 255, 0.07) 45%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.03) 55%, rgba(255, 255, 255, 0.01) 60%, transparent 65%),
-              linear-gradient(114deg, transparent 17%, rgba(255, 255, 255, 0.20) 22%, rgba(255, 255, 255, 0.17) 27%, rgba(255, 255, 255, 0.14) 32%, rgba(255, 255, 255, 0.11) 37%, rgba(255, 255, 255, 0.08) 42%, rgba(255, 255, 255, 0.06) 47%, rgba(255, 255, 255, 0.04) 52%, rgba(255, 255, 255, 0.02) 57%, transparent 62%),
-              linear-gradient(130deg, transparent 19%, rgba(255, 255, 255, 0.18) 24%, rgba(255, 255, 255, 0.15) 29%, rgba(255, 255, 255, 0.12) 34%, rgba(255, 255, 255, 0.09) 39%, rgba(255, 255, 255, 0.07) 44%, rgba(255, 255, 255, 0.05) 49%, rgba(255, 255, 255, 0.03) 54%, rgba(255, 255, 255, 0.01) 59%, transparent 64%),
-              linear-gradient(146deg, transparent 21%, rgba(255, 255, 255, 0.16) 26%, rgba(255, 255, 255, 0.13) 31%, rgba(255, 255, 255, 0.10) 36%, rgba(255, 255, 255, 0.08) 41%, rgba(255, 255, 255, 0.06) 46%, rgba(255, 255, 255, 0.04) 51%, rgba(255, 255, 255, 0.02) 56%, transparent 61%),
-              linear-gradient(-14deg, transparent 23%, rgba(255, 255, 255, 0.14) 28%, rgba(255, 255, 255, 0.11) 33%, rgba(255, 255, 255, 0.09) 38%, rgba(255, 255, 255, 0.07) 43%, rgba(255, 255, 255, 0.05) 48%, rgba(255, 255, 255, 0.03) 53%, rgba(255, 255, 255, 0.01) 58%, transparent 63%),
-              linear-gradient(-30deg, transparent 25%, rgba(255, 255, 255, 0.12) 30%, rgba(255, 255, 255, 0.10) 35%, rgba(255, 255, 255, 0.08) 40%, rgba(255, 255, 255, 0.06) 45%, rgba(255, 255, 255, 0.04) 50%, rgba(255, 255, 255, 0.02) 55%, transparent 60%),
-              linear-gradient(-46deg, transparent 27%, rgba(255, 255, 255, 0.10) 32%, rgba(255, 255, 255, 0.08) 37%, rgba(255, 255, 255, 0.06) 42%, rgba(255, 255, 255, 0.04) 47%, rgba(255, 255, 255, 0.02) 52%, transparent 57%),
-              linear-gradient(-62deg, transparent 29%, rgba(255, 255, 255, 0.08) 34%, rgba(255, 255, 255, 0.06) 39%, rgba(255, 255, 255, 0.04) 44%, rgba(255, 255, 255, 0.02) 49%, transparent 54%),
-              linear-gradient(-78deg, transparent 31%, rgba(255, 255, 255, 0.06) 36%, rgba(255, 255, 255, 0.04) 41%, rgba(255, 255, 255, 0.02) 46%, transparent 51%)
-            `
-          }}></div>
-          
-          {/* Ultra-detailed 3D shadow and highlight system - purple reference level */}
-          <div className="absolute inset-0 opacity-25" style={{
-            backgroundImage: `
-              radial-gradient(ellipse 800px 400px at 12% 88%, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.15) 20%, rgba(0, 0, 0, 0.10) 40%, rgba(0, 0, 0, 0.06) 60%, rgba(0, 0, 0, 0.03) 80%, transparent 95%),
-              radial-gradient(ellipse 700px 350px at 88% 12%, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.13) 25%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.04) 75%, transparent 90%),
-              radial-gradient(ellipse 900px 200px at 50% 98%, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.10) 30%, rgba(0, 0, 0, 0.05) 60%, rgba(0, 0, 0, 0.02) 80%, transparent 95%),
-              radial-gradient(circle 500px at 20% 20%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.08) 35%, rgba(255, 255, 255, 0.04) 65%, rgba(255, 255, 255, 0.02) 85%, transparent 95%),
-              radial-gradient(circle 450px at 80% 80%, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.07) 40%, rgba(255, 255, 255, 0.03) 70%, rgba(255, 255, 255, 0.01) 90%, transparent 100%),
-              radial-gradient(circle 400px at 65% 35%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 45%, rgba(255, 255, 255, 0.02) 75%, transparent 95%)
-            `
-          }}></div>
-          
-
-        </div>
+      <section 
+        className="py-20 md:py-32 relative overflow-hidden" 
+        style={{ 
+          clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)', 
+          marginTop: '-4rem', 
+          paddingTop: '6rem', 
+          marginBottom: '-4rem', 
+          paddingBottom: '6rem',
+          backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/w_2400,q_100,f_jpg,e_sharpen:100/v1762365784/blue-texture_yyysa2)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          imageRendering: 'crisp-edges',
+          filter: 'contrast(1.1) saturate(1.05)'
+        }}
+      >
+        {/* Dark overlay for better text contrast */}
+        <div className="absolute inset-0 bg-black/20"></div>
+        
         <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center justify-items-center">
             
             {/* Left Side - Next Steps */}
-            <div className="text-white blue-section-text animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-              <h2 className="text-5xl md:text-6xl font-black uppercase mb-6 blue-section-text" style={{ fontFamily: 'cursive', fontWeight: 900 }}>
-                Next Steps
+            <div className="text-white blue-section-text animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out text-center w-full max-w-md">
+              <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
+                NEXT STEPS
               </h2>
-              <p className="text-xl mb-8 leading-relaxed opacity-90 blue-section-text">
-                Take your first step with a free trial music lesson or dance class.
+              <div className="flex items-center justify-center space-x-2 mb-4" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))' }}>
+                <div className="h-1 w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
+                <div className="w-3 h-3 bg-white/80 rounded-full"></div>
+                <div className="h-1 w-40 bg-gradient-to-r from-white via-white/80 to-white rounded-full"></div>
+                <div className="w-3 h-3 bg-white/80 rounded-full"></div>
+                <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
+              </div>
+              <p className="text-lg text-white max-w-4xl mx-auto leading-relaxed blue-section-text mb-12">
+                Take your first step with a free trial class!
               </p>
               
               <div className="space-y-4">
                 <button className="w-full bg-white text-histown-primary hover:bg-white/95 hover:text-histown-accent font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-                  REQUEST A MUSIC TRIAL LESSON
-                </button>
-                <button className="w-full bg-white text-histown-primary hover:bg-white/95 hover:text-histown-accent font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-                  REQUEST A DANCE TRIAL CLASS
+                  REQUEST A TRIAL CLASS
                 </button>
                 <button className="w-full bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-histown-primary transition-all duration-300 transform hover:scale-105">
                   CONTACT US
@@ -765,7 +586,7 @@ function App() {
                 SIGN UP FOR EMAIL UPDATES
               </h3>
               <p className="text-white/90 mb-6 leading-relaxed blue-section-text">
-                If you're not ready to start there, simply fill out this form to sign up for our email list, and we'll keep you updated on what's happening at HisTown.
+                If you're not ready to start yet, simply fill out this form to sign up for our email list, and we'll keep you updated on what's happening at HisTown.
               </p>
               
               <form className="space-y-4">
@@ -787,32 +608,7 @@ function App() {
                   />
                 </div>
                 
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2 blue-section-text">Interests/Programs*</label>
-                  <div className="text-sm text-white/80 mb-3 blue-section-text">Choose all that apply:</div>
-                  <div className="space-y-2 text-white blue-section-text">
-                    <label className="flex items-center">
-                      <input type="checkbox" className="mr-3 rounded" />
-                      HisTown Updates
-                    </label>
-                    <label className="flex items-center">
-                      <input type="checkbox" className="mr-3 rounded" />
-                      Dance Classes
-                    </label>
-                    <label className="flex items-center">
-                      <input type="checkbox" className="mr-3 rounded" />
-                      Music Lessons
-                    </label>
-                    <label className="flex items-center">
-                      <input type="checkbox" className="mr-3 rounded" />
-                      Musical Theatre
-                    </label>
-                    <label className="flex items-center">
-                      <input type="checkbox" className="mr-3 rounded" />
-                      Summer Camps
-                    </label>
-                  </div>
-                </div>
+
                 
                 <button 
                   type="submit"
@@ -826,10 +622,77 @@ function App() {
         </div>
       </section>
 
-      <footer className="section-container py-8 border-t border-histown-secondary bg-white" style={{ marginTop: '-2rem', paddingTop: '4rem' }}>
-        <p className="text-center text-histown-text-muted">
-          {homeContent.footer.copyright}
-        </p>
+      <footer className="bg-gray-800 text-white py-8" style={{ marginTop: '-4rem', paddingTop: '6rem' }}>
+        <div className="max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            
+            {/* Left - HisTown Logo/Info */}
+            <div className="text-center md:text-left" style={{ marginTop: '-3rem', marginLeft: '2rem' }}>
+              <img
+                src={homeContent.navigation.logo.src}
+                alt={homeContent.navigation.logo.alt}
+                className="h-32 w-auto object-contain mx-auto md:mx-0 mb-0"
+                style={{
+                  filter: 'brightness(0) invert(1)',
+                  imageRendering: 'auto',
+                  display: 'block'
+                }}
+              />
+              <div className="space-y-1" style={{ marginTop: '-1.5rem' }}>
+                <p className="text-sm text-gray-300">1010 Penrose Way, Suite 200</p>
+                <p className="text-sm text-gray-300">Franklin, TN, 37069</p>
+                <p className="text-sm text-gray-300">(615) 640-8349</p>
+                <p className="text-sm text-gray-300">info@histown.com</p>
+              </div>
+            </div>
+
+            {/* Center - Quick Links */}
+            <div className="text-center">
+              <h4 className="text-lg font-semibold mb-4">QUICK LINKS</h4>
+              <div className="space-y-2">
+                <a href="/classes/dance" className="block text-sm text-gray-300 hover:text-white transition-colors">Dance Classes</a>
+                <a href="/classes/music" className="block text-sm text-gray-300 hover:text-white transition-colors">Music Classes</a>
+                <a href="/tuition-fees" className="block text-sm text-gray-300 hover:text-white transition-colors">Tuition & Fees</a>
+                <a href="/contact" className="block text-sm text-gray-300 hover:text-white transition-colors">Contact</a>
+              </div>
+            </div>
+
+            {/* Right - Follow Us */}
+            <div className="text-center md:text-right" style={{ marginRight: '2rem' }}>
+              <h4 className="text-lg font-semibold mb-4">FOLLOW US</h4>
+              <div className="flex justify-center md:justify-end space-x-4">
+                <a 
+                  href="https://www.instagram.com/histowndancestudio/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                </a>
+                <a 
+                  href="https://www.facebook.com/HistownDanceStudio/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+          </div>
+          
+          {/* Copyright */}
+          <div className="border-t border-gray-700 mt-8 pt-6 text-center">
+            <p className="text-sm text-gray-400">
+              {homeContent.footer.copyright}
+            </p>
+          </div>
+        </div>
       </footer>
     </div>
   )

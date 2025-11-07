@@ -75,6 +75,18 @@
   .btn-primary:hover {
     background: linear-gradient(to right, #0e7490, #0e7490) !important;
   }
+
+  .navbar-trial-btn {
+    transform: scale(1) !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+
+  .navbar-trial-btn:hover {
+    transform: scale(1.1) !important;
+    z-index: 20 !important;
+  }
   
   .btn-primary:focus {
     outline: none;
@@ -186,7 +198,12 @@
 
   /* Enhanced text readability on blue backgrounds */
   .blue-section-text {
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Enhanced underline shadow for blue sections */
+  .blue-section-underline {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
   }
 
   .blue-section-card {

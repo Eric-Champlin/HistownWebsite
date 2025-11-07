@@ -124,7 +124,7 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
                                       {column.title === 'DANCE' && (
                                         <div className="w-6 h-6 bg-histown-accent rounded-full flex items-center justify-center">
                                           <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                                            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
                                           </svg>
                                         </div>
                                       )}
@@ -169,7 +169,7 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
                                           {section.subtitle === 'MUSIC' && (
                                             <div className="w-6 h-6 bg-histown-accent rounded-full flex items-center justify-center">
                                               <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+                                                <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.49 6-3.31 6-6.72h-1.7z"/>
                                               </svg>
                                             </div>
                                           )}
@@ -275,7 +275,7 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
           </div>
 
           {/* Right Side - Social Icons & Buttons */}
-          <div className="flex items-center space-x-4">
+<div className="flex items-center space-x-4" style={{ overflow: 'visible', padding: '8px' }}>
             {/* Social Icons - Hidden on smaller screens */}
             <div className="hidden md:flex items-center space-x-3">
               {navigation.socialLinks.map((social) => (
@@ -301,12 +301,12 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
             </div>
 
             {/* Buttons */}
-            <a
-              href={navigation.freeTrialHref}
-              className="bg-gradient-to-r from-histown-accent to-histown-primary hover:from-histown-accent hover:to-histown-primary-dark text-white px-6 py-3 rounded text-sm font-bold tracking-wide uppercase transition-all duration-300 drop-shadow-lg"
+            <button
+              onClick={() => window.location.href = navigation.freeTrialHref}
+              className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-3 rounded text-sm font-bold tracking-wide uppercase transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               FREE TRIAL
-            </a>
+            </button>
             <a
               href={navigation.externalLogin.url}
               target="_blank"
