@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { homeContent } from '../../content/home';
 
 interface NavBarProps {
@@ -44,7 +45,7 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
 
           {/* Logo - Left Side */}
           <div className="flex-shrink-0 z-10">
-            <a href="/" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <img
                 src={navigation.logo.src}
                 alt={navigation.logo.alt}
@@ -58,7 +59,7 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
                   transform: 'translateZ(0)'
                 }}
               />
-            </a>
+            </Link>
           </div>
 
           {/* Centered Navigation - Desktop Only */}
@@ -71,35 +72,62 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
                   ref={(el) => { dropdownRefs.current[item.label] = el; }}
                 >
                   {item.hasDropdown ? (
-                    <button
-                      onMouseEnter={() => setOpenDropdown(item.label)}
-                      className="flex items-center text-gray-700 hover:text-histown-primary font-medium text-lg tracking-wide uppercase transition-colors duration-300 py-2"
-                    >
-                      {item.label}
-                      <svg
-                        className={`ml-1 h-4 w-4 transition-transform duration-200 ${openDropdown === item.label ? 'rotate-180' : ''
-                          }`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+                    item.href.startsWith('#') ? (
+                      <button
+                        onMouseEnter={() => setOpenDropdown(item.label)}
+                        className="flex items-center text-gray-700 hover:text-histown-primary font-medium text-lg tracking-wide uppercase transition-colors duration-300 py-2"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
+                        {item.label}
+                        <svg
+                          className={`ml-1 h-4 w-4 transition-transform duration-200 ${openDropdown === item.label ? 'rotate-180' : ''
+                            }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                    ) : (
+                      <Link
+                        to={item.href}
+                        onMouseEnter={() => setOpenDropdown(item.label)}
+                        className="flex items-center text-gray-700 hover:text-histown-primary font-medium text-lg tracking-wide uppercase transition-colors duration-300 py-2"
+                      >
+                        {item.label}
+                        <svg
+                          className={`ml-1 h-4 w-4 transition-transform duration-200 ${openDropdown === item.label ? 'rotate-180' : ''
+                            }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </Link>
+                    )
                   ) : (
-                    <a
-                      href={item.href}
-                      onMouseEnter={() => setOpenDropdown(null)}
-                      onClick={(e) => {
-                        if (item.href.startsWith('#')) {
+                    item.href.startsWith('#') ? (
+                      <a
+                        href={item.href}
+                        onMouseEnter={() => setOpenDropdown(null)}
+                        onClick={(e) => {
                           e.preventDefault();
                           handleLinkClick(item.href);
-                        }
-                      }}
-                      className="text-gray-700 hover:text-histown-primary font-medium text-lg tracking-wide uppercase transition-colors duration-300 py-2"
-                    >
-                      {item.label}
-                    </a>
+                        }}
+                        className="text-gray-700 hover:text-histown-primary font-medium text-lg tracking-wide uppercase transition-colors duration-300 py-2"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Link
+                        to={item.href}
+                        onMouseEnter={() => setOpenDropdown(null)}
+                        className="text-gray-700 hover:text-histown-primary font-medium text-lg tracking-wide uppercase transition-colors duration-300 py-2"
+                      >
+                        {item.label}
+                      </Link>
+                    )
                   )}
 
                   {/* Dropdown Menu */}
@@ -120,18 +148,28 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
                               >
                                 {column.title !== 'MUSIC & FEATURED' && (
                                   <div className="relative">
-                                    <div className="flex items-center space-x-2 mb-3">
-                                      {column.title === 'DANCE' && (
-                                        <div className="w-6 h-6 bg-histown-accent rounded-full flex items-center justify-center">
+                                    {column.title === 'DANCE' ? (
+                                      <Link
+                                        to="/classes/dance"
+                                        onClick={() => setOpenDropdown(null)}
+                                        className="flex items-center space-x-2 mb-3 group hover:opacity-80 transition-opacity duration-200"
+                                      >
+                                        <div className="w-6 h-6 bg-histown-accent rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
                                           <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                                             <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
                                           </svg>
                                         </div>
-                                      )}
-                                      <h3 className="text-histown-primary font-bold text-lg tracking-wider uppercase">
-                                        {column.title}
-                                      </h3>
-                                    </div>
+                                        <h3 className="text-histown-primary font-bold text-lg tracking-wider uppercase">
+                                          {column.title}
+                                        </h3>
+                                      </Link>
+                                    ) : (
+                                      <div className="flex items-center space-x-2 mb-3">
+                                        <h3 className="text-histown-primary font-bold text-lg tracking-wider uppercase">
+                                          {column.title}
+                                        </h3>
+                                      </div>
+                                    )}
                                     <div className="h-0.5 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full"></div>
                                   </div>
                                 )}

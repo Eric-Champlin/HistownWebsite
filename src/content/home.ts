@@ -14,25 +14,25 @@ export const homeContent: HomeContent = {
       { label: 'Home', href: '/' },
       { 
         label: 'Classes', 
-        href: '#classes',
+        href: '/programs',
         hasDropdown: true,
         megaMenu: {
           columns: [
             {
               title: 'DANCE',
               items: [
-                { label: 'Acro', href: '/classes/acro' },
-                { label: 'Ballet', href: '/classes/ballet' },
-                { label: 'Barre Fitness', href: '/classes/barre-fitness' },
-                { label: 'Contemporary', href: '/classes/contemporary' },
-                { label: 'Creative Movement', href: '/classes/creative-movement' },
-                { label: 'Foundations', href: '/classes/foundations' },
-                { label: 'Hip-Hop', href: '/classes/hip-hop' },
-                { label: 'Jazz', href: '/classes/jazz' },
-                { label: 'Modern', href: '/classes/modern' },
-                { label: 'Mommy & Me', href: '/classes/mommy-and-me' },
-                { label: 'Musical Theater', href: '/classes/musical-theater' },
-                { label: 'Tap', href: '/classes/tap' },
+                { label: 'Acro', href: '/classes/dance#acro' },
+                { label: 'Ballet', href: '/classes/dance#ballet' },
+                { label: 'Barre Fitness', href: '/classes/dance#barre-fitness' },
+                { label: 'Contemporary', href: '/classes/dance#contemporary' },
+                { label: 'Creative Movement', href: '/classes/dance#creative-movement' },
+                { label: 'Foundations', href: '/classes/dance#foundations' },
+                { label: 'Hip-Hop', href: '/classes/dance#hip-hop' },
+                { label: 'Jazz', href: '/classes/dance#jazz' },
+                { label: 'Modern', href: '/classes/dance#modern' },
+                { label: 'Mommy & Me', href: '/classes/dance#mommy-and-me' },
+                { label: 'Musical Theater', href: '/classes/dance#musical-theater' },
+                { label: 'Tap', href: '/classes/dance#tap' },
                 { label: 'View All', href: '/classes/dance' }
               ]
             },
@@ -108,7 +108,7 @@ export const homeContent: HomeContent = {
     },
     secondaryCta: { 
       label: 'View Programs', 
-      href: '#programs' 
+      href: '/programs' 
     }
   },
 

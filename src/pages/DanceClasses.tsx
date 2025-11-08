@@ -1,19 +1,33 @@
-import { homeContent } from './content/home'
-import Navigation from './components/layout/Navigation'
-import { LazyImage } from './components/common/LazyImage'
-import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react';
+import NavBar from '../components/layout/NavBar';
+import { homeContent } from '../content/home';
 
-function App() {
+const DanceClasses: React.FC = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
+  const danceClasses = [
+    { id: 'acro', name: 'Acro', description: 'Combining dance technique with acrobatic elements to build strength, flexibility, and dynamic performance skills' },
+    { id: 'ballet', name: 'Ballet', description: 'Classical ballet technique and artistry that develops grace, poise, and fundamental dance foundations' },
+    { id: 'barre-fitness', name: 'Barre Fitness', description: 'Ballet-inspired fitness for adults combining strength training with graceful movement and flexibility' },
+    { id: 'contemporary', name: 'Contemporary', description: 'Expressive modern dance movement that blends technique with emotional storytelling and creative expression' },
+    { id: 'creative-movement', name: 'Creative Movement', description: 'Introduction to dance for young children through playful exploration and imaginative movement activities' },
+    { id: 'foundations', name: 'Foundations', description: 'Building strong dance fundamentals with proper technique, body alignment, and essential movement principles' },
+    { id: 'hip-hop', name: 'Hip-Hop', description: 'Urban dance styles and choreography featuring high-energy moves and contemporary street dance culture' },
+    { id: 'jazz', name: 'Jazz', description: 'Energetic and dynamic jazz technique with sharp movements, leaps, and expressive performance style' },
+    { id: 'modern', name: 'Modern', description: 'Contemporary modern dance technique emphasizing floor work, improvisation, and expressive movement quality' },
+    { id: 'mommy-and-me', name: 'Mommy & Me', description: 'Parent and child bonding through dance with fun activities that develop coordination and rhythm together' },
+    { id: 'musical-theater', name: 'Musical Theater', description: 'Broadway-style dance and performance combining acting, singing, and theatrical movement for the stage' },
+    { id: 'tap', name: 'Tap', description: 'Rhythmic tap dance technique creating music with your feet through precise footwork and timing' }
+  ];
+
+  const scrollToClass = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
   useEffect(() => {
-    // Hero fade-in animation on page load
-    const heroElements = document.querySelectorAll('.hero-fade-in');
-    heroElements.forEach((el, index) => {
-      setTimeout(() => {
-        el.classList.add('in-view');
-      }, index * 200); // Stagger the animations
-    });
-
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
@@ -24,7 +38,6 @@ function App() {
         if (entry.isIntersecting) {
           entry.target.classList.add('in-view');
         } else {
-          // Remove the class when element goes out of view to allow re-animation
           entry.target.classList.remove('in-view');
         }
       });
@@ -33,7 +46,7 @@ function App() {
     const animateElements = document.querySelectorAll('.animate-on-scroll');
     animateElements.forEach((el) => observer.observe(el));
 
-    // Testimonials data and carousel functionality
+    // Testimonials carousel
     const testimonials = [
       { author: "Emily Song", text: "My daughter just completed her first semester at Histown and it has been an incredibly positive experience! The teachers are gracious, kind, and very knowledgeable about dance and the instructional tools/pacing needed to help students succeed at various age levels. I have been so impressed with my daughter's gross motor development!" },
       { author: "Justine Vild", text: "My daughter has been dancing at Histown for many years. There are lots of things I love about this studio, not the least of them being that it's a Christian dance studio. I love their scheduling. It's very easy for my daughter to take 6 hours of dance over 2 evenings. I love that the recital songs are either Christian or clean songs." },
@@ -61,8 +74,7 @@ function App() {
       { author: "Amanda Cooper", text: "Incredible teaching, family-like environment, and amazing Christian community! Cannot say enough about how thankful I am to have danced here throughout middle and high school. Histown really is a family of believers worshiping Jesus through dance!" }
     ];
 
-    // Create testimonial cards
-    const testimonialsTrack = document.getElementById('testimonials-track');
+    const testimonialsTrack = document.getElementById('testimonials-track-dance');
     if (testimonialsTrack) {
       testimonialsTrack.innerHTML = testimonials.map(testimonial => `
         <div class="flex-none w-80 mx-4 bg-white rounded-2xl shadow-lg border border-gray-200 p-6 min-h-80 flex flex-col">
@@ -90,16 +102,16 @@ function App() {
 
       // Carousel functionality
       let currentIndex = 0;
-      const cardWidth = 352; // w-80 (320px) + mx-4 (32px) = 352px total width per card
-      const maxIndex = testimonials.length - 3; // Stop when Amanda Cooper is in view (last 3 testimonials)
+      const cardWidth = 352;
+      const maxIndex = testimonials.length - 3;
 
       const updateCarousel = () => {
         const translateX = -currentIndex * cardWidth;
         testimonialsTrack.style.transform = `translateX(${translateX}px)`;
       };
 
-      const prevBtn = document.getElementById('testimonial-prev');
-      const nextBtn = document.getElementById('testimonial-next');
+      const prevBtn = document.getElementById('testimonial-prev-dance');
+      const nextBtn = document.getElementById('testimonial-next-dance');
 
       if (prevBtn && nextBtn) {
         prevBtn.addEventListener('click', () => {
@@ -109,7 +121,7 @@ function App() {
 
         nextBtn.addEventListener('click', () => {
           if (currentIndex >= maxIndex) {
-            currentIndex = 0; // Loop back to beginning
+            currentIndex = 0;
           } else {
             currentIndex = currentIndex + 1;
           }
@@ -120,209 +132,98 @@ function App() {
 
     return () => observer.disconnect();
   }, []);
+
   return (
-    <div className="min-h-screen">
-      <Navigation />
-      <div className="bg-white" style={{ paddingBottom: '6rem', marginBottom: '-4rem' }}>
-        <header className="section-container section-padding">
-        <h1 
-          className="heading-primary text-center hero-fade-in opacity-0 translate-y-8 transition-all duration-1000 ease-out"
-          dangerouslySetInnerHTML={{ __html: homeContent.hero.headline }}
-        ></h1>
-        <p 
-          className="text-body text-center mt-6 max-w-3xl mx-auto hero-fade-in opacity-0 translate-y-8 transition-all duration-1000 ease-out"
-          dangerouslySetInnerHTML={{ __html: homeContent.hero.subheadline }}
-        ></p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 hero-fade-in opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-          <a 
-            href={homeContent.hero.primaryCta.href}
-            className="btn-primary text-center transform hover:scale-105 transition-all duration-300"
-            style={{
-              background: 'linear-gradient(to right, #0e7490, #0891b2)',
-              color: 'white'
-            }}
-          >
-            {homeContent.hero.primaryCta.label}
-          </a>
-          {homeContent.hero.secondaryCta && (
-            <Link 
-              to={homeContent.hero.secondaryCta.href}
-              className="btn-outline text-center transform hover:scale-105 transition-all duration-300"
-            >
-              {homeContent.hero.secondaryCta.label}
-            </Link>
-          )}
+    <div className="min-h-screen bg-white">
+      <NavBar 
+        onMobileMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        isMobileMenuOpen={isMobileMenuOpen}
+      />
+
+      {/* Hero Section */}
+      <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/v1762556986/GRoup_Shot_D2edit.jpg_nk0m0v.webp)',
+            filter: 'brightness(0.7)'
+          }}
+        ></div>
+        
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
+        
+        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+          <h1 className="text-5xl md:text-7xl font-black uppercase mb-2 text-white" style={{ fontWeight: 900, textShadow: '0 4px 6px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3)' }}>
+            DANCE CLASSES
+          </h1>
+          <div className="flex items-center justify-center space-x-2 mb-6">
+            <div className="h-1 w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
+            <div className="w-3 h-3 bg-white/80 rounded-full"></div>
+            <div className="h-1 w-40 bg-gradient-to-r from-white via-white/80 to-white rounded-full"></div>
+            <div className="w-3 h-3 bg-white/80 rounded-full"></div>
+            <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
+          </div>
+          <p className="text-xl md:text-2xl text-white mb-8 leading-relaxed" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)' }}>
+            From ballet to hip-hop, discover the perfect class to express your passion for dance
+          </p>
         </div>
-        </header>
-      </div>
-      
+      </section>
 
-      {/* Programs Section - Dance Classes, Music Classes, Featured Programs */}
-      <main 
-        className="relative overflow-hidden" 
-        style={{ 
-          clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)', 
-          marginTop: '-4rem', 
-          paddingTop: '6rem', 
-          marginBottom: '-4rem', 
-          paddingBottom: '6rem',
-          backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/w_2400,q_100,f_jpg,e_sharpen:100/v1762365784/blue-texture_yyysa2)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          imageRendering: 'crisp-edges',
-          filter: 'contrast(1.1) saturate(1.05)'
-        }}
-      >
-        {/* Dark overlay for better text contrast */}
-        <div className="absolute inset-0 bg-black/20"></div>
+      {/* Jump To Navigation Ribbon */}
+      <section className="bg-gradient-to-r from-histown-primary to-histown-accent py-4 sticky top-[70px] z-40 shadow-lg overflow-x-auto">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center justify-center whitespace-nowrap">
+            {danceClasses.map((danceClass, index) => (
+              <React.Fragment key={danceClass.id}>
+                <button
+                  onClick={() => scrollToClass(danceClass.id)}
+                  className="text-white hover:bg-white/20 px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105"
+                >
+                  {danceClass.name}
+                </button>
+                {index < danceClasses.length - 1 && (
+                  <span className="text-white/60 mx-2 text-xs">|</span>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+      </section>
 
-        <section className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20 section-padding">
-          {/* Dance Classes - Image Left, Text Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch mb-20 animate-on-scroll">
-            <div className="animate-slide-in-left">
-              <div className="rounded-2xl overflow-hidden shadow-strong h-full">
-                <img 
-                  src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762222737/4L3t1SQ_gqvwxi.jpg" 
-                  alt="Dance Classes" 
-                  className="w-full h-full object-cover min-h-[260px]"
-                />
-              </div>
-            </div>
-            <div className="animate-slide-in-right bg-white p-8 rounded-2xl shadow-medium border border-gray-200 h-full flex flex-col justify-center">
-              <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 relative inline-block" style={{ fontWeight: 975, fontSize: 'clamp(1.875rem, 4vw, 2.5rem)' }}>
-                DANCE CLASSES
-                <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-2"></div>
-              </h3>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Discover the joy of movement through our comprehensive dance program. From classical ballet to contemporary expression, we nurture each dancer's unique gifts while building strong technique, confidence, and character in a Christ-centered environment.
-              </p>
-              <a 
-                href="/programs/dance"
-                className="bg-gradient-to-r from-histown-accent to-histown-primary hover:from-histown-accent hover:to-histown-primary-dark text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 drop-shadow-lg uppercase tracking-wide inline-block w-fit transform hover:scale-105"
+      {/* Dance Classes Grid Section */}
+      <section className="py-20 md:py-32 bg-gray-100">
+        <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            
+            {danceClasses.map((danceClass, index) => (
+              <div 
+                key={danceClass.id}
+                id={danceClass.id}
+                className="group rounded-3xl overflow-visible animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-mt-32 flex flex-col" 
+                style={{ transitionDelay: `${(index % 3) * 200 + 200}ms` }}
               >
-                LEARN MORE
-              </a>
-            </div>
-          </div>
-
-          {/* Music Classes - Text Left, Image Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch mb-20 animate-on-scroll">
-            <div className="animate-slide-in-left lg:order-1 bg-white p-8 rounded-2xl shadow-medium border border-gray-200 h-full flex flex-col justify-center">
-              <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 relative inline-block" style={{ fontWeight: 975, fontSize: 'clamp(1.875rem, 4vw, 2.5rem)' }}>
-                MUSIC CLASSES
-                <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-2"></div>
-              </h3>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Unlock your musical potential with personalized instruction from our gifted teachers. Whether you're drawn to piano melodies, guitar rhythms, violin harmonies, or vocal expression, we'll help you develop your talents while celebrating the gift of music.
-              </p>
-              <a 
-                href="/programs/music"
-                className="bg-gradient-to-r from-histown-accent to-histown-primary hover:from-histown-accent hover:to-histown-primary-dark text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 drop-shadow-lg uppercase tracking-wide inline-block w-fit transform hover:scale-105"
-              >
-                LEARN MORE
-              </a>
-            </div>
-            <div className="animate-slide-in-right lg:order-2">
-              <div className="rounded-2xl overflow-hidden shadow-strong h-full">
-                <img 
-                  src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762222736/HLP9IVj_e4pdod.jpg" 
-                  alt="Music Classes" 
-                  className="w-full h-full object-cover min-h-[260px]"
-                />
+                <div className="relative h-80 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500">
+                  <img 
+                    src={`https://res.cloudinary.com/dxqzby6fc/image/upload/v1762554824/30.JPG_o65mkj.webp`}
+                    alt={danceClass.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
+                <div className="bg-white p-6 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10 flex flex-col flex-1">
+                  <h3 className="text-xl md:text-2xl font-black uppercase text-gray-800 mb-2" style={{ fontSize: 'clamp(1.125rem, 2vw, 1.5rem)', lineHeight: '1.2' }}>
+                    {danceClass.name}
+                  </h3>
+                  <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
+                  <p className="text-gray-600 mb-4 leading-relaxed text-sm flex-1 min-h-[3rem]">
+                    {danceClass.description}
+                  </p>
+                  <button className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 w-full">
+                    LEARN MORE →
+                  </button>
+                </div>
               </div>
-            </div>
-          </div>
+            ))}
 
-          {/* Featured Programs - Image Left, Text Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch animate-on-scroll">
-            <div className="animate-slide-in-left">
-              <div className="rounded-2xl overflow-hidden shadow-strong h-full">
-                <img 
-                  src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762222735/P6AF87u_coofig.jpg" 
-                  alt="Featured Programs" 
-                  className="w-full h-full object-cover min-h-[260px]"
-                />
-              </div>
-            </div>
-            <div className="animate-slide-in-right bg-white p-8 rounded-2xl shadow-medium border border-gray-200 h-full flex flex-col justify-center">
-              <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 relative inline-block" style={{ fontWeight: 975, fontSize: 'clamp(1.875rem, 4vw, 2.5rem)' }}>
-                FEATURED
-                <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-2"></div>
-              </h3>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Take your artistry to the next level with our specialized offerings. From theatrical performance and adult fitness classes to elite company training and competitive dance teams, we provide pathways for every passion and skill level.
-              </p>
-              <a 
-                href="/programs/featured"
-                className="bg-gradient-to-r from-histown-accent to-histown-primary hover:from-histown-accent hover:to-histown-primary-dark text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 drop-shadow-lg uppercase tracking-wide inline-block w-fit transform hover:scale-105"
-              >
-                LEARN MORE
-              </a>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      {/* Testimonials Section */}
-      <section className="bg-white py-16 md:py-24" style={{ marginTop: '-4rem', paddingTop: '6rem', marginBottom: '-4rem', paddingBottom: '6rem' }}>
-        <div className="max-w-6xl mx-auto px-12 sm:px-16 lg:px-20">
-          {/* Title */}
-          <div className="text-center mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-            <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
-              TESTIMONIALS
-            </h2>
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <div className="h-1 w-20 bg-gradient-to-r from-transparent to-histown-primary rounded-full"></div>
-              <div className="w-3 h-3 bg-histown-accent rounded-full"></div>
-              <div className="h-1 w-40 bg-gradient-to-r from-histown-primary via-histown-accent to-histown-primary rounded-full"></div>
-              <div className="w-3 h-3 bg-histown-accent rounded-full"></div>
-              <div className="h-1 w-20 bg-gradient-to-r from-histown-primary to-transparent rounded-full"></div>
-            </div>
-          </div>
-
-          {/* Images */}
-          <div className="flex justify-center gap-8 mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
-            <img 
-              src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762302377/2yG3qAq_nzcotl.png" 
-              alt="Williamson's Best 2025 Winner" 
-              className="h-48 w-auto object-contain rounded-2xl"
-            />
-            <img 
-              src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762304027/ChatGPT_Image_Nov_4_2025_at_06_53_22_PM_w3why3.png" 
-              alt="Best of Parenting 2025 Winner" 
-              className="h-48 w-auto object-contain rounded-2xl"
-            />
-          </div>
-
-          {/* Testimonials Carousel */}
-          <div className="relative px-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
-            {/* Left Arrow */}
-            <button 
-              id="testimonial-prev"
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
-            >
-              <svg className="w-6 h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-
-            {/* Right Arrow */}
-            <button 
-              id="testimonial-next"
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
-            >
-              <svg className="w-6 h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-
-            {/* Testimonials Container */}
-            <div className="overflow-hidden py-4">
-              <div id="testimonials-track" className="flex transition-transform duration-300 ease-in-out">
-                {/* Testimonial Cards - We'll add these via JavaScript */}
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -344,11 +245,9 @@ function App() {
           filter: 'contrast(1.1) saturate(1.05)'
         }}
       >
-        {/* Dark overlay for better text contrast */}
         <div className="absolute inset-0 bg-black/20"></div>
         
         <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
-            {/* Title */}
             <div className="text-center mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out flex flex-col items-center">
               <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
                 WHY US?
@@ -362,16 +261,13 @@ function App() {
               </div>
             </div>
 
-            {/* Description */}
             <div className="text-center mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
               <p className="text-lg text-white max-w-4xl mx-auto leading-relaxed blue-section-text">
-                We provide dance instruction in a Christ-centered environment that nurtures each dancer's God-given gifts for ministry, outreach, and entertainment. Through rigorous technique, professional mentorship, and an uplifting atmosphere guided by Christ's love, our aim is to inspire dancers to pursue excellence as an act of worship.
+                We provide dance instruction in a Christ-centered environment that nurtures each dancer's God-given gifts for ministry, outreach, and entertainment.
               </p>
             </div>
 
-            {/* Why Us Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* His Heart */}
               <div className="text-center bg-white p-8 rounded-2xl shadow-lg animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
                 <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
@@ -384,7 +280,6 @@ function App() {
                 </p>
               </div>
 
-              {/* His Glory */}
               <div className="text-center bg-white p-8 rounded-2xl shadow-lg animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
                 <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
@@ -397,7 +292,6 @@ function App() {
                 </p>
               </div>
 
-              {/* HisTown */}
               <div className="text-center bg-white p-8 rounded-2xl shadow-lg animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '800ms' }}>
                 <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
@@ -413,29 +307,12 @@ function App() {
           </div>
         </section>
 
-      {/* Meet Our Team Section */}
-      <section 
-        className="bg-gradient-to-br from-gray-50 via-white to-gray-100 py-20 md:py-32 relative overflow-hidden" 
-        style={{ 
-          clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 100%)', 
-          marginTop: '-4rem', 
-          paddingTop: '6rem', 
-          marginBottom: '-4rem', 
-          paddingBottom: '6rem' 
-        }}
-      >
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-histown-primary rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-40 h-40 bg-histown-accent rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-histown-secondary rounded-full blur-2xl"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-12 sm:px-16 lg:px-20 relative z-10">
-          {/* Enhanced Title */}
-          <div className="text-center mb-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-            <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block text-black" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
-              MEET OUR TEAM
+      {/* Testimonials Section */}
+      <section className="bg-white py-16 md:py-24" style={{ marginTop: '-4rem', paddingTop: '6rem', marginBottom: '-4rem', paddingBottom: '6rem' }}>
+        <div className="max-w-6xl mx-auto px-12 sm:px-16 lg:px-20">
+          <div className="text-center mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+            <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
+              TESTIMONIALS
             </h2>
             <div className="flex items-center justify-center space-x-2 mb-4">
               <div className="h-1 w-20 bg-gradient-to-r from-transparent to-histown-primary rounded-full"></div>
@@ -444,88 +321,44 @@ function App() {
               <div className="w-3 h-3 bg-histown-accent rounded-full"></div>
               <div className="h-1 w-20 bg-gradient-to-r from-histown-primary to-transparent rounded-full"></div>
             </div>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Meet the passionate individuals who bring faith, creativity, and excellence to every class!
-            </p>
           </div>
 
-          {/* Enhanced Team Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 -mt-8">
-            {/* Owners */}
-            <div className="group text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
-              <div className="relative mb-8">
-                <div className="w-72 h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 transform group-hover:scale-105 bg-gradient-to-br from-histown-primary/10 to-histown-accent/10 p-2">
-                  <div className="w-full h-full rounded-2xl overflow-hidden">
-                    <LazyImage
-                      src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762307104/H0VTGeM_wqdtuw.png"
-                      alt="Studio Owners"
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                  </div>
-                </div>
-                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-histown-primary to-histown-accent text-white px-6 py-2 rounded-full shadow-lg">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
-                </div>
-              </div>
-              <div className="bg-white rounded-2xl p-6 shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 h-40 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-2xl font-bold uppercase text-histown-text mb-3 group-hover:text-histown-primary transition-colors duration-300">OWNERS</h3>
-                  <p className="text-histown-text-muted text-lg leading-relaxed">Leading with passion and faith, creating a nurturing environment</p>
-                </div>
-              </div>
-            </div>
+          <div className="flex justify-center gap-8 mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
+            <img 
+              src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762302377/2yG3qAq_nzcotl.png" 
+              alt="Williamson's Best 2025 Winner" 
+              className="h-48 w-auto object-contain rounded-2xl"
+            />
+            <img 
+              src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762304027/ChatGPT_Image_Nov_4_2025_at_06_53_22_PM_w3why3.png" 
+              alt="Best of Parenting 2025 Winner" 
+              className="h-48 w-auto object-contain rounded-2xl"
+            />
+          </div>
 
-            {/* Dancers */}
-            <div className="group text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
-              <div className="relative mb-8">
-                <div className="w-72 h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 transform group-hover:scale-105 bg-gradient-to-br from-histown-accent/10 to-histown-secondary/10 p-2">
-                  <div className="w-full h-full rounded-2xl overflow-hidden">
-                    <LazyImage
-                      src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762307103/5dfj0Ng_z8qr1f.png"
-                      alt="Dance Instructors"
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                  </div>
-                </div>
-                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-histown-accent to-histown-secondary text-white px-6 py-2 rounded-full shadow-lg">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
-                  </svg>
-                </div>
-              </div>
-              <div className="bg-white rounded-2xl p-6 shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 h-40 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-2xl font-bold uppercase text-histown-text mb-3 group-hover:text-histown-primary transition-colors duration-300">DANCERS</h3>
-                  <p className="text-histown-text-muted text-lg leading-relaxed">Inspiring movement and grace through artistic technique</p>
-                </div>
-              </div>
-            </div>
+          <div className="relative px-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
+            {/* Left Arrow */}
+            <button 
+              id="testimonial-prev-dance"
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
+            >
+              <svg className="w-6 h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
 
-            {/* Musicians */}
-            <div className="group text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
-              <div className="relative mb-8">
-                <div className="w-72 h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 transform group-hover:scale-105 bg-gradient-to-br from-histown-secondary/10 to-histown-primary/10 p-2">
-                  <div className="w-full h-full rounded-2xl overflow-hidden">
-                    <LazyImage
-                      src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762307104/zYc8QQs_no8iw4.png"
-                      alt="Music Instructors"
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                  </div>
-                </div>
-                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-histown-secondary to-histown-primary text-white px-6 py-2 rounded-full shadow-lg">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.49 6-3.31 6-6.72h-1.7z"/>
-                  </svg>
-                </div>
-              </div>
-              <div className="bg-white rounded-2xl p-6 shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 h-40 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-2xl font-bold uppercase text-histown-text mb-3 group-hover:text-histown-primary transition-colors duration-300">MUSICIANS</h3>
-                  <p className="text-histown-text-muted text-lg leading-relaxed">Creating harmony and melody that touches hearts and souls</p>
-                </div>
+            {/* Right Arrow */}
+            <button 
+              id="testimonial-next-dance"
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
+            >
+              <svg className="w-6 h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            <div className="overflow-hidden py-4">
+              <div id="testimonials-track-dance" className="flex transition-transform duration-300 ease-in-out">
               </div>
             </div>
           </div>
@@ -534,12 +367,12 @@ function App() {
 
       {/* Next Steps Section */}
       <section 
-        className="py-20 md:py-32 relative overflow-hidden" 
-        style={{ 
-          clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)', 
-          marginTop: '-4rem', 
-          paddingTop: '6rem', 
-          marginBottom: '-4rem', 
+        className="py-20 md:py-32 relative overflow-hidden"
+        style={{
+          clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)',
+          marginTop: '-4rem',
+          paddingTop: '6rem',
+          marginBottom: '-4rem',
           paddingBottom: '6rem',
           backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/w_2400,q_100,f_jpg,e_sharpen:100/v1762365784/blue-texture_yyysa2)',
           backgroundSize: 'cover',
@@ -549,13 +382,11 @@ function App() {
           filter: 'contrast(1.1) saturate(1.05)'
         }}
       >
-        {/* Dark overlay for better text contrast */}
         <div className="absolute inset-0 bg-black/20"></div>
         
         <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center justify-items-center">
             
-            {/* Left Side - Next Steps */}
             <div className="text-white blue-section-text animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out text-center w-full max-w-md">
               <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
                 NEXT STEPS
@@ -567,7 +398,7 @@ function App() {
                 <div className="w-3 h-3 bg-white/80 rounded-full"></div>
                 <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
               </div>
-              <p className="text-lg text-white max-w-4xl mx-auto leading-relaxed blue-section-text mb-12">
+              <p className="text-lg mb-8 text-white blue-section-text leading-relaxed">
                 Take your first step with a free trial class!
               </p>
               
@@ -581,13 +412,12 @@ function App() {
               </div>
             </div>
 
-            {/* Right Side - Email Signup */}
             <div className="bg-white/10 blue-section-card backdrop-blur-sm rounded-3xl p-8 border border-white/20 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '300ms' }}>
               <h3 className="text-3xl font-bold text-white mb-4 uppercase blue-section-text">
                 SIGN UP FOR EMAIL UPDATES
               </h3>
               <p className="text-white/90 mb-6 leading-relaxed blue-section-text">
-                If you're not ready to start yet, simply fill out this form to sign up for our email list, and we'll keep you updated on what's happening at HisTown.
+                If you're not ready to start yet, simply fill out this form to sign up for our email list.
               </p>
               
               <form className="space-y-4">
@@ -609,8 +439,6 @@ function App() {
                   />
                 </div>
                 
-
-                
                 <button 
                   type="submit"
                   className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg mt-6"
@@ -619,20 +447,21 @@ function App() {
                 </button>
               </form>
             </div>
+
           </div>
         </div>
       </section>
 
+      {/* Footer */}
       <footer className="bg-gray-800 text-white py-8" style={{ marginTop: '-4rem', paddingTop: '6rem' }}>
         <div className="max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
             
-            {/* Left - HisTown Logo/Info */}
-            <div className="text-center md:text-left" style={{ marginTop: '-3.5rem', marginLeft: '2rem' }}>
+            <div className="text-center md:text-left" style={{ marginTop: '-4rem', marginLeft: '2rem' }}>
               <img
                 src={homeContent.navigation.logo.src}
                 alt={homeContent.navigation.logo.alt}
-                className="h-32 w-auto object-contain mx-auto md:mx-0 mb-0"
+                className="h-32 w-auto object-contain mx-auto md:mx-0 mb-2"
                 style={{
                   filter: 'brightness(0) invert(1)',
                   imageRendering: 'auto',
@@ -647,7 +476,6 @@ function App() {
               </div>
             </div>
 
-            {/* Center - Quick Links */}
             <div className="text-center">
               <h4 className="text-lg font-semibold mb-4">QUICK LINKS</h4>
               <div className="space-y-2">
@@ -658,7 +486,6 @@ function App() {
               </div>
             </div>
 
-            {/* Right - Follow Us */}
             <div className="text-center md:text-right" style={{ marginRight: '2rem' }}>
               <h4 className="text-lg font-semibold mb-4">FOLLOW US</h4>
               <div className="flex justify-center md:justify-end space-x-4">
@@ -687,7 +514,6 @@ function App() {
 
           </div>
           
-          {/* Copyright */}
           <div className="border-t border-gray-700 mt-8 pt-6 text-center">
             <p className="text-sm text-gray-400">
               {homeContent.footer.copyright}
@@ -696,7 +522,7 @@ function App() {
         </div>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default DanceClasses;
