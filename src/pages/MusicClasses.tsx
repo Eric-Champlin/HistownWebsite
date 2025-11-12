@@ -1,24 +1,14 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import NavBar from '../components/layout/NavBar';
-import { homeContent } from '../content/home';
 
-const DanceClasses: React.FC = () => {
+const MusicClasses: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
-  const danceClasses = [
-    { id: 'acro', name: 'Acro', description: 'Combining dance technique with acrobatic elements to build strength, flexibility, and dynamic performance skills', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825371/Acro_vmmyyu.png', position: 'center 85%' },
-    { id: 'ballet', name: 'Ballet', description: 'Classical ballet technique and artistry that develops grace, poise, and fundamental dance foundations', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825370/Ballet_zgvpjm.jpg', position: 'center 30%' },
-    { id: 'barre-fitness', name: 'Barre Fitness', description: 'Ballet-inspired fitness for adults combining strength training with graceful movement and flexibility', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762826588/barre-benefits-to-know-about_40148968-88b1-4497-be7e-49b05582d188.jpg_qa2f67.webp', position: 'center center' },
-    { id: 'contemporary', name: 'Contemporary', description: 'Expressive modern dance movement that blends technique with emotional storytelling and creative expression', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825366/Contemporary_doscju.png', position: 'center 25%' },
-    { id: 'creative-movement', name: 'Creative Movement', description: 'Introduction to dance for young children through playful exploration and imaginative movement activities', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825368/Creative_Movement_impfds.png', position: 'center 15%' },
-    { id: 'foundations', name: 'Foundations', description: 'Building strong dance fundamentals with proper technique, body alignment, and essential movement principles', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825367/Foundations_kh2o17.jpg', position: 'center center' },
-    { id: 'hip-hop', name: 'Hip-Hop', description: 'Urban dance styles and choreography featuring high-energy moves and contemporary street dance culture', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825372/HipHop_yzzsxu.png', position: 'center center' },
-    { id: 'jazz', name: 'Jazz', description: 'Energetic and dynamic jazz technique with sharp movements, leaps, and expressive performance style', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825363/Jazz_hwekyw.png', position: 'center center' },
-    { id: 'modern', name: 'Modern', description: 'Contemporary modern dance technique emphasizing floor work, improvisation, and expressive movement quality', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825358/Modern_gnrpmd.png', position: 'center center' },
-    { id: 'mommy-and-me', name: 'Mommy & Me', description: 'Parent and child bonding through dance with fun activities that develop coordination and rhythm together', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825968/Mommy_ncdf6m.webp', position: 'center center' },
-    { id: 'musical-theater', name: 'Musical Theater', description: 'Broadway-style dance and performance combining acting, singing, and theatrical movement for the stage', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825360/Musical_Theater_om16de.png', position: 'center center' },
-    { id: 'tap', name: 'Tap', description: 'Rhythmic tap dance technique creating music with your feet through precise footwork and timing', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825362/Tap_dnxfal.jpg', position: 'center center' }
+  const musicClasses = [
+    { id: 'piano', name: 'Piano', description: 'Master the keys with classical and contemporary piano instruction that develops technique, musicality, and expression', image: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=800', position: 'center center' },
+    { id: 'violin', name: 'Violin', description: 'Discover the beauty of strings through violin lessons that build proper technique, tone production, and musical artistry', image: 'https://images.unsplash.com/photo-1612225330812-01a9c6b355ec?w=800', position: 'center center' },
+    { id: 'guitar', name: 'Guitar', description: 'Learn acoustic and electric guitar with instruction in chords, strumming, fingerpicking, and contemporary styles', image: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=800', position: 'center center' },
+    { id: 'vocal', name: 'Vocal', description: 'Develop your voice through vocal training that focuses on breath control, tone, range, and confident performance', image: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800', position: 'center center' }
   ];
 
   useEffect(() => {
@@ -42,33 +32,12 @@ const DanceClasses: React.FC = () => {
 
     // Testimonials carousel
     const testimonials = [
-      { author: "Emily Song", text: "My daughter just completed her first semester at Histown and it has been an incredibly positive experience! The teachers are gracious, kind, and very knowledgeable about dance and the instructional tools/pacing needed to help students succeed at various age levels. I have been so impressed with my daughter's gross motor development!" },
-      { author: "Justine Vild", text: "My daughter has been dancing at Histown for many years. There are lots of things I love about this studio, not the least of them being that it's a Christian dance studio. I love their scheduling. It's very easy for my daughter to take 6 hours of dance over 2 evenings. I love that the recital songs are either Christian or clean songs." },
-      { author: "Kathleen Crews", text: "Histown provides the healthy dance experience I wanted for my daughter. The owners, teachers, and office manager have created a family-like atmosphere where dancers support and cheer for each other. There's the right amount of healthy pressure for growth with the students excited to grow as a dancer." },
-      { author: "Maura Sullivan", text: "We have been at Histown for almost 2 years now, and the experiences that my girls (ages 5 & 7) have had (and that we have had as a family) have been invaluable. Every single thing they do here is intentional, from the instructors, to how they run their business, to the recital costumes." },
-      { author: "L. Garner", text: "Wonderful nurturing environment with Christian values. They teach children to love to dance. All children welcome. I've even seen special needs children dance with their peers. It's about the kids, not about winning. However, there is a Histown group that does do competition!" },
-      { author: "Deepa S.", text: "We had the best time celebrating my kid's 4th birthday at Histown Dance Studio! Ms.Mattie and Ms.Emilia did a fantastic job as hosts and very helpful throughout. The studio is spacious and kids had an amazing time. I highly recommend this place for any celebration!" },
-      { author: "Jennifer Kilpartrick", text: "My 4 year old daughter has danced at Histown for almost 2 years now. Even though she is young the lessons she has learned in class have been so valuable (following directions, body control, making friends, etc)! On top of that, she LOVES it! She dances all over the house." },
-      { author: "Elizabeth McAlister", text: "Finding Histown was such a blessing! And Miss Delia Waggoner was the best first dance teacher for my little girls. She started each class by talking about how the Lord lives in their hearts and they are his princesses. She filled the hour with so much joy and enthusiasm-it was contagious!" },
-      { author: "Justine Vild", text: "My daughter has been dancing at Histown for many years. There are lots of things I love about this studio, not the least of them being that it's a Christian dance studio. I love their scheduling. It's very easy for my daughter to take 6 hours of dance over 2 evenings. They align their scheduling just right." },
-      { author: "Allison Hendrickson", text: "Excellent instruction with a superb, encouraging atmosphere. We've taken classes at other places and there is just no comparison. Highly recommend to anyone looking for a new studio!" },
-      { author: "David", text: "Saw them perform at Dicken's festival 2024 and they were great. The director witnessed for Jesus. I am glad there is a Christ-centered dance company in Franklin. I really enjoyed the show." },
-      { author: "Vanessa Wood", text: "My daughter has been dancing at this studio for two years now. As homeschoolers, it has given her a space to be consistently social with her friends and learn excellent technique." },
-      { author: "Chaslynn Garrett", text: "We love HisTown! It has been a very positive, uplifting environment where parental choices are honored, children are respected, and learning in a fun environment is a top priority." },
-      { author: "Andrea Millard", text: "My daughter has danced at HisTown for several years now and she has made some great friendships, matured in her dance skills, and has felt valued and part of the community there." },
-      { author: "Megan Hord", text: "We have absolutely adored our time with Histown! The teachers are wonder and the owners are amazing! They are the sweetest people and communication is amazing!" },
-      { author: "Mimi J.", text: "Histown Dance--What A Wonderful Studio--The Instruction is Superb. I love the Christian atmosphere and the patience and love felt by All the teachers. All Four of My Children have been Blessed to have attended Histown Dance for many years now and have benefited so richly." },
-      { author: "DeAnne Bruinsma", text: "His town dance studio was a great fit for our family with flexibility and great dance instruction from beginning to advanced. The staff and teachers care about each dancer and it shows. It has been such a positive environment for my kids to try new dance styles and develop a love for dance. I highly recommend HisTown." },
-      { author: "Genie-Nicole Hair", text: "HisTown Dance Studio was referred to our family for my daughter, who is now homeschooling. We absolutely LOVE HISTOWN! They are professional, yet personable! They've always expressed enthusiasm and how much they love having our daughter dance with them!" },
-      { author: "Kevin Greaves", text: "I cannot say enough good things about Histown. They have accepted my daughter into a class even though the semester had already started. They let us try 3 different types of classes before we chose 1. They offered a make up class when she missed due to a runny nose. Great experience all around!" },
-      { author: "Jacquelyn Britt", text: "I have been a part of different dance studios for over 40 years. Histown Dance Studio surpasses them all. The owners are genuine,kind and hold high standards for their staff. The teachers have encouraged our daughter to love dance, do it in excellence and to be a part of a team." },
-      { author: "Jennifer Nichols", text: "My daughter has been with his town for 3 years now. I not only love what they have taught my daughter in regards to ballet but also outside of that. They have helped I still good character qualities in her. The his town dance community is great and we love it. We are very blessed by the HisTown family." },
-      { author: "Shailey Ratliff", text: "Our daughter has been so blessed to dance at HisTown for the past 2 years! The teachers take the time to love the girls well and even the other girls are encouraging and kind. Christ is at the center of everything they do and we would recommend HisTown to anyone." },
-      { author: "Samantha Allen", text: "Histown dance studio is incredible. The teachers are so intentional, talented and loving. I have made so many friends through dance and many of them I am very close to. Coming to dance is my favorite part of the week, thanks to Histown!" },
-      { author: "Amanda Cooper", text: "Incredible teaching, family-like environment, and amazing Christian community! Cannot say enough about how thankful I am to have danced here throughout middle and high school. Histown really is a family of believers worshiping Jesus through dance!" }
+      { author: "Emily Song", text: "My daughter just completed her first semester at Histown and it has been an incredibly positive experience! The teachers are gracious, kind, and very knowledgeable about music and the instructional tools/pacing needed to help students succeed at various age levels. I have been so impressed with my daughter's development!" },
+      { author: "Justine Vild", text: "My daughter has been taking music lessons at Histown for many years. There are lots of things I love about this studio, not the least of them being that it's a Christian music studio. The teachers are patient and encouraging." },
+      { author: "Kathleen Crews", text: "Histown provides the healthy music experience I wanted for my daughter. The owners, teachers, and office manager have created a family-like atmosphere where students support and cheer for each other." }
     ];
 
-    const testimonialsTrack = document.getElementById('testimonials-track-dance');
+    const testimonialsTrack = document.getElementById('testimonials-track-music');
     if (testimonialsTrack) {
       testimonialsTrack.innerHTML = testimonials.map(testimonial => `
         <div class="flex-none w-80 mx-4 bg-white rounded-2xl shadow-lg border border-gray-200 p-6 min-h-80 flex flex-col">
@@ -94,18 +63,17 @@ const DanceClasses: React.FC = () => {
         </div>
       `).join('');
 
-      // Carousel functionality
       let currentIndex = 0;
       const cardWidth = 352;
-      const maxIndex = testimonials.length - 3;
+      const maxIndex = Math.max(0, testimonials.length - 3);
 
       const updateCarousel = () => {
         const translateX = -currentIndex * cardWidth;
         testimonialsTrack.style.transform = `translateX(${translateX}px)`;
       };
 
-      const prevBtn = document.getElementById('testimonial-prev-dance');
-      const nextBtn = document.getElementById('testimonial-next-dance');
+      const prevBtn = document.getElementById('testimonial-prev-music');
+      const nextBtn = document.getElementById('testimonial-next-music');
 
       if (prevBtn && nextBtn) {
         prevBtn.addEventListener('click', () => {
@@ -139,7 +107,7 @@ const DanceClasses: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/v1762556986/GRoup_Shot_D2edit.jpg_nk0m0v.webp)',
+            backgroundImage: 'url(https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=1600)',
             filter: 'brightness(0.7)'
           }}
         ></div>
@@ -148,7 +116,7 @@ const DanceClasses: React.FC = () => {
         
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-black uppercase mb-2 text-white" style={{ fontWeight: 900, textShadow: '0 4px 6px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3)' }}>
-            DANCE CLASSES
+            MUSIC CLASSES
           </h1>
           <div className="flex items-center justify-center space-x-2 mb-6">
             <div className="h-1 w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
@@ -158,70 +126,56 @@ const DanceClasses: React.FC = () => {
             <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
           </div>
           <p className="text-xl md:text-2xl text-white mb-8 leading-relaxed" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)' }}>
-            From ballet to hip-hop, discover the perfect class to express your passion for dance
+            Unlock your musical potential with personalized instruction from our gifted teachers
           </p>
         </div>
       </section>
 
-      {/* Jump To Navigation Ribbon */}
-      <section className="bg-gradient-to-r from-[#0891b2] via-[#0e7490] to-[#06b6d4] py-4 sticky top-[70px] z-40 shadow-lg overflow-x-auto">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-center whitespace-nowrap">
-            {danceClasses.map((danceClass, index) => (
-              <React.Fragment key={danceClass.id}>
-                <Link
-                  to={`/classes/dance/${danceClass.id}`}
-                  className="text-white hover:bg-white/20 px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105"
-                >
-                  {danceClass.name}
-                </Link>
-                {index < danceClasses.length - 1 && (
-                  <span className="text-white/60 mx-2 text-xs">|</span>
-                )}
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Dance Classes Grid Section */}
-      <section className="py-20 md:py-32 relative" style={{ background: 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 20%, #7dd3fc 40%, #38bdf8 60%, #0ea5e9 80%, #0284c7 100%)' }}>
+      {/* Music Classes Grid Section */}
+      <section 
+        className="py-20 md:py-32 relative overflow-hidden"
+        style={{
+          clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)',
+          marginTop: '-4rem',
+          paddingTop: '6rem',
+          marginBottom: '-4rem',
+          paddingBottom: '6rem',
+          background: 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 20%, #7dd3fc 40%, #38bdf8 60%, #0ea5e9 80%, #0284c7 100%)'
+        }}
+      >
         <div className="absolute inset-0 bg-white opacity-70"></div>
         <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at 15% 25%, rgba(14, 116, 144, 0.25) 0%, transparent 45%), radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.25) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 55%)' }}></div>
         <div className="absolute inset-0 opacity-25" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%230891b2\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z\' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}></div>
         <div className="relative">
         <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             
-            {danceClasses.map((danceClass, index) => (
+            {musicClasses.map((musicClass, index) => (
               <div 
-                key={danceClass.id}
-                id={danceClass.id}
+                key={musicClass.id}
+                id={musicClass.id}
                 className="group rounded-3xl overflow-visible animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-mt-32 flex flex-col" 
-                style={{ transitionDelay: `${(index % 3) * 200 + 200}ms` }}
+                style={{ transitionDelay: `${(index % 2) * 200 + 200}ms` }}
               >
                 <div className="relative h-80 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500">
                   <img 
-                    src={danceClass.image}
-                    alt={danceClass.name}
+                    src={musicClass.image}
+                    alt={musicClass.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    style={{ objectPosition: danceClass.position }}
+                    style={{ objectPosition: musicClass.position }}
                   />
                 </div>
                 <div className="bg-white p-6 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10 flex flex-col flex-1">
                   <h3 className="text-xl md:text-2xl font-black uppercase text-gray-800 mb-2" style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)', lineHeight: '1.2' }}>
-                    {danceClass.name}
+                    {musicClass.name}
                   </h3>
                   <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
                   <p className="text-gray-600 mb-4 leading-relaxed text-sm flex-1 min-h-[3rem]">
-                    {danceClass.description}
+                    {musicClass.description}
                   </p>
-                  <Link 
-                    to={`/classes/dance/${danceClass.id}`}
-                    className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 w-full block text-center"
-                  >
+                  <button className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 w-full">
                     LEARN MORE →
-                  </Link>
+                  </button>
                 </div>
               </div>
             ))}
@@ -266,7 +220,7 @@ const DanceClasses: React.FC = () => {
 
             <div className="text-center mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
               <p className="text-lg text-white max-w-4xl mx-auto leading-relaxed blue-section-text">
-                We provide dance instruction in a Christ-centered environment that nurtures each dancer's God-given gifts for ministry, outreach, and entertainment.
+                We provide music instruction in a Christ-centered environment that nurtures each student's God-given gifts for ministry, outreach, and entertainment.
               </p>
             </div>
 
@@ -297,7 +251,7 @@ const DanceClasses: React.FC = () => {
                     </div>
                     <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS GLORY</h3>
                     <p className="text-histown-text-muted leading-relaxed">
-                      We dance not for the applause of people, but to reflect God's glory, honoring Him with excellence and joy.
+                      We teach not for the applause of people, but to reflect God's glory, honoring Him with excellence and joy.
                     </p>
                   </div>
                 </div>
@@ -324,6 +278,7 @@ const DanceClasses: React.FC = () => {
 
       {/* Testimonials Section */}
       <section className="bg-white py-16 md:py-24" style={{ marginTop: '-4rem', paddingTop: '6rem', marginBottom: '-4rem', paddingBottom: '6rem' }}>
+
         <div className="max-w-6xl mx-auto px-12 sm:px-16 lg:px-20">
           <div className="text-center mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
             <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
@@ -352,9 +307,8 @@ const DanceClasses: React.FC = () => {
           </div>
 
           <div className="relative px-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
-            {/* Left Arrow */}
             <button 
-              id="testimonial-prev-dance"
+              id="testimonial-prev-music"
               className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
             >
               <svg className="w-6 h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -362,9 +316,8 @@ const DanceClasses: React.FC = () => {
               </svg>
             </button>
 
-            {/* Right Arrow */}
             <button 
-              id="testimonial-next-dance"
+              id="testimonial-next-music"
               className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
             >
               <svg className="w-6 h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -373,7 +326,7 @@ const DanceClasses: React.FC = () => {
             </button>
 
             <div className="overflow-hidden py-4">
-              <div id="testimonials-track-dance" className="flex transition-transform duration-300 ease-in-out">
+              <div id="testimonials-track-music" className="flex transition-transform duration-300 ease-in-out">
               </div>
             </div>
           </div>
@@ -387,8 +340,6 @@ const DanceClasses: React.FC = () => {
           clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)',
           marginTop: '-4rem',
           paddingTop: '6rem',
-          marginBottom: '-4rem',
-          paddingBottom: '6rem',
           backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/w_2400,q_100,f_jpg,e_sharpen:100/v1762365784/blue-texture_yyysa2)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -456,88 +407,17 @@ const DanceClasses: React.FC = () => {
                 
                 <button 
                   type="submit"
-                  className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg mt-6"
+                  className="w-full bg-white text-histown-primary hover:bg-white/95 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
                 >
-                  Submit
+                  SIGN UP
                 </button>
               </form>
             </div>
-
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8" style={{ marginTop: '-4rem', paddingTop: '6rem' }}>
-        <div className="max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-            
-            <div className="text-center md:text-left" style={{ marginTop: '-4rem', marginLeft: '2rem' }}>
-              <img
-                src={homeContent.navigation.logo.src}
-                alt={homeContent.navigation.logo.alt}
-                className="h-32 w-auto object-contain mx-auto md:mx-0 mb-2"
-                style={{
-                  filter: 'brightness(0) invert(1)',
-                  imageRendering: 'auto',
-                  display: 'block'
-                }}
-              />
-              <div className="space-y-1" style={{ marginTop: '-1.5rem' }}>
-                <p className="text-sm text-gray-300">1010 Perrone Way, Suite 200</p>
-                <p className="text-sm text-gray-300">Franklin, TN, 37069</p>
-                <p className="text-sm text-gray-300">(615) 640-8349</p>
-                <p className="text-sm text-gray-300">info@histown.com</p>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <h4 className="text-lg font-semibold mb-4">QUICK LINKS</h4>
-              <div className="space-y-2">
-                <a href="/classes/dance" className="block text-sm text-gray-300 hover:text-white transition-colors">Dance Classes</a>
-                <a href="/classes/music" className="block text-sm text-gray-300 hover:text-white transition-colors">Music Classes</a>
-                <a href="/tuition-fees" className="block text-sm text-gray-300 hover:text-white transition-colors">Tuition & Fees</a>
-                <a href="/contact" className="block text-sm text-gray-300 hover:text-white transition-colors">Contact</a>
-              </div>
-            </div>
-
-            <div className="text-center md:text-right" style={{ marginRight: '2rem' }}>
-              <h4 className="text-lg font-semibold mb-4">FOLLOW US</h4>
-              <div className="flex justify-center md:justify-end space-x-4">
-                <a 
-                  href="https://www.instagram.com/histowndancestudio/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                  </svg>
-                </a>
-                <a 
-                  href="https://www.facebook.com/HistownDanceStudio/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-          </div>
-          
-          <div className="border-t border-gray-700 mt-8 pt-6 text-center">
-            <p className="text-sm text-gray-400">
-              {homeContent.footer.copyright}
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
 
-export default DanceClasses;
+export default MusicClasses;

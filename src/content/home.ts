@@ -21,18 +21,18 @@ export const homeContent: HomeContent = {
             {
               title: 'DANCE',
               items: [
-                { label: 'Acro', href: '/classes/dance#acro' },
-                { label: 'Ballet', href: '/classes/dance#ballet' },
-                { label: 'Barre Fitness', href: '/classes/dance#barre-fitness' },
-                { label: 'Contemporary', href: '/classes/dance#contemporary' },
-                { label: 'Creative Movement', href: '/classes/dance#creative-movement' },
-                { label: 'Foundations', href: '/classes/dance#foundations' },
-                { label: 'Hip-Hop', href: '/classes/dance#hip-hop' },
-                { label: 'Jazz', href: '/classes/dance#jazz' },
-                { label: 'Modern', href: '/classes/dance#modern' },
-                { label: 'Mommy & Me', href: '/classes/dance#mommy-and-me' },
-                { label: 'Musical Theater', href: '/classes/dance#musical-theater' },
-                { label: 'Tap', href: '/classes/dance#tap' },
+                { label: 'Acro', href: '/classes/dance/acro' },
+                { label: 'Ballet', href: '/classes/dance/ballet' },
+                { label: 'Barre Fitness', href: '/classes/dance/barre-fitness' },
+                { label: 'Contemporary', href: '/classes/dance/contemporary' },
+                { label: 'Creative Movement', href: '/classes/dance/creative-movement' },
+                { label: 'Foundations', href: '/classes/dance/foundations' },
+                { label: 'Hip-Hop', href: '/classes/dance/hip-hop' },
+                { label: 'Jazz', href: '/classes/dance/jazz' },
+                { label: 'Modern', href: '/classes/dance/modern' },
+                { label: 'Mommy & Me', href: '/classes/dance/mommy-and-me' },
+                { label: 'Musical Theater', href: '/classes/dance/musical-theater' },
+                { label: 'Tap', href: '/classes/dance/tap' },
                 { label: 'View All', href: '/classes/dance' }
               ]
             },
@@ -64,21 +64,20 @@ export const homeContent: HomeContent = {
       },
       { 
         label: 'About', 
-        href: '#about',
+        href: '/about',
         hasDropdown: true,
         dropdownItems: [
           { label: 'Our Team', href: '/about/team' },
           { label: 'Our Story', href: '/about/story' },
-          { label: 'Testimonials', href: '/about/testimonials' },
+          { label: 'Contact Us', href: '/about/contact' },
           { label: 'Past Public Events', href: '/about/events' }
         ]
       },
       { 
         label: 'More', 
-        href: '#more',
+        href: '/more',
         hasDropdown: true,
         dropdownItems: [
-          { label: 'Contact', href: '/contact' },
           { label: 'Dress Code', href: '/dress-code' },
           { label: 'Studio Rental', href: '/studio-rental' },
           { label: 'Tuition & Fees', href: '/tuition-fees' },

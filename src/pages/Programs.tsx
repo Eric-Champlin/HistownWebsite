@@ -151,15 +151,19 @@ const Programs: React.FC = () => {
 
       {/* Programs Grid Section */}
       <section 
-        className="py-20 md:py-32 relative overflow-hidden bg-gray-100"
+        className="py-20 md:py-32 relative overflow-hidden"
         style={{
           clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)',
           marginTop: '-4rem',
           paddingTop: '6rem',
           marginBottom: '-4rem',
-          paddingBottom: '6rem'
+          paddingBottom: '6rem',
+          background: 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 20%, #7dd3fc 40%, #38bdf8 60%, #0ea5e9 80%, #0284c7 100%)'
         }}
       >
+        <div className="absolute inset-0 bg-white opacity-70"></div>
+        <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at 15% 25%, rgba(14, 116, 144, 0.25) 0%, transparent 45%), radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.25) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 55%)' }}></div>
+        <div className="absolute inset-0 opacity-25" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%230891b2\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z\' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}></div>
         
         <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -204,9 +208,9 @@ const Programs: React.FC = () => {
                 <p className="text-gray-600 mb-4 leading-relaxed text-sm">
                   Unlock your musical potential with personalized instruction from gifted teachers
                 </p>
-                <button className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300">
+                <a href="/classes/music" className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 inline-block">
                   MORE INFO →
-                </button>
+                </a>
               </div>
             </div>
 
@@ -227,9 +231,9 @@ const Programs: React.FC = () => {
                 <p className="text-gray-600 mb-4 leading-relaxed text-sm">
                   Elite training, performance opportunities, and specialized programs for advanced students
                 </p>
-                <button className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300">
+                <a href="/classes/featured" className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 inline-block">
                   MORE INFO →
-                </button>
+                </a>
               </div>
             </div>
 
@@ -304,42 +308,54 @@ const Programs: React.FC = () => {
             {/* Why Us Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* His Heart */}
-              <div className="text-center bg-white p-8 rounded-2xl shadow-lg animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
-                <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                  <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                  </svg>
+              <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
+                <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-2xl shadow-lg">
+                  <div className="text-center bg-white p-8 rounded-xl h-full">
+                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                      <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS HEART</h3>
+                    <p className="text-histown-text-muted leading-relaxed">
+                      At the heart of our mission is God's love—a love that nurtures, uplifts, and calls us to use our gifts for His praise.
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS HEART</h3>
-                <p className="text-histown-text-muted leading-relaxed">
-                  At the heart of our mission is God's love—a love that nurtures, uplifts, and calls us to use our gifts for His praise.
-                </p>
               </div>
 
               {/* His Glory */}
-              <div className="text-center bg-white p-8 rounded-2xl shadow-lg animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
-                <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                  <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
+              <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
+                <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-2 rounded-2xl shadow-lg">
+                  <div className="text-center bg-white p-8 rounded-xl h-full">
+                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                      <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS GLORY</h3>
+                    <p className="text-histown-text-muted leading-relaxed">
+                      We dance not for the applause of people, but to reflect God's glory, honoring Him with excellence and joy.
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS GLORY</h3>
-                <p className="text-histown-text-muted leading-relaxed">
-                  We dance not for the applause of people, but to reflect God's glory, honoring Him with excellence and joy.
-                </p>
               </div>
 
               {/* HisTown */}
-              <div className="text-center bg-white p-8 rounded-2xl shadow-lg animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '800ms' }}>
-                <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                  <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                  </svg>
+              <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '800ms' }}>
+                <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-2 rounded-2xl shadow-lg">
+                  <div className="text-center bg-white p-8 rounded-xl h-full">
+                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                      <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HISTOWN</h3>
+                    <p className="text-histown-text-muted leading-relaxed">
+                      HisTown is more than a studio—it's God's town, where creativity, community, and worship come together in His name.
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HISTOWN</h3>
-                <p className="text-histown-text-muted leading-relaxed">
-                  HisTown is more than a studio—it's God's town, where creativity, community, and worship come together in His name.
-                </p>
               </div>
             </div>
           </div>

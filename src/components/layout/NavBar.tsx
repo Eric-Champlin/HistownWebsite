@@ -203,25 +203,43 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
                                   <div className="space-y-4">
                                     {column.sections.map((section, sectionIndex) => (
                                       <div key={section.subtitle}>
-                                        <div className="flex items-center space-x-2 mb-3">
-                                          {section.subtitle === 'MUSIC' && (
-                                            <div className="w-6 h-6 bg-histown-accent rounded-full flex items-center justify-center">
+                                        {section.subtitle === 'MUSIC' ? (
+                                          <Link
+                                            to="/classes/music"
+                                            onClick={() => setOpenDropdown(null)}
+                                            className="flex items-center space-x-2 mb-3 group hover:opacity-80 transition-opacity duration-200"
+                                          >
+                                            <div className="w-6 h-6 bg-histown-accent rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
                                               <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.49 6-3.31 6-6.72h-1.7z"/>
                                               </svg>
                                             </div>
-                                          )}
-                                          {section.subtitle === 'FEATURED' && (
+                                            <h4 className="text-histown-primary font-bold text-lg tracking-wider uppercase">
+                                              {section.subtitle}
+                                            </h4>
+                                          </Link>
+                                        ) : section.subtitle === 'FEATURED' ? (
+                                          <Link
+                                            to="/classes/featured"
+                                            className="flex items-center space-x-2 mb-3 hover:opacity-80 transition-opacity"
+                                            onClick={() => setOpenDropdown(null)}
+                                          >
                                             <div className="w-6 h-6 ml-1 bg-gradient-to-r from-histown-primary to-histown-accent rounded-full flex items-center justify-center flex-shrink-0">
                                               <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                               </svg>
                                             </div>
-                                          )}
-                                          <h4 className="text-histown-primary font-bold text-lg tracking-wider uppercase">
-                                            {section.subtitle}
-                                          </h4>
-                                        </div>
+                                            <h4 className="text-histown-primary font-bold text-lg tracking-wider uppercase">
+                                              {section.subtitle}
+                                            </h4>
+                                          </Link>
+                                        ) : (
+                                          <div className="flex items-center space-x-2 mb-3">
+                                            <h4 className="text-histown-primary font-bold text-lg tracking-wider uppercase">
+                                              {section.subtitle}
+                                            </h4>
+                                          </div>
+                                        )}
                                         <div className="h-0.5 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-3"></div>
 
                                         <div className="space-y-1">

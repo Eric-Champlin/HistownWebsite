@@ -189,39 +189,47 @@ function App() {
                 />
               </div>
             </div>
-            <div className="animate-slide-in-right bg-white p-8 rounded-2xl shadow-medium border border-gray-200 h-full flex flex-col justify-center">
-              <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 relative inline-block" style={{ fontWeight: 975, fontSize: 'clamp(1.875rem, 4vw, 2.5rem)' }}>
-                DANCE CLASSES
-                <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-2"></div>
-              </h3>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Discover the joy of movement through our comprehensive dance program. From classical ballet to contemporary expression, we nurture each dancer's unique gifts while building strong technique, confidence, and character in a Christ-centered environment.
-              </p>
-              <a 
-                href="/programs/dance"
-                className="bg-gradient-to-r from-histown-accent to-histown-primary hover:from-histown-accent hover:to-histown-primary-dark text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 drop-shadow-lg uppercase tracking-wide inline-block w-fit transform hover:scale-105"
-              >
-                LEARN MORE
-              </a>
+            <div className="animate-slide-in-right h-full">
+              <div className="bg-gradient-to-br from-histown-primary/40 via-histown-secondary/40 to-histown-accent/40 p-2 rounded-2xl shadow-medium h-full">
+                <div className="bg-white p-8 rounded-xl h-full flex flex-col justify-center">
+                  <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 relative inline-block" style={{ fontWeight: 975, fontSize: 'clamp(1.875rem, 4vw, 2.5rem)' }}>
+                    DANCE CLASSES
+                    <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-2"></div>
+                  </h3>
+                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                    Discover the joy of movement through our comprehensive dance program. From classical ballet to contemporary expression, we nurture each dancer's unique gifts while building strong technique, confidence, and character in a Christ-centered environment.
+                  </p>
+                  <a 
+                    href="/programs/dance"
+                    className="bg-gradient-to-r from-histown-accent to-histown-primary hover:from-histown-accent hover:to-histown-primary-dark text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 drop-shadow-lg uppercase tracking-wide inline-block w-fit transform hover:scale-105"
+                  >
+                    LEARN MORE
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Music Classes - Text Left, Image Right */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch mb-20 animate-on-scroll">
-            <div className="animate-slide-in-left lg:order-1 bg-white p-8 rounded-2xl shadow-medium border border-gray-200 h-full flex flex-col justify-center">
-              <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 relative inline-block" style={{ fontWeight: 975, fontSize: 'clamp(1.875rem, 4vw, 2.5rem)' }}>
-                MUSIC CLASSES
-                <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-2"></div>
-              </h3>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Unlock your musical potential with personalized instruction from our gifted teachers. Whether you're drawn to piano melodies, guitar rhythms, violin harmonies, or vocal expression, we'll help you develop your talents while celebrating the gift of music.
-              </p>
-              <a 
-                href="/programs/music"
-                className="bg-gradient-to-r from-histown-accent to-histown-primary hover:from-histown-accent hover:to-histown-primary-dark text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 drop-shadow-lg uppercase tracking-wide inline-block w-fit transform hover:scale-105"
-              >
-                LEARN MORE
-              </a>
+            <div className="animate-slide-in-left lg:order-1 h-full">
+              <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-2 rounded-2xl shadow-medium h-full">
+                <div className="bg-white p-8 rounded-xl h-full flex flex-col justify-center">
+                  <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 relative inline-block" style={{ fontWeight: 975, fontSize: 'clamp(1.875rem, 4vw, 2.5rem)' }}>
+                    MUSIC CLASSES
+                    <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-2"></div>
+                  </h3>
+                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                    Unlock your musical potential with personalized instruction from our gifted teachers. Whether you're drawn to piano melodies, guitar rhythms, violin harmonies, or vocal expression, we'll help you develop your talents while celebrating the gift of music.
+                  </p>
+                  <a 
+                    href="/classes/music"
+                    className="bg-gradient-to-r from-histown-accent to-histown-primary hover:from-histown-accent hover:to-histown-primary-dark text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 drop-shadow-lg uppercase tracking-wide inline-block w-fit transform hover:scale-105"
+                  >
+                    LEARN MORE
+                  </a>
+                </div>
+              </div>
             </div>
             <div className="animate-slide-in-right lg:order-2">
               <div className="rounded-2xl overflow-hidden shadow-strong h-full">
@@ -245,20 +253,24 @@ function App() {
                 />
               </div>
             </div>
-            <div className="animate-slide-in-right bg-white p-8 rounded-2xl shadow-medium border border-gray-200 h-full flex flex-col justify-center">
-              <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 relative inline-block" style={{ fontWeight: 975, fontSize: 'clamp(1.875rem, 4vw, 2.5rem)' }}>
-                FEATURED
-                <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-2"></div>
-              </h3>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Take your artistry to the next level with our specialized offerings. From theatrical performance and adult fitness classes to elite company training and competitive dance teams, we provide pathways for every passion and skill level.
-              </p>
-              <a 
-                href="/programs/featured"
-                className="bg-gradient-to-r from-histown-accent to-histown-primary hover:from-histown-accent hover:to-histown-primary-dark text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 drop-shadow-lg uppercase tracking-wide inline-block w-fit transform hover:scale-105"
-              >
-                LEARN MORE
-              </a>
+            <div className="animate-slide-in-right h-full">
+              <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-2 rounded-2xl shadow-medium h-full">
+                <div className="bg-white p-8 rounded-xl h-full flex flex-col justify-center">
+                  <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 relative inline-block" style={{ fontWeight: 975, fontSize: 'clamp(1.875rem, 4vw, 2.5rem)' }}>
+                    FEATURED
+                    <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-2"></div>
+                  </h3>
+                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                    Take your artistry to the next level with our specialized offerings. From theatrical performance and adult fitness classes to elite company training and competitive dance teams, we provide pathways for every passion and skill level.
+                  </p>
+                  <a 
+                    href="/classes/featured"
+                    className="bg-gradient-to-r from-histown-accent to-histown-primary hover:from-histown-accent hover:to-histown-primary-dark text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 drop-shadow-lg uppercase tracking-wide inline-block w-fit transform hover:scale-105"
+                  >
+                    LEARN MORE
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -372,42 +384,54 @@ function App() {
             {/* Why Us Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* His Heart */}
-              <div className="text-center bg-white p-8 rounded-2xl shadow-lg animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
-                <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                  <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                  </svg>
+              <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
+                <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-2xl shadow-lg">
+                  <div className="text-center bg-white p-8 rounded-xl h-full">
+                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                      <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS HEART</h3>
+                    <p className="text-histown-text-muted leading-relaxed">
+                      At the heart of our mission is God's love—a love that nurtures, uplifts, and calls us to use our gifts for His praise.
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS HEART</h3>
-                <p className="text-histown-text-muted leading-relaxed">
-                  At the heart of our mission is God's love—a love that nurtures, uplifts, and calls us to use our gifts for His praise.
-                </p>
               </div>
 
               {/* His Glory */}
-              <div className="text-center bg-white p-8 rounded-2xl shadow-lg animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
-                <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                  <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
+              <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
+                <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-2 rounded-2xl shadow-lg">
+                  <div className="text-center bg-white p-8 rounded-xl h-full">
+                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                      <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS GLORY</h3>
+                    <p className="text-histown-text-muted leading-relaxed">
+                      We dance not for the applause of people, but to reflect God's glory, honoring Him with excellence and joy.
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS GLORY</h3>
-                <p className="text-histown-text-muted leading-relaxed">
-                  We dance not for the applause of people, but to reflect God's glory, honoring Him with excellence and joy.
-                </p>
               </div>
 
               {/* HisTown */}
-              <div className="text-center bg-white p-8 rounded-2xl shadow-lg animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '800ms' }}>
-                <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                  <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                  </svg>
+              <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '800ms' }}>
+                <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-2 rounded-2xl shadow-lg">
+                  <div className="text-center bg-white p-8 rounded-xl h-full">
+                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                      <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HISTOWN</h3>
+                    <p className="text-histown-text-muted leading-relaxed">
+                      HisTown is more than a studio—it's God's town, where creativity, community, and worship come together in His name.
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HISTOWN</h3>
-                <p className="text-histown-text-muted leading-relaxed">
-                  HisTown is more than a studio—it's God's town, where creativity, community, and worship come together in His name.
-                </p>
               </div>
             </div>
           </div>
@@ -454,7 +478,7 @@ function App() {
             {/* Owners */}
             <div className="group text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
               <div className="relative mb-8">
-                <div className="w-72 h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 transform group-hover:scale-105 bg-gradient-to-br from-histown-primary/10 to-histown-accent/10 p-2">
+                <div className="w-72 h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 transform group-hover:scale-105 bg-gradient-to-br from-histown-primary/5 to-histown-accent/5 p-2">
                   <div className="w-full h-full rounded-2xl overflow-hidden">
                     <LazyImage
                       src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762307104/H0VTGeM_wqdtuw.png"
@@ -480,7 +504,7 @@ function App() {
             {/* Dancers */}
             <div className="group text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
               <div className="relative mb-8">
-                <div className="w-72 h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 transform group-hover:scale-105 bg-gradient-to-br from-histown-accent/10 to-histown-secondary/10 p-2">
+                <div className="w-72 h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 transform group-hover:scale-105 bg-gradient-to-br from-histown-accent/5 to-histown-secondary/5 p-2">
                   <div className="w-full h-full rounded-2xl overflow-hidden">
                     <LazyImage
                       src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762307103/5dfj0Ng_z8qr1f.png"
@@ -506,7 +530,7 @@ function App() {
             {/* Musicians */}
             <div className="group text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
               <div className="relative mb-8">
-                <div className="w-72 h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 transform group-hover:scale-105 bg-gradient-to-br from-histown-secondary/10 to-histown-primary/10 p-2">
+                <div className="w-72 h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 transform group-hover:scale-105 bg-gradient-to-br from-histown-secondary/5 to-histown-primary/5 p-2">
                   <div className="w-full h-full rounded-2xl overflow-hidden">
                     <LazyImage
                       src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762307104/zYc8QQs_no8iw4.png"
