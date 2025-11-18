@@ -3,15 +3,8 @@ import { Link } from 'react-router-dom';
 import NavBar from '../components/layout/NavBar';
 import { homeContent } from '../content/home';
 
-const About: React.FC = () => {
+const Contact: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-
-  const aboutSections = [
-    { id: 'team', name: 'Our Team', description: 'Meet the passionate instructors and staff dedicated to nurturing talent and faith in every student', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910671/Our_Team_jazcc3.png', position: 'center center', link: '/about/team' },
-    { id: 'story', name: 'Our Story', description: 'Discover the journey of how HisTown became a beacon of faith-centered arts education in our community', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910672/Our_Story.jpg_gcfdgd.webp', position: 'center center', link: '/about/story' },
-    { id: 'contact', name: 'Contact Us', description: 'Get in touch with our team to learn more, schedule a visit, or ask any questions', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910868/Contact_vjskho.avif', position: 'center center', link: '/contact' },
-    { id: 'events', name: 'K-LOVE Awards', description: 'Explore our history of community performances, recitals, and faith-filled celebrations', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763239290/Screenshot_2025-11-15_at_2.41.13_PM_evpu5v.png', position: 'center center', link: '/past-events' }
-  ];
 
   useEffect(() => {
     const observerOptions = {
@@ -34,12 +27,12 @@ const About: React.FC = () => {
 
     // Testimonials carousel
     const testimonials = [
-      { author: "Emily Song", text: "My daughter just completed her first semester at Histown and it has been an incredibly positive experience! The teachers are gracious, kind, and very knowledgeable about dance and the instructional tools/pacing needed to help students succeed at various age levels." },
-      { author: "Justine Vild", text: "My daughter has been dancing at Histown for many years. There are lots of things I love about this studio, not the least of them being that it's a Christian dance studio. I love their scheduling and the recital songs are either Christian or clean songs." },
-      { author: "Kathleen Crews", text: "Histown provides the healthy dance experience I wanted for my daughter. The owners, teachers, and office manager have created a family-like atmosphere where dancers support and cheer for each other." }
+      { author: "Emily Song", text: "My daughter just completed her first semester at Histown and it has been an incredibly positive experience! The teachers are gracious, kind, and very knowledgeable about dance." },
+      { author: "Justine Vild", text: "My daughter has been dancing at Histown for many years. There are lots of things I love about this studio, not the least of them being that it's a Christian dance studio." },
+      { author: "Kathleen Crews", text: "Histown provides the healthy dance experience I wanted for my daughter. The owners, teachers, and office manager have created a family-like atmosphere." }
     ];
 
-    const testimonialsTrack = document.getElementById('testimonials-track-about');
+    const testimonialsTrack = document.getElementById('testimonials-track-contact');
     if (testimonialsTrack) {
       testimonialsTrack.innerHTML = testimonials.map(testimonial => `
         <div class="flex-none w-80 mx-4 bg-white rounded-2xl shadow-lg border border-gray-200 p-6 min-h-80 flex flex-col">
@@ -74,8 +67,8 @@ const About: React.FC = () => {
         testimonialsTrack.style.transform = `translateX(${translateX}px)`;
       };
 
-      const prevBtn = document.getElementById('testimonial-prev-about');
-      const nextBtn = document.getElementById('testimonial-next-about');
+      const prevBtn = document.getElementById('testimonial-prev-contact');
+      const nextBtn = document.getElementById('testimonial-next-contact');
 
       if (prevBtn && nextBtn) {
         prevBtn.addEventListener('click', () => {
@@ -107,10 +100,9 @@ const About: React.FC = () => {
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910666/About_Us_tgzrww.jpg)',
-            backgroundPosition: 'center 80%',
+            backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910868/Contact_vjskho.avif)',
             filter: 'brightness(0.7)'
           }}
         ></div>
@@ -119,7 +111,7 @@ const About: React.FC = () => {
         
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-black uppercase mb-2 text-white" style={{ fontWeight: 900, textShadow: '0 4px 6px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3)' }}>
-            ABOUT US
+            CONTACT US
           </h1>
           <div className="flex items-center justify-center space-x-2 mb-6">
             <div className="h-1 w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
@@ -129,18 +121,18 @@ const About: React.FC = () => {
             <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
           </div>
           <p className="text-xl md:text-2xl text-white mb-8 leading-relaxed" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)' }}>
-            Discover the heart and soul behind HisTown's mission to inspire through faith and creativity
+            Get in touch with our team - we'd love to hear from you!
           </p>
         </div>
       </section>
 
-      {/* About Sections Grid */}
+      {/* Contact Section */}
       <section 
         className="py-20 md:py-32 relative overflow-hidden"
         style={{
           clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)',
-          marginTop: '-4rem',
-          paddingTop: '6rem',
+          marginTop: '-6rem',
+          paddingTop: '8rem',
           marginBottom: '-4rem',
           paddingBottom: '6rem',
           background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 20%, #dbeafe 40%, #bae6fd 60%, #7dd3fc 80%, #38bdf8 100%)'
@@ -149,47 +141,134 @@ const About: React.FC = () => {
         <div className="absolute inset-0 bg-white opacity-70"></div>
         <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at 15% 25%, rgba(14, 116, 144, 0.25) 0%, transparent 45%), radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.25) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 55%)' }}></div>
         <div className="absolute inset-0 opacity-25" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%230891b2\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z\' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}></div>
-        <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        
+        <div className="relative max-w-6xl mx-auto px-12 sm:px-16 lg:px-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             
-            {aboutSections.map((section, index) => (
-              <div 
-                key={section.id}
-                id={section.id}
-                className="group rounded-3xl overflow-visible animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-mt-32 flex flex-col" 
-                style={{ transitionDelay: `${(index % 2) * 200 + 200}ms` }}
-              >
-                <div className="relative h-80 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500">
-                  <img 
-                    src={section.image}
-                    alt={section.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    style={{ objectPosition: section.position }}
-                  />
-                </div>
-                <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10 flex flex-col flex-1">
-                  <div className="p-6 rounded-2xl flex flex-col flex-1" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                    <h3 className="text-xl md:text-2xl font-black uppercase text-gray-800 mb-2" style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)', lineHeight: '1.2' }}>
-                      {section.name}
-                    </h3>
-                    <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
-                    <p className="text-gray-600 mb-4 leading-relaxed text-sm flex-1 min-h-[3rem]">
-                      {section.description}
-                    </p>
-                    <Link 
-                      to={section.link}
-                      className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 w-full text-center block"
-                    >
-                      LEARN MORE →
-                    </Link>
+            {/* Contact Information */}
+            <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+              <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-3xl shadow-lg">
+                <div className="p-8 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <h2 className="text-3xl md:text-4xl font-black uppercase text-gray-800 mb-6">
+                    GET IN TOUCH
+                  </h2>
+                  
+                  <div className="space-y-6">
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 bg-gradient-to-br from-histown-primary to-histown-accent rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg text-gray-800 mb-1">Address</h3>
+                        <p className="text-gray-600">1010 Perrone Way, Suite 200</p>
+                        <p className="text-gray-600">Franklin, TN 37069</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 bg-gradient-to-br from-histown-primary to-histown-accent rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg text-gray-800 mb-1">Phone</h3>
+                        <p className="text-gray-600">(615) 640-8349</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 bg-gradient-to-br from-histown-primary to-histown-accent rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg text-gray-800 mb-1">Email</h3>
+                        <p className="text-gray-600">info@histown.com</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 bg-gradient-to-br from-histown-primary to-histown-accent rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg text-gray-800 mb-1">Hours</h3>
+                        <p className="text-gray-600">Monday - Friday: 3:00 PM - 9:00 PM</p>
+                        <p className="text-gray-600">Saturday: 9:00 AM - 2:00 PM</p>
+                        <p className="text-gray-600">Sunday: Closed</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
 
+            {/* Contact Form */}
+            <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
+              <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-2 rounded-3xl shadow-lg">
+                <div className="p-8 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <h2 className="text-3xl md:text-4xl font-black uppercase text-gray-800 mb-6">
+                    SEND US A MESSAGE
+                  </h2>
+                  
+                  <form className="space-y-4">
+                    <div>
+                      <label className="block text-gray-700 font-medium mb-2">Name*</label>
+                      <input 
+                        type="text" 
+                        className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-histown-primary focus:outline-none transition-colors"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-gray-700 font-medium mb-2">Email*</label>
+                      <input 
+                        type="email" 
+                        className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-histown-primary focus:outline-none transition-colors"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-gray-700 font-medium mb-2">Phone</label>
+                      <input 
+                        type="tel" 
+                        className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-histown-primary focus:outline-none transition-colors"
+                        placeholder="(123) 456-7890"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-gray-700 font-medium mb-2">Message*</label>
+                      <textarea 
+                        rows={5}
+                        className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-histown-primary focus:outline-none transition-colors resize-none"
+                        placeholder="Tell us how we can help you..."
+                      ></textarea>
+                    </div>
+                    
+                    <button 
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-histown-accent to-histown-primary text-white font-bold py-4 px-8 rounded-xl uppercase tracking-wide hover:scale-105 transform transition-all duration-300 shadow-lg"
+                    >
+                      SEND MESSAGE
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* Why Us Section */}
       <section 
@@ -211,76 +290,76 @@ const About: React.FC = () => {
         <div className="absolute inset-0 bg-black/20"></div>
         
         <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
-            <div className="text-center mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out flex flex-col items-center">
-              <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
-                WHY US?
-              </h2>
-              <div className="flex items-center justify-center space-x-2 mb-4" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))' }}>
-                <div className="h-1 w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
-                <div className="w-3 h-3 bg-white/80 rounded-full"></div>
-                <div className="h-1 w-40 bg-gradient-to-r from-white via-white/80 to-white rounded-full"></div>
-                <div className="w-3 h-3 bg-white/80 rounded-full"></div>
-                <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
+          <div className="text-center mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out flex flex-col items-center">
+            <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
+              WHY US?
+            </h2>
+            <div className="flex items-center justify-center space-x-2 mb-4" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))' }}>
+              <div className="h-1 w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
+              <div className="w-3 h-3 bg-white/80 rounded-full"></div>
+              <div className="h-1 w-40 bg-gradient-to-r from-white via-white/80 to-white rounded-full"></div>
+              <div className="w-3 h-3 bg-white/80 rounded-full"></div>
+              <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
+            </div>
+          </div>
+
+          <div className="text-center mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
+            <p className="text-lg text-white max-w-4xl mx-auto leading-relaxed blue-section-text">
+              We provide arts education in a Christ-centered environment that nurtures each student's God-given gifts for ministry, outreach, and entertainment.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
+              <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-2xl shadow-lg">
+                <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                    <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS HEART</h3>
+                  <p className="text-histown-text-muted leading-relaxed">
+                    At the heart of our mission is God's love—a love that nurtures, uplifts, and calls us to use our gifts for His praise.
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="text-center mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
-              <p className="text-lg text-white max-w-4xl mx-auto leading-relaxed blue-section-text">
-                We provide arts education in a Christ-centered environment that nurtures each student's God-given gifts for ministry, outreach, and entertainment.
-              </p>
+            <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
+              <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-1.5 rounded-2xl shadow-lg">
+                <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                    <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS GLORY</h3>
+                  <p className="text-histown-text-muted leading-relaxed">
+                    We teach not for the applause of people, but to reflect God's glory, honoring Him with excellence and joy.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
-                <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-2xl shadow-lg">
-                  <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                      <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                      </svg>
-                    </div>
-                    <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS HEART</h3>
-                    <p className="text-histown-text-muted leading-relaxed">
-                      At the heart of our mission is God's love—a love that nurtures, uplifts, and calls us to use our gifts for His praise.
-                    </p>
+            <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '800ms' }}>
+              <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-1.5 rounded-2xl shadow-lg">
+                <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                    <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
                   </div>
-                </div>
-              </div>
-
-              <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
-                <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-1.5 rounded-2xl shadow-lg">
-                  <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                      <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                      </svg>
-                    </div>
-                    <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS GLORY</h3>
-                    <p className="text-histown-text-muted leading-relaxed">
-                      We teach not for the applause of people, but to reflect God's glory, honoring Him with excellence and joy.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '800ms' }}>
-                <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-1.5 rounded-2xl shadow-lg">
-                  <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                      <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                      </svg>
-                    </div>
-                    <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HISTOWN</h3>
-                    <p className="text-histown-text-muted leading-relaxed">
-                      HisTown is more than a studio—it's God's town, where creativity, community, and worship come together in His name.
-                    </p>
-                  </div>
+                  <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HISTOWN</h3>
+                  <p className="text-histown-text-muted leading-relaxed">
+                    HisTown is more than a studio—it's God's town, where creativity, community, and worship come together in His name.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
       {/* Testimonials Section */}
       <section className="bg-white py-16 md:py-24" style={{ marginTop: '-4rem', paddingTop: '6rem', marginBottom: '-4rem', paddingBottom: '6rem' }}>
@@ -307,14 +386,13 @@ const About: React.FC = () => {
             <img 
               src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762304027/ChatGPT_Image_Nov_4_2025_at_06_53_22_PM_w3why3.png" 
               alt="Best of Parenting 2025 Winner" 
-              className="h-40 w-auto object-contain rounded-2xl max-h-40"
-              style={{ maxHeight: '10rem' }}
+              className="h-48 w-auto object-contain rounded-2xl"
             />
           </div>
 
           <div className="relative px-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
             <button 
-              id="testimonial-prev-about"
+              id="testimonial-prev-contact"
               className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
             >
               <svg className="w-6 h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -323,7 +401,7 @@ const About: React.FC = () => {
             </button>
 
             <button 
-              id="testimonial-next-about"
+              id="testimonial-next-contact"
               className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
             >
               <svg className="w-6 h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -332,12 +410,13 @@ const About: React.FC = () => {
             </button>
 
             <div className="overflow-hidden py-4">
-              <div id="testimonials-track-about" className="flex transition-transform duration-300 ease-in-out">
+              <div id="testimonials-track-contact" className="flex transition-transform duration-300 ease-in-out">
               </div>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* Next Steps Section */}
       <section 
@@ -486,13 +565,6 @@ const About: React.FC = () => {
                 </a>
               </div>
             </div>
-
-          </div>
-          
-          <div className="border-t border-gray-700 mt-8 pt-6 text-center">
-            <p className="text-sm text-gray-400">
-              {homeContent.footer.copyright}
-            </p>
           </div>
         </div>
       </footer>
@@ -500,4 +572,4 @@ const About: React.FC = () => {
   );
 };
 
-export default About;
+export default Contact;

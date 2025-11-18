@@ -42,19 +42,19 @@ export const homeContent: HomeContent = {
                 {
                   subtitle: 'MUSIC',
                   items: [
-                    { label: 'Piano Lessons', href: '/classes/piano-lessons' },
-                    { label: 'Guitar Lessons', href: '/classes/guitar-lessons' },
-                    { label: 'Violin Lessons', href: '/classes/violin-lessons' },
-                    { label: 'Vocal Lessons', href: '/classes/vocal-lessons' }
+                    { label: 'Piano Lessons', href: '/classes/music/piano' },
+                    { label: 'Guitar Lessons', href: '/classes/music/guitar' },
+                    { label: 'Violin Lessons', href: '/classes/music/violin' },
+                    { label: 'Vocal Lessons', href: '/classes/music/vocal' }
                   ]
                 },
                 {
                   subtitle: 'FEATURED',
                   items: [
-                    { label: 'Acting Classes', href: '/classes/acting' },
-                    { label: 'Adult Classes', href: '/classes/adult' },
-                    { label: 'Company Classes', href: '/classes/company' },
-                    { label: 'Competition Teams', href: '/classes/competition-teams' }
+                    { label: 'Acting Classes', href: '/classes/featured/acting' },
+                    { label: 'Adult Classes', href: '/classes/featured/adult' },
+                    { label: 'Company Classes', href: '/classes/featured/company' },
+                    { label: 'Competition Teams', href: '/classes/featured/competition' }
                   ]
                 }
               ]
@@ -69,8 +69,8 @@ export const homeContent: HomeContent = {
         dropdownItems: [
           { label: 'Our Team', href: '/about/team' },
           { label: 'Our Story', href: '/about/story' },
-          { label: 'Contact Us', href: '/about/contact' },
-          { label: 'Past Public Events', href: '/about/events' }
+          { label: 'Contact Us', href: '/contact' },
+          { label: 'K-LOVE Awards', href: '/past-events' }
         ]
       },
       { 
@@ -81,10 +81,10 @@ export const homeContent: HomeContent = {
           { label: 'Dress Code', href: '/dress-code' },
           { label: 'Studio Rental', href: '/studio-rental' },
           { label: 'Tuition & Fees', href: '/tuition-fees' },
-          { label: 'Class Schedule', href: '/schedule' }
+          { label: 'Class Schedule', href: 'https://app.thestudiodirector.com/histown/portal.sd?page=Enroll&meth=search&SEASON=Fall+2017+-+Spring+2018' }
         ]
       },
-      { label: 'Store', href: '#store' }
+      { label: 'Store', href: '/store' }
     ],
     externalLogin: { 
       label: 'LOGIN', 

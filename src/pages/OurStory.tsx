@@ -3,43 +3,18 @@ import { Link } from 'react-router-dom';
 import NavBar from '../components/layout/NavBar';
 import { homeContent } from '../content/home';
 
-const About: React.FC = () => {
+const OurStory: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
-  const aboutSections = [
-    { id: 'team', name: 'Our Team', description: 'Meet the passionate instructors and staff dedicated to nurturing talent and faith in every student', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910671/Our_Team_jazcc3.png', position: 'center center', link: '/about/team' },
-    { id: 'story', name: 'Our Story', description: 'Discover the journey of how HisTown became a beacon of faith-centered arts education in our community', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910672/Our_Story.jpg_gcfdgd.webp', position: 'center center', link: '/about/story' },
-    { id: 'contact', name: 'Contact Us', description: 'Get in touch with our team to learn more, schedule a visit, or ask any questions', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910868/Contact_vjskho.avif', position: 'center center', link: '/contact' },
-    { id: 'events', name: 'K-LOVE Awards', description: 'Explore our history of community performances, recitals, and faith-filled celebrations', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763239290/Screenshot_2025-11-15_at_2.41.13_PM_evpu5v.png', position: 'center center', link: '/past-events' }
-  ];
-
   useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-        } else {
-          entry.target.classList.remove('in-view');
-        }
-      });
-    }, observerOptions);
-
-    const animateElements = document.querySelectorAll('.animate-on-scroll');
-    animateElements.forEach((el) => observer.observe(el));
-
     // Testimonials carousel
     const testimonials = [
-      { author: "Emily Song", text: "My daughter just completed her first semester at Histown and it has been an incredibly positive experience! The teachers are gracious, kind, and very knowledgeable about dance and the instructional tools/pacing needed to help students succeed at various age levels." },
-      { author: "Justine Vild", text: "My daughter has been dancing at Histown for many years. There are lots of things I love about this studio, not the least of them being that it's a Christian dance studio. I love their scheduling and the recital songs are either Christian or clean songs." },
-      { author: "Kathleen Crews", text: "Histown provides the healthy dance experience I wanted for my daughter. The owners, teachers, and office manager have created a family-like atmosphere where dancers support and cheer for each other." }
+      { author: "Emily Song", text: "My daughter just completed her first semester at Histown and it has been an incredibly positive experience! The teachers are gracious, kind, and very knowledgeable about dance." },
+      { author: "Justine Vild", text: "My daughter has been dancing at Histown for many years. There are lots of things I love about this studio, not the least of them being that it's a Christian dance studio." },
+      { author: "Kathleen Crews", text: "Histown provides the healthy dance experience I wanted for my daughter. The owners, teachers, and office manager have created a family-like atmosphere." }
     ];
 
-    const testimonialsTrack = document.getElementById('testimonials-track-about');
+    const testimonialsTrack = document.getElementById('testimonials-track-story');
     if (testimonialsTrack) {
       testimonialsTrack.innerHTML = testimonials.map(testimonial => `
         <div class="flex-none w-80 mx-4 bg-white rounded-2xl shadow-lg border border-gray-200 p-6 min-h-80 flex flex-col">
@@ -74,8 +49,8 @@ const About: React.FC = () => {
         testimonialsTrack.style.transform = `translateX(${translateX}px)`;
       };
 
-      const prevBtn = document.getElementById('testimonial-prev-about');
-      const nextBtn = document.getElementById('testimonial-next-about');
+      const prevBtn = document.getElementById('testimonial-prev-story');
+      const nextBtn = document.getElementById('testimonial-next-story');
 
       if (prevBtn && nextBtn) {
         prevBtn.addEventListener('click', () => {
@@ -93,8 +68,6 @@ const About: React.FC = () => {
         });
       }
     }
-
-    return () => observer.disconnect();
   }, []);
 
   return (
@@ -107,10 +80,10 @@ const About: React.FC = () => {
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910666/About_Us_tgzrww.jpg)',
-            backgroundPosition: 'center 80%',
+            backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910672/Our_Story.jpg_gcfdgd.webp)',
+            backgroundPosition: 'center center',
             filter: 'brightness(0.7)'
           }}
         ></div>
@@ -119,7 +92,7 @@ const About: React.FC = () => {
         
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-black uppercase mb-2 text-white" style={{ fontWeight: 900, textShadow: '0 4px 6px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3)' }}>
-            ABOUT US
+            OUR STORY
           </h1>
           <div className="flex items-center justify-center space-x-2 mb-6">
             <div className="h-1 w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
@@ -129,17 +102,17 @@ const About: React.FC = () => {
             <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
           </div>
           <p className="text-xl md:text-2xl text-white mb-8 leading-relaxed" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)' }}>
-            Discover the heart and soul behind HisTown's mission to inspire through faith and creativity
+            Discover the journey of how HisTown became a beacon of faith-centered arts education
           </p>
         </div>
       </section>
 
-      {/* About Sections Grid */}
+      {/* Content Section */}
       <section 
-        className="py-20 md:py-32 relative overflow-hidden"
-        style={{
-          clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)',
-          marginTop: '-4rem',
+        className="py-20 md:py-32 relative" 
+        style={{ 
+          clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)', 
+          marginTop: '-4rem', 
           paddingTop: '6rem',
           marginBottom: '-4rem',
           paddingBottom: '6rem',
@@ -149,47 +122,59 @@ const About: React.FC = () => {
         <div className="absolute inset-0 bg-white opacity-70"></div>
         <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at 15% 25%, rgba(14, 116, 144, 0.25) 0%, transparent 45%), radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.25) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 55%)' }}></div>
         <div className="absolute inset-0 opacity-25" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%230891b2\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z\' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}></div>
-        <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        
+        <div className="relative max-w-5xl mx-auto px-12 sm:px-16 lg:px-20">
+          <div className="group rounded-3xl overflow-visible">
+            {/* Story Image */}
+            <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+              <img 
+                src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910672/Our_Story.jpg_gcfdgd.webp"
+                alt="Our Story"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: 'center center' }}
+              />
+            </div>
             
-            {aboutSections.map((section, index) => (
-              <div 
-                key={section.id}
-                id={section.id}
-                className="group rounded-3xl overflow-visible animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-mt-32 flex flex-col" 
-                style={{ transitionDelay: `${(index % 2) * 200 + 200}ms` }}
-              >
-                <div className="relative h-80 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500">
-                  <img 
-                    src={section.image}
-                    alt={section.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    style={{ objectPosition: section.position }}
-                  />
-                </div>
-                <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10 flex flex-col flex-1">
-                  <div className="p-6 rounded-2xl flex flex-col flex-1" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                    <h3 className="text-xl md:text-2xl font-black uppercase text-gray-800 mb-2" style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)', lineHeight: '1.2' }}>
-                      {section.name}
-                    </h3>
-                    <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
-                    <p className="text-gray-600 mb-4 leading-relaxed text-sm flex-1 min-h-[3rem]">
-                      {section.description}
-                    </p>
-                    <Link 
-                      to={section.link}
-                      className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 w-full text-center block"
-                    >
-                      LEARN MORE →
-                    </Link>
+            {/* Description Card with Blue Border */}
+            <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
+              <div className="p-8 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                <div className="text-center mb-6">
+                  <h3 className="text-3xl md:text-4xl font-black uppercase text-gray-800 mb-4">
+                    OUR STORY
+                  </h3>
+                  <div className="flex items-center justify-center space-x-2">
+                    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-histown-primary rounded-full"></div>
+                    <div className="w-2.5 h-2.5 bg-histown-accent rounded-full"></div>
+                    <div className="h-1 w-32 bg-gradient-to-r from-histown-primary via-histown-accent to-histown-primary rounded-full"></div>
+                    <div className="w-2.5 h-2.5 bg-histown-accent rounded-full"></div>
+                    <div className="h-1 w-16 bg-gradient-to-r from-histown-primary to-transparent rounded-full"></div>
                   </div>
                 </div>
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  HisTown Dance Studio was founded with a vision to create a space where students could develop their artistic talents while growing in their faith. What began as a small studio with a handful of passionate instructors has blossomed into a thriving community of dancers, musicians, and families united by a common purpose: to glorify God through the arts.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  Our founders, Ken and Teresa, felt called to establish a studio that would be different from traditional dance schools. They envisioned a place where technical excellence would be paired with spiritual growth, where students would learn not just to perform, but to worship through movement. This vision has guided every decision, from the classes we offer to the instructors we hire.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-8">
+                  Today, HisTown continues to grow and evolve, but our core mission remains unchanged: to provide exceptional arts education in a Christ-centered environment. We are grateful for every family that has trusted us with their children, every instructor who has poured their heart into teaching, and every student who has discovered their God-given gifts within our walls. This is His town, and we are honored to be part of His story.
+                </p>
+                
+                {/* Back to About Button */}
+                <div className="text-center">
+                  <Link 
+                    to="/about"
+                    className="inline-block bg-gradient-to-r from-histown-accent to-histown-primary text-white font-bold px-12 py-4 rounded-xl uppercase tracking-wide hover:scale-105 transform transition-all duration-300 shadow-lg"
+                  >
+                    Back to About
+                  </Link>
+                </div>
               </div>
-            ))}
-
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* Why Us Section */}
       <section 
@@ -211,81 +196,82 @@ const About: React.FC = () => {
         <div className="absolute inset-0 bg-black/20"></div>
         
         <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
-            <div className="text-center mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out flex flex-col items-center">
-              <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
-                WHY US?
-              </h2>
-              <div className="flex items-center justify-center space-x-2 mb-4" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))' }}>
-                <div className="h-1 w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
-                <div className="w-3 h-3 bg-white/80 rounded-full"></div>
-                <div className="h-1 w-40 bg-gradient-to-r from-white via-white/80 to-white rounded-full"></div>
-                <div className="w-3 h-3 bg-white/80 rounded-full"></div>
-                <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
+          <div className="text-center mb-8 flex flex-col items-center">
+            <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
+              WHY US?
+            </h2>
+            <div className="flex items-center justify-center space-x-2 mb-4" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))' }}>
+              <div className="h-1 w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
+              <div className="w-3 h-3 bg-white/80 rounded-full"></div>
+              <div className="h-1 w-40 bg-gradient-to-r from-white via-white/80 to-white rounded-full"></div>
+              <div className="w-3 h-3 bg-white/80 rounded-full"></div>
+              <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
+            </div>
+          </div>
+
+          <div className="text-center mb-12">
+            <p className="text-lg text-white max-w-4xl mx-auto leading-relaxed blue-section-text">
+              We provide arts education in a Christ-centered environment that nurtures each student's God-given gifts for ministry, outreach, and entertainment.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-2xl shadow-lg">
+                <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 30%, #e0f2fe 60%, #dbeafe 85%, #e0f2fe 100%)' }}>
+                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                    <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS HEART</h3>
+                  <p className="text-histown-text-muted leading-relaxed">
+                    At the heart of our mission is God's love—a love that nurtures, uplifts, and calls us to use our gifts for His praise.
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="text-center mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
-              <p className="text-lg text-white max-w-4xl mx-auto leading-relaxed blue-section-text">
-                We provide arts education in a Christ-centered environment that nurtures each student's God-given gifts for ministry, outreach, and entertainment.
-              </p>
+
+            <div>
+              <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-2 rounded-2xl shadow-lg">
+                <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 30%, #e0f2fe 60%, #dbeafe 85%, #e0f2fe 100%)' }}>
+                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                    <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS GLORY</h3>
+                  <p className="text-histown-text-muted leading-relaxed">
+                    We teach not for the applause of people, but to reflect God's glory, honoring Him with excellence and joy.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
-                <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-2xl shadow-lg">
-                  <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                      <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                      </svg>
-                    </div>
-                    <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS HEART</h3>
-                    <p className="text-histown-text-muted leading-relaxed">
-                      At the heart of our mission is God's love—a love that nurtures, uplifts, and calls us to use our gifts for His praise.
-                    </p>
+            <div>
+              <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-2 rounded-2xl shadow-lg">
+                <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 30%, #e0f2fe 60%, #dbeafe 85%, #e0f2fe 100%)' }}>
+                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                    <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
                   </div>
-                </div>
-              </div>
-
-              <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
-                <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-1.5 rounded-2xl shadow-lg">
-                  <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                      <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                      </svg>
-                    </div>
-                    <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS GLORY</h3>
-                    <p className="text-histown-text-muted leading-relaxed">
-                      We teach not for the applause of people, but to reflect God's glory, honoring Him with excellence and joy.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '800ms' }}>
-                <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-1.5 rounded-2xl shadow-lg">
-                  <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                      <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                      </svg>
-                    </div>
-                    <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HISTOWN</h3>
-                    <p className="text-histown-text-muted leading-relaxed">
-                      HisTown is more than a studio—it's God's town, where creativity, community, and worship come together in His name.
-                    </p>
-                  </div>
+                  <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HISTOWN</h3>
+                  <p className="text-histown-text-muted leading-relaxed">
+                    HisTown is more than a studio—it's God's town, where creativity, community, and worship come together in His name.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
       {/* Testimonials Section */}
       <section className="bg-white py-16 md:py-24" style={{ marginTop: '-4rem', paddingTop: '6rem', marginBottom: '-4rem', paddingBottom: '6rem' }}>
         <div className="max-w-6xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="text-center mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+          <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
               TESTIMONIALS
             </h2>
@@ -298,7 +284,8 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex justify-center gap-8 mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
+
+          <div className="flex justify-center gap-8 mb-8">
             <img 
               src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762302377/2yG3qAq_nzcotl.png" 
               alt="Williamson's Best 2025 Winner" 
@@ -307,14 +294,13 @@ const About: React.FC = () => {
             <img 
               src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762304027/ChatGPT_Image_Nov_4_2025_at_06_53_22_PM_w3why3.png" 
               alt="Best of Parenting 2025 Winner" 
-              className="h-40 w-auto object-contain rounded-2xl max-h-40"
-              style={{ maxHeight: '10rem' }}
+              className="h-48 w-auto object-contain rounded-2xl"
             />
           </div>
 
-          <div className="relative px-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
+          <div className="relative px-16">
             <button 
-              id="testimonial-prev-about"
+              id="testimonial-prev-story"
               className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
             >
               <svg className="w-6 h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -323,7 +309,7 @@ const About: React.FC = () => {
             </button>
 
             <button 
-              id="testimonial-next-about"
+              id="testimonial-next-story"
               className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
             >
               <svg className="w-6 h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -332,7 +318,7 @@ const About: React.FC = () => {
             </button>
 
             <div className="overflow-hidden py-4">
-              <div id="testimonials-track-about" className="flex transition-transform duration-300 ease-in-out">
+              <div id="testimonials-track-story" className="flex transition-transform duration-300 ease-in-out">
               </div>
             </div>
           </div>
@@ -359,7 +345,7 @@ const About: React.FC = () => {
         <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center justify-items-center">
             
-            <div className="text-white blue-section-text animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out text-center w-full max-w-md">
+            <div className="text-white blue-section-text text-center w-full max-w-md">
               <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
                 NEXT STEPS
               </h2>
@@ -375,11 +361,9 @@ const About: React.FC = () => {
               </p>
               
               <div className="space-y-4">
-                <Link to="/free-trial" className="block">
-                  <button className="w-full bg-white text-histown-primary hover:bg-white/95 hover:text-histown-accent font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-                    REQUEST A TRIAL CLASS
-                  </button>
-                </Link>
+                <button className="w-full bg-white text-histown-primary hover:bg-white/95 hover:text-histown-accent font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+                  REQUEST A TRIAL CLASS
+                </button>
                 <Link to="/contact" className="block">
                   <button className="w-full bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-histown-primary transition-all duration-300 transform hover:scale-105">
                     CONTACT US
@@ -388,7 +372,7 @@ const About: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-white/10 blue-section-card backdrop-blur-sm rounded-3xl p-8 border border-white/20 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '300ms' }}>
+            <div className="bg-white/10 blue-section-card backdrop-blur-sm rounded-3xl p-8 border border-white/20">
               <h3 className="text-3xl font-bold text-white mb-4 uppercase blue-section-text">
                 SIGN UP FOR EMAIL UPDATES
               </h3>
@@ -486,13 +470,6 @@ const About: React.FC = () => {
                 </a>
               </div>
             </div>
-
-          </div>
-          
-          <div className="border-t border-gray-700 mt-8 pt-6 text-center">
-            <p className="text-sm text-gray-400">
-              {homeContent.footer.copyright}
-            </p>
           </div>
         </div>
       </footer>
@@ -500,4 +477,4 @@ const About: React.FC = () => {
   );
 };
 
-export default About;
+export default OurStory;

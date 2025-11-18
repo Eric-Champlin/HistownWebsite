@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import NavBar from '../components/layout/NavBar';
 import { homeContent } from '../content/home';
 
@@ -158,7 +159,7 @@ const Programs: React.FC = () => {
           paddingTop: '6rem',
           marginBottom: '-4rem',
           paddingBottom: '6rem',
-          background: 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 20%, #7dd3fc 40%, #38bdf8 60%, #0ea5e9 80%, #0284c7 100%)'
+          background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 20%, #dbeafe 40%, #bae6fd 60%, #7dd3fc 80%, #38bdf8 100%)'
         }}
       >
         <div className="absolute inset-0 bg-white opacity-70"></div>
@@ -177,17 +178,19 @@ const Programs: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
-              <div className="bg-white p-6 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
-                <h3 className="text-2xl md:text-3xl font-black uppercase text-gray-800 mb-2">
-                  DANCE CLASSES
-                </h3>
-                <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
-                <p className="text-gray-600 mb-4 leading-relaxed text-sm">
-                  From ballet to contemporary, discover the joy of movement in a Christ-centered environment
-                </p>
-                <a href="/classes/dance" className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 inline-block">
-                  MORE INFO →
-                </a>
+              <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
+                <div className="p-6 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase text-gray-800 mb-2">
+                    DANCE CLASSES
+                  </h3>
+                  <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
+                  <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                    From ballet to contemporary, discover the joy of movement in a Christ-centered environment
+                  </p>
+                  <a href="/classes/dance" className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 inline-block">
+                    MORE INFO →
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -200,17 +203,19 @@ const Programs: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
-              <div className="bg-white p-6 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
-                <h3 className="text-2xl md:text-3xl font-black uppercase text-gray-800 mb-2">
-                  MUSIC CLASSES
-                </h3>
-                <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
-                <p className="text-gray-600 mb-4 leading-relaxed text-sm">
-                  Unlock your musical potential with personalized instruction from gifted teachers
-                </p>
-                <a href="/classes/music" className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 inline-block">
-                  MORE INFO →
-                </a>
+              <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
+                <div className="p-6 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase text-gray-800 mb-2">
+                    MUSIC CLASSES
+                  </h3>
+                  <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
+                  <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                    Unlock your musical potential with personalized instruction from gifted teachers
+                  </p>
+                  <a href="/classes/music" className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 inline-block">
+                    MORE INFO →
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -223,17 +228,19 @@ const Programs: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
-              <div className="bg-white p-6 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
-                <h3 className="text-2xl md:text-3xl font-black uppercase text-gray-800 mb-2">
-                  FEATURED
-                </h3>
-                <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
-                <p className="text-gray-600 mb-4 leading-relaxed text-sm">
-                  Elite training, performance opportunities, and specialized programs for advanced students
-                </p>
-                <a href="/classes/featured" className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 inline-block">
-                  MORE INFO →
-                </a>
+              <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
+                <div className="p-6 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase text-gray-800 mb-2">
+                    FEATURED
+                  </h3>
+                  <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
+                  <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                    Elite training, performance opportunities, and specialized programs for advanced students
+                  </p>
+                  <a href="/classes/featured" className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 inline-block">
+                    MORE INFO →
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -246,17 +253,19 @@ const Programs: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
-              <div className="bg-white p-6 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
-                <h3 className="text-2xl md:text-3xl font-black uppercase text-gray-800 mb-2">
-                  TUITION & FEES
-                </h3>
-                <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
-                <p className="text-gray-600 mb-4 leading-relaxed text-sm">
-                  Transparent pricing and flexible payment options to make quality instruction accessible
-                </p>
-                <button className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300">
-                  VIEW PRICING →
-                </button>
+              <div className="bg-gradient-to-br from-histown-primary/40 to-histown-secondary/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
+                <div className="p-6 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <h3 className="text-2xl md:text-3xl font-black uppercase text-gray-800 mb-2">
+                    TUITION & FEES
+                  </h3>
+                  <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
+                  <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                    Transparent pricing and flexible payment options to make quality instruction accessible
+                  </p>
+                  <button className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300">
+                    VIEW PRICING →
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -309,8 +318,8 @@ const Programs: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* His Heart */}
               <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
-                <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-2xl shadow-lg">
-                  <div className="text-center bg-white p-8 rounded-xl h-full">
+                <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-2xl shadow-lg">
+                  <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 30%, #e0f2fe 60%, #dbeafe 85%, #e0f2fe 100%)' }}>
                     <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                       <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
@@ -326,8 +335,8 @@ const Programs: React.FC = () => {
 
               {/* His Glory */}
               <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
-                <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-2 rounded-2xl shadow-lg">
-                  <div className="text-center bg-white p-8 rounded-xl h-full">
+                <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-1.5 rounded-2xl shadow-lg">
+                  <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 30%, #e0f2fe 60%, #dbeafe 85%, #e0f2fe 100%)' }}>
                     <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                       <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -343,8 +352,8 @@ const Programs: React.FC = () => {
 
               {/* HisTown */}
               <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '800ms' }}>
-                <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-2 rounded-2xl shadow-lg">
-                  <div className="text-center bg-white p-8 rounded-xl h-full">
+                <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-1.5 rounded-2xl shadow-lg">
+                  <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 30%, #e0f2fe 60%, #dbeafe 85%, #e0f2fe 100%)' }}>
                     <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                       <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
@@ -463,12 +472,16 @@ const Programs: React.FC = () => {
               </p>
               
               <div className="space-y-4">
-                <button className="w-full bg-white text-histown-primary hover:bg-white/95 hover:text-histown-accent font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-                  REQUEST A TRIAL CLASS
-                </button>
-                <button className="w-full bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-histown-primary transition-all duration-300 transform hover:scale-105">
-                  CONTACT US
-                </button>
+                <Link to="/free-trial" className="block">
+                  <button className="w-full bg-white text-histown-primary hover:bg-white/95 hover:text-histown-accent font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    REQUEST A TRIAL CLASS
+                  </button>
+                </Link>
+                <Link to="/contact" className="block">
+                  <button className="w-full bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-histown-primary transition-all duration-300 transform hover:scale-105">
+                    CONTACT US
+                  </button>
+                </Link>
               </div>
             </div>
 

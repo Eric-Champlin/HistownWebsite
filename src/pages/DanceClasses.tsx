@@ -5,20 +5,21 @@ import { homeContent } from '../content/home';
 
 const DanceClasses: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [selectedDance, setSelectedDance] = React.useState<{ id: string; name: string; description: string; longDescription: string } | null>(null);
 
   const danceClasses = [
-    { id: 'acro', name: 'Acro', description: 'Combining dance technique with acrobatic elements to build strength, flexibility, and dynamic performance skills', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825371/Acro_vmmyyu.png', position: 'center 85%' },
-    { id: 'ballet', name: 'Ballet', description: 'Classical ballet technique and artistry that develops grace, poise, and fundamental dance foundations', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825370/Ballet_zgvpjm.jpg', position: 'center 30%' },
-    { id: 'barre-fitness', name: 'Barre Fitness', description: 'Ballet-inspired fitness for adults combining strength training with graceful movement and flexibility', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762826588/barre-benefits-to-know-about_40148968-88b1-4497-be7e-49b05582d188.jpg_qa2f67.webp', position: 'center center' },
-    { id: 'contemporary', name: 'Contemporary', description: 'Expressive modern dance movement that blends technique with emotional storytelling and creative expression', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825366/Contemporary_doscju.png', position: 'center 25%' },
-    { id: 'creative-movement', name: 'Creative Movement', description: 'Introduction to dance for young children through playful exploration and imaginative movement activities', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825368/Creative_Movement_impfds.png', position: 'center 15%' },
-    { id: 'foundations', name: 'Foundations', description: 'Building strong dance fundamentals with proper technique, body alignment, and essential movement principles', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825367/Foundations_kh2o17.jpg', position: 'center center' },
-    { id: 'hip-hop', name: 'Hip-Hop', description: 'Urban dance styles and choreography featuring high-energy moves and contemporary street dance culture', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825372/HipHop_yzzsxu.png', position: 'center center' },
-    { id: 'jazz', name: 'Jazz', description: 'Energetic and dynamic jazz technique with sharp movements, leaps, and expressive performance style', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825363/Jazz_hwekyw.png', position: 'center center' },
-    { id: 'modern', name: 'Modern', description: 'Contemporary modern dance technique emphasizing floor work, improvisation, and expressive movement quality', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825358/Modern_gnrpmd.png', position: 'center center' },
-    { id: 'mommy-and-me', name: 'Mommy & Me', description: 'Parent and child bonding through dance with fun activities that develop coordination and rhythm together', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825968/Mommy_ncdf6m.webp', position: 'center center' },
-    { id: 'musical-theater', name: 'Musical Theater', description: 'Broadway-style dance and performance combining acting, singing, and theatrical movement for the stage', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825360/Musical_Theater_om16de.png', position: 'center center' },
-    { id: 'tap', name: 'Tap', description: 'Rhythmic tap dance technique creating music with your feet through precise footwork and timing', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825362/Tap_dnxfal.jpg', position: 'center center' }
+    { id: 'acro', name: 'Acro', description: 'Combining dance technique with acrobatic elements to build strength, flexibility, and dynamic performance skills', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825371/Acro_vmmyyu.png', position: 'center 85%', longDescription: 'Acro dance is a unique style that seamlessly blends classical dance technique with acrobatic elements. Students develop strength, flexibility, balance, and control while learning to execute impressive tricks and tumbling passes. Our acro classes emphasize proper technique and safety, building a strong foundation in both dance and gymnastics. Dancers learn to transition smoothly between dance movements and acrobatic skills, creating dynamic and visually stunning performances. This style is perfect for students who love the athleticism of gymnastics combined with the artistry of dance.' },
+    { id: 'ballet', name: 'Ballet', description: 'Classical ballet technique and artistry that develops grace, poise, and fundamental dance foundations', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825370/Ballet_zgvpjm.jpg', position: 'center 30%', longDescription: 'Ballet is the foundation of all dance forms, emphasizing grace, poise, and technical precision. Our ballet program follows a structured curriculum that develops proper alignment, turnout, and classical technique. Students learn traditional ballet vocabulary, positions, and combinations while building strength, flexibility, and musicality. From barre work to center combinations, each class focuses on developing the discipline and artistry that ballet demands. Whether pursuing ballet as a primary focus or as a foundation for other dance styles, our program provides comprehensive training in this timeless art form.' },
+    { id: 'barre-fitness', name: 'Barre Fitness', description: 'Ballet-inspired fitness for adults combining strength training with graceful movement and flexibility', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762826588/barre-benefits-to-know-about_40148968-88b1-4497-be7e-49b05582d188.jpg_qa2f67.webp', position: 'center center', longDescription: 'Barre Fitness combines ballet-inspired movements with strength training and flexibility work, creating a full-body workout that tones and lengthens muscles. This adult-focused class uses the ballet barre, light weights, and resistance bands to target specific muscle groups through small, controlled movements. The low-impact nature makes it accessible for all fitness levels while still providing an effective workout. Students improve posture, core strength, and overall body awareness while enjoying the grace and elegance of ballet-inspired movement. Perfect for adults seeking a challenging yet graceful fitness routine.' },
+    { id: 'contemporary', name: 'Contemporary', description: 'Expressive modern dance movement that blends technique with emotional storytelling and creative expression', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825366/Contemporary_doscju.png', position: 'center 25%', longDescription: 'Contemporary dance is an expressive and versatile style that blends elements of ballet, modern, and jazz. This genre emphasizes emotional expression, creative movement, and personal interpretation. Students explore floor work, improvisation, and dynamic movement quality while developing technical skills in balance, flexibility, and control. Contemporary dance encourages dancers to connect movement with emotion, telling stories through their bodies. Our classes focus on developing both technical proficiency and artistic expression, allowing dancers to find their unique voice through movement.' },
+    { id: 'creative-movement', name: 'Creative Movement', description: 'Introduction to dance for young children through playful exploration and imaginative movement activities', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825368/Creative_Movement_impfds.png', position: 'center 15%', longDescription: 'Creative Movement introduces our youngest dancers to the joy of dance through playful exploration and imaginative activities. This class focuses on developing basic motor skills, coordination, rhythm, and spatial awareness in a fun, nurturing environment. Children learn to express themselves through movement, follow directions, and interact positively with peers. Using props, music, and storytelling, we make dance accessible and enjoyable for preschool-aged children. This class builds confidence, creativity, and a love for movement that will serve as a foundation for future dance training.' },
+    { id: 'foundations', name: 'Foundations', description: 'Building strong dance fundamentals with proper technique, body alignment, and essential movement principles', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825367/Foundations_kh2o17.jpg', position: 'center center', longDescription: 'Foundations class is designed to build a strong technical base for dancers of all levels. This class focuses on proper body alignment, core strength, flexibility, and fundamental dance techniques that apply across all styles. Students work on developing clean lines, proper posture, and efficient movement patterns. The curriculum includes elements of ballet, modern, and conditioning exercises to create well-rounded dancers. Whether you are beginning your dance journey or looking to strengthen your technical foundation, this class provides essential skills that will enhance your performance in all dance styles.' },
+    { id: 'hip-hop', name: 'Hip-Hop', description: 'Urban dance styles and choreography featuring high-energy moves and contemporary street dance culture', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825372/HipHop_yzzsxu.png', position: 'center center', longDescription: 'Hip-Hop dance brings high energy, urban style, and contemporary street dance culture to our studio. Students learn various hip-hop styles including popping, locking, breaking, and freestyle. Classes focus on musicality, rhythm, and developing your own unique style while learning current choreography. Hip-hop emphasizes confidence, self-expression, and having fun while dancing. Our instructors teach age-appropriate movements and music, ensuring a positive environment where students can explore this dynamic dance form. Perfect for dancers who love energetic movement and contemporary music.' },
+    { id: 'jazz', name: 'Jazz', description: 'Energetic and dynamic jazz technique with sharp movements, leaps, and expressive performance style', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825363/Jazz_hwekyw.png', position: 'center center', longDescription: 'Jazz dance is an energetic and dynamic style characterized by sharp movements, leaps, turns, and expressive performance quality. Our jazz classes combine technical training with fun, upbeat choreography set to contemporary music. Students develop strength, flexibility, and coordination while learning classic jazz techniques including isolations, kicks, and turns. Jazz dance emphasizes performance quality, facial expressions, and connecting with the audience. This versatile style prepares dancers for musical theater, commercial dance, and performance opportunities while building confidence and stage presence.' },
+    { id: 'modern', name: 'Modern', description: 'Contemporary modern dance technique emphasizing floor work, improvisation, and expressive movement quality', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825358/Modern_gnrpmd.png', position: 'center center', longDescription: 'Modern dance emphasizes natural movement, floor work, and expressive quality. This style breaks from classical ballet traditions, exploring new ways of moving and using the body as an instrument of expression. Students learn to use breath, weight, and momentum to create fluid, organic movement. Modern dance develops strength, flexibility, and body awareness while encouraging personal interpretation and creativity. Our classes incorporate various modern techniques and philosophies, giving students a comprehensive understanding of this influential dance form. Perfect for dancers seeking artistic expression and technical challenge.' },
+    { id: 'mommy-and-me', name: 'Mommy & Me', description: 'Parent and child bonding through dance with fun activities that develop coordination and rhythm together', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825968/Mommy_ncdf6m.webp', position: 'center center', longDescription: 'Mommy & Me classes provide a special opportunity for parents and young children to bond through movement and music. These classes introduce toddlers to basic dance concepts, rhythm, and coordination in a supportive, playful environment. Parents actively participate, helping their children explore movement while creating lasting memories together. Activities include singing, dancing, using props, and creative play that develops motor skills and social interaction. This class is perfect for introducing very young children to dance while strengthening the parent-child connection through shared creative experiences.' },
+    { id: 'musical-theater', name: 'Musical Theater', description: 'Broadway-style dance and performance combining acting, singing, and theatrical movement for the stage', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825360/Musical_Theater_om16de.png', position: 'center center', longDescription: 'Musical Theater dance combines jazz technique with theatrical performance, acting, and storytelling. Students learn Broadway-style choreography while developing character work, facial expressions, and stage presence. This class prepares dancers for musical theater productions, teaching them how to embody characters through movement and expression. We work on classic and contemporary musical theater styles, learning choreography from famous shows while developing the performance skills needed for the stage. Perfect for students who love to perform and want to combine their passion for dance with theatrical storytelling.' },
+    { id: 'tap', name: 'Tap', description: 'Rhythmic tap dance technique creating music with your feet through precise footwork and timing', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825362/Tap_dnxfal.jpg', position: 'center center', longDescription: 'Tap dance is a unique percussive dance form where dancers create rhythm and music with their feet. Students learn fundamental tap techniques including shuffles, flaps, cramp rolls, and time steps while developing musicality and rhythm. Tap dance improves coordination, timing, and listening skills as dancers become musicians with their feet. Our classes progress from basic steps to complex rhythmic patterns and combinations. Tap is perfect for students who love rhythm and music, offering a fun and challenging way to develop both dance skills and musical understanding.' }
   ];
 
   useEffect(() => {
@@ -169,12 +170,12 @@ const DanceClasses: React.FC = () => {
           <div className="flex items-center justify-center whitespace-nowrap">
             {danceClasses.map((danceClass, index) => (
               <React.Fragment key={danceClass.id}>
-                <Link
-                  to={`/classes/dance/${danceClass.id}`}
+                <button
+                  onClick={() => setSelectedDance(danceClass)}
                   className="text-white hover:bg-white/20 px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105"
                 >
                   {danceClass.name}
-                </Link>
+                </button>
                 {index < danceClasses.length - 1 && (
                   <span className="text-white/60 mx-2 text-xs">|</span>
                 )}
@@ -185,7 +186,7 @@ const DanceClasses: React.FC = () => {
       </section>
 
       {/* Dance Classes Grid Section */}
-      <section className="py-20 md:py-32 relative" style={{ background: 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 20%, #7dd3fc 40%, #38bdf8 60%, #0ea5e9 80%, #0284c7 100%)' }}>
+      <section className="py-20 md:py-32 relative" style={{ background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 20%, #dbeafe 40%, #bae6fd 60%, #7dd3fc 80%, #38bdf8 100%)' }}>
         <div className="absolute inset-0 bg-white opacity-70"></div>
         <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at 15% 25%, rgba(14, 116, 144, 0.25) 0%, transparent 45%), radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.25) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 55%)' }}></div>
         <div className="absolute inset-0 opacity-25" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%230891b2\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z\' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}></div>
@@ -208,20 +209,22 @@ const DanceClasses: React.FC = () => {
                     style={{ objectPosition: danceClass.position }}
                   />
                 </div>
-                <div className="bg-white p-6 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10 flex flex-col flex-1">
-                  <h3 className="text-xl md:text-2xl font-black uppercase text-gray-800 mb-2" style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)', lineHeight: '1.2' }}>
-                    {danceClass.name}
-                  </h3>
-                  <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
-                  <p className="text-gray-600 mb-4 leading-relaxed text-sm flex-1 min-h-[3rem]">
-                    {danceClass.description}
-                  </p>
-                  <Link 
-                    to={`/classes/dance/${danceClass.id}`}
-                    className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 w-full block text-center"
-                  >
-                    LEARN MORE →
-                  </Link>
+                <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10 flex flex-col flex-1">
+                  <div className="p-6 rounded-2xl flex flex-col flex-1" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                    <h3 className="text-xl md:text-2xl font-black uppercase text-gray-800 mb-2" style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)', lineHeight: '1.2' }}>
+                      {danceClass.name}
+                    </h3>
+                    <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
+                    <p className="text-gray-600 mb-4 leading-relaxed text-sm flex-1 min-h-[3rem]">
+                      {danceClass.description}
+                    </p>
+                    <button 
+                      onClick={() => setSelectedDance(danceClass)}
+                      className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 w-full"
+                    >
+                      LEARN MORE →
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -273,7 +276,7 @@ const DanceClasses: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
                 <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-2xl shadow-lg">
-                  <div className="text-center bg-white p-8 rounded-xl h-full">
+                  <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
                     <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                       <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
@@ -289,7 +292,7 @@ const DanceClasses: React.FC = () => {
 
               <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
                 <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-2 rounded-2xl shadow-lg">
-                  <div className="text-center bg-white p-8 rounded-xl h-full">
+                  <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 30%, #e0f2fe 60%, #dbeafe 85%, #e0f2fe 100%)' }}>
                     <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                       <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -305,7 +308,7 @@ const DanceClasses: React.FC = () => {
 
               <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '800ms' }}>
                 <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-2 rounded-2xl shadow-lg">
-                  <div className="text-center bg-white p-8 rounded-xl h-full">
+                  <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 30%, #e0f2fe 60%, #dbeafe 85%, #e0f2fe 100%)' }}>
                     <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                       <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
@@ -421,9 +424,11 @@ const DanceClasses: React.FC = () => {
                 <button className="w-full bg-white text-histown-primary hover:bg-white/95 hover:text-histown-accent font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
                   REQUEST A TRIAL CLASS
                 </button>
-                <button className="w-full bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-histown-primary transition-all duration-300 transform hover:scale-105">
-                  CONTACT US
-                </button>
+                <Link to="/contact" className="block">
+                  <button className="w-full bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-histown-primary transition-all duration-300 transform hover:scale-105">
+                    CONTACT US
+                  </button>
+                </Link>
               </div>
             </div>
 
@@ -536,6 +541,53 @@ const DanceClasses: React.FC = () => {
           </div>
         </div>
       </footer>
+
+      {/* Modal */}
+      {selectedDance && (
+        <div 
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedDance(null)}
+        >
+          <div className="bg-gradient-to-br from-histown-primary/80 to-histown-accent/80 p-1.5 rounded-3xl shadow-2xl max-w-2xl w-full">
+            <div 
+              className="rounded-3xl max-h-[80vh] overflow-y-auto"
+              style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="sticky top-0 p-8 rounded-t-3xl relative" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                <button 
+                  onClick={() => setSelectedDance(null)}
+                  className="absolute top-4 right-4 text-gray-600 hover:bg-gray-100 rounded-full p-2 transition-colors z-10"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+                <div className="text-center">
+                  <h2 
+                    className="text-4xl md:text-5xl font-black uppercase text-gray-900 mb-2" 
+                    style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 4.5vw, 3rem)' }}
+                  >
+                    {selectedDance.name}
+                  </h2>
+                  <div className="flex items-center justify-center space-x-2">
+                    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-cyan-600 rounded-full"></div>
+                    <div className="w-2.5 h-2.5 bg-cyan-600 rounded-full"></div>
+                    <div className="h-1 w-32 bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-600 rounded-full"></div>
+                    <div className="w-2.5 h-2.5 bg-cyan-600 rounded-full"></div>
+                    <div className="h-1 w-16 bg-gradient-to-r from-cyan-600 to-transparent rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+              <div className="px-8 pb-6 pt-2">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {selectedDance.longDescription}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,16 +1,61 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from '../components/layout/NavBar';
 import { homeContent } from '../content/home';
 
-const About: React.FC = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+const DressCode: React.FC = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [selectedDressCode, setSelectedDressCode] = useState<string | null>(null);
 
-  const aboutSections = [
-    { id: 'team', name: 'Our Team', description: 'Meet the passionate instructors and staff dedicated to nurturing talent and faith in every student', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910671/Our_Team_jazcc3.png', position: 'center center', link: '/about/team' },
-    { id: 'story', name: 'Our Story', description: 'Discover the journey of how HisTown became a beacon of faith-centered arts education in our community', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910672/Our_Story.jpg_gcfdgd.webp', position: 'center center', link: '/about/story' },
-    { id: 'contact', name: 'Contact Us', description: 'Get in touch with our team to learn more, schedule a visit, or ask any questions', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910868/Contact_vjskho.avif', position: 'center center', link: '/contact' },
-    { id: 'events', name: 'K-LOVE Awards', description: 'Explore our history of community performances, recitals, and faith-filled celebrations', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763239290/Screenshot_2025-11-15_at_2.41.13_PM_evpu5v.png', position: 'center center', link: '/past-events' }
+  const dressCodeCategories = [
+    { 
+      id: 'acro', 
+      name: 'Acro',
+      image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825371/Acro_vmmyyu.png',
+      requirements: 'Form-fitting dancewear, bare feet or acro shoes. Hair must be secured in a bun or ponytail.'
+    },
+    { 
+      id: 'ballet', 
+      name: 'Ballet / Creative Movement',
+      image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825370/Ballet_zgvpjm.jpg',
+      requirements: 'Pink or black leotard, pink tights, pink ballet shoes. Hair in a secure bun. Skirts optional for younger dancers.'
+    },
+    { 
+      id: 'contemporary', 
+      name: 'Contemporary',
+      image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825366/Contemporary_doscju.png',
+      requirements: 'Form-fitting dancewear in any color, bare feet or foot undies. Hair secured away from face.'
+    },
+    { 
+      id: 'hip-hop', 
+      name: 'Hip-Hop',
+      image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825372/HipHop_yzzsxu.png',
+      requirements: 'Comfortable athletic wear, clean sneakers (indoor use only). Hair secured or styled appropriately.'
+    },
+    { 
+      id: 'jazz', 
+      name: 'Jazz',
+      image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825363/Jazz_hwekyw.png',
+      requirements: 'Form-fitting dancewear, tan jazz shoes. Hair in ponytail or bun. Jazz pants optional.'
+    },
+    { 
+      id: 'modern', 
+      name: 'Modern',
+      image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825358/Modern_gnrpmd.png',
+      requirements: 'Comfortable, form-fitting dancewear, bare feet. Hair secured in bun or ponytail.'
+    },
+    { 
+      id: 'musical-theater', 
+      name: 'Musical Theater',
+      image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825360/Musical_Theater_om16de.png',
+      requirements: 'Form-fitting dancewear, tan jazz shoes or character shoes. Hair styled appropriately for performance.'
+    },
+    { 
+      id: 'tap', 
+      name: 'Tap',
+      image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825362/Tap_dnxfal.jpg',
+      requirements: 'Form-fitting dancewear, black tap shoes with taps attached. Hair in ponytail or bun.'
+    }
   ];
 
   useEffect(() => {
@@ -39,7 +84,7 @@ const About: React.FC = () => {
       { author: "Kathleen Crews", text: "Histown provides the healthy dance experience I wanted for my daughter. The owners, teachers, and office manager have created a family-like atmosphere where dancers support and cheer for each other." }
     ];
 
-    const testimonialsTrack = document.getElementById('testimonials-track-about');
+    const testimonialsTrack = document.getElementById('testimonials-track-dress');
     if (testimonialsTrack) {
       testimonialsTrack.innerHTML = testimonials.map(testimonial => `
         <div class="flex-none w-80 mx-4 bg-white rounded-2xl shadow-lg border border-gray-200 p-6 min-h-80 flex flex-col">
@@ -74,8 +119,8 @@ const About: React.FC = () => {
         testimonialsTrack.style.transform = `translateX(${translateX}px)`;
       };
 
-      const prevBtn = document.getElementById('testimonial-prev-about');
-      const nextBtn = document.getElementById('testimonial-next-about');
+      const prevBtn = document.getElementById('testimonial-prev-dress');
+      const nextBtn = document.getElementById('testimonial-next-dress');
 
       if (prevBtn && nextBtn) {
         prevBtn.addEventListener('click', () => {
@@ -109,8 +154,8 @@ const About: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover"
           style={{
-            backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910666/About_Us_tgzrww.jpg)',
-            backgroundPosition: 'center 80%',
+            backgroundImage: 'url(https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=1920&q=80)',
+            backgroundPosition: 'center center',
             filter: 'brightness(0.7)'
           }}
         ></div>
@@ -119,7 +164,7 @@ const About: React.FC = () => {
         
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-black uppercase mb-2 text-white" style={{ fontWeight: 900, textShadow: '0 4px 6px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3)' }}>
-            ABOUT US
+            DRESS CODE
           </h1>
           <div className="flex items-center justify-center space-x-2 mb-6">
             <div className="h-1 w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
@@ -129,12 +174,12 @@ const About: React.FC = () => {
             <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
           </div>
           <p className="text-xl md:text-2xl text-white mb-8 leading-relaxed" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)' }}>
-            Discover the heart and soul behind HisTown's mission to inspire through faith and creativity
+            Proper attire for each dance style to ensure safety and optimal learning
           </p>
         </div>
       </section>
 
-      {/* About Sections Grid */}
+      {/* Dress Code Categories Section */}
       <section 
         className="py-20 md:py-32 relative overflow-hidden"
         style={{
@@ -149,47 +194,91 @@ const About: React.FC = () => {
         <div className="absolute inset-0 bg-white opacity-70"></div>
         <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at 15% 25%, rgba(14, 116, 144, 0.25) 0%, transparent 45%), radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.25) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 55%)' }}></div>
         <div className="absolute inset-0 opacity-25" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%230891b2\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z\' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}></div>
+        
         <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            
-            {aboutSections.map((section, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {dressCodeCategories.map((category, index) => (
               <div 
-                key={section.id}
-                id={section.id}
-                className="group rounded-3xl overflow-visible animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-mt-32 flex flex-col" 
-                style={{ transitionDelay: `${(index % 2) * 200 + 200}ms` }}
+                key={category.id}
+                className="group rounded-3xl overflow-visible animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out"
+                style={{ transitionDelay: `${(index % 2) * 100 + 200}ms` }}
               >
                 <div className="relative h-80 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500">
                   <img 
-                    src={section.image}
-                    alt={section.name}
+                    src={category.image}
+                    alt={category.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    style={{ objectPosition: section.position }}
                   />
                 </div>
-                <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10 flex flex-col flex-1">
-                  <div className="p-6 rounded-2xl flex flex-col flex-1" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                    <h3 className="text-xl md:text-2xl font-black uppercase text-gray-800 mb-2" style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)', lineHeight: '1.2' }}>
-                      {section.name}
+                <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
+                  <div className="p-6 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                    <h3 className="text-xl md:text-2xl font-black uppercase text-gray-800 mb-2" style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
+                      {category.name}
                     </h3>
                     <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
-                    <p className="text-gray-600 mb-4 leading-relaxed text-sm flex-1 min-h-[3rem]">
-                      {section.description}
-                    </p>
-                    <Link 
-                      to={section.link}
-                      className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 w-full text-center block"
+                    <button
+                      onClick={() => setSelectedDressCode(category.id)}
+                      className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 inline-block"
                     >
                       LEARN MORE →
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
             ))}
-
           </div>
         </div>
       </section>
+
+      {/* Modal for Dress Code Details */}
+      {selectedDressCode && (
+        <div 
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedDressCode(null)}
+        >
+          <div className="bg-gradient-to-br from-histown-primary/80 to-histown-accent/80 p-1.5 rounded-3xl shadow-2xl max-w-2xl w-full">
+            <div 
+              className="rounded-3xl max-h-[80vh] overflow-y-auto"
+              style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="sticky top-0 p-8 rounded-t-3xl relative" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                <button 
+                  onClick={() => setSelectedDressCode(null)}
+                  className="absolute top-4 right-4 text-gray-600 hover:bg-gray-100 rounded-full p-2 transition-colors z-10"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+                <div className="text-center">
+                  <h2 
+                    className="text-4xl md:text-5xl font-black uppercase text-gray-900 mb-2" 
+                    style={{ 
+                      fontWeight: 900, 
+                      fontSize: selectedDressCode === 'ballet' ? 'clamp(1.5rem, 3.5vw, 2rem)' : 'clamp(2.25rem, 4.5vw, 3rem)' 
+                    }}
+                  >
+                    {dressCodeCategories.find(c => c.id === selectedDressCode)?.name}
+                  </h2>
+                  <div className="flex items-center justify-center space-x-2">
+                    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-cyan-600 rounded-full"></div>
+                    <div className="w-2.5 h-2.5 bg-cyan-600 rounded-full"></div>
+                    <div className="h-1 w-32 bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-600 rounded-full"></div>
+                    <div className="w-2.5 h-2.5 bg-cyan-600 rounded-full"></div>
+                    <div className="h-1 w-16 bg-gradient-to-r from-cyan-600 to-transparent rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+              <div className="px-8 pb-6 pt-2">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {dressCodeCategories.find(c => c.id === selectedDressCode)?.requirements}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Why Us Section */}
       <section 
@@ -298,23 +387,9 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex justify-center gap-8 mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
-            <img 
-              src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762302377/2yG3qAq_nzcotl.png" 
-              alt="Williamson's Best 2025 Winner" 
-              className="h-48 w-auto object-contain rounded-2xl"
-            />
-            <img 
-              src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762304027/ChatGPT_Image_Nov_4_2025_at_06_53_22_PM_w3why3.png" 
-              alt="Best of Parenting 2025 Winner" 
-              className="h-40 w-auto object-contain rounded-2xl max-h-40"
-              style={{ maxHeight: '10rem' }}
-            />
-          </div>
-
-          <div className="relative px-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
+          <div className="relative px-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
             <button 
-              id="testimonial-prev-about"
+              id="testimonial-prev-dress"
               className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
             >
               <svg className="w-6 h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -323,7 +398,7 @@ const About: React.FC = () => {
             </button>
 
             <button 
-              id="testimonial-next-about"
+              id="testimonial-next-dress"
               className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
             >
               <svg className="w-6 h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -332,7 +407,7 @@ const About: React.FC = () => {
             </button>
 
             <div className="overflow-hidden py-4">
-              <div id="testimonials-track-about" className="flex transition-transform duration-300 ease-in-out">
+              <div id="testimonials-track-dress" className="flex transition-transform duration-300 ease-in-out">
               </div>
             </div>
           </div>
@@ -474,25 +549,8 @@ const About: React.FC = () => {
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                   </svg>
                 </a>
-                <a 
-                  href="https://www.facebook.com/HistownDanceStudio/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                  </svg>
-                </a>
               </div>
             </div>
-
-          </div>
-          
-          <div className="border-t border-gray-700 mt-8 pt-6 text-center">
-            <p className="text-sm text-gray-400">
-              {homeContent.footer.copyright}
-            </p>
           </div>
         </div>
       </footer>
@@ -500,4 +558,4 @@ const About: React.FC = () => {
   );
 };
 
-export default About;
+export default DressCode;

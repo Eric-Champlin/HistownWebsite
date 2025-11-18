@@ -3,15 +3,8 @@ import { Link } from 'react-router-dom';
 import NavBar from '../components/layout/NavBar';
 import { homeContent } from '../content/home';
 
-const About: React.FC = () => {
+const Tuition: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-
-  const aboutSections = [
-    { id: 'team', name: 'Our Team', description: 'Meet the passionate instructors and staff dedicated to nurturing talent and faith in every student', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910671/Our_Team_jazcc3.png', position: 'center center', link: '/about/team' },
-    { id: 'story', name: 'Our Story', description: 'Discover the journey of how HisTown became a beacon of faith-centered arts education in our community', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910672/Our_Story.jpg_gcfdgd.webp', position: 'center center', link: '/about/story' },
-    { id: 'contact', name: 'Contact Us', description: 'Get in touch with our team to learn more, schedule a visit, or ask any questions', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910868/Contact_vjskho.avif', position: 'center center', link: '/contact' },
-    { id: 'events', name: 'K-LOVE Awards', description: 'Explore our history of community performances, recitals, and faith-filled celebrations', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763239290/Screenshot_2025-11-15_at_2.41.13_PM_evpu5v.png', position: 'center center', link: '/past-events' }
-  ];
 
   useEffect(() => {
     const observerOptions = {
@@ -39,7 +32,7 @@ const About: React.FC = () => {
       { author: "Kathleen Crews", text: "Histown provides the healthy dance experience I wanted for my daughter. The owners, teachers, and office manager have created a family-like atmosphere where dancers support and cheer for each other." }
     ];
 
-    const testimonialsTrack = document.getElementById('testimonials-track-about');
+    const testimonialsTrack = document.getElementById('testimonials-track-tuition');
     if (testimonialsTrack) {
       testimonialsTrack.innerHTML = testimonials.map(testimonial => `
         <div class="flex-none w-80 mx-4 bg-white rounded-2xl shadow-lg border border-gray-200 p-6 min-h-80 flex flex-col">
@@ -74,8 +67,8 @@ const About: React.FC = () => {
         testimonialsTrack.style.transform = `translateX(${translateX}px)`;
       };
 
-      const prevBtn = document.getElementById('testimonial-prev-about');
-      const nextBtn = document.getElementById('testimonial-next-about');
+      const prevBtn = document.getElementById('testimonial-prev-tuition');
+      const nextBtn = document.getElementById('testimonial-next-tuition');
 
       if (prevBtn && nextBtn) {
         prevBtn.addEventListener('click', () => {
@@ -105,12 +98,11 @@ const About: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[65vh] min-h-[550px] flex items-center justify-center overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910666/About_Us_tgzrww.jpg)',
-            backgroundPosition: 'center 80%',
+            backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/v1762556986/GRoup_Shot_D2edit.jpg_nk0m0v.webp)',
             filter: 'brightness(0.7)'
           }}
         ></div>
@@ -119,7 +111,7 @@ const About: React.FC = () => {
         
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-black uppercase mb-2 text-white" style={{ fontWeight: 900, textShadow: '0 4px 6px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3)' }}>
-            ABOUT US
+            TUITION & FEES
           </h1>
           <div className="flex items-center justify-center space-x-2 mb-6">
             <div className="h-1 w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
@@ -129,65 +121,226 @@ const About: React.FC = () => {
             <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
           </div>
           <p className="text-xl md:text-2xl text-white mb-8 leading-relaxed" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)' }}>
-            Discover the heart and soul behind HisTown's mission to inspire through faith and creativity
+            Transparent pricing and flexible payment options for all programs
           </p>
         </div>
       </section>
 
-      {/* About Sections Grid */}
+      {/* Tuition Content Section */}
       <section 
         className="py-20 md:py-32 relative overflow-hidden"
         style={{
           clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)',
-          marginTop: '-4rem',
-          paddingTop: '6rem',
+          marginTop: '-8rem',
+          paddingTop: '10rem',
           marginBottom: '-4rem',
-          paddingBottom: '6rem',
+          paddingBottom: '20rem',
           background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 20%, #dbeafe 40%, #bae6fd 60%, #7dd3fc 80%, #38bdf8 100%)'
         }}
       >
         <div className="absolute inset-0 bg-white opacity-70"></div>
         <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at 15% 25%, rgba(14, 116, 144, 0.25) 0%, transparent 45%), radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.25) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 55%)' }}></div>
         <div className="absolute inset-0 opacity-25" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%230891b2\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z\' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}></div>
+        
         <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            
-            {aboutSections.map((section, index) => (
-              <div 
-                key={section.id}
-                id={section.id}
-                className="group rounded-3xl overflow-visible animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-mt-32 flex flex-col" 
-                style={{ transitionDelay: `${(index % 2) * 200 + 200}ms` }}
-              >
-                <div className="relative h-80 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500">
-                  <img 
-                    src={section.image}
-                    alt={section.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    style={{ objectPosition: section.position }}
-                  />
+          
+          {/* Monthly Tuition Overview */}
+          <div className="max-w-5xl mx-auto mb-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+            <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg">
+              <div className="p-8 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                <h2 className="text-3xl md:text-4xl font-black uppercase text-center mb-6 text-gray-800">Monthly Tuition</h2>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Tuition is calculated based on the number of classes in any given semester (August – December and January – May) and is broken into five even payments per semester. We do not base tuition on the number of classes in any given month, so whether a month has less or more classes than others, the monthly payments stay the same.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  We make the assumption that you are signing up for the entire year (August 2025 – May 2026). However, at the end of the fall semester in December, you can notify us if there are any class changes you want to make for the spring semester, including dropping some or all classes and adding new ones.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Pricing Chart */}
+          <div className="max-w-5xl mx-auto mb-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
+            <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-2xl">
+              <div className="rounded-2xl overflow-hidden" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                
+                {/* Table Header */}
+                <div className="grid grid-cols-3 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold text-center py-4">
+                  <div className="text-lg uppercase">Class</div>
+                  <div className="text-lg uppercase">Per Month</div>
+                  <div className="text-lg uppercase">Sibling</div>
                 </div>
-                <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10 flex flex-col flex-1">
-                  <div className="p-6 rounded-2xl flex flex-col flex-1" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                    <h3 className="text-xl md:text-2xl font-black uppercase text-gray-800 mb-2" style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)', lineHeight: '1.2' }}>
-                      {section.name}
-                    </h3>
-                    <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
-                    <p className="text-gray-600 mb-4 leading-relaxed text-sm flex-1 min-h-[3rem]">
-                      {section.description}
+
+                {/* Table Rows */}
+                <div className="divide-y divide-gray-200">
+                  <div className="grid grid-cols-3 text-center py-4 hover:bg-blue-50 transition-colors">
+                    <div className="text-gray-700 font-medium">1st hour</div>
+                    <div className="text-gray-900 font-bold text-lg">$95</div>
+                    <div className="text-gray-700">—</div>
+                  </div>
+                  
+                  <div className="grid grid-cols-3 text-center py-4 hover:bg-blue-50 transition-colors bg-gray-50">
+                    <div className="text-gray-700 font-medium">2nd hour</div>
+                    <div className="text-gray-900 font-bold text-lg">$75</div>
+                    <div className="text-gray-900 font-bold text-lg">$95</div>
+                  </div>
+                  
+                  <div className="grid grid-cols-3 text-center py-4 hover:bg-blue-50 transition-colors">
+                    <div className="text-gray-700 font-medium">3rd hour</div>
+                    <div className="text-gray-900 font-bold text-lg">$60</div>
+                    <div className="text-gray-900 font-bold text-lg">$75</div>
+                  </div>
+                  
+                  <div className="grid grid-cols-3 text-center py-4 hover:bg-blue-50 transition-colors bg-gray-50">
+                    <div className="text-gray-700 font-medium">Each additional hour</div>
+                    <div className="text-gray-900 font-bold text-lg">$35</div>
+                    <div className="text-gray-900 font-bold text-lg">$60</div>
+                  </div>
+                </div>
+
+                {/* Caps Notice */}
+                <div className="bg-gradient-to-r from-histown-primary/10 to-histown-accent/10 p-6 border-t-2 border-histown-primary/30">
+                  <p className="text-center text-gray-800 font-semibold">
+                    Per Student Cap: <span className="text-histown-primary font-black">$425/month</span> | 
+                    Family Cap: <span className="text-histown-primary font-black">$605/month</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Sibling Discount Explanation */}
+          <div className="max-w-5xl mx-auto mb-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '300ms' }}>
+            <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-1.5 rounded-3xl shadow-lg">
+              <div className="p-8 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                <h3 className="text-2xl font-black uppercase mb-4 text-gray-800 text-center">Sibling Discount</h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Unlike many studios that only offer you a small discount (usually around 10%) off the student with the lesser tuition, at HisTown siblings get to directly piggyback off the first dancer's discounted tuition rate.
+                </p>
+                <div className="bg-histown-primary/10 p-6 rounded-xl border-l-4 border-histown-primary">
+                  <p className="text-gray-800 font-semibold mb-2">Example:</p>
+                  <p className="text-gray-700 leading-relaxed">
+                    One student taking 2 hours of dance per week would be <span className="font-bold text-histown-primary">$170 per month</span>. If a sibling also wanted to take one hour of dance per week, that would only be an additional <span className="font-bold text-histown-primary">$60 per month</span> for a total of <span className="font-bold text-histown-primary">$230 per month</span> for the family.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed mt-3">
+                    If you have more than one child interested in dancing, this can be a considerable savings for your family!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Fees Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
+            
+            {/* Registration Fees */}
+            <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
+              <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg h-full">
+                <div className="p-6 rounded-2xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <h3 className="text-xl font-black uppercase mb-4 text-gray-800">Registration Fees</h3>
+                  <p className="text-3xl font-black text-histown-primary mb-2">$50 <span className="text-lg text-gray-600 font-normal">per student</span></p>
+                  <p className="text-2xl font-bold text-histown-accent mb-4">$125 <span className="text-base text-gray-600 font-normal">family cap</span></p>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    Annual registration fee (non-refundable and non-transferable) reserves placement in classes the student has enrolled in. Deducted when you first enroll.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Recital Fees */}
+            <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '500ms' }}>
+              <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-1.5 rounded-3xl shadow-lg h-full">
+                <div className="p-6 rounded-2xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <h3 className="text-xl font-black uppercase mb-4 text-gray-800">Recital Fees</h3>
+                  <p className="text-3xl font-black text-histown-primary mb-2">$60 <span className="text-lg text-gray-600 font-normal">per dancer</span></p>
+                  <p className="text-2xl font-bold text-histown-accent mb-4">$135 <span className="text-base text-gray-600 font-normal">family cap</span></p>
+                  <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                    HisTown has Spring (mid-May) and Winter (mid-December) performances. Fees help pay for auditorium rental, stage director, and backstage help.
+                  </p>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    <span className="font-semibold">Video streaming:</span> $15 per family for professionally produced recital performances.
+                  </p>
+                  <p className="text-gray-700 text-sm leading-relaxed mt-2">
+                    <span className="font-semibold">Tickets:</span> $15 each (children 3 and under free on lap)
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Costume Fees */}
+            <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
+              <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-1.5 rounded-3xl shadow-lg h-full">
+                <div className="p-6 rounded-2xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <h3 className="text-xl font-black uppercase mb-4 text-gray-800">Costume Fees</h3>
+                  <p className="text-3xl font-black text-histown-primary mb-4">$46-$65 <span className="text-lg text-gray-600 font-normal">per costume</span></p>
+                  <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                    HisTown strives to keep costume costs down. A non-refundable deposit of $25 per costume is due in early October (Fall) and March (Spring).
+                  </p>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    Final costume fees announced via email. Balance due end of October (Fall) and April (Spring).
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Payment Information */}
+            <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '700ms' }}>
+              <div className="bg-gradient-to-br from-histown-primary/40 to-histown-secondary/40 p-1.5 rounded-3xl shadow-lg h-full">
+                <div className="p-6 rounded-2xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <h3 className="text-xl font-black uppercase mb-4 text-gray-800">Payment Information</h3>
+                  <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                    <span className="font-semibold">Auto-pay:</span> Tuition automatically drafted on the 1st of each month from credit card, debit card, or checking account.
+                  </p>
+                  <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                    <span className="font-semibold">August tuition:</span> Deducted on or after August 4th.
+                  </p>
+                  <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400 mb-3">
+                    <p className="text-gray-800 text-sm font-semibold mb-1">Credit Card Surcharge</p>
+                    <p className="text-gray-700 text-xs leading-relaxed">
+                      3.5% surcharge on credit/debit card payments. Avoid by using checking account payment.
                     </p>
-                    <Link 
-                      to={section.link}
-                      className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 w-full text-center block"
-                    >
-                      LEARN MORE →
-                    </Link>
+                  </div>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    <span className="font-semibold">Late fee:</span> $15 if tuition not paid by first week of month.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Policies */}
+          <div className="max-w-5xl mx-auto animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '800ms' }}>
+            <div className="bg-gradient-to-br from-histown-accent/40 to-histown-primary/40 p-1.5 rounded-3xl shadow-lg">
+              <div className="p-8 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                <h3 className="text-2xl font-black uppercase mb-6 text-gray-800 text-center">Refunds & Withdrawals</h3>
+                
+                <div className="space-y-4">
+                  <div className="bg-white p-4 rounded-lg border-l-4 border-histown-primary">
+                    <p className="text-gray-700 leading-relaxed">
+                      <span className="font-semibold">No refunds</span> for missed classes or canceled classes. You may take a make-up class at the same level or one level below.
+                    </p>
+                  </div>
+                  
+                  <div className="bg-white p-4 rounded-lg border-l-4 border-histown-accent">
+                    <p className="text-gray-700 leading-relaxed mb-2">
+                      <span className="font-semibold">Semester commitment:</span> We ask for a semester commitment from each dancer.
+                    </p>
+                    <p className="text-gray-700 leading-relaxed">
+                      If you need to withdraw early, you will be expected to pay the remainder of the month, following month, and costume fees if costumes have already been purchased.
+                    </p>
+                  </div>
+                  
+                  <div className="bg-white p-4 rounded-lg border-l-4 border-histown-secondary">
+                    <p className="text-gray-700 leading-relaxed">
+                      <span className="font-semibold">Written notice:</span> At least two weeks prior to the end of any given month is required, or you may be charged for an extra month. If you give us written notice at least 30 days in advance, you will not be charged that additional month.
+                    </p>
                   </div>
                 </div>
               </div>
-            ))}
-
+            </div>
           </div>
+
+
         </div>
       </section>
 
@@ -196,18 +349,23 @@ const About: React.FC = () => {
         className="relative py-16 md:py-24 overflow-hidden" 
         style={{ 
           clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)', 
-          marginTop: '-4rem', 
-          paddingTop: '6rem', 
+          marginTop: '-10rem', 
+          paddingTop: '12rem', 
           marginBottom: '-4rem', 
-          paddingBottom: '6rem',
-          backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/w_2400,q_100,f_jpg,e_sharpen:100/v1762365784/blue-texture_yyysa2)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          imageRendering: 'crisp-edges',
-          filter: 'contrast(1.1) saturate(1.05)'
+          paddingBottom: '6rem'
         }}
       >
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/w_2400,q_100,f_jpg,e_sharpen:100/v1762365784/blue-texture_yyysa2)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            imageRendering: 'crisp-edges',
+            filter: 'contrast(1.1) saturate(1.05)'
+          }}
+        ></div>
         <div className="absolute inset-0 bg-black/20"></div>
         
         <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
@@ -298,23 +456,9 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex justify-center gap-8 mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
-            <img 
-              src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762302377/2yG3qAq_nzcotl.png" 
-              alt="Williamson's Best 2025 Winner" 
-              className="h-48 w-auto object-contain rounded-2xl"
-            />
-            <img 
-              src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762304027/ChatGPT_Image_Nov_4_2025_at_06_53_22_PM_w3why3.png" 
-              alt="Best of Parenting 2025 Winner" 
-              className="h-40 w-auto object-contain rounded-2xl max-h-40"
-              style={{ maxHeight: '10rem' }}
-            />
-          </div>
-
-          <div className="relative px-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
+          <div className="relative px-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
             <button 
-              id="testimonial-prev-about"
+              id="testimonial-prev-tuition"
               className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
             >
               <svg className="w-6 h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -323,7 +467,7 @@ const About: React.FC = () => {
             </button>
 
             <button 
-              id="testimonial-next-about"
+              id="testimonial-next-tuition"
               className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
             >
               <svg className="w-6 h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -332,7 +476,7 @@ const About: React.FC = () => {
             </button>
 
             <div className="overflow-hidden py-4">
-              <div id="testimonials-track-about" className="flex transition-transform duration-300 ease-in-out">
+              <div id="testimonials-track-tuition" className="flex transition-transform duration-300 ease-in-out">
               </div>
             </div>
           </div>
@@ -371,7 +515,7 @@ const About: React.FC = () => {
                 <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
               </div>
               <p className="text-lg mb-8 text-white blue-section-text leading-relaxed">
-                Join the HisTown family today!
+                Ready to join the HisTown family?
               </p>
               
               <div className="space-y-4">
@@ -474,25 +618,8 @@ const About: React.FC = () => {
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                   </svg>
                 </a>
-                <a 
-                  href="https://www.facebook.com/HistownDanceStudio/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                  </svg>
-                </a>
               </div>
             </div>
-
-          </div>
-          
-          <div className="border-t border-gray-700 mt-8 pt-6 text-center">
-            <p className="text-sm text-gray-400">
-              {homeContent.footer.copyright}
-            </p>
           </div>
         </div>
       </footer>
@@ -500,4 +627,4 @@ const About: React.FC = () => {
   );
 };
 
-export default About;
+export default Tuition;

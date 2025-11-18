@@ -215,41 +215,62 @@ const DanceDetail: React.FC = () => {
 
       {/* Content Section */}
       <section 
-        className="py-20 bg-white" 
+        className="py-20 md:py-32 relative" 
         style={{ 
           clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)', 
           marginTop: '-4rem', 
           paddingTop: '6rem',
           marginBottom: '-4rem',
-          paddingBottom: '6rem'
+          paddingBottom: '6rem',
+          background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 20%, #dbeafe 40%, #bae6fd 60%, #7dd3fc 80%, #38bdf8 100%)'
         }}
       >
-        <div className="max-w-4xl mx-auto px-8">
-          {/* Dance Image */}
-          <div className="mb-12 rounded-3xl overflow-hidden shadow-2xl">
-            <img 
-              src={dance.image}
-              alt={dance.name}
-              className="w-full h-[500px] object-cover"
-              style={{ objectPosition: dance.position }}
-            />
-          </div>
-
-          {/* Description */}
-          <div className="mb-12">
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              {dance.longDescription}
-            </p>
-          </div>
-
-          {/* View All Dances Button */}
-          <div className="text-center">
-            <Link 
-              to="/classes/dance"
-              className="inline-block bg-gradient-to-r from-histown-accent to-histown-primary text-white font-bold px-12 py-4 rounded-xl uppercase tracking-wide hover:scale-105 transform transition-all duration-300 shadow-lg"
-            >
-              View All Dances
-            </Link>
+        <div className="absolute inset-0 bg-white opacity-70"></div>
+        <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at 15% 25%, rgba(14, 116, 144, 0.25) 0%, transparent 45%), radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.25) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 55%)' }}></div>
+        <div className="absolute inset-0 opacity-25" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%230891b2\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z\' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}></div>
+        
+        <div className="relative max-w-5xl mx-auto px-12 sm:px-16 lg:px-20">
+          <div className="group rounded-3xl overflow-visible">
+            {/* Dance Image */}
+            <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+              <img 
+                src={dance.image}
+                alt={dance.name}
+                className="w-full h-full object-cover"
+                style={{ objectPosition: dance.position }}
+              />
+            </div>
+            
+            {/* Description Card with Blue Border */}
+            <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
+              <div className="p-8 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                <div className="text-center mb-6">
+                  <h3 className="text-3xl md:text-4xl font-black uppercase text-gray-800 mb-4">
+                    {dance.name}
+                  </h3>
+                  <div className="flex items-center justify-center space-x-2">
+                    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-histown-primary rounded-full"></div>
+                    <div className="w-2.5 h-2.5 bg-histown-accent rounded-full"></div>
+                    <div className="h-1 w-32 bg-gradient-to-r from-histown-primary via-histown-accent to-histown-primary rounded-full"></div>
+                    <div className="w-2.5 h-2.5 bg-histown-accent rounded-full"></div>
+                    <div className="h-1 w-16 bg-gradient-to-r from-histown-primary to-transparent rounded-full"></div>
+                  </div>
+                </div>
+                <p className="text-lg text-gray-700 leading-relaxed mb-8">
+                  {dance.longDescription}
+                </p>
+                
+                {/* View All Dances Button */}
+                <div className="text-center">
+                  <Link 
+                    to="/classes/dance"
+                    className="inline-block bg-gradient-to-r from-histown-accent to-histown-primary text-white font-bold px-12 py-4 rounded-xl uppercase tracking-wide hover:scale-105 transform transition-all duration-300 shadow-lg"
+                  >
+                    View All Dances
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -296,7 +317,7 @@ const DanceDetail: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-2xl shadow-lg">
-                <div className="text-center bg-white p-8 rounded-xl h-full">
+                <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 30%, #e0f2fe 60%, #dbeafe 85%, #e0f2fe 100%)' }}>
                   <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                     <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
@@ -312,7 +333,7 @@ const DanceDetail: React.FC = () => {
 
             <div>
               <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-2 rounded-2xl shadow-lg">
-                <div className="text-center bg-white p-8 rounded-xl h-full">
+                <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 30%, #e0f2fe 60%, #dbeafe 85%, #e0f2fe 100%)' }}>
                   <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                     <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -328,7 +349,7 @@ const DanceDetail: React.FC = () => {
 
             <div>
               <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-2 rounded-2xl shadow-lg">
-                <div className="text-center bg-white p-8 rounded-xl h-full">
+                <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 30%, #e0f2fe 60%, #dbeafe 85%, #e0f2fe 100%)' }}>
                   <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                     <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
@@ -437,12 +458,16 @@ const DanceDetail: React.FC = () => {
               </p>
               
               <div className="space-y-4">
-                <button className="w-full bg-white text-histown-primary hover:bg-white/95 hover:text-histown-accent font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-                  REQUEST A TRIAL CLASS
-                </button>
-                <button className="w-full bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-histown-primary transition-all duration-300 transform hover:scale-105">
-                  CONTACT US
-                </button>
+                <Link to="/free-trial" className="block">
+                  <button className="w-full bg-white text-histown-primary hover:bg-white/95 hover:text-histown-accent font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    REQUEST A TRIAL CLASS
+                  </button>
+                </Link>
+                <Link to="/contact" className="block">
+                  <button className="w-full bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-histown-primary transition-all duration-300 transform hover:scale-105">
+                    CONTACT US
+                  </button>
+                </Link>
               </div>
             </div>
 

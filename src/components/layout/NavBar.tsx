@@ -119,6 +119,16 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
                       >
                         {item.label}
                       </a>
+                    ) : item.href.startsWith('http') ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onMouseEnter={() => setOpenDropdown(null)}
+                        className="text-gray-700 hover:text-histown-primary font-medium text-lg tracking-wide uppercase transition-colors duration-300 py-2"
+                      >
+                        {item.label}
+                      </a>
                     ) : (
                       <Link
                         to={item.href}
@@ -244,26 +254,42 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
 
                                         <div className="space-y-1">
                                           {section.items.map((menuItem, itemIndex) => (
-                                            <a
-                                              key={menuItem.label}
-                                              href={menuItem.href}
-                                              onClick={(e) => {
-                                                if (menuItem.href.startsWith('#')) {
+                                            menuItem.href.startsWith('#') ? (
+                                              <a
+                                                key={menuItem.label}
+                                                href={menuItem.href}
+                                                onClick={(e) => {
                                                   e.preventDefault();
                                                   handleLinkClick(menuItem.href);
-                                                }
-                                              }}
-                                              className="group flex items-center space-x-2 text-base text-gray-700 hover:text-histown-primary hover:bg-white/60 rounded px-3 py-2 transition-all duration-200"
-                                              style={{ animationDelay: `${(columnIndex * 25) + (sectionIndex * 50) + (itemIndex * 15)}ms` }}
-                                            >
-                                              <div className="w-1 h-1 bg-histown-secondary rounded-full group-hover:bg-histown-primary group-hover:scale-125 transition-all duration-200"></div>
-                                              <span className="group-hover:font-medium transition-all duration-200 text-base">
-                                                {menuItem.label}
-                                              </span>
-                                              <svg className="w-2.5 h-2.5 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-0.5 transition-all duration-200" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
-                                              </svg>
-                                            </a>
+                                                }}
+                                                className="group flex items-center space-x-2 text-base text-gray-700 hover:text-histown-primary hover:bg-white/60 rounded px-3 py-2 transition-all duration-200"
+                                                style={{ animationDelay: `${(columnIndex * 25) + (sectionIndex * 50) + (itemIndex * 15)}ms` }}
+                                              >
+                                                <div className="w-1 h-1 bg-histown-secondary rounded-full group-hover:bg-histown-primary group-hover:scale-125 transition-all duration-200"></div>
+                                                <span className="group-hover:font-medium transition-all duration-200 text-base">
+                                                  {menuItem.label}
+                                                </span>
+                                                <svg className="w-2.5 h-2.5 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-0.5 transition-all duration-200" fill="currentColor" viewBox="0 0 24 24">
+                                                  <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+                                                </svg>
+                                              </a>
+                                            ) : (
+                                              <Link
+                                                key={menuItem.label}
+                                                to={menuItem.href}
+                                                onClick={() => setOpenDropdown(null)}
+                                                className="group flex items-center space-x-2 text-base text-gray-700 hover:text-histown-primary hover:bg-white/60 rounded px-3 py-2 transition-all duration-200"
+                                                style={{ animationDelay: `${(columnIndex * 25) + (sectionIndex * 50) + (itemIndex * 15)}ms` }}
+                                              >
+                                                <div className="w-1 h-1 bg-histown-secondary rounded-full group-hover:bg-histown-primary group-hover:scale-125 transition-all duration-200"></div>
+                                                <span className="group-hover:font-medium transition-all duration-200 text-base">
+                                                  {menuItem.label}
+                                                </span>
+                                                <svg className="w-2.5 h-2.5 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-0.5 transition-all duration-200" fill="currentColor" viewBox="0 0 24 24">
+                                                  <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+                                                </svg>
+                                              </Link>
+                                            )
                                           ))}
                                         </div>
                                       </div>
@@ -298,6 +324,8 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
                               <a
                                 key={dropdownItem.label}
                                 href={dropdownItem.href}
+                                target={dropdownItem.href.startsWith('http') ? '_blank' : undefined}
+                                rel={dropdownItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                                 onClick={(e) => {
                                   if (dropdownItem.href.startsWith('#')) {
                                     e.preventDefault();

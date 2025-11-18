@@ -3,14 +3,26 @@ import { Link } from 'react-router-dom';
 import NavBar from '../components/layout/NavBar';
 import { homeContent } from '../content/home';
 
-const About: React.FC = () => {
+const OurTeam: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [selectedMember, setSelectedMember] = React.useState<{ id: string; name: string; role: string; biography: string } | null>(null);
 
-  const aboutSections = [
-    { id: 'team', name: 'Our Team', description: 'Meet the passionate instructors and staff dedicated to nurturing talent and faith in every student', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910671/Our_Team_jazcc3.png', position: 'center center', link: '/about/team' },
-    { id: 'story', name: 'Our Story', description: 'Discover the journey of how HisTown became a beacon of faith-centered arts education in our community', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910672/Our_Story.jpg_gcfdgd.webp', position: 'center center', link: '/about/story' },
-    { id: 'contact', name: 'Contact Us', description: 'Get in touch with our team to learn more, schedule a visit, or ask any questions', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910868/Contact_vjskho.avif', position: 'center center', link: '/contact' },
-    { id: 'events', name: 'K-LOVE Awards', description: 'Explore our history of community performances, recitals, and faith-filled celebrations', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763239290/Screenshot_2025-11-15_at_2.41.13_PM_evpu5v.png', position: 'center center', link: '/past-events' }
+  const teamMembers = [
+    { id: 'ken-teresa', name: 'Ken & Teresa', role: 'Founders & Directors', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763166099/K_T.ps.jpg_ah6zzv.webp', position: 'center center', biography: 'Ken and Teresa are the visionary founders of HisTown Dance Studio. With over 20 years of combined experience in dance education and ministry, they established HisTown with a mission to create a Christ-centered environment where students can develop their artistic gifts while growing in their faith. Their passion for excellence and dedication to nurturing each student\'s God-given talents has made HisTown a beloved community institution.' },
+    { id: 'kaitlin', name: 'Kaitlin', role: 'Dance Instructor', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763166098/Kaitlin_jjjlmf.png', position: 'center center', biography: 'Kaitlin brings energy and expertise to every class she teaches. With a background in contemporary and ballet, she specializes in helping students discover their unique artistic voice. Her teaching philosophy centers on building confidence through technical excellence and creative expression.' },
+    { id: 'mattie', name: 'Mattie', role: 'Dance Instructor', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763166102/Mattie_woqvsj.png', position: 'center center', biography: 'Mattie is passionate about teaching young dancers the fundamentals of movement and expression. Her patient and encouraging approach helps students of all levels feel confident and inspired. She believes that dance is a powerful way to worship and connect with God.' },
+    { id: 'jas', name: 'Jas', role: 'Dance Instructor', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763166099/Jas_ciyofp.png', position: 'center center', biography: 'Jas specializes in hip-hop and contemporary styles, bringing urban dance culture into a faith-based environment. Her classes are known for their high energy and positive atmosphere, where students learn to express themselves authentically while honoring God through movement.' },
+    { id: 'tara', name: 'Tara', role: 'Dance Instructor', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763166102/Tara_vixjam.png', position: 'center center', biography: 'Tara has been dancing since childhood and brings a wealth of experience in classical ballet and modern dance. She is dedicated to helping each student reach their full potential through disciplined training and artistic exploration.' },
+    { id: 'kelsey', name: 'Kelsey', role: 'Dance Instructor', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763166103/Kelsey_xgqjoj.png', position: 'center center', biography: 'Kelsey\'s love for dance and teaching shines through in every class. She specializes in jazz and musical theater, helping students develop performance skills and stage presence. Her classes are a perfect blend of technical training and creative fun.' },
+    { id: 'lauren', name: 'Lauren', role: 'Piano Instructor', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763166101/Lauren_pcbmbe.png', position: 'center center', biography: 'Lauren is a gifted musician and teacher who specializes in piano instruction. Her patient teaching style and deep musical knowledge help students develop both technical skills and a love for music that glorifies God. She brings years of classical training and contemporary expertise to every lesson.' },
+    { id: 'allison', name: 'Allison', role: 'Dance Instructor', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763166100/Allison_ia2xpv.png', position: 'center center', biography: 'Allison brings creativity and precision to her teaching. With expertise in acro and contemporary dance, she helps students push their boundaries while maintaining proper technique and safety. Her classes challenge and inspire dancers to reach new heights.' },
+    { id: 'heather', name: 'Heather', role: 'Music Instructor', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763166100/Heather_ng7kpl.png', position: 'center center', biography: 'Heather is passionate about helping students discover the joy of making music. She teaches guitar and violin, focusing on building strong fundamentals while encouraging creative expression and worship through music.' },
+    { id: 'elara', name: 'Elara', role: 'Dance Instructor', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763166098/Elara_xa2nhf.png', position: 'center center', biography: 'Elara specializes in ballet and pointe work, bringing classical training and grace to her students. Her attention to detail and encouraging spirit help dancers develop the discipline and artistry required for classical dance.' },
+    { id: 'caitlin', name: 'Caitlin', role: 'Dance Instructor', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763166098/Caitlin_grjhyo.png', position: 'center center', biography: 'Caitlin is dedicated to creating a welcoming and supportive environment for all her students. She teaches a variety of styles and loves helping young dancers discover their passion for movement and expression through faith-centered instruction.' },
+    { id: 'heather-violin', name: 'Heather', role: 'Violin Instructor', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763082270/violin_n0i0ta.png', position: 'center center', biography: 'Heather is passionate about helping students discover the beauty of strings through violin instruction. She focuses on building strong technical foundations while developing beautiful tone and musical expression. Her patient teaching style guides students from learning proper bow hold and posture to performing advanced pieces with confidence and artistry.' },
+    { id: 'nathan-guitar', name: 'Nathan', role: 'Guitar Instructor', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763082274/guitar_fptevk.png', position: 'center center', biography: 'Nathan teaches both acoustic and electric guitar, helping students learn chords, strumming patterns, fingerpicking techniques, and lead guitar skills. His personalized instruction keeps students motivated while building a solid technical foundation. Whether teaching worship music, rock, folk, or classical guitar, he helps students play the music they love while developing confidence and creativity.' },
+    { id: 'sarah', name: 'Sarah', role: 'Vocal Instructor', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763082271/voice_zperxb.png', position: 'center center', biography: 'Sarah helps students discover and develop their unique voice through proper vocal technique and musical expression. She focuses on breath support, tone production, pitch accuracy, and expanding vocal range while teaching healthy techniques that prevent strain. Her individualized attention and encouragement help students build confidence in their singing abilities, whether preparing for auditions, performances, or simply improving their vocal skills.' },
+    { id: 'leroy', name: 'Leroy', role: 'Piano Instructor', image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763082285/piano_discjk.png', position: 'center center', biography: 'Leroy is an accomplished pianist and dedicated teacher who brings both classical training and contemporary expertise to his lessons. His comprehensive approach to piano instruction emphasizes proper technique, music theory, and artistic expression. Leroy tailors each lesson to the individual student\'s goals and learning style, whether they are beginners learning their first scales or advanced students working on complex repertoire. His passion for music and patient teaching style inspire students to develop discipline, creativity, and a lifelong love for the piano.' }
   ];
 
   useEffect(() => {
@@ -34,12 +46,12 @@ const About: React.FC = () => {
 
     // Testimonials carousel
     const testimonials = [
-      { author: "Emily Song", text: "My daughter just completed her first semester at Histown and it has been an incredibly positive experience! The teachers are gracious, kind, and very knowledgeable about dance and the instructional tools/pacing needed to help students succeed at various age levels." },
-      { author: "Justine Vild", text: "My daughter has been dancing at Histown for many years. There are lots of things I love about this studio, not the least of them being that it's a Christian dance studio. I love their scheduling and the recital songs are either Christian or clean songs." },
-      { author: "Kathleen Crews", text: "Histown provides the healthy dance experience I wanted for my daughter. The owners, teachers, and office manager have created a family-like atmosphere where dancers support and cheer for each other." }
+      { author: "Emily Song", text: "My daughter just completed her first semester at Histown and it has been an incredibly positive experience! The teachers are gracious, kind, and very knowledgeable about dance." },
+      { author: "Justine Vild", text: "My daughter has been dancing at Histown for many years. There are lots of things I love about this studio, not the least of them being that it's a Christian dance studio." },
+      { author: "Kathleen Crews", text: "Histown provides the healthy dance experience I wanted for my daughter. The owners, teachers, and office manager have created a family-like atmosphere." }
     ];
 
-    const testimonialsTrack = document.getElementById('testimonials-track-about');
+    const testimonialsTrack = document.getElementById('testimonials-track-team');
     if (testimonialsTrack) {
       testimonialsTrack.innerHTML = testimonials.map(testimonial => `
         <div class="flex-none w-80 mx-4 bg-white rounded-2xl shadow-lg border border-gray-200 p-6 min-h-80 flex flex-col">
@@ -74,8 +86,8 @@ const About: React.FC = () => {
         testimonialsTrack.style.transform = `translateX(${translateX}px)`;
       };
 
-      const prevBtn = document.getElementById('testimonial-prev-about');
-      const nextBtn = document.getElementById('testimonial-next-about');
+      const prevBtn = document.getElementById('testimonial-prev-team');
+      const nextBtn = document.getElementById('testimonial-next-team');
 
       if (prevBtn && nextBtn) {
         prevBtn.addEventListener('click', () => {
@@ -107,10 +119,9 @@ const About: React.FC = () => {
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910666/About_Us_tgzrww.jpg)',
-            backgroundPosition: 'center 80%',
+            backgroundImage: 'url(https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1600&q=80)',
             filter: 'brightness(0.7)'
           }}
         ></div>
@@ -119,7 +130,7 @@ const About: React.FC = () => {
         
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-black uppercase mb-2 text-white" style={{ fontWeight: 900, textShadow: '0 4px 6px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3)' }}>
-            ABOUT US
+            OUR TEAM
           </h1>
           <div className="flex items-center justify-center space-x-2 mb-6">
             <div className="h-1 w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
@@ -129,20 +140,20 @@ const About: React.FC = () => {
             <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
           </div>
           <p className="text-xl md:text-2xl text-white mb-8 leading-relaxed" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)' }}>
-            Discover the heart and soul behind HisTown's mission to inspire through faith and creativity
+            Meet the passionate instructors who inspire and guide our students
           </p>
         </div>
       </section>
 
-      {/* About Sections Grid */}
+      {/* Team Members Grid Section */}
       <section 
         className="py-20 md:py-32 relative overflow-hidden"
         style={{
           clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)',
-          marginTop: '-4rem',
-          paddingTop: '6rem',
-          marginBottom: '-4rem',
-          paddingBottom: '6rem',
+          marginTop: '-6rem',
+          paddingTop: '8rem',
+          marginBottom: '-8rem',
+          paddingBottom: '10rem',
           background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 20%, #dbeafe 40%, #bae6fd 60%, #7dd3fc 80%, #38bdf8 100%)'
         }}
       >
@@ -150,38 +161,34 @@ const About: React.FC = () => {
         <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at 15% 25%, rgba(14, 116, 144, 0.25) 0%, transparent 45%), radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.25) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 55%)' }}></div>
         <div className="absolute inset-0 opacity-25" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%230891b2\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z\' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}></div>
         <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             
-            {aboutSections.map((section, index) => (
+            {teamMembers.map((member, index) => (
               <div 
-                key={section.id}
-                id={section.id}
-                className="group rounded-3xl overflow-visible animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-mt-32 flex flex-col" 
-                style={{ transitionDelay: `${(index % 2) * 200 + 200}ms` }}
+                key={member.id}
+                className="group rounded-3xl overflow-visible animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out flex flex-col" 
+                style={{ transitionDelay: `${(index % 3) * 200 + 200}ms` }}
               >
                 <div className="relative h-80 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500">
                   <img 
-                    src={section.image}
-                    alt={section.name}
+                    src={member.image}
+                    alt={member.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    style={{ objectPosition: section.position }}
+                    style={{ objectPosition: member.position }}
                   />
                 </div>
                 <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10 flex flex-col flex-1">
                   <div className="p-6 rounded-2xl flex flex-col flex-1" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
                     <h3 className="text-xl md:text-2xl font-black uppercase text-gray-800 mb-2" style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)', lineHeight: '1.2' }}>
-                      {section.name}
+                      {member.name}
                     </h3>
                     <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
-                    <p className="text-gray-600 mb-4 leading-relaxed text-sm flex-1 min-h-[3rem]">
-                      {section.description}
-                    </p>
-                    <Link 
-                      to={section.link}
-                      className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 w-full text-center block"
+                    <button 
+                      onClick={() => setSelectedMember(member)}
+                      className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 w-full"
                     >
-                      LEARN MORE →
-                    </Link>
+                      BIOGRAPHY →
+                    </button>
                   </div>
                 </div>
               </div>
@@ -196,8 +203,8 @@ const About: React.FC = () => {
         className="relative py-16 md:py-24 overflow-hidden" 
         style={{ 
           clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)', 
-          marginTop: '-4rem', 
-          paddingTop: '6rem', 
+          marginTop: '-8rem', 
+          paddingTop: '10rem', 
           marginBottom: '-4rem', 
           paddingBottom: '6rem',
           backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/w_2400,q_100,f_jpg,e_sharpen:100/v1762365784/blue-texture_yyysa2)',
@@ -211,76 +218,76 @@ const About: React.FC = () => {
         <div className="absolute inset-0 bg-black/20"></div>
         
         <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
-            <div className="text-center mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out flex flex-col items-center">
-              <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
-                WHY US?
-              </h2>
-              <div className="flex items-center justify-center space-x-2 mb-4" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))' }}>
-                <div className="h-1 w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
-                <div className="w-3 h-3 bg-white/80 rounded-full"></div>
-                <div className="h-1 w-40 bg-gradient-to-r from-white via-white/80 to-white rounded-full"></div>
-                <div className="w-3 h-3 bg-white/80 rounded-full"></div>
-                <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
+          <div className="text-center mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out flex flex-col items-center">
+            <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
+              WHY US?
+            </h2>
+            <div className="flex items-center justify-center space-x-2 mb-4" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))' }}>
+              <div className="h-1 w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
+              <div className="w-3 h-3 bg-white/80 rounded-full"></div>
+              <div className="h-1 w-40 bg-gradient-to-r from-white via-white/80 to-white rounded-full"></div>
+              <div className="w-3 h-3 bg-white/80 rounded-full"></div>
+              <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
+            </div>
+          </div>
+
+          <div className="text-center mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
+            <p className="text-lg text-white max-w-4xl mx-auto leading-relaxed blue-section-text">
+              We provide arts education in a Christ-centered environment that nurtures each student's God-given gifts for ministry, outreach, and entertainment.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
+              <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-2xl shadow-lg">
+                <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 30%, #e0f2fe 60%, #dbeafe 85%, #e0f2fe 100%)' }}>
+                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                    <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS HEART</h3>
+                  <p className="text-histown-text-muted leading-relaxed">
+                    At the heart of our mission is God's love—a love that nurtures, uplifts, and calls us to use our gifts for His praise.
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="text-center mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
-              <p className="text-lg text-white max-w-4xl mx-auto leading-relaxed blue-section-text">
-                We provide arts education in a Christ-centered environment that nurtures each student's God-given gifts for ministry, outreach, and entertainment.
-              </p>
+            <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
+              <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-1.5 rounded-2xl shadow-lg">
+                <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 30%, #e0f2fe 60%, #dbeafe 85%, #e0f2fe 100%)' }}>
+                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                    <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS GLORY</h3>
+                  <p className="text-histown-text-muted leading-relaxed">
+                    We teach not for the applause of people, but to reflect God's glory, honoring Him with excellence and joy.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
-                <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-2xl shadow-lg">
-                  <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                      <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                      </svg>
-                    </div>
-                    <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS HEART</h3>
-                    <p className="text-histown-text-muted leading-relaxed">
-                      At the heart of our mission is God's love—a love that nurtures, uplifts, and calls us to use our gifts for His praise.
-                    </p>
+            <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '800ms' }}>
+              <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-1.5 rounded-2xl shadow-lg">
+                <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 30%, #e0f2fe 60%, #dbeafe 85%, #e0f2fe 100%)' }}>
+                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                    <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
                   </div>
-                </div>
-              </div>
-
-              <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
-                <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-1.5 rounded-2xl shadow-lg">
-                  <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                      <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                      </svg>
-                    </div>
-                    <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS GLORY</h3>
-                    <p className="text-histown-text-muted leading-relaxed">
-                      We teach not for the applause of people, but to reflect God's glory, honoring Him with excellence and joy.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '800ms' }}>
-                <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-1.5 rounded-2xl shadow-lg">
-                  <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                      <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                      </svg>
-                    </div>
-                    <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HISTOWN</h3>
-                    <p className="text-histown-text-muted leading-relaxed">
-                      HisTown is more than a studio—it's God's town, where creativity, community, and worship come together in His name.
-                    </p>
-                  </div>
+                  <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HISTOWN</h3>
+                  <p className="text-histown-text-muted leading-relaxed">
+                    HisTown is more than a studio—it's God's town, where creativity, community, and worship come together in His name.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
       {/* Testimonials Section */}
       <section className="bg-white py-16 md:py-24" style={{ marginTop: '-4rem', paddingTop: '6rem', marginBottom: '-4rem', paddingBottom: '6rem' }}>
@@ -307,14 +314,13 @@ const About: React.FC = () => {
             <img 
               src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762304027/ChatGPT_Image_Nov_4_2025_at_06_53_22_PM_w3why3.png" 
               alt="Best of Parenting 2025 Winner" 
-              className="h-40 w-auto object-contain rounded-2xl max-h-40"
-              style={{ maxHeight: '10rem' }}
+              className="h-48 w-auto object-contain rounded-2xl"
             />
           </div>
 
           <div className="relative px-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
             <button 
-              id="testimonial-prev-about"
+              id="testimonial-prev-team"
               className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
             >
               <svg className="w-6 h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -323,7 +329,7 @@ const About: React.FC = () => {
             </button>
 
             <button 
-              id="testimonial-next-about"
+              id="testimonial-next-team"
               className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
             >
               <svg className="w-6 h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -332,7 +338,7 @@ const About: React.FC = () => {
             </button>
 
             <div className="overflow-hidden py-4">
-              <div id="testimonials-track-about" className="flex transition-transform duration-300 ease-in-out">
+              <div id="testimonials-track-team" className="flex transition-transform duration-300 ease-in-out">
               </div>
             </div>
           </div>
@@ -486,18 +492,58 @@ const About: React.FC = () => {
                 </a>
               </div>
             </div>
-
-          </div>
-          
-          <div className="border-t border-gray-700 mt-8 pt-6 text-center">
-            <p className="text-sm text-gray-400">
-              {homeContent.footer.copyright}
-            </p>
           </div>
         </div>
       </footer>
+
+      {/* Biography Modal */}
+      {selectedMember && (
+        <div 
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedMember(null)}
+        >
+          <div className="bg-gradient-to-br from-histown-primary/80 to-histown-accent/80 p-1.5 rounded-3xl shadow-2xl max-w-2xl w-full">
+            <div 
+              className="rounded-3xl max-h-[80vh] overflow-y-auto"
+              style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="sticky top-0 p-8 rounded-t-3xl relative" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                <button 
+                  onClick={() => setSelectedMember(null)}
+                  className="absolute top-4 right-4 text-gray-600 hover:bg-gray-100 rounded-full p-2 transition-colors z-10"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+                <div className="text-center">
+                  <h2 
+                    className="text-4xl md:text-5xl font-black uppercase text-gray-900 mb-2" 
+                    style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 4.5vw, 3rem)' }}
+                  >
+                    {selectedMember.name}
+                  </h2>
+                  <div className="flex items-center justify-center space-x-2">
+                    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-cyan-600 rounded-full"></div>
+                    <div className="w-2.5 h-2.5 bg-cyan-600 rounded-full"></div>
+                    <div className="h-1 w-32 bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-600 rounded-full"></div>
+                    <div className="w-2.5 h-2.5 bg-cyan-600 rounded-full"></div>
+                    <div className="h-1 w-16 bg-gradient-to-r from-cyan-600 to-transparent rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+              <div className="px-8 pb-6 pt-2">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {selectedMember.biography}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-export default About;
+export default OurTeam;

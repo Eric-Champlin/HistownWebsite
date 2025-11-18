@@ -191,7 +191,7 @@ function App() {
             </div>
             <div className="animate-slide-in-right h-full">
               <div className="bg-gradient-to-br from-histown-primary/40 via-histown-secondary/40 to-histown-accent/40 p-2 rounded-2xl shadow-medium h-full">
-                <div className="bg-white p-8 rounded-xl h-full flex flex-col justify-center">
+                <div className="p-8 rounded-xl h-full flex flex-col justify-center" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 20%, #e0f2fe 40%, #dbeafe 70%, #bfdbfe 100%)' }}>
                   <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 relative inline-block" style={{ fontWeight: 975, fontSize: 'clamp(1.875rem, 4vw, 2.5rem)' }}>
                     DANCE CLASSES
                     <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-2"></div>
@@ -200,7 +200,7 @@ function App() {
                     Discover the joy of movement through our comprehensive dance program. From classical ballet to contemporary expression, we nurture each dancer's unique gifts while building strong technique, confidence, and character in a Christ-centered environment.
                   </p>
                   <a 
-                    href="/programs/dance"
+                    href="/classes/dance"
                     className="bg-gradient-to-r from-histown-accent to-histown-primary hover:from-histown-accent hover:to-histown-primary-dark text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 drop-shadow-lg uppercase tracking-wide inline-block w-fit transform hover:scale-105"
                   >
                     LEARN MORE
@@ -214,7 +214,7 @@ function App() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch mb-20 animate-on-scroll">
             <div className="animate-slide-in-left lg:order-1 h-full">
               <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-2 rounded-2xl shadow-medium h-full">
-                <div className="bg-white p-8 rounded-xl h-full flex flex-col justify-center">
+                <div className="p-8 rounded-xl h-full flex flex-col justify-center" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 20%, #e0f2fe 40%, #dbeafe 70%, #bfdbfe 100%)' }}>
                   <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 relative inline-block" style={{ fontWeight: 975, fontSize: 'clamp(1.875rem, 4vw, 2.5rem)' }}>
                     MUSIC CLASSES
                     <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-2"></div>
@@ -255,7 +255,7 @@ function App() {
             </div>
             <div className="animate-slide-in-right h-full">
               <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-2 rounded-2xl shadow-medium h-full">
-                <div className="bg-white p-8 rounded-xl h-full flex flex-col justify-center">
+                <div className="p-8 rounded-xl h-full flex flex-col justify-center" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 20%, #e0f2fe 40%, #dbeafe 70%, #bfdbfe 100%)' }}>
                   <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 relative inline-block" style={{ fontWeight: 975, fontSize: 'clamp(1.875rem, 4vw, 2.5rem)' }}>
                     FEATURED
                     <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-2"></div>
@@ -386,7 +386,7 @@ function App() {
               {/* His Heart */}
               <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
                 <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-2xl shadow-lg">
-                  <div className="text-center bg-white p-8 rounded-xl h-full">
+                  <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 20%, #e0f2fe 40%, #dbeafe 70%, #bfdbfe 100%)' }}>
                     <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                       <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
@@ -403,7 +403,7 @@ function App() {
               {/* His Glory */}
               <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
                 <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-2 rounded-2xl shadow-lg">
-                  <div className="text-center bg-white p-8 rounded-xl h-full">
+                  <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 20%, #e0f2fe 40%, #dbeafe 70%, #bfdbfe 100%)' }}>
                     <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                       <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -420,7 +420,7 @@ function App() {
               {/* HisTown */}
               <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '800ms' }}>
                 <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-2 rounded-2xl shadow-lg">
-                  <div className="text-center bg-white p-8 rounded-xl h-full">
+                  <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 20%, #e0f2fe 40%, #dbeafe 70%, #bfdbfe 100%)' }}>
                     <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                       <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
@@ -476,7 +476,7 @@ function App() {
           {/* Enhanced Team Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 -mt-8">
             {/* Owners */}
-            <div className="group text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
+            <Link to="/about/team" className="group text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out block" style={{ transitionDelay: '200ms' }}>
               <div className="relative mb-8">
                 <div className="w-72 h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 transform group-hover:scale-105 bg-gradient-to-br from-histown-primary/5 to-histown-accent/5 p-2">
                   <div className="w-full h-full rounded-2xl overflow-hidden">
@@ -499,10 +499,10 @@ function App() {
                   <p className="text-histown-text-muted text-lg leading-relaxed">Leading with passion and faith, creating a nurturing environment</p>
                 </div>
               </div>
-            </div>
+            </Link>
 
             {/* Dancers */}
-            <div className="group text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
+            <Link to="/about/team" className="group text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out block" style={{ transitionDelay: '400ms' }}>
               <div className="relative mb-8">
                 <div className="w-72 h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 transform group-hover:scale-105 bg-gradient-to-br from-histown-accent/5 to-histown-secondary/5 p-2">
                   <div className="w-full h-full rounded-2xl overflow-hidden">
@@ -525,10 +525,10 @@ function App() {
                   <p className="text-histown-text-muted text-lg leading-relaxed">Inspiring movement and grace through artistic technique</p>
                 </div>
               </div>
-            </div>
+            </Link>
 
             {/* Musicians */}
-            <div className="group text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
+            <Link to="/about/team" className="group text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out block" style={{ transitionDelay: '600ms' }}>
               <div className="relative mb-8">
                 <div className="w-72 h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500 transform group-hover:scale-105 bg-gradient-to-br from-histown-secondary/5 to-histown-primary/5 p-2">
                   <div className="w-full h-full rounded-2xl overflow-hidden">
@@ -551,7 +551,7 @@ function App() {
                   <p className="text-histown-text-muted text-lg leading-relaxed">Creating harmony and melody that touches hearts and souls</p>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
@@ -596,12 +596,16 @@ function App() {
               </p>
               
               <div className="space-y-4">
-                <button className="w-full bg-white text-histown-primary hover:bg-white/95 hover:text-histown-accent font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-                  REQUEST A TRIAL CLASS
-                </button>
-                <button className="w-full bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-histown-primary transition-all duration-300 transform hover:scale-105">
-                  CONTACT US
-                </button>
+                <Link to="/free-trial" className="block">
+                  <button className="w-full bg-white text-histown-primary hover:bg-white/95 hover:text-histown-accent font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    REQUEST A TRIAL CLASS
+                  </button>
+                </Link>
+                <Link to="/contact" className="block">
+                  <button className="w-full bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-histown-primary transition-all duration-300 transform hover:scale-105">
+                    CONTACT US
+                  </button>
+                </Link>
               </div>
             </div>
 
