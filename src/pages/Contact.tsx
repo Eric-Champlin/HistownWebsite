@@ -100,9 +100,10 @@ const Contact: React.FC = () => {
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover"
           style={{
             backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910868/Contact_vjskho.avif)',
+            backgroundPosition: 'center 70%',
             filter: 'brightness(0.7)'
           }}
         ></div>
@@ -142,102 +143,96 @@ const Contact: React.FC = () => {
         <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at 15% 25%, rgba(14, 116, 144, 0.25) 0%, transparent 45%), radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.25) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 55%)' }}></div>
         <div className="absolute inset-0 opacity-25" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%230891b2\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z\' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}></div>
         
-        <div className="relative max-w-6xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
+          <div className="space-y-8">
             
-            {/* Contact Information */}
+            {/* Contact Information - Full Width */}
             <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
               <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-3xl shadow-lg">
                 <div className="p-8 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                  <h2 className="text-3xl md:text-4xl font-black uppercase text-gray-800 mb-6">
+                  <h2 className="text-3xl md:text-4xl font-black uppercase text-gray-800 mb-8 text-center">
                     GET IN TOUCH
                   </h2>
                   
-                  <div className="space-y-6">
-                    <div className="flex items-start">
-                      <div className="w-12 h-12 bg-gradient-to-br from-histown-primary to-histown-accent rounded-full flex items-center justify-center flex-shrink-0 mr-4">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-gradient-to-br from-histown-primary to-histown-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                       </div>
-                      <div>
-                        <h3 className="font-bold text-lg text-gray-800 mb-1">Address</h3>
-                        <p className="text-gray-600">1010 Perrone Way, Suite 200</p>
-                        <p className="text-gray-600">Franklin, TN 37069</p>
-                      </div>
+                      <h3 className="font-bold text-xl text-gray-800 mb-2 uppercase">Address</h3>
+                      <p className="text-gray-600">1010 Perrone Way, Suite 200</p>
+                      <p className="text-gray-600">Franklin, TN 37069</p>
                     </div>
 
-                    <div className="flex items-start">
-                      <div className="w-12 h-12 bg-gradient-to-br from-histown-primary to-histown-accent rounded-full flex items-center justify-center flex-shrink-0 mr-4">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-gradient-to-br from-histown-primary to-histown-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
                       </div>
-                      <div>
-                        <h3 className="font-bold text-lg text-gray-800 mb-1">Phone</h3>
-                        <p className="text-gray-600">(615) 640-8349</p>
-                      </div>
+                      <h3 className="font-bold text-xl text-gray-800 mb-2 uppercase">Phone</h3>
+                      <p className="text-gray-600">(615) 640-8349</p>
                     </div>
 
-                    <div className="flex items-start">
-                      <div className="w-12 h-12 bg-gradient-to-br from-histown-primary to-histown-accent rounded-full flex items-center justify-center flex-shrink-0 mr-4">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-gradient-to-br from-histown-primary to-histown-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                       </div>
-                      <div>
-                        <h3 className="font-bold text-lg text-gray-800 mb-1">Email</h3>
-                        <p className="text-gray-600">info@histown.com</p>
-                      </div>
+                      <h3 className="font-bold text-xl text-gray-800 mb-2 uppercase">Email</h3>
+                      <p className="text-gray-600">info@histown.com</p>
                     </div>
 
-                    <div className="flex items-start">
-                      <div className="w-12 h-12 bg-gradient-to-br from-histown-primary to-histown-accent rounded-full flex items-center justify-center flex-shrink-0 mr-4">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-gradient-to-br from-histown-primary to-histown-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                       </div>
-                      <div>
-                        <h3 className="font-bold text-lg text-gray-800 mb-1">Hours</h3>
-                        <p className="text-gray-600">Monday - Friday: 3:00 PM - 9:00 PM</p>
-                        <p className="text-gray-600">Saturday: 9:00 AM - 2:00 PM</p>
-                        <p className="text-gray-600">Sunday: Closed</p>
-                      </div>
+                      <h3 className="font-bold text-xl text-gray-800 mb-2 uppercase">Hours</h3>
+                      <p className="text-gray-600 text-sm">Monday - Friday: 3:00 PM - 9:00 PM</p>
+                      <p className="text-gray-600 text-sm">Saturday: 9:00 AM - 2:00 PM</p>
+                      <p className="text-gray-600 text-sm">Sunday: Closed</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Contact Form */}
+            {/* Contact Form - Full Width */}
             <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
               <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-2 rounded-3xl shadow-lg">
-                <div className="p-8 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                  <h2 className="text-3xl md:text-4xl font-black uppercase text-gray-800 mb-6">
+                <div className="p-8 md:p-12 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <h2 className="text-3xl md:text-4xl font-black uppercase text-gray-800 mb-8 text-center">
                     SEND US A MESSAGE
                   </h2>
                   
-                  <form className="space-y-4">
-                    <div>
-                      <label className="block text-gray-700 font-medium mb-2">Name*</label>
-                      <input 
-                        type="text" 
-                        className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-histown-primary focus:outline-none transition-colors"
-                        placeholder="Your name"
-                      />
+                  <form className="max-w-4xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                      <div>
+                        <label className="block text-gray-700 font-medium mb-2">Name*</label>
+                        <input 
+                          type="text" 
+                          className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-histown-primary focus:outline-none transition-colors"
+                          placeholder="Your name"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="block text-gray-700 font-medium mb-2">Email*</label>
+                        <input 
+                          type="email" 
+                          className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-histown-primary focus:outline-none transition-colors"
+                          placeholder="your@email.com"
+                        />
+                      </div>
                     </div>
                     
-                    <div>
-                      <label className="block text-gray-700 font-medium mb-2">Email*</label>
-                      <input 
-                        type="email" 
-                        className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-histown-primary focus:outline-none transition-colors"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                    
-                    <div>
+                    <div className="mb-6">
                       <label className="block text-gray-700 font-medium mb-2">Phone</label>
                       <input 
                         type="tel" 
@@ -246,10 +241,10 @@ const Contact: React.FC = () => {
                       />
                     </div>
                     
-                    <div>
+                    <div className="mb-6">
                       <label className="block text-gray-700 font-medium mb-2">Message*</label>
                       <textarea 
-                        rows={5}
+                        rows={6}
                         className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-histown-primary focus:outline-none transition-colors resize-none"
                         placeholder="Tell us how we can help you..."
                       ></textarea>

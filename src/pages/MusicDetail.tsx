@@ -9,24 +9,24 @@ const musicData: Record<string, { name: string; description: string; image: stri
     description: 'Master the keys with classical and contemporary instruction',
     image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763082285/piano_discjk.png',
     bannerImage: 'https://images.unsplash.com/photo-1552422535-c45813c61732?w=1600&q=80',
-    position: 'center center',
-    longDescription: 'Piano lessons at HisTown provide comprehensive instruction in both classical and contemporary styles. Students develop proper technique, hand position, and posture while learning to read music and understand music theory. Our piano program emphasizes musicality, expression, and the joy of making music. Whether you are a beginner learning your first scales or an advanced student working on complex repertoire, our experienced instructors tailor lessons to your individual goals and learning style. Piano study develops discipline, creativity, and a lifelong appreciation for music.'
+    position: 'center 60%',
+    longDescription: 'Piano lessons with Mr. Leroy are a huge hit! We offer private lessons for beginner, intermediate and advanced students, ages 6 and up (adults welcome!). Start with a 30-minute free trial lesson. If you continue, the trial is paid; if not, it\'s free. Lessons are $160/month for four weekly 30-minute sessions, plus a $50 annual registration fee.'
   },
   'violin': {
     name: 'Violin',
     description: 'Discover the beauty of strings through proper technique',
     image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763082270/violin_n0i0ta.png',
     bannerImage: 'https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=1600&q=80',
-    position: 'center center',
-    longDescription: 'Violin instruction at HisTown focuses on building a strong technical foundation while developing beautiful tone and musical expression. Students learn proper bow hold, posture, and left-hand technique through carefully selected repertoire and exercises. Our violin program incorporates both classical training and contemporary styles, allowing students to explore various musical genres. From learning to hold the instrument correctly to performing advanced concertos, our patient and skilled instructors guide each student through their musical journey. Violin study enhances listening skills, coordination, and artistic sensitivity.'
+    position: 'center 10%',
+    longDescription: 'Violin lessons with Ms. Sophia are now available! We offer private lessons for beginner, intermediate and advanced students, ages 6 and up (adults welcome!). Start with a 30-minute free trial lesson. If you continue, the trial is paid; if not, it\'s free. Lessons are $160/month for four weekly 30-minute sessions, plus a $50 annual registration fee. Limited spots available!'
   },
   'guitar': {
     name: 'Guitar',
     description: 'Learn acoustic and electric guitar with contemporary styles',
-    image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763082274/guitar_fptevk.png',
+    image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763510607/Screenshot_2025-11-18_at_6.03.12_PM_wdio2a.png',
     bannerImage: 'https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?w=1600&q=80',
     position: 'center center',
-    longDescription: 'Guitar lessons at HisTown cover both acoustic and electric guitar, teaching students chords, strumming patterns, fingerpicking techniques, and lead guitar skills. Our guitar program is designed to help students play the music they love while building a solid technical foundation. Students learn to read chord charts, tablature, and standard notation while developing rhythm, timing, and musicality. Whether your goal is to play worship music, rock, folk, or classical guitar, our instructors provide personalized instruction that keeps you motivated and progressing. Guitar study builds confidence, creativity, and the ability to accompany yourself or play in a band.'
+    longDescription: 'Guitar lessons with Mr. Nathan are now available! We offer private lessons for beginner, intermediate and advanced students, ages 6 and up (adults welcome!). Start with a 30-minute free trial lesson. If you continue, the trial is paid; if not, it\'s free. Lessons are $160/month for four weekly 30-minute sessions, plus a $50 annual registration fee. Limited spots available!'
   },
   'vocal': {
     name: 'Vocal',
@@ -34,7 +34,7 @@ const musicData: Record<string, { name: string; description: string; image: stri
     image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763082271/voice_zperxb.png',
     bannerImage: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=1600&q=80',
     position: 'center center',
-    longDescription: 'Vocal training at HisTown helps students discover and develop their unique voice through proper technique and musical expression. Our vocal program focuses on breath support, tone production, pitch accuracy, and expanding vocal range. Students learn healthy vocal techniques that prevent strain while building confidence in their singing abilities. Whether preparing for auditions, performances, or simply wanting to improve your singing, our experienced vocal instructors provide individualized attention and encouragement. Vocal lessons include work on diction, phrasing, interpretation, and stage presence. Singing develops self-expression, confidence, and the joy of sharing music with others.'
+    longDescription: 'Voice lessons with Ms. Ele are now available! We offer private lessons for beginner, intermediate and advanced students, ages 7 and up (adults welcome!). Start with a free trial lesson. If you continue, the trial is paid; if not, it\'s free. Lessons are $165/month for ages 7-11 (30-min weekly) or $320/month for ages 12-18 (50-min weekly), plus $50 annual registration. Limited spots available!'
   }
 };
 
@@ -49,6 +49,23 @@ const MusicDetail: React.FC = () => {
   }
 
   useEffect(() => {
+    // Animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, observerOptions);
+
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    animateElements.forEach((el) => observer.observe(el));
+
     // Testimonials carousel
     const testimonials = [
       { author: "Emily Song", text: "My daughter just completed her first semester at Histown and it has been an incredibly positive experience! The teachers are gracious, kind, and very knowledgeable." },
@@ -165,10 +182,11 @@ const MusicDetail: React.FC = () => {
         <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at 15% 25%, rgba(14, 116, 144, 0.25) 0%, transparent 45%), radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.25) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 55%)' }}></div>
         <div className="absolute inset-0 opacity-25" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%230891b2\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z\' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}></div>
         
-        <div className="relative max-w-5xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="group rounded-3xl overflow-visible">
+        <div className="relative max-w-6xl mx-auto px-12 sm:px-16 lg:px-20">
+          {/* All Music Classes - Image Left, Text Right Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
             {/* Music Image */}
-            <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-2xl">
               <img 
                 src={music.image}
                 alt={music.name}
@@ -177,32 +195,38 @@ const MusicDetail: React.FC = () => {
               />
             </div>
             
-            {/* Description Card with Blue Border */}
-            <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
-              <div className="p-8 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                <div className="text-center mb-6">
-                  <h3 className="text-3xl md:text-4xl font-black uppercase text-gray-800 mb-4">
+            {/* Description Card */}
+            <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-3xl shadow-lg">
+              <div className="p-6 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                <div className="mb-4 text-center">
+                  <h3 className="text-3xl md:text-4xl font-black uppercase text-gray-800 mb-3">
                     {music.name}
                   </h3>
                   <div className="flex items-center justify-center space-x-2">
-                    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-histown-primary rounded-full"></div>
-                    <div className="w-2.5 h-2.5 bg-histown-accent rounded-full"></div>
-                    <div className="h-1 w-32 bg-gradient-to-r from-histown-primary via-histown-accent to-histown-primary rounded-full"></div>
-                    <div className="w-2.5 h-2.5 bg-histown-accent rounded-full"></div>
-                    <div className="h-1 w-16 bg-gradient-to-r from-histown-primary to-transparent rounded-full"></div>
+                    <div className="h-1 w-12 bg-gradient-to-r from-transparent to-histown-primary rounded-full"></div>
+                    <div className="w-2 h-2 bg-histown-accent rounded-full"></div>
+                    <div className="h-1 w-24 bg-gradient-to-r from-histown-primary via-histown-accent to-histown-primary rounded-full"></div>
+                    <div className="w-2 h-2 bg-histown-accent rounded-full"></div>
+                    <div className="h-1 w-12 bg-gradient-to-r from-histown-primary to-transparent rounded-full"></div>
                   </div>
                 </div>
-                <p className="text-lg text-gray-700 leading-relaxed mb-8">
+                <p className="text-base text-gray-700 leading-relaxed mb-6">
                   {music.longDescription}
                 </p>
                 
-                {/* View All Music Classes Button */}
-                <div className="text-center">
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row gap-3">
                   <Link 
                     to="/classes/music"
-                    className="inline-block bg-gradient-to-r from-histown-accent to-histown-primary text-white font-bold px-12 py-4 rounded-xl uppercase tracking-wide hover:scale-105 transform transition-all duration-300 shadow-lg"
+                    className="flex-1 text-center bg-gradient-to-r from-histown-accent to-histown-primary text-white font-bold px-6 py-3 rounded-xl uppercase tracking-wide hover:scale-105 transform transition-all duration-300 shadow-lg text-base"
                   >
-                    View All Music Classes
+                    Music Classes
+                  </Link>
+                  <Link 
+                    to="/contact"
+                    className="flex-1 text-center bg-gradient-to-r from-histown-accent to-histown-primary text-white font-bold px-6 py-3 rounded-xl uppercase tracking-wide hover:scale-105 transform transition-all duration-300 shadow-lg text-base"
+                  >
+                    Contact Us
                   </Link>
                 </div>
               </div>
@@ -231,7 +255,7 @@ const MusicDetail: React.FC = () => {
         <div className="absolute inset-0 bg-black/20"></div>
         
         <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="text-center mb-8 flex flex-col items-center">
+          <div className="text-center mb-8 flex flex-col items-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
             <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
               WHY US?
             </h2>
@@ -244,14 +268,14 @@ const MusicDetail: React.FC = () => {
             </div>
           </div>
 
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
             <p className="text-lg text-white max-w-4xl mx-auto leading-relaxed blue-section-text">
               We provide music instruction in a Christ-centered environment that nurtures each student's God-given gifts for ministry, outreach, and entertainment.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
+            <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
               <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-2xl shadow-lg">
                 <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
                   <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
@@ -267,7 +291,7 @@ const MusicDetail: React.FC = () => {
               </div>
             </div>
 
-            <div>
+            <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
               <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-2 rounded-2xl shadow-lg">
                 <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
                   <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
@@ -283,7 +307,7 @@ const MusicDetail: React.FC = () => {
               </div>
             </div>
 
-            <div>
+            <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '800ms' }}>
               <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-2 rounded-2xl shadow-lg">
                 <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
                   <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
@@ -305,7 +329,7 @@ const MusicDetail: React.FC = () => {
       {/* Testimonials Section */}
       <section className="bg-white py-16 md:py-24" style={{ marginTop: '-4rem', paddingTop: '6rem', marginBottom: '-4rem', paddingBottom: '6rem' }}>
         <div className="max-w-6xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
             <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
               TESTIMONIALS
             </h2>
@@ -331,7 +355,7 @@ const MusicDetail: React.FC = () => {
             />
           </div>
 
-          <div className="relative px-16">
+          <div className="relative px-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
             <button 
               id="testimonial-prev-music-detail"
               className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
@@ -378,7 +402,7 @@ const MusicDetail: React.FC = () => {
         <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center justify-items-center">
             
-            <div className="text-white blue-section-text text-center w-full max-w-md">
+            <div className="text-white blue-section-text text-center w-full max-w-md animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
               <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
                 NEXT STEPS
               </h2>
@@ -407,7 +431,7 @@ const MusicDetail: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-white/10 blue-section-card backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+            <div className="bg-white/10 blue-section-card backdrop-blur-sm rounded-3xl p-8 border border-white/20 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '300ms' }}>
               <h3 className="text-3xl font-bold text-white mb-4 uppercase blue-section-text">
                 SIGN UP FOR EMAIL UPDATES
               </h3>
@@ -436,9 +460,9 @@ const MusicDetail: React.FC = () => {
                 
                 <button 
                   type="submit"
-                  className="w-full bg-white text-histown-primary hover:bg-white/95 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
+                  className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg mt-6"
                 >
-                  SIGN UP
+                  Submit
                 </button>
               </form>
             </div>

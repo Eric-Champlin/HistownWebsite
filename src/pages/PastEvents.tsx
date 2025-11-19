@@ -165,8 +165,11 @@ const PastEvents: React.FC = () => {
           <div className="max-w-4xl mx-auto animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
             <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg">
               <div className="p-8 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                <p className="text-lg text-gray-700 text-center leading-relaxed">
+                <p className="text-lg text-gray-700 text-center leading-relaxed mb-4">
                   HisTown had the incredible honor of performing at the K-LOVE Fan Awards, sharing our passion for faith-centered dance and music on one of Christian entertainment's biggest stages.
+                </p>
+                <p className="text-lg text-gray-700 text-center leading-relaxed">
+                  Beyond the K-LOVE stage, HisTown dancers are a beloved part of the Franklin community, performing at Franklin holiday festivals every year. From Dickens of a Christmas to other seasonal celebrations, our students bring joy and inspiration to our local community through dance, sharing the light of Christ during the most wonderful time of the year.
                 </p>
               </div>
             </div>
@@ -386,9 +389,9 @@ const PastEvents: React.FC = () => {
                 
                 <button 
                   type="submit"
-                  className="w-full bg-white text-histown-primary hover:bg-white/95 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
+                  className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg mt-6"
                 >
-                  SIGN UP
+                  Submit
                 </button>
               </form>
             </div>

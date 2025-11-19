@@ -12,49 +12,57 @@ const DressCode: React.FC = () => {
       id: 'acro', 
       name: 'Acro',
       image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825371/Acro_vmmyyu.png',
-      requirements: 'Form-fitting dancewear, bare feet or acro shoes. Hair must be secured in a bun or ponytail.'
+      position: 'center 100%',
+      requirements: '1. Dancers may wear dance shorts or leggings. Dance shorts must be fitted (no athletic shorts or butterfly shorts)\n\n2. Leotards are required. Level 2A and up must wear black leotards. No mesh cut outs or low cut leotards. If sports bra is worn underneath it must be all black. Shirts are not allowed.\n\n3. Bare feet or foot undies may be worn.\n\n4. Hair must be securely pulled up away from face, long hair needs to be all the way up in a pony-tail.'
     },
     { 
       id: 'ballet', 
       name: 'Ballet / Creative Movement',
       image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825370/Ballet_zgvpjm.jpg',
-      requirements: 'Pink or black leotard, pink tights, pink ballet shoes. Hair in a secure bun. Skirts optional for younger dancers.'
+      position: 'center 30%',
+      requirements: '1. Creative Movement through Level 1B dancers are to wear pink ballet tights (not footless) and leotards of any color. No leggings or shorts. Level 2A through 5 dancers are to wear pink ballet tights (not footless). Black leotards level 2 and up no mesh cut outs or low cut leotards if sports bra is worn it must be all black. If sports bra is worn underneath it must be all black.\n\n2. Ballet skirt is optional and must be worn around the waist.\n\n3. Ballet shoes may be leather or canvas. Ballet shoes may be split sole or full sole. (No ballet slippers.)\n\n4. Hair must be securely up in a bun using bobby pins. If it comes down in class it was not secured well enough.'
     },
     { 
       id: 'contemporary', 
       name: 'Contemporary',
       image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825366/Contemporary_doscju.png',
-      requirements: 'Form-fitting dancewear in any color, bare feet or foot undies. Hair secured away from face.'
+      position: 'center 5%',
+      requirements: '1. Dancers may wear dance shorts, leggings or jazz pants. Dance shorts must be fitted (no athletic shorts or butterfly shorts)\n\n2. Leotards are required. Level 2A and up must wear black leotards. No mesh cut outs or low cut leotards. If sports bra is worn underneath it must be all black. No shirts are allowed.\n\n3. Bare feet or foot undies may be worn.\n\n4. Hair must be securely pulled up away from face, long hair needs to be up.'
     },
     { 
       id: 'hip-hop', 
       name: 'Hip-Hop',
       image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825372/HipHop_yzzsxu.png',
-      requirements: 'Comfortable athletic wear, clean sneakers (indoor use only). Hair secured or styled appropriately.'
+      position: 'center center',
+      requirements: '1. Sweat pants are preferred, but dancers may wear dance shorts, biker shorts, dance pants, along with shirts, t-shirts and/or anything comfortable you can move in and dance freely. No inappropriate, vulgar or offensive wording or symbols allowed.\n\n2. Dancers must wear tennis shoes/sneakers to class.\n\n3. Keep it modest. No half-shirts or clothing that bares the mid-driff. Dressing appropriate for class is respectful of the teacher and the class.'
     },
     { 
       id: 'jazz', 
       name: 'Jazz',
       image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825363/Jazz_hwekyw.png',
-      requirements: 'Form-fitting dancewear, tan jazz shoes. Hair in ponytail or bun. Jazz pants optional.'
+      position: 'center 5%',
+      requirements: '1. Dancers may wear dance shorts, leggings or jazz pants. Dance shorts must be fitted (no athletic shorts or butterfly shorts)\n\n2. Must wear leotards. Level 2A and up must wear black leotards with no mesh cut outs or low cut leotards. If sports bra is worn underneath it must be all black. No shirts are allowed.\n\n3. Jazz shoes are necessary for jazz class. Tan shoes are preferred and used in performances, but black shoes may be worn during class.\n\n4. Hair must be securely pulled up away from face, long hair needs to be all the way up in a pony-tail.'
     },
     { 
       id: 'modern', 
       name: 'Modern',
       image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825358/Modern_gnrpmd.png',
-      requirements: 'Comfortable, form-fitting dancewear, bare feet. Hair secured in bun or ponytail.'
+      position: 'center center',
+      requirements: '1. Dancers may wear dance shorts, leggings or jazz pants. Dance shorts must be fitted (no athletic shorts or butterfly shorts)\n\n2. Leotards are required. Level 3A and up must wear black leotards. If sports bra is worn underneath it must be all black.\n\n3. Bare feet are necessary for modern class.\n\n4. Hair must be securely pulled up away from face, long hair needs to be all the way up.'
     },
     { 
       id: 'musical-theater', 
       name: 'Musical Theater',
       image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825360/Musical_Theater_om16de.png',
-      requirements: 'Form-fitting dancewear, tan jazz shoes or character shoes. Hair styled appropriately for performance.'
+      position: 'center center',
+      requirements: '1. Dancers may wear dance shorts, leggings or jazz pants. Dance shorts must be fitted (no athletic shorts or butterfly shorts)\n\n2. Leotards are required. Level 2A and up must wear black leotards. No mesh cut outs or low cut leotards. Shirts are not allowed. If sports bra is worn underneath it must be all black.\n\n3. Jazz shoes are necessary for musical theater. Tan shoes are preferred and used in performances, but black shoes are allowed in class.\n\n4. Hair must be securely pulled up away from face, long hair needs to be all the way up in a pony-tail.'
     },
     { 
       id: 'tap', 
       name: 'Tap',
       image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825362/Tap_dnxfal.jpg',
-      requirements: 'Form-fitting dancewear, black tap shoes with taps attached. Hair in ponytail or bun.'
+      position: 'center 35%',
+      requirements: '1. Dancers may wear dance shorts, leggings or jazz pants. Dance shorts must be fitted (no athletic shorts or butterfly shorts)\n\n2. Leotards are required. Level 2A and up must wear black leotards. No mesh cut outs or low cut leotards. If sports bra is worn underneath it must be all black. No shirts are allowed.\n\n3. Tap shoes are necessary. Black shoes are preferred and used in performances.\n\n4. Hair must be securely pulled up away from face, long hair needs to be all the way up in a pony-tail.'
     }
   ];
 
@@ -184,8 +192,8 @@ const DressCode: React.FC = () => {
         className="py-20 md:py-32 relative overflow-hidden"
         style={{
           clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)',
-          marginTop: '-4rem',
-          paddingTop: '6rem',
+          marginTop: '-6rem',
+          paddingTop: '10rem',
           marginBottom: '-4rem',
           paddingBottom: '6rem',
           background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 20%, #dbeafe 40%, #bae6fd 60%, #7dd3fc 80%, #38bdf8 100%)'
@@ -208,6 +216,7 @@ const DressCode: React.FC = () => {
                     src={category.image}
                     alt={category.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    style={{ objectPosition: category.position }}
                   />
                 </div>
                 <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
@@ -271,9 +280,9 @@ const DressCode: React.FC = () => {
                 </div>
               </div>
               <div className="px-8 pb-6 pt-2">
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <div className="text-lg text-gray-700 leading-relaxed whitespace-pre-line">
                   {dressCodeCategories.find(c => c.id === selectedDressCode)?.requirements}
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -492,9 +501,9 @@ const DressCode: React.FC = () => {
                 
                 <button 
                   type="submit"
-                  className="w-full bg-white text-histown-primary hover:bg-white/95 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
+                  className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg mt-6"
                 >
-                  SIGN UP
+                  Submit
                 </button>
               </form>
             </div>

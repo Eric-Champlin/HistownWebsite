@@ -3,30 +3,41 @@ import { useParams, Link } from 'react-router-dom';
 import NavBar from '../components/layout/NavBar';
 import { homeContent } from '../content/home';
 
-const featuredData: Record<string, { name: string; description: string; image: string; bannerImage: string; position: string; longDescription: string }> = {
+const featuredData: Record<string, { name: string; description: string; image?: string; images?: string[]; bannerImage: string; position: string; longDescription: string; useOriginalLayout?: boolean; pricingTable?: { package: string; cost: string; savings?: string }[] }> = {
   'acting': {
     name: 'Acting Classes',
     description: 'Develop stage presence and character work',
-    image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762908818/Acting_fauf4j.png',
+    images: [
+      'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763511939/Screenshot_2025-11-18_at_6.25.26_PM_pxliij.png',
+      'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763166100/Heather_ng7kpl.png'
+    ],
     bannerImage: 'https://images.unsplash.com/photo-1503095396549-807759245b35?w=1600&q=80',
     position: 'center center',
-    longDescription: 'Our acting classes provide comprehensive training in theatrical performance, character development, and stage presence. Students learn fundamental acting techniques including voice projection, body language, improvisation, and script analysis. Through scene work and monologues, actors develop confidence and the ability to embody diverse characters authentically. Our program emphasizes storytelling that honors Christian values while exploring the full range of human experience. Whether preparing for auditions, school productions, or simply wanting to grow as a performer, our acting classes provide a supportive environment where students can take creative risks and discover their unique voice as actors.'
+    longDescription: '<strong>Ben Francisco</strong><br/>Acting Up! Confidence Through the Stage: 6-week acting and improv course for ages 9-12, meeting once weekly for one hour. Build confidence, emotional awareness, and creative expression through movement games, acting lessons, and group reflections. Students explore improv skills—listening, collaboration, physicality, vocal expression, empathy, and resilience—while embracing their God-given uniqueness. Culminates in a mini-showcase. $135 for six weeks. Limited to 14 students.<br/><br/><strong>Heather Wise</strong><br/>Beginning Acting/Stage Presence (Ages 8-11): Mondays 5:30-6:30pm. Learn acting fundamentals through theater games, improv, monologues, and scenes to build self-confidence and imagination. Beginning/Intermediate Acting (Ages 12-17): Mondays 6:30-7:30pm. Master stage comfort through improv, theater games, monologue and scene work. Regular tuition fees apply. Free trial available.'
   },
   'adult': {
-    name: 'Adult Classes',
-    description: 'Dance and fitness for adults',
-    image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762908627/Adult_wzixm0.webp',
-    bannerImage: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1600&q=80',
+    name: 'Adult Barre Classes',
+    description: 'Faith-based fitness for women',
+    image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763513212/Screenshot_2025-11-18_at_6.46.07_PM_yr3o0w.png',
+    bannerImage: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1600&q=80',
     position: 'center center',
-    longDescription: 'Adult dance and fitness classes at HisTown offer a welcoming space for adults to explore movement, stay active, and connect with community. Our adult program includes ballet, contemporary, barre fitness, and other styles tailored to adult bodies and schedules. Classes focus on proper technique, flexibility, strength, and the joy of dancing without the pressure of performance. Whether you danced as a child and want to return, or are discovering dance for the first time, our adult classes provide excellent instruction in a supportive, non-judgmental environment. Join us to improve fitness, reduce stress, and experience the creative fulfillment that dance brings at any age.'
+    useOriginalLayout: true,
+    longDescription: 'Led by certified instructor Mattie Tichenor, our Barre classes offer something for women of all fitness levels in an empowering, God-honoring environment. Every Monday from 11:10am to 12:00pm, experience a faith-based workout that\'s both high-energy and peaceful. This method tones, lifts, strengthens, stretches, and so much more! Open to women age 16 and up—all ability levels welcome. There is a place for you! First class is only $10, so grab a friend and come sweat with us!',
+    pricingTable: [
+      { package: 'Single Drop-In Class', cost: '$25', savings: '' },
+      { package: '5 Class Package', cost: '$90', savings: 'Save $35!' },
+      { package: '10 Class Package', cost: '$160', savings: 'Save $90!' },
+      { package: '20 Class Package', cost: '$300', savings: 'Save $200!' }
+    ]
   },
   'company': {
     name: 'Company Classes',
     description: 'Elite training for dedicated dancers',
-    image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762908625/Company_iszsdb.png',
+    image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1763514053/Screenshot_2025-11-18_at_7.00.33_PM_egyjic.png',
     bannerImage: 'https://images.unsplash.com/photo-1508807526345-15e9b5f4eaff?w=1600&q=80',
     position: 'center center',
-    longDescription: 'HisTown Company is our pre-professional training program for serious dancers committed to excellence and ministry through dance. Company members receive intensive training in multiple dance styles, participate in regular performances, and develop leadership skills. The program emphasizes technical mastery, artistic expression, and using dance as a form of worship and outreach. Company dancers train multiple times per week, learning choreography for performances at church services, community events, and special showcases. Auditions are required for company placement. This program is ideal for dancers who are passionate about their craft and want to use their talents to glorify God while preparing for potential dance careers or college dance programs.'
+    useOriginalLayout: true,
+    longDescription: '<p class="mb-4">HisTown has five companies this year (Senior, 1st, 2nd, 3rd & 4th) that meet weekly to train, dance, and worship together. It\'s an opportunity for dancers to grow technically and connect through their faith on a deeper level. Company members are expected to be positive role models and lead by example in how they live their lives and treat others, both inside and outside the studio.</p><p class="mb-6">Whether interested in ministry opportunities, professional training, or both, company dancers are highly dedicated and serious about pursuing their passion for dance. Company members perform at events outside of recitals and have the opportunity to choreograph and perform a solo/senior piece their graduating year of high school in our May recital.</p><h4 class="text-2xl font-bold mb-4 uppercase">Company Requirements</h4><div class="space-y-4"><div class="bg-gray-50 p-4 rounded-lg"><h5 class="font-bold text-lg mb-2">Senior Company - Level 4 & 5 (Ages 16+)</h5><p>Must take at least four hours of ballet weekly (with at least two hours being technique class involving barre, center, and across the floor) plus at least three other genres (contemporary, modern, musical theater, hip-hop, etc.). Company class does not count as ballet. Optional one-hour technique class available Mondays at 4:30pm.</p></div><div class="bg-white p-4 rounded-lg border border-gray-200"><h5 class="font-bold text-lg mb-2">1st Company - Level 4 & 5 (Ages 14+)</h5><p>Must take at least four hours of ballet weekly (with at least two hours being technique class involving barre, center, and across the floor) plus at least three other genres (contemporary, modern, musical theater, hip-hop, etc.). Company class does not count as ballet. Optional one-hour technique class available Mondays at 4:30pm.</p></div><div class="bg-gray-50 p-4 rounded-lg"><h5 class="font-bold text-lg mb-2">2nd Company - Level 3 (Ages 12+)</h5><p>Must take at least three hours of ballet weekly (with at least two hours being technique class involving barre, center, and across the floor) plus at least two other genres (contemporary, modern, musical theater, hip-hop, etc.). Company class does not count as ballet.</p></div><div class="bg-white p-4 rounded-lg border border-gray-200"><h5 class="font-bold text-lg mb-2">3rd Company - Level 3 (Ages 11-13)</h5><p>Must take at least one ballet class weekly plus at least two other genres (contemporary, modern, musical theater, hip-hop, etc.). Company class does not count as ballet.</p></div><div class="bg-gray-50 p-4 rounded-lg"><h5 class="font-bold text-lg mb-2">4th Company - Level 2 (Ages 10-12)</h5><p>Must take at least one ballet class weekly plus at least two other genres (contemporary, modern, musical theater, hip-hop, etc.). Company class does not count as ballet.</p></div></div><p class="text-sm text-gray-600 mt-6 italic">* Please note that even though we\'re generally distinguishing company classes by levels, a dancer\'s overall experience and age at the beginning of the semester can play a role in which company they\'re placed in as well.</p>'
   },
   'competition': {
     name: 'Competition Teams',
@@ -34,7 +45,7 @@ const featuredData: Record<string, { name: string; description: string; image: s
     image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762908625/Competition_lvgdnb.jpg',
     bannerImage: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1600&q=80',
     position: 'center center',
-    longDescription: 'Our competition teams provide dancers with the opportunity to showcase their talents at regional dance competitions while maintaining our Christ-centered values. Team members receive advanced technical training, learn sophisticated choreography, and develop performance skills under pressure. Competition experience builds confidence, discipline, and the ability to work as part of a team toward common goals. Dancers learn to handle both success and disappointment with grace, understanding that their worth comes from God, not from scores or placements. Our competition program balances the pursuit of excellence with healthy perspectives on winning and losing. Auditions and additional fees apply for competition team participation.'
+    longDescription: 'We\'re expanding our competition teams for the 2025-2026 season! Teams include Gold (Level 5), Silver (Level 3B-4B), Diamond (Level 2B-3A), and Light Crew (Hip-Hop). Our purpose goes beyond awards—we provide intensive training that benefits dancers professionally and spiritually. Through great technique and artistry, we show Christ to audiences and plant seeds for life-changing relationships with Jesus. This team impacts dancers through additional training, mentoring, travel, team bonding, and performance experience while relying on Jesus and showing God\'s love to all.'
   }
 };
 
@@ -49,6 +60,23 @@ const FeaturedDetail: React.FC = () => {
   }
 
   useEffect(() => {
+    // Animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, observerOptions);
+
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    animateElements.forEach((el) => observer.observe(el));
+
     // Testimonials carousel
     const testimonials = [
       { author: "Emily Song", text: "My daughter just completed her first semester at Histown and it has been an incredibly positive experience! The teachers are gracious, kind, and very knowledgeable." },
@@ -155,10 +183,10 @@ const FeaturedDetail: React.FC = () => {
         className="py-20 md:py-32 relative" 
         style={{ 
           clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)', 
-          marginTop: '-4rem', 
-          paddingTop: '6rem',
-          marginBottom: '-4rem',
-          paddingBottom: '6rem',
+          marginTop: '-6rem', 
+          paddingTop: '10rem',
+          marginBottom: '-6rem',
+          paddingBottom: '10rem',
           background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 20%, #dbeafe 40%, #bae6fd 60%, #7dd3fc 80%, #38bdf8 100%)'
         }}
       >
@@ -166,49 +194,149 @@ const FeaturedDetail: React.FC = () => {
         <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at 15% 25%, rgba(14, 116, 144, 0.25) 0%, transparent 45%), radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.25) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 55%)' }}></div>
         <div className="absolute inset-0 opacity-25" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%230891b2\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z\' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}></div>
         
-        <div className="relative max-w-5xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="group rounded-3xl overflow-visible">
-            {/* Featured Image */}
-            <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-              <img 
-                src={featured.image}
-                alt={featured.name}
-                className="w-full h-full object-cover"
-                style={{ objectPosition: featured.position }}
-              />
-            </div>
-            
-            {/* Description Card with Blue Border */}
-            <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
-              <div className="p-8 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                <div className="text-center mb-6">
-                  <h3 className="text-3xl md:text-4xl font-black uppercase text-gray-800 mb-4">
-                    {featured.name}
-                  </h3>
-                  <div className="flex items-center justify-center space-x-2">
-                    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-histown-primary rounded-full"></div>
-                    <div className="w-2.5 h-2.5 bg-histown-accent rounded-full"></div>
-                    <div className="h-1 w-32 bg-gradient-to-r from-histown-primary via-histown-accent to-histown-primary rounded-full"></div>
-                    <div className="w-2.5 h-2.5 bg-histown-accent rounded-full"></div>
-                    <div className="h-1 w-16 bg-gradient-to-r from-histown-primary to-transparent rounded-full"></div>
+        <div className="relative max-w-6xl mx-auto px-12 sm:px-16 lg:px-20">
+          {featured.useOriginalLayout ? (
+            /* Original Layout - Image on Top, Text Below */
+            <div className="group rounded-3xl overflow-visible">
+              {/* Featured Image */}
+              <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+                <img 
+                  src={featured.image}
+                  alt={featured.name}
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: featured.position }}
+                />
+              </div>
+              
+              {/* Description Card */}
+              <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
+                <div className="p-8 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <div className="text-center mb-6">
+                    <h3 className="text-3xl md:text-4xl font-black uppercase text-gray-800 mb-4">
+                      {featured.name}
+                    </h3>
+                    <div className="flex items-center justify-center space-x-2">
+                      <div className="h-1 w-16 bg-gradient-to-r from-transparent to-histown-primary rounded-full"></div>
+                      <div className="w-2.5 h-2.5 bg-histown-accent rounded-full"></div>
+                      <div className="h-1 w-32 bg-gradient-to-r from-histown-primary via-histown-accent to-histown-primary rounded-full"></div>
+                      <div className="w-2.5 h-2.5 bg-histown-accent rounded-full"></div>
+                      <div className="h-1 w-16 bg-gradient-to-r from-histown-primary to-transparent rounded-full"></div>
+                    </div>
                   </div>
-                </div>
-                <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                  {featured.longDescription}
-                </p>
-                
-                {/* View All Featured Classes Button */}
-                <div className="text-center">
-                  <Link 
-                    to="/classes/featured"
-                    className="inline-block bg-gradient-to-r from-histown-accent to-histown-primary text-white font-bold px-12 py-4 rounded-xl uppercase tracking-wide hover:scale-105 transform transition-all duration-300 shadow-lg"
-                  >
-                    View All Featured Programs
-                  </Link>
+                  <div 
+                    className="text-lg text-gray-700 leading-relaxed mb-8"
+                    dangerouslySetInnerHTML={{ __html: featured.longDescription }}
+                  />
+                  
+                  {/* Pricing Table */}
+                  {featured.pricingTable && (
+                    <div className="mb-8">
+                      <h4 className="text-2xl font-bold text-center mb-4 uppercase">Class Packs</h4>
+                      <div className="overflow-x-auto">
+                        <table className="w-full border-collapse">
+                          <thead>
+                            <tr className="bg-gradient-to-r from-histown-primary to-histown-accent text-white">
+                              <th className="border border-gray-300 px-4 py-3 text-left font-bold">Package</th>
+                              <th className="border border-gray-300 px-4 py-3 text-left font-bold">Cost</th>
+                              <th className="border border-gray-300 px-4 py-3 text-left font-bold">Savings</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {featured.pricingTable.map((row, index) => (
+                              <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                                <td className="border border-gray-300 px-4 py-3">{row.package}</td>
+                                <td className="border border-gray-300 px-4 py-3 font-semibold">{row.cost}</td>
+                                <td className="border border-gray-300 px-4 py-3 text-green-600 font-bold">{row.savings}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                      <p className="text-sm text-gray-600 mt-4 text-center">
+                        Venmo @histown or fees processed through HisTown account. Call us or purchase at front desk when you come for class!
+                      </p>
+                    </div>
+                  )}
+                  
+                  {/* Button */}
+                  <div className="text-center">
+                    <Link 
+                      to="/classes/featured"
+                      className="inline-block bg-gradient-to-r from-histown-accent to-histown-primary text-white font-bold px-12 py-4 rounded-xl uppercase tracking-wide hover:scale-105 transform transition-all duration-300 shadow-lg"
+                    >
+                      View All Featured Programs
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ) : (
+            /* Side-by-Side Layout - Image Left, Text Right */
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              {/* Featured Image(s) */}
+              {featured.images ? (
+                <div className="flex flex-col gap-0">
+                  {featured.images.map((img, index) => (
+                    <div key={index} className={`relative rounded-3xl overflow-hidden shadow-2xl ${index === 0 ? 'h-[330px] rounded-b-none' : 'h-[330px] rounded-t-none'}`}>
+                      <img 
+                        src={img}
+                        alt={`${featured.name} ${index + 1}`}
+                        className="w-full h-full object-cover"
+                        style={{ objectPosition: featured.position }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+                  <img 
+                    src={featured.image}
+                    alt={featured.name}
+                    className="w-full h-full object-cover"
+                    style={{ objectPosition: featured.position }}
+                  />
+                </div>
+              )}
+              
+              {/* Description Card */}
+              <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-3xl shadow-lg">
+                <div className="p-6 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <div className="mb-4 text-center">
+                    <h3 className="text-3xl md:text-4xl font-black uppercase text-gray-800 mb-3">
+                      {featured.name}
+                    </h3>
+                    <div className="flex items-center justify-center space-x-2">
+                      <div className="h-1 w-12 bg-gradient-to-r from-transparent to-histown-primary rounded-full"></div>
+                      <div className="w-2 h-2 bg-histown-accent rounded-full"></div>
+                      <div className="h-1 w-24 bg-gradient-to-r from-histown-primary via-histown-accent to-histown-primary rounded-full"></div>
+                      <div className="w-2 h-2 bg-histown-accent rounded-full"></div>
+                      <div className="h-1 w-12 bg-gradient-to-r from-histown-primary to-transparent rounded-full"></div>
+                    </div>
+                  </div>
+                  <div 
+                    className="text-base text-gray-700 leading-relaxed mb-6"
+                    dangerouslySetInnerHTML={{ __html: featured.longDescription }}
+                  />
+                  
+                  {/* Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Link 
+                      to="/classes/featured"
+                      className="flex-1 text-center bg-gradient-to-r from-histown-accent to-histown-primary text-white font-bold px-6 py-3 rounded-xl uppercase tracking-wide hover:scale-105 transform transition-all duration-300 shadow-lg text-base"
+                    >
+                      All Featured
+                    </Link>
+                    <Link 
+                      to="/contact"
+                      className="flex-1 text-center bg-gradient-to-r from-histown-accent to-histown-primary text-white font-bold px-6 py-3 rounded-xl uppercase tracking-wide hover:scale-105 transform transition-all duration-300 shadow-lg text-base"
+                    >
+                      Contact Us
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -233,7 +361,7 @@ const FeaturedDetail: React.FC = () => {
         <div className="absolute inset-0 bg-black/20"></div>
         
         <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="text-center mb-8 flex flex-col items-center">
+          <div className="text-center mb-8 flex flex-col items-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
             <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
               WHY US?
             </h2>
@@ -246,14 +374,14 @@ const FeaturedDetail: React.FC = () => {
             </div>
           </div>
 
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
             <p className="text-lg text-white max-w-4xl mx-auto leading-relaxed blue-section-text">
               We provide specialized programs in a Christ-centered environment that nurtures each student's God-given gifts for ministry, outreach, and entertainment.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
+            <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
               <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-2xl shadow-lg">
                 <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
                   <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
@@ -269,7 +397,7 @@ const FeaturedDetail: React.FC = () => {
               </div>
             </div>
 
-            <div>
+            <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
               <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-1.5 rounded-2xl shadow-lg">
                 <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
                   <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
@@ -285,7 +413,7 @@ const FeaturedDetail: React.FC = () => {
               </div>
             </div>
 
-            <div>
+            <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '800ms' }}>
               <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-1.5 rounded-2xl shadow-lg">
                 <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
                   <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
@@ -308,7 +436,7 @@ const FeaturedDetail: React.FC = () => {
       {/* Testimonials Section */}
       <section className="bg-white py-16 md:py-24" style={{ marginTop: '-4rem', paddingTop: '6rem', marginBottom: '-4rem', paddingBottom: '6rem' }}>
         <div className="max-w-6xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
             <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
               TESTIMONIALS
             </h2>
@@ -334,7 +462,7 @@ const FeaturedDetail: React.FC = () => {
             />
           </div>
 
-          <div className="relative px-16">
+          <div className="relative px-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
             <button 
               id="testimonial-prev-featured-detail"
               className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
@@ -381,7 +509,7 @@ const FeaturedDetail: React.FC = () => {
         <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center justify-items-center">
             
-            <div className="text-white blue-section-text text-center w-full max-w-md">
+            <div className="text-white blue-section-text text-center w-full max-w-md animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
               <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
                 NEXT STEPS
               </h2>
@@ -408,7 +536,7 @@ const FeaturedDetail: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-white/10 blue-section-card backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+            <div className="bg-white/10 blue-section-card backdrop-blur-sm rounded-3xl p-8 border border-white/20 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '300ms' }}>
               <h3 className="text-3xl font-bold text-white mb-4 uppercase blue-section-text">
                 SIGN UP FOR EMAIL UPDATES
               </h3>
@@ -437,9 +565,9 @@ const FeaturedDetail: React.FC = () => {
                 
                 <button 
                   type="submit"
-                  className="w-full bg-white text-histown-primary hover:bg-white/95 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
+                  className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg mt-6"
                 >
-                  SIGN UP
+                  Submit
                 </button>
               </form>
             </div>

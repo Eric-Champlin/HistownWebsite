@@ -173,7 +173,7 @@ const FreeTrial: React.FC = () => {
                   href="https://app.thestudiodirector.com/histown/portal.sd?page=Enroll&meth=search&SEASON=Fall+2017+-+Spring+2018"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 bg-gradient-to-r from-histown-primary to-histown-accent text-white font-bold py-4 px-8 rounded-xl hover:scale-105 transform transition-all duration-300 shadow-lg text-center"
+                  className="flex-1 bg-gradient-to-r from-histown-accent to-histown-primary text-white font-bold py-4 px-4 rounded-xl hover:scale-105 transform transition-all duration-300 shadow-lg text-center text-sm whitespace-nowrap"
                 >
                   VIEW CLASS SCHEDULE
                 </a>
@@ -181,10 +181,16 @@ const FreeTrial: React.FC = () => {
                   href="https://app.thestudiodirector.com/histown/portal.sd?page=Register"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 bg-gradient-to-r from-histown-accent to-histown-secondary text-white font-bold py-4 px-8 rounded-xl hover:scale-105 transform transition-all duration-300 shadow-lg text-center"
+                  className="flex-1 bg-gradient-to-r from-histown-accent to-histown-primary text-white font-bold py-4 px-4 rounded-xl hover:scale-105 transform transition-all duration-300 shadow-lg text-center text-sm whitespace-nowrap"
                 >
                   REGISTER FOR FREE TRIAL
                 </a>
+                <Link
+                  to="/contact"
+                  className="flex-1 bg-gradient-to-r from-histown-accent to-histown-primary text-white font-bold py-4 px-4 rounded-xl hover:scale-105 transform transition-all duration-300 shadow-lg text-center text-sm whitespace-nowrap"
+                >
+                  CONTACT US
+                </Link>
               </div>
             </div>
           </div>
@@ -374,14 +380,9 @@ const FreeTrial: React.FC = () => {
               </p>
               
               <div className="space-y-4">
-                <a
-                  href="https://app.thestudiodirector.com/histown/portal.sd?page=Register"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full bg-white text-histown-primary hover:bg-white/95 hover:text-histown-accent font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                  REGISTER NOW
-                </a>
+                <button className="w-full bg-white text-histown-primary hover:bg-white/95 hover:text-histown-accent font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+                  REQUEST A TRIAL CLASS
+                </button>
                 <Link to="/contact" className="block">
                   <button className="w-full bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-histown-primary transition-all duration-300 transform hover:scale-105">
                     CONTACT US
@@ -419,9 +420,9 @@ const FreeTrial: React.FC = () => {
                 
                 <button 
                   type="submit"
-                  className="w-full bg-white text-histown-primary hover:bg-white/95 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
+                  className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg mt-6"
                 >
-                  SIGN UP
+                  Submit
                 </button>
               </form>
             </div>

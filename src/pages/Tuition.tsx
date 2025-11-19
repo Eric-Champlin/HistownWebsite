@@ -102,7 +102,7 @@ const Tuition: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/v1762556986/GRoup_Shot_D2edit.jpg_nk0m0v.webp)',
+            backgroundImage: 'url(https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1920&q=80)',
             filter: 'brightness(0.7)'
           }}
         ></div>
@@ -561,9 +561,9 @@ const Tuition: React.FC = () => {
                 
                 <button 
                   type="submit"
-                  className="w-full bg-white text-histown-primary hover:bg-white/95 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
+                  className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg mt-6"
                 >
-                  SIGN UP
+                  Submit
                 </button>
               </form>
             </div>

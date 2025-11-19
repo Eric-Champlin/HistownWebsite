@@ -102,7 +102,7 @@ const StudioRental: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover"
           style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=1920&q=80)',
+            backgroundImage: 'url(https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80)',
             backgroundPosition: 'center center',
             filter: 'brightness(0.7)'
           }}
