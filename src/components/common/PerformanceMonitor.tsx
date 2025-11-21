@@ -4,7 +4,7 @@ import { measurePerformance } from '../../utils/performance';
 export function PerformanceMonitor() {
   useEffect(() => {
     // Only run performance monitoring in development
-    if (process.env.NODE_ENV === 'development') {
+    if (import.meta.env.DEV) {
       const monitorPerformance = async () => {
         try {
           const fcp = await measurePerformance.getFCP();
