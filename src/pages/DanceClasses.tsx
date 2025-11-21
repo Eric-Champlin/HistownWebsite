@@ -148,7 +148,7 @@ const DanceClasses: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
         
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-black uppercase mb-2 text-white" style={{ fontWeight: 900, textShadow: '0 4px 6px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3)' }}>
+          <h1 className="text-5xl md:text-7xl font-black uppercase mb-4 text-white" style={{ fontWeight: 900, textShadow: '0 4px 6px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3)' }}>
             DANCE CLASSES
           </h1>
           <div className="flex items-center justify-center space-x-2 mb-6">
@@ -211,7 +211,7 @@ const DanceClasses: React.FC = () => {
                 </div>
                 <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10 flex flex-col flex-1">
                   <div className="p-6 rounded-2xl flex flex-col flex-1" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                    <h3 className="text-xl md:text-2xl font-black uppercase text-gray-800 mb-2" style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)', lineHeight: '1.2' }}>
+                    <h3 className="text-xl md:text-2xl text-gray-800 mb-4" style={{ fontFamily: '"Rock Salt", cursive', fontWeight: 400, fontSize: 'clamp(1rem, 2vw, 1.35rem)', lineHeight: '1.2' }}>
                       {danceClass.name}
                     </h3>
                     <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
@@ -255,7 +255,7 @@ const DanceClasses: React.FC = () => {
         
         <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
             <div className="text-center mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out flex flex-col items-center">
-              <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
+              <h2 className="text-4xl md:text-5xl font-black uppercase mb-4 text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
                 WHY US?
               </h2>
               <div className="flex items-center justify-center space-x-2 mb-4" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))' }}>
@@ -329,7 +329,7 @@ const DanceClasses: React.FC = () => {
       <section className="bg-white py-16 md:py-24" style={{ marginTop: '-4rem', paddingTop: '6rem', marginBottom: '-4rem', paddingBottom: '6rem' }}>
         <div className="max-w-6xl mx-auto px-12 sm:px-16 lg:px-20">
           <div className="text-center mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-            <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
+            <h2 className="text-4xl md:text-5xl font-black uppercase mb-4 relative inline-block" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
               TESTIMONIALS
             </h2>
             <div className="flex items-center justify-center space-x-2 mb-4">
@@ -406,7 +406,7 @@ const DanceClasses: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center justify-items-center">
             
             <div className="text-white blue-section-text animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out text-center w-full max-w-md">
-              <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
+              <h2 className="text-4xl md:text-5xl font-black uppercase mb-4 relative inline-block text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
                 NEXT STEPS
               </h2>
               <div className="flex items-center justify-center space-x-2 mb-4" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))' }}>
@@ -565,21 +565,21 @@ const DanceClasses: React.FC = () => {
                 </button>
                 <div className="text-center">
                   <h2 
-                    className="text-4xl md:text-5xl font-black uppercase text-gray-900 mb-2" 
-                    style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 4.5vw, 3rem)' }}
+                    className="text-4xl md:text-5xl text-gray-900 mb-4" 
+                    style={{ fontFamily: '"Rock Salt", cursive', fontWeight: 400, fontSize: 'clamp(2.25rem, 4.5vw, 3rem)' }}
                   >
                     {selectedDance.name}
                   </h2>
                   <div className="flex items-center justify-center space-x-2">
-                    <div className="h-1 w-16 bg-gradient-to-r from-transparent to-cyan-600 rounded-full"></div>
+                    <div className="h-1 w-24 bg-gradient-to-r from-transparent to-cyan-600 rounded-full"></div>
                     <div className="w-2.5 h-2.5 bg-cyan-600 rounded-full"></div>
-                    <div className="h-1 w-32 bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-600 rounded-full"></div>
+                    <div className="h-1 w-48 bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-600 rounded-full"></div>
                     <div className="w-2.5 h-2.5 bg-cyan-600 rounded-full"></div>
-                    <div className="h-1 w-16 bg-gradient-to-r from-cyan-600 to-transparent rounded-full"></div>
+                    <div className="h-1 w-24 bg-gradient-to-r from-cyan-600 to-transparent rounded-full"></div>
                   </div>
                 </div>
               </div>
-              <div className="px-8 pb-6 pt-2">
+              <div className="px-8 pb-6 pt-0">
                 <p className="text-lg text-gray-700 leading-relaxed">
                   {selectedDance.longDescription}
                 </p>

@@ -181,20 +181,22 @@ function App() {
           {/* Dance Classes - Image Left, Text Right */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch mb-20 animate-on-scroll">
             <div className="animate-slide-in-left">
-              <div className="rounded-2xl overflow-hidden shadow-strong h-full">
+              <div className="rounded-2xl overflow-hidden h-full shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative">
                 <img 
                   src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762222737/4L3t1SQ_gqvwxi.jpg" 
                   alt="Dance Classes" 
                   className="w-full h-full object-cover min-h-[260px]"
                 />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10 pointer-events-none"></div>
               </div>
             </div>
             <div className="animate-slide-in-right h-full">
-              <div className="bg-gradient-to-br from-histown-primary/40 via-histown-secondary/40 to-histown-accent/40 p-2 rounded-2xl shadow-medium h-full">
-                <div className="p-8 rounded-xl h-full flex flex-col justify-center" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 20%, #e0f2fe 40%, #dbeafe 70%, #bfdbfe 100%)' }}>
-                  <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 relative inline-block" style={{ fontWeight: 975, fontSize: 'clamp(1.875rem, 4vw, 2.5rem)' }}>
-                    DANCE CLASSES
-                    <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-2"></div>
+              <div className="bg-gradient-to-br from-histown-primary/40 via-histown-secondary/40 to-histown-accent/40 p-2 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.5)] h-full relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-black/5 rounded-2xl pointer-events-none"></div>
+                <div className="p-8 rounded-xl h-full flex flex-col justify-center relative z-10" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 20%, #e0f2fe 40%, #dbeafe 70%, #bfdbfe 100%)' }}>
+                  <h3 className="text-3xl md:text-4xl font-black  mb-4 relative inline-block" style={{ fontWeight: 550, fontSize: 'clamp(2.25rem, 5vw, 2.5rem)', fontFamily: '"Rock Salt", cursive', letterSpacing: '0.05em' }}>
+                    Dance Classes
+                    <div className="h-1 w-72 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-4"></div>
                   </h3>
                   <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                     Discover the joy of movement through our comprehensive dance program. From classical ballet to contemporary expression, we nurture each dancer's unique gifts while building strong technique, confidence, and character in a Christ-centered environment.
@@ -213,11 +215,12 @@ function App() {
           {/* Music Classes - Text Left, Image Right */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch mb-20 animate-on-scroll">
             <div className="animate-slide-in-left lg:order-1 h-full">
-              <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-2 rounded-2xl shadow-medium h-full">
-                <div className="p-8 rounded-xl h-full flex flex-col justify-center" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 20%, #e0f2fe 40%, #dbeafe 70%, #bfdbfe 100%)' }}>
-                  <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 relative inline-block" style={{ fontWeight: 975, fontSize: 'clamp(1.875rem, 4vw, 2.5rem)' }}>
-                    MUSIC CLASSES
-                    <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-2"></div>
+              <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-2 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.5)] h-full relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-black/5 rounded-2xl pointer-events-none"></div>
+                <div className="p-8 rounded-xl h-full flex flex-col justify-center relative z-10" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 20%, #e0f2fe 40%, #dbeafe 70%, #bfdbfe 100%)' }}>
+                  <h3 className="text-3xl md:text-4xl font-black mb-4 relative inline-block" style={{ fontWeight: 500, fontSize: 'clamp(2.25rem, 5vw, 2.5rem)', fontFamily: '"Rock Salt", cursive', letterSpacing: '0.05em' }}>
+                    Music Classes
+                    <div className="h-1 w-72 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-4"></div>
                   </h3>
                   <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                     Unlock your musical potential with personalized instruction from our gifted teachers. Whether you're drawn to piano melodies, guitar rhythms, violin harmonies, or vocal expression, we'll help you develop your talents while celebrating the gift of music.
@@ -232,12 +235,13 @@ function App() {
               </div>
             </div>
             <div className="animate-slide-in-right lg:order-2">
-              <div className="rounded-2xl overflow-hidden shadow-strong h-full">
+              <div className="rounded-2xl overflow-hidden h-full shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative">
                 <img 
                   src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762222736/HLP9IVj_e4pdod.jpg" 
                   alt="Music Classes" 
                   className="w-full h-full object-cover min-h-[260px]"
                 />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10 pointer-events-none"></div>
               </div>
             </div>
           </div>
@@ -245,20 +249,22 @@ function App() {
           {/* Featured Programs - Image Left, Text Right */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch animate-on-scroll">
             <div className="animate-slide-in-left">
-              <div className="rounded-2xl overflow-hidden shadow-strong h-full">
+              <div className="rounded-2xl overflow-hidden h-full shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative">
                 <img 
                   src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762222735/P6AF87u_coofig.jpg" 
                   alt="Featured Programs" 
                   className="w-full h-full object-cover min-h-[260px]"
                 />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10 pointer-events-none"></div>
               </div>
             </div>
             <div className="animate-slide-in-right h-full">
-              <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-2 rounded-2xl shadow-medium h-full">
-                <div className="p-8 rounded-xl h-full flex flex-col justify-center" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 20%, #e0f2fe 40%, #dbeafe 70%, #bfdbfe 100%)' }}>
-                  <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 relative inline-block" style={{ fontWeight: 975, fontSize: 'clamp(1.875rem, 4vw, 2.5rem)' }}>
-                    FEATURED
-                    <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-2"></div>
+              <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-2 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.5)] h-full relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-black/5 rounded-2xl pointer-events-none"></div>
+                <div className="p-8 rounded-xl h-full flex flex-col justify-center relative z-10" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f9ff 20%, #e0f2fe 40%, #dbeafe 70%, #bfdbfe 100%)' }}>
+                  <h3 className="text-3xl md:text-4xl font-black mb-4 relative inline-block" style={{ fontWeight: 500, fontSize: 'clamp(2.25rem, 5vw, 2.5rem)', fontFamily: '"Rock Salt", cursive', letterSpacing: '0.05em' }}>
+                    Featured
+                    <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mt-4"></div>
                   </h3>
                   <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                     Take your artistry to the next level with our specialized offerings. From theatrical performance and adult fitness classes to elite company training and competitive dance teams, we provide pathways for every passion and skill level.
@@ -495,7 +501,7 @@ function App() {
               </div>
               <div className="bg-white rounded-2xl p-6 shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 h-40 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-2xl font-bold uppercase text-histown-text mb-3 group-hover:text-histown-primary transition-colors duration-300">OWNERS</h3>
+                  <h3 className="text-2xl font-bold text-histown-text mb-3 group-hover:text-histown-primary transition-colors duration-300" style={{ fontFamily: '"Rock Salt", cursive', fontWeight: 500 }}>Owners</h3>
                   <p className="text-histown-text-muted text-lg leading-relaxed">Leading with passion and faith, creating a nurturing environment</p>
                 </div>
               </div>
@@ -521,7 +527,7 @@ function App() {
               </div>
               <div className="bg-white rounded-2xl p-6 shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 h-40 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-2xl font-bold uppercase text-histown-text mb-3 group-hover:text-histown-primary transition-colors duration-300">DANCERS</h3>
+                  <h3 className="text-2xl font-bold text-histown-text mb-3 group-hover:text-histown-primary transition-colors duration-300" style={{ fontFamily: '"Rock Salt", cursive', fontWeight: 500 }}>Dancers</h3>
                   <p className="text-histown-text-muted text-lg leading-relaxed">Inspiring movement and grace through artistic technique</p>
                 </div>
               </div>
@@ -547,7 +553,7 @@ function App() {
               </div>
               <div className="bg-white rounded-2xl p-6 shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 h-40 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-2xl font-bold uppercase text-histown-text mb-3 group-hover:text-histown-primary transition-colors duration-300">MUSICIANS</h3>
+                  <h3 className="text-2xl font-bold text-histown-text mb-3 group-hover:text-histown-primary transition-colors duration-300" style={{ fontFamily: '"Rock Salt", cursive', fontWeight: 500 }}>Musicians</h3>
                   <p className="text-histown-text-muted text-lg leading-relaxed">Creating harmony and melody that touches hearts and souls</p>
                 </div>
               </div>

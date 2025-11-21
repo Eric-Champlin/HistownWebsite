@@ -180,8 +180,8 @@ const Programs: React.FC = () => {
               </div>
               <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
                 <div className="p-6 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase text-gray-800 mb-2">
-                    DANCE CLASSES
+                  <h3 className="text-xl md:text-3xl text-gray-800 mb-4" style={{ fontFamily: '"Rock Salt", cursive', letterSpacing: '0.05em', fontWeight: 400 }}>
+                    Dance Classes
                   </h3>
                   <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
                   <p className="text-gray-600 mb-4 leading-relaxed text-sm">
@@ -205,8 +205,8 @@ const Programs: React.FC = () => {
               </div>
               <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
                 <div className="p-6 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase text-gray-800 mb-2">
-                    MUSIC CLASSES
+                  <h3 className="text-xl md:text-3xl text-gray-800 mb-4" style={{ fontFamily: '"Rock Salt", cursive', letterSpacing: '0.05em', fontWeight: 400 }}>
+                    Music Classes
                   </h3>
                   <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
                   <p className="text-gray-600 mb-4 leading-relaxed text-sm">
@@ -230,8 +230,8 @@ const Programs: React.FC = () => {
               </div>
               <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
                 <div className="p-6 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase text-gray-800 mb-2">
-                    FEATURED
+                  <h3 className="text-xl md:text-3xl text-gray-800 mb-4" style={{ fontFamily: '"Rock Salt", cursive', letterSpacing: '0.05em', fontWeight: 400 }}>
+                    Featured
                   </h3>
                   <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
                   <p className="text-gray-600 mb-4 leading-relaxed text-sm">
@@ -255,16 +255,16 @@ const Programs: React.FC = () => {
               </div>
               <div className="bg-gradient-to-br from-histown-primary/40 to-histown-secondary/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10">
                 <div className="p-6 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                  <h3 className="text-2xl md:text-3xl font-black uppercase text-gray-800 mb-2">
-                    TUITION & FEES
+                  <h3 className="text-xl md:text-3xl text-gray-800 mb-4" style={{ fontFamily: '"Rock Salt", cursive', letterSpacing: '0.05em', fontWeight: 400 }}>
+                    Tuition & Fees
                   </h3>
                   <div className="h-1 w-56 bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-4"></div>
                   <p className="text-gray-600 mb-4 leading-relaxed text-sm">
                     Transparent pricing and flexible payment options to make quality instruction accessible
                   </p>
-                  <button className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300">
+                  <a href="/tuition-fees" className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 inline-block">
                     VIEW PRICING →
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
