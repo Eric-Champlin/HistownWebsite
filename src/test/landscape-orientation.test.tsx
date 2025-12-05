@@ -105,7 +105,7 @@ describe('Landscape Orientation Tests', () => {
         // Check for hamburger menu button (should be visible in landscape mobile)
         // Look for button elements that might be the hamburger menu
         const buttons = container.querySelectorAll('button');
-        let hamburgerButton = null;
+        let hamburgerButton: Element | null = null;
         
         buttons.forEach((button) => {
           const rect = button.getBoundingClientRect();
@@ -116,7 +116,7 @@ describe('Landscape Orientation Tests', () => {
         });
         
         if (hamburgerButton) {
-          const rect = hamburgerButton.getBoundingClientRect();
+          const rect = (hamburgerButton as HTMLElement).getBoundingClientRect();
           
           // Verify it has adequate touch target
           expect(rect.width).toBeGreaterThanOrEqual(44);

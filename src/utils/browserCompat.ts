@@ -173,7 +173,7 @@ export const enableIOSSmoothScrolling = (): void => {
     const scrollableElements = document.querySelectorAll('[style*="overflow"]');
     scrollableElements.forEach((element) => {
       const htmlElement = element as HTMLElement;
-      htmlElement.style.webkitOverflowScrolling = 'touch';
+      (htmlElement.style as any).webkitOverflowScrolling = 'touch';
     });
   }
 };
