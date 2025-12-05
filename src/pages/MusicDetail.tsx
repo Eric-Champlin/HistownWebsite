@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import NavBar from '../components/layout/NavBar';
+import Navigation from '../components/layout/Navigation';
 import { homeContent } from '../content/home';
+import { Footer } from '../components/layout/Footer';
 
 const musicData: Record<string, { name: string; description: string; image: string; bannerImage: string; position: string; longDescription: string }> = {
   'piano': {
@@ -40,7 +41,6 @@ const musicData: Record<string, { name: string; description: string; image: stri
 
 const MusicDetail: React.FC = () => {
   const { musicId } = useParams<{ musicId: string }>();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   
   const music = musicId ? musicData[musicId] : null;
 
@@ -156,13 +156,10 @@ const MusicDetail: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <NavBar 
-        onMobileMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        isMobileMenuOpen={isMobileMenuOpen}
-      />
+      <Navigation />
 
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[50vh] min-h-[400px] sm:h-[60vh] sm:min-h-[500px] flex items-center justify-center overflow-hidden section-divider-mobile">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -174,18 +171,18 @@ const MusicDetail: React.FC = () => {
         
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
         
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-black uppercase mb-2 text-white" style={{ fontWeight: 900, textShadow: '0 4px 6px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3)' }}>
+        <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase mb-2 text-white" style={{ fontWeight: 900, textShadow: '0 4px 6px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3)' }}>
             {music.name}
           </h1>
-          <div className="flex items-center justify-center space-x-2 mb-6">
-            <div className="h-1 w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
-            <div className="w-3 h-3 bg-white/80 rounded-full"></div>
-            <div className="h-1 w-40 bg-gradient-to-r from-white via-white/80 to-white rounded-full"></div>
-            <div className="w-3 h-3 bg-white/80 rounded-full"></div>
-            <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
+          <div className="flex items-center justify-center space-x-1 sm:space-x-2 mb-4 sm:mb-6">
+            <div className="h-1 w-12 sm:w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
+            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white/80 rounded-full"></div>
+            <div className="h-1 w-24 sm:w-40 bg-gradient-to-r from-white via-white/80 to-white rounded-full"></div>
+            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white/80 rounded-full"></div>
+            <div className="h-1 w-12 sm:w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
           </div>
-          <p className="text-xl md:text-2xl text-white mb-8 leading-relaxed" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)' }}>
+          <p className="text-base sm:text-xl md:text-2xl text-white mb-6 sm:mb-8 leading-relaxed" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)' }}>
             {music.description}
           </p>
         </div>
@@ -193,9 +190,8 @@ const MusicDetail: React.FC = () => {
 
       {/* Content Section */}
       <section 
-        className="py-20 md:py-32 relative" 
+        className="py-12 sm:py-20 md:py-32 relative" 
         style={{ 
-          clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)', 
           marginTop: '-4rem', 
           paddingTop: '6rem',
           marginBottom: '-4rem',
@@ -207,11 +203,11 @@ const MusicDetail: React.FC = () => {
         <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at 15% 25%, rgba(14, 116, 144, 0.25) 0%, transparent 45%), radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.25) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 55%)' }}></div>
         <div className="absolute inset-0 opacity-25" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%230891b2\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z\' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}></div>
         
-        <div className="relative max-w-6xl mx-auto px-12 sm:px-16 lg:px-20">
-          {/* All Music Classes - Image Left, Text Right Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20">
+          {/* All Music Classes - Stack on mobile, side-by-side on desktop */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
             {/* Music Image */}
-            <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative h-[300px] sm:h-[350px] lg:h-[400px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
               <img 
                 src={music.image}
                 alt={music.name}
@@ -221,35 +217,35 @@ const MusicDetail: React.FC = () => {
             </div>
             
             {/* Description Card */}
-            <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-3xl shadow-lg">
-              <div className="p-6 rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+            <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-2xl sm:rounded-3xl shadow-lg">
+              <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
                 <div className="mb-4 text-center">
-                  <h3 className="text-3xl md:text-4xl text-gray-800 mb-3" style={{ fontFamily: '"Rock Salt", cursive', fontWeight: 400 }}>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl text-gray-800 mb-3" style={{ fontFamily: '"Rock Salt", cursive', fontWeight: 400 }}>
                     {music.name}
                   </h3>
-                  <div className="flex items-center justify-center space-x-2">
-                    <div className="h-1 w-12 bg-gradient-to-r from-transparent to-histown-primary rounded-full"></div>
-                    <div className="w-2 h-2 bg-histown-accent rounded-full"></div>
-                    <div className="h-1 w-24 bg-gradient-to-r from-histown-primary via-histown-accent to-histown-primary rounded-full"></div>
-                    <div className="w-2 h-2 bg-histown-accent rounded-full"></div>
-                    <div className="h-1 w-12 bg-gradient-to-r from-histown-primary to-transparent rounded-full"></div>
+                  <div className="flex items-center justify-center space-x-1 sm:space-x-2">
+                    <div className="h-1 w-8 sm:w-12 bg-gradient-to-r from-transparent to-histown-primary rounded-full"></div>
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-histown-accent rounded-full"></div>
+                    <div className="h-1 w-16 sm:w-24 bg-gradient-to-r from-histown-primary via-histown-accent to-histown-primary rounded-full"></div>
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-histown-accent rounded-full"></div>
+                    <div className="h-1 w-8 sm:w-12 bg-gradient-to-r from-histown-primary to-transparent rounded-full"></div>
                   </div>
                 </div>
-                <p className="text-base text-gray-700 leading-relaxed mb-6">
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4 sm:mb-6">
                   {music.longDescription}
                 </p>
                 
-                {/* Buttons */}
+                {/* Buttons - Stack on mobile, side-by-side on sm+ */}
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Link 
                     to="/classes/music"
-                    className="flex-1 text-center bg-gradient-to-r from-histown-accent to-histown-primary text-white font-bold px-6 py-3 rounded-xl uppercase tracking-wide hover:scale-105 transform transition-all duration-300 shadow-lg text-base"
+                    className="flex-1 text-center bg-gradient-to-r from-histown-accent to-histown-primary text-white font-bold px-4 sm:px-6 py-3 rounded-xl uppercase tracking-wide hover:scale-105 transform transition-all duration-300 shadow-lg text-sm sm:text-base min-h-[44px] flex items-center justify-center"
                   >
                     Music Classes
                   </Link>
                   <Link 
                     to="/contact"
-                    className="flex-1 text-center bg-gradient-to-r from-histown-accent to-histown-primary text-white font-bold px-6 py-3 rounded-xl uppercase tracking-wide hover:scale-105 transform transition-all duration-300 shadow-lg text-base"
+                    className="flex-1 text-center bg-gradient-to-r from-histown-accent to-histown-primary text-white font-bold px-4 sm:px-6 py-3 rounded-xl uppercase tracking-wide hover:scale-105 transform transition-all duration-300 shadow-lg text-sm sm:text-base min-h-[44px] flex items-center justify-center"
                   >
                     Contact Us
                   </Link>
@@ -262,9 +258,8 @@ const MusicDetail: React.FC = () => {
 
       {/* Why Us Section */}
       <section 
-        className="relative py-16 md:py-24 overflow-hidden" 
+        className="relative py-12 sm:py-16 md:py-24 overflow-hidden section-divider-mobile" 
         style={{ 
-          clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)', 
           marginTop: '-4rem', 
           paddingTop: '6rem', 
           marginBottom: '-4rem', 
@@ -279,37 +274,37 @@ const MusicDetail: React.FC = () => {
       >
         <div className="absolute inset-0 bg-black/20"></div>
         
-        <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="text-center mb-8 flex flex-col items-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-            <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20">
+          <div className="text-center mb-6 sm:mb-8 flex flex-col items-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase mb-2 text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
               WHY US?
             </h2>
-            <div className="flex items-center justify-center space-x-2 mb-4" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))' }}>
-              <div className="h-1 w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
-              <div className="w-3 h-3 bg-white/80 rounded-full"></div>
-              <div className="h-1 w-40 bg-gradient-to-r from-white via-white/80 to-white rounded-full"></div>
-              <div className="w-3 h-3 bg-white/80 rounded-full"></div>
-              <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
+            <div className="flex items-center justify-center space-x-1 sm:space-x-2 mb-4" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))' }}>
+              <div className="h-1 w-12 sm:w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white/80 rounded-full"></div>
+              <div className="h-1 w-24 sm:w-40 bg-gradient-to-r from-white via-white/80 to-white rounded-full"></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white/80 rounded-full"></div>
+              <div className="h-1 w-12 sm:w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
             </div>
           </div>
 
-          <div className="text-center mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
-            <p className="text-lg text-white max-w-4xl mx-auto leading-relaxed blue-section-text">
+          <div className="text-center mb-8 sm:mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
+            <p className="text-base sm:text-lg text-white max-w-4xl mx-auto leading-relaxed blue-section-text">
               We provide music instruction in a Christ-centered environment that nurtures each student's God-given gifts for ministry, outreach, and entertainment.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '400ms' }}>
-              <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-2xl shadow-lg">
-                <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                    <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+              <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-xl sm:rounded-2xl shadow-lg">
+                <div className="text-center p-6 sm:p-8 rounded-lg sm:rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 flex items-center justify-center">
+                    <svg className="w-10 h-10 sm:w-12 sm:h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS HEART</h3>
-                  <p className="text-histown-text-muted leading-relaxed">
+                  <h3 className="text-lg sm:text-xl font-bold uppercase mb-3 sm:mb-4 text-histown-text">HIS HEART</h3>
+                  <p className="text-sm sm:text-base text-histown-text-muted leading-relaxed">
                     At the heart of our mission is God's love—a love that nurtures, uplifts, and calls us to use our gifts for His praise.
                   </p>
                 </div>
@@ -317,15 +312,15 @@ const MusicDetail: React.FC = () => {
             </div>
 
             <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '600ms' }}>
-              <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-2 rounded-2xl shadow-lg">
-                <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                    <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+              <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-2 rounded-xl sm:rounded-2xl shadow-lg">
+                <div className="text-center p-6 sm:p-8 rounded-lg sm:rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 flex items-center justify-center">
+                    <svg className="w-10 h-10 sm:w-12 sm:h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HIS GLORY</h3>
-                  <p className="text-histown-text-muted leading-relaxed">
+                  <h3 className="text-lg sm:text-xl font-bold uppercase mb-3 sm:mb-4 text-histown-text">HIS GLORY</h3>
+                  <p className="text-sm sm:text-base text-histown-text-muted leading-relaxed">
                     We teach not for the applause of people, but to reflect God's glory, honoring Him with excellence and joy.
                   </p>
                 </div>
@@ -333,15 +328,15 @@ const MusicDetail: React.FC = () => {
             </div>
 
             <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '800ms' }}>
-              <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-2 rounded-2xl shadow-lg">
-                <div className="text-center p-8 rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                    <svg className="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+              <div className="bg-gradient-to-br from-histown-secondary/40 to-histown-primary/40 p-2 rounded-xl sm:rounded-2xl shadow-lg">
+                <div className="text-center p-6 sm:p-8 rounded-lg sm:rounded-xl h-full" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 flex items-center justify-center">
+                    <svg className="w-10 h-10 sm:w-12 sm:h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold uppercase mb-4 text-histown-text">HISTOWN</h3>
-                  <p className="text-histown-text-muted leading-relaxed">
+                  <h3 className="text-lg sm:text-xl font-bold uppercase mb-3 sm:mb-4 text-histown-text">HISTOWN</h3>
+                  <p className="text-sm sm:text-base text-histown-text-muted leading-relaxed">
                     HisTown is more than a studio—it's God's town, where creativity, community, and worship come together in His name.
                   </p>
                 </div>
@@ -352,49 +347,49 @@ const MusicDetail: React.FC = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-white py-16 md:py-24" style={{ marginTop: '-4rem', paddingTop: '6rem', marginBottom: '-4rem', paddingBottom: '6rem' }}>
-        <div className="max-w-6xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="text-center mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-            <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
+      <section className="bg-white py-12 sm:py-16 md:py-24" style={{ marginTop: '-4rem', paddingTop: '6rem', marginBottom: '-4rem', paddingBottom: '6rem' }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20">
+          <div className="text-center mb-6 sm:mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block" style={{ fontWeight: 900, fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
               TESTIMONIALS
             </h2>
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <div className="h-1 w-20 bg-gradient-to-r from-transparent to-histown-primary rounded-full"></div>
-              <div className="w-3 h-3 bg-histown-accent rounded-full"></div>
-              <div className="h-1 w-40 bg-gradient-to-r from-histown-primary via-histown-accent to-histown-primary rounded-full"></div>
-              <div className="w-3 h-3 bg-histown-accent rounded-full"></div>
-              <div className="h-1 w-20 bg-gradient-to-r from-histown-primary to-transparent rounded-full"></div>
+            <div className="flex items-center justify-center space-x-1 sm:space-x-2 mb-4">
+              <div className="h-1 w-12 sm:w-20 bg-gradient-to-r from-transparent to-histown-primary rounded-full"></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-histown-accent rounded-full"></div>
+              <div className="h-1 w-24 sm:w-40 bg-gradient-to-r from-histown-primary via-histown-accent to-histown-primary rounded-full"></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-histown-accent rounded-full"></div>
+              <div className="h-1 w-12 sm:w-20 bg-gradient-to-r from-histown-primary to-transparent rounded-full"></div>
             </div>
           </div>
 
-          <div className="flex justify-center gap-8 mb-8">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 mb-6 sm:mb-8">
             <img 
               src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762302377/2yG3qAq_nzcotl.png" 
               alt="Williamson's Best 2025 Winner" 
-              className="h-48 w-auto object-contain rounded-2xl"
+              className="h-32 sm:h-40 md:h-48 w-auto object-contain rounded-xl sm:rounded-2xl"
             />
             <img 
               src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762304027/ChatGPT_Image_Nov_4_2025_at_06_53_22_PM_w3why3.png" 
               alt="Best of Parenting 2025 Winner" 
-              className="h-48 w-auto object-contain rounded-2xl"
+              className="h-32 sm:h-40 md:h-48 w-auto object-contain rounded-xl sm:rounded-2xl"
             />
           </div>
 
-          <div className="relative px-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
+          <div className="relative px-8 sm:px-12 md:px-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '200ms' }}>
             <button 
               id="testimonial-prev-music-detail"
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-2 sm:-translate-x-4 md:-translate-x-8 z-10 bg-white rounded-full p-2 sm:p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
             >
-              <svg className="w-6 h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
 
             <button 
               id="testimonial-next-music-detail"
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-8 z-10 bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-2 sm:translate-x-4 md:translate-x-8 z-10 bg-white rounded-full p-2 sm:p-3 shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
             >
-              <svg className="w-6 h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-histown-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
@@ -409,9 +404,8 @@ const MusicDetail: React.FC = () => {
 
       {/* Next Steps Section */}
       <section 
-        className="py-20 md:py-32 relative overflow-hidden"
+        className="py-12 sm:py-20 md:py-32 relative overflow-hidden section-divider-mobile"
         style={{
-          clipPath: 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)',
           marginTop: '-4rem',
           paddingTop: '6rem',
           backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/w_2400,q_100,f_jpg,e_sharpen:100/v1762365784/blue-texture_yyysa2)',
@@ -424,52 +418,52 @@ const MusicDetail: React.FC = () => {
       >
         <div className="absolute inset-0 bg-black/20"></div>
         
-        <div className="relative max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center justify-items-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center justify-items-center">
             
             <div className="text-white blue-section-text text-center w-full max-w-md animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-              <h2 className="text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
                 NEXT STEPS
               </h2>
-              <div className="flex items-center justify-center space-x-2 mb-4" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))' }}>
-                <div className="h-1 w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
-                <div className="w-3 h-3 bg-white/80 rounded-full"></div>
-                <div className="h-1 w-40 bg-gradient-to-r from-white via-white/80 to-white rounded-full"></div>
-                <div className="w-3 h-3 bg-white/80 rounded-full"></div>
-                <div className="h-1 w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
+              <div className="flex items-center justify-center space-x-1 sm:space-x-2 mb-4" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))' }}>
+                <div className="h-1 w-12 sm:w-20 bg-gradient-to-r from-transparent to-white rounded-full"></div>
+                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white/80 rounded-full"></div>
+                <div className="h-1 w-24 sm:w-40 bg-gradient-to-r from-white via-white/80 to-white rounded-full"></div>
+                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white/80 rounded-full"></div>
+                <div className="h-1 w-12 sm:w-20 bg-gradient-to-r from-white to-transparent rounded-full"></div>
               </div>
-              <p className="text-lg mb-8 text-white blue-section-text leading-relaxed">
+              <p className="text-base sm:text-lg mb-6 sm:mb-8 text-white blue-section-text leading-relaxed">
                 Take your first step with a free trial class!
               </p>
               
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <Link to="/free-trial" className="block">
-                  <button className="w-full bg-white text-histown-primary hover:bg-white/95 hover:text-histown-accent font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+                  <button className="w-full bg-white text-histown-primary hover:bg-white/95 hover:text-histown-accent font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base min-h-[44px]">
                     REQUEST A TRIAL CLASS
                   </button>
                 </Link>
                 <Link to="/contact" className="block">
-                  <button className="w-full bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-histown-primary transition-all duration-300 transform hover:scale-105">
+                  <button className="w-full bg-transparent border-2 border-white text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl hover:bg-white hover:text-histown-primary transition-all duration-300 transform hover:scale-105 text-sm sm:text-base min-h-[44px]">
                     CONTACT US
                   </button>
                 </Link>
               </div>
             </div>
 
-            <div className="bg-white/10 blue-section-card backdrop-blur-sm rounded-3xl p-8 border border-white/20 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '300ms' }}>
-              <h3 className="text-3xl font-bold text-white mb-4 uppercase blue-section-text">
+            <div className="bg-white/10 blue-section-card backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/20 w-full max-w-md animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" style={{ transitionDelay: '300ms' }}>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4 uppercase blue-section-text">
                 SIGN UP FOR EMAIL UPDATES
               </h3>
-              <p className="text-white/90 mb-6 leading-relaxed blue-section-text">
+              <p className="text-sm sm:text-base text-white/90 mb-4 sm:mb-6 leading-relaxed blue-section-text">
                 If you're not ready to start yet, simply fill out this form to sign up for our email list.
               </p>
               
-              <form className="space-y-4">
+              <form className="space-y-3 sm:space-y-4">
                 <div>
                   <label className="block text-white text-sm font-medium mb-2 blue-section-text">First name*</label>
                   <input 
                     type="text" 
-                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50"
+                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 text-base min-h-[44px]"
                     placeholder="Your first name"
                   />
                 </div>
@@ -478,14 +472,14 @@ const MusicDetail: React.FC = () => {
                   <label className="block text-white text-sm font-medium mb-2 blue-section-text">Email*</label>
                   <input 
                     type="email" 
-                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50"
+                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 text-base min-h-[44px]"
                     placeholder="your@email.com"
                   />
                 </div>
                 
                 <button 
                   type="submit"
-                  className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg mt-6"
+                  className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg mt-4 sm:mt-6 text-base min-h-[44px]"
                 >
                   Submit
                 </button>
@@ -496,74 +490,7 @@ const MusicDetail: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8" style={{ marginTop: '-4rem', paddingTop: '6rem' }}>
-        <div className="max-w-7xl mx-auto px-12 sm:px-16 lg:px-20">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-            
-            <div className="text-center md:text-left" style={{ marginTop: '-4rem', marginLeft: '2rem' }}>
-              <img
-                src={homeContent.navigation.logo.src}
-                alt={homeContent.navigation.logo.alt}
-                className="h-32 w-auto object-contain mx-auto md:mx-0 mb-2"
-                style={{
-                  filter: 'brightness(0) invert(1)',
-                  imageRendering: 'auto',
-                  display: 'block'
-                }}
-              />
-              <div className="space-y-1" style={{ marginTop: '-1.5rem' }}>
-                <p className="text-sm text-gray-300">1010 Perrone Way, Suite 200</p>
-                <p className="text-sm text-gray-300">Franklin, TN, 37069</p>
-                <p className="text-sm text-gray-300">(615) 640-8349</p>
-                <p className="text-sm text-gray-300">info@histown.com</p>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <h4 className="text-lg font-semibold mb-4">QUICK LINKS</h4>
-              <div className="space-y-2">
-                <a href="/classes/dance" className="block text-sm text-gray-300 hover:text-white transition-colors">Dance Classes</a>
-                <a href="/classes/music" className="block text-sm text-gray-300 hover:text-white transition-colors">Music Classes</a>
-                <a href="/tuition-fees" className="block text-sm text-gray-300 hover:text-white transition-colors">Tuition & Fees</a>
-                <a href="/contact" className="block text-sm text-gray-300 hover:text-white transition-colors">Contact</a>
-              </div>
-            </div>
-
-            <div className="text-center md:text-right" style={{ marginRight: '2rem' }}>
-              <h4 className="text-lg font-semibold mb-4">FOLLOW US</h4>
-              <div className="flex justify-center md:justify-end space-x-4">
-                <a 
-                  href="https://www.instagram.com/histowndancestudio/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                  </svg>
-                </a>
-                <a 
-                  href="https://www.facebook.com/HistownDanceStudio/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-          </div>
-          
-          <div className="border-t border-gray-700 mt-8 pt-6 text-center">
-            <p className="text-sm text-gray-400">
-              {homeContent.footer.copyright}
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

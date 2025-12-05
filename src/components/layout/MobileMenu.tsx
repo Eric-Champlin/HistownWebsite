@@ -120,7 +120,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-md text-histown-text hover:text-histown-primary hover:bg-histown-neutral focus:outline-none focus:ring-2 focus:ring-inset focus:ring-histown-primary transition-colors duration-300"
+            className="p-2 rounded-md text-histown-text hover:text-histown-primary hover:bg-histown-neutral active:text-histown-primary active:bg-histown-neutral/80 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-histown-primary transition-colors duration-300"
             aria-label="Close menu"
           >
             <svg
@@ -145,74 +145,80 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
         <div className="flex flex-col h-full">
           {/* Navigation links */}
           <nav className="flex-1 px-4 py-6 space-y-2" role="navigation">
-            {navigation.menuItems.map((item, index) => (
-              <div key={item.label}>
-                {item.hasDropdown ? (
-                  <>
-                    <button
-                      ref={index === 0 ? setFirstFocusableElement : undefined}
-                      onClick={() => toggleExpanded(item.label)}
-                      className="flex items-center justify-between w-full px-4 py-3 text-lg font-medium text-histown-text hover:text-histown-primary hover:bg-histown-neutral rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-histown-primary focus:ring-offset-2"
+            {navigation.menuItems.map((item, index) => {
+              // On mobile, treat "Classes" as a simple link to /programs instead of a dropdown
+              const isMobileClassesLink = item.label === 'Classes' && item.hasDropdown;
+              
+              return (
+                <div key={item.label}>
+                  {item.hasDropdown && !isMobileClassesLink ? (
+                    <>
+                      <button
+                        ref={index === 0 ? setFirstFocusableElement : undefined}
+                        onClick={() => toggleExpanded(item.label)}
+                        className="flex items-center justify-between w-full px-4 py-3 text-lg font-medium text-histown-text hover:text-histown-primary hover:bg-histown-neutral active:text-histown-primary active:bg-histown-neutral/80 rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-histown-primary focus:ring-offset-2"
+                      >
+                        {item.label}
+                        <svg
+                          className={`h-5 w-5 transition-transform duration-200 ${
+                            expandedItems.includes(item.label) ? 'rotate-180' : ''
+                          }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                      {expandedItems.includes(item.label) && (
+                        <div className="ml-4 mt-2 space-y-1">
+                          {item.dropdownItems && item.dropdownItems.length > 0 ? (
+                            item.dropdownItems.map((dropdownItem) => (
+                              <a
+                                key={dropdownItem.label}
+                                href={dropdownItem.href}
+                                onClick={(e) => {
+                                  if (dropdownItem.href.startsWith('#')) {
+                                    e.preventDefault();
+                                    handleLinkClick(dropdownItem.href);
+                                  } else {
+                                    onClose();
+                                  }
+                                }}
+                                className="block px-4 py-2 text-base text-histown-text hover:text-histown-primary hover:bg-histown-neutral active:text-histown-primary active:bg-histown-neutral/80 rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-histown-primary focus:ring-offset-2"
+                              >
+                                {dropdownItem.label}
+                              </a>
+                            ))
+                          ) : (
+                            <div className="px-4 py-2 text-histown-text-muted text-sm">
+                              Coming soon...
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <a
+                      ref={index === 0 && !navigation.menuItems.some(i => i.hasDropdown && i.label !== 'Classes') ? setFirstFocusableElement : undefined}
+                      href={isMobileClassesLink ? '/programs' : item.href}
+                      onClick={(e) => {
+                        const targetHref = isMobileClassesLink ? '/programs' : item.href;
+                        if (targetHref.startsWith('#')) {
+                          e.preventDefault();
+                          handleLinkClick(targetHref);
+                        } else {
+                          onClose();
+                        }
+                      }}
+                      className="block px-4 py-3 text-lg font-medium text-histown-text hover:text-histown-primary hover:bg-histown-neutral active:text-histown-primary active:bg-histown-neutral/80 rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-histown-primary focus:ring-offset-2"
                     >
                       {item.label}
-                      <svg
-                        className={`h-5 w-5 transition-transform duration-200 ${
-                          expandedItems.includes(item.label) ? 'rotate-180' : ''
-                        }`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                    {expandedItems.includes(item.label) && (
-                      <div className="ml-4 mt-2 space-y-1">
-                        {item.dropdownItems && item.dropdownItems.length > 0 ? (
-                          item.dropdownItems.map((dropdownItem) => (
-                            <a
-                              key={dropdownItem.label}
-                              href={dropdownItem.href}
-                              onClick={(e) => {
-                                if (dropdownItem.href.startsWith('#')) {
-                                  e.preventDefault();
-                                  handleLinkClick(dropdownItem.href);
-                                } else {
-                                  onClose();
-                                }
-                              }}
-                              className="block px-4 py-2 text-base text-histown-text hover:text-histown-primary hover:bg-histown-neutral rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-histown-primary focus:ring-offset-2"
-                            >
-                              {dropdownItem.label}
-                            </a>
-                          ))
-                        ) : (
-                          <div className="px-4 py-2 text-histown-text-muted text-sm">
-                            Coming soon...
-                          </div>
-                        )}
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <a
-                    ref={index === 0 && !navigation.menuItems.some(i => i.hasDropdown) ? setFirstFocusableElement : undefined}
-                    href={item.href}
-                    onClick={(e) => {
-                      if (item.href.startsWith('#')) {
-                        e.preventDefault();
-                        handleLinkClick(item.href);
-                      } else {
-                        onClose();
-                      }
-                    }}
-                    className="block px-4 py-3 text-lg font-medium text-histown-text hover:text-histown-primary hover:bg-histown-neutral rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-histown-primary focus:ring-offset-2"
-                  >
-                    {item.label}
-                  </a>
-                )}
-              </div>
-            ))}
+                    </a>
+                  )}
+                </div>
+              );
+            })}
           </nav>
 
           {/* CTA buttons */}
@@ -230,7 +236,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => onClose()}
-              className="block w-full text-center btn-outline"
+              className="block w-full text-center border-2 border-histown-primary text-histown-primary hover:bg-histown-primary hover:text-white active:bg-histown-primary-dark active:text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-histown-primary focus:ring-offset-2"
             >
               {navigation.externalLogin.label}
               <span className="sr-only">(opens in new window)</span>

@@ -39,20 +39,20 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
   }, []);
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100" role="navigation">
+    <nav className="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100" role="navigation" aria-label="Main navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between relative" style={{ minHeight: '70px' }}>
 
           {/* Logo - Left Side */}
           <div className="flex-shrink-0 z-10">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center" aria-label="HisTown Dance Studio Home">
               <img
                 src={navigation.logo.src}
                 alt={navigation.logo.alt}
-                className="h-32 w-auto object-contain"
+                className="h-20 sm:h-24 lg:h-32 w-auto object-contain"
                 style={{
-                  marginTop: '-35px',
-                  marginBottom: '-35px',
+                  marginTop: '-15px',
+                  marginBottom: '-15px',
                   imageRendering: 'auto',
                   filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))',
                   backfaceVisibility: 'hidden',
@@ -359,7 +359,7 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
           </div>
 
           {/* Right Side - Social Icons & Buttons */}
-<div className="flex items-center space-x-4" style={{ overflow: 'visible', padding: '8px' }}>
+          <div className="hidden lg:flex items-center space-x-4" style={{ overflow: 'visible', padding: '8px' }}>
             {/* Social Icons - Hidden on smaller screens */}
             <div className="hidden md:flex items-center space-x-3">
               {navigation.socialLinks.map((social) => (
@@ -368,7 +368,9 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-gray-400 flex items-center justify-center text-gray-600 hover:text-histown-primary hover:border-histown-primary transition-colors duration-300"
+                  aria-label={`Visit our ${social.platform} page`}
+                  className="w-11 h-11 rounded-full border border-gray-400 flex items-center justify-center text-gray-600 hover:text-histown-primary hover:border-histown-primary transition-colors duration-300"
+                  style={{ minWidth: '44px', minHeight: '44px' }}
                 >
                   {social.platform === 'instagram' && (
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -388,6 +390,7 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
             <button
               onClick={() => window.location.href = navigation.freeTrialHref}
               className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-3 rounded text-sm font-bold tracking-wide uppercase transition-all duration-300 transform hover:scale-105 shadow-lg"
+              style={{ minWidth: '44px', minHeight: '44px' }}
             >
               FREE TRIAL
             </button>
@@ -396,6 +399,7 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:block text-gray-700 hover:text-histown-primary text-lg font-medium tracking-wide uppercase transition-colors duration-300"
+              style={{ minHeight: '44px', display: 'flex', alignItems: 'center' }}
             >
               {navigation.externalLogin.label}
             </a>
@@ -405,8 +409,10 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
           <div className="lg:hidden">
             <button
               onClick={onMobileMenuToggle}
-              className="p-2 rounded-md text-gray-700 hover:text-histown-primary transition-colors duration-300"
+              className="p-3 rounded-md text-gray-700 hover:text-histown-primary transition-colors duration-300"
               aria-expanded={isMobileMenuOpen}
+              aria-label="Toggle mobile menu"
+              style={{ minWidth: '44px', minHeight: '44px' }}
             >
               <svg
                 className={`${isMobileMenuOpen ? 'hidden' : 'block'} h-6 w-6`}

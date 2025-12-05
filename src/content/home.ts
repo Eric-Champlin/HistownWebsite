@@ -98,7 +98,7 @@ export const homeContent: HomeContent = {
   },
 
   hero: {
-    headline: '<span class="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wide">WHERE</span> <span class="font-black text-transparent bg-gradient-to-r from-histown-primary via-histown-accent to-histown-primary bg-clip-text tracking-wider drop-shadow-lg">FAITH</span><br/><span class="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wide">MEETS</span> <span class="font-black text-transparent bg-gradient-to-r from-histown-accent via-histown-primary to-histown-accent bg-clip-text tracking-wider drop-shadow-lg">MOVEMENT</span>',
+    headline: '<span class="text-3xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wide">WHERE</span> <span class="text-3xl md:text-5xl lg:text-6xl font-black text-transparent bg-gradient-to-r from-histown-primary via-histown-accent to-histown-primary bg-clip-text tracking-wider drop-shadow-lg">FAITH</span><br/><span class="text-3xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wide">MEETS</span> <span class="text-3xl md:text-5xl lg:text-6xl font-black text-transparent bg-gradient-to-r from-histown-accent via-histown-primary to-histown-accent bg-clip-text tracking-wider drop-shadow-lg">MOVEMENT</span>',
     subheadline: 'Inspiring <span class="text-histown-primary font-semibold">creativity</span> and building <span class="text-histown-accent font-semibold">community</span> through <span class="text-histown-primary font-semibold">Christian-centered</span> dance and music programs for all ages.',
     backgroundImage: '/assets/hero-dance-class.jpg',
     primaryCta: { 

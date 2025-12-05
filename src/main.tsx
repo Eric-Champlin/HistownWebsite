@@ -22,7 +22,11 @@ import Store from './pages/Store.tsx'
 import FreeTrial from './pages/FreeTrial.tsx'
 import ScrollToTop from './components/common/ScrollToTop.tsx'
 import LiveChat from './components/common/LiveChat.tsx'
+import { initBrowserCompat } from './utils/browserCompat.ts'
 import './index.css'
+
+// Initialize browser compatibility features
+initBrowserCompat();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

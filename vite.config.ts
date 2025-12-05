@@ -10,6 +10,8 @@ export default defineConfig({
     },
   },
   build: {
+    // Browser compatibility target
+    target: ['es2020', 'edge90', 'firefox88', 'chrome90', 'safari14'],
     // Performance optimizations
     rollupOptions: {
       output: {
