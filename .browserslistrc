@@ -1,0 +1,23 @@
+# Mobile-first browser targets for HisTown Dance Studio
+# Supports modern mobile browsers and recent desktop browsers
+
+# Mobile browsers (primary targets)
+iOS >= 14
+Safari >= 14
+ChromeAndroid >= 90
+Android >= 90
+
+# Desktop browsers (secondary targets)
+Chrome >= 90
+Firefox >= 88
+Edge >= 90
+Safari >= 14
+
+# Exclude dead browsers and IE
+not dead
+not IE 11
+not op_mini all
+
+# Market share threshold
+> 0.5%
+last 2 versions

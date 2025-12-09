@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    
+    <!-- Favicon - Browser Tab Icon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
+    
+    <!-- Page Title & Description -->
+    <title>HisTown Dance Studio - Where Faith Meets Movement</title>
+    <meta name="description" content="Christian-based dance and music studio inspiring creativity and building community through faith-driven programs for all ages." />
+    
+    <!-- Open Graph / Facebook (for social media sharing) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://histown.netlify.app/" />
+    <meta property="og:title" content="HisTown Dance Studio - Where Faith Meets Movement" />
+    <meta property="og:description" content="Christian-based dance and music studio inspiring creativity and building community through faith-driven programs for all ages." />
+    <meta property="og:image" content="https://histown.netlify.app/og-image.jpg" />
+    
+    <!-- Twitter Card (for Twitter sharing) -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://histown.netlify.app/" />
+    <meta property="twitter:title" content="HisTown Dance Studio - Where Faith Meets Movement" />
+    <meta property="twitter:description" content="Christian-based dance and music studio inspiring creativity and building community through faith-driven programs for all ages." />
+    <meta property="twitter:image" content="https://histown.netlify.app/og-image.jpg" />
+    
+    <!-- Preconnect to external font sources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Load fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Rock+Salt&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Unregister any existing service workers -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for(let registration of registrations) {
+            registration.unregister();
+          }
+        });
+      }
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
