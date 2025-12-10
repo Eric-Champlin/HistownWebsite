@@ -97,9 +97,9 @@ function App() {
         {/* Dark overlay for better text contrast */}
         <div className="absolute inset-0 bg-black/20"></div>
 
-        <section className="relative max-w-7xl mx-auto px-4 sm:px-12 lg:px-20 mobile-section">
+        <section className="relative max-w-7xl mx-auto px-4 sm:px-12 md:px-16 lg:px-20 mobile-section">
           {/* Dance Classes - Image Left, Text Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 items-stretch mb-12 sm:mb-20 animate-on-scroll">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 md:gap-14 items-stretch mb-12 sm:mb-20 animate-on-scroll">
             <div className="animate-slide-in-left hidden lg:block">
               <div className="rounded-2xl overflow-hidden h-full shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative" style={{ aspectRatio: '4/3' }}>
                 <LazyImage
@@ -133,7 +133,7 @@ function App() {
           </div>
 
           {/* Music Classes - Text Left, Image Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 items-stretch mb-12 sm:mb-20 animate-on-scroll">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 md:gap-14 items-stretch mb-12 sm:mb-20 animate-on-scroll">
             <div className="animate-slide-in-left lg:order-1 h-full">
               <div className="bg-gradient-to-br from-histown-accent/40 to-histown-secondary/40 p-2 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.5)] h-full relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-black/5 rounded-2xl pointer-events-none"></div>
@@ -167,7 +167,7 @@ function App() {
           </div>
 
           {/* Featured Programs - Image Left, Text Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 items-stretch animate-on-scroll">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 md:gap-14 items-stretch animate-on-scroll">
             <div className="animate-slide-in-left hidden lg:block">
               <div className="rounded-2xl overflow-hidden h-full shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative" style={{ aspectRatio: '4/3' }}>
                 <LazyImage
@@ -245,11 +245,11 @@ function App() {
           </div>
 
           {/* Enhanced Team Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 lg:gap-16 -mt-4 sm:-mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 md:gap-8 lg:gap-16 -mt-4 sm:-mt-8">
             {/* Owners */}
             <Link to="/about/team" className="group text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out block min-h-[44px]" style={{ transitionDelay: '200ms' }}>
-              <div className="relative mb-6 sm:mb-8">
-                <div className="w-64 h-64 sm:w-72 sm:h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl group-active:shadow-3xl transition-all duration-500 transform group-hover:scale-105 group-active:scale-105 bg-gradient-to-br from-histown-primary/5 to-histown-accent/5 p-2" style={{ aspectRatio: '1/1' }}>
+              <div className="relative mb-6 sm:mb-8 md:mb-6 lg:mb-8">
+                <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-56 md:h-56 lg:w-72 lg:h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl group-active:shadow-3xl transition-all duration-500 transform group-hover:scale-105 group-active:scale-105 bg-gradient-to-br from-histown-primary/5 to-histown-accent/5 p-2" style={{ aspectRatio: '1/1' }}>
                   <div className="w-full h-full rounded-2xl overflow-hidden">
                     <LazyImage
                       src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762307104/H0VTGeM_wqdtuw.png"
@@ -258,24 +258,24 @@ function App() {
                     />
                   </div>
                 </div>
-                <div className="absolute -bottom-3 sm:-bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-histown-primary to-histown-accent text-white px-4 py-2 sm:px-6 sm:py-2 rounded-full shadow-lg">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+                <div className="absolute -bottom-3 sm:-bottom-4 md:-bottom-3 lg:-bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-histown-primary to-histown-accent text-white px-4 py-2 sm:px-6 sm:py-2 md:px-4 md:py-1.5 lg:px-6 lg:py-2 rounded-full shadow-lg">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-4 md:h-4 lg:w-5 lg:h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                   </svg>
                 </div>
               </div>
-              <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-lg group-hover:shadow-xl group-active:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 group-active:-translate-y-2 min-h-[140px] sm:h-40 flex flex-col justify-between">
+              <div className="bg-white rounded-2xl p-5 sm:p-6 md:p-4 lg:p-6 shadow-lg group-hover:shadow-xl group-active:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 group-active:-translate-y-2 min-h-[140px] sm:h-40 md:h-36 lg:h-40 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-histown-text mb-2 sm:mb-3 group-hover:text-histown-primary group-active:text-histown-primary transition-colors duration-300" style={{ fontFamily: '"Rock Salt", cursive', fontWeight: 500 }}>Owners</h3>
-                  <p className="text-histown-text-muted text-base sm:text-lg leading-relaxed">Leading with passion and faith, creating a nurturing environment</p>
+                  <h3 className="text-xl sm:text-2xl md:text-lg lg:text-2xl font-bold text-histown-text mb-2 sm:mb-3 md:mb-2 lg:mb-3 group-hover:text-histown-primary group-active:text-histown-primary transition-colors duration-300" style={{ fontFamily: '"Rock Salt", cursive', fontWeight: 500 }}>Owners</h3>
+                  <p className="text-histown-text-muted text-base sm:text-lg md:text-sm lg:text-lg leading-relaxed">Leading with passion and faith, creating a nurturing environment</p>
                 </div>
               </div>
             </Link>
 
             {/* Dancers */}
             <Link to="/about/team" className="group text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out block min-h-[44px]" style={{ transitionDelay: '400ms' }}>
-              <div className="relative mb-6 sm:mb-8">
-                <div className="w-64 h-64 sm:w-72 sm:h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl group-active:shadow-3xl transition-all duration-500 transform group-hover:scale-105 group-active:scale-105 bg-gradient-to-br from-histown-accent/5 to-histown-secondary/5 p-2" style={{ aspectRatio: '1/1' }}>
+              <div className="relative mb-6 sm:mb-8 md:mb-6 lg:mb-8">
+                <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-56 md:h-56 lg:w-72 lg:h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl group-active:shadow-3xl transition-all duration-500 transform group-hover:scale-105 group-active:scale-105 bg-gradient-to-br from-histown-accent/5 to-histown-secondary/5 p-2" style={{ aspectRatio: '1/1' }}>
                   <div className="w-full h-full rounded-2xl overflow-hidden">
                     <LazyImage
                       src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762307103/5dfj0Ng_z8qr1f.png"
@@ -284,24 +284,24 @@ function App() {
                     />
                   </div>
                 </div>
-                <div className="absolute -bottom-3 sm:-bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-histown-accent to-histown-secondary text-white px-4 py-2 sm:px-6 sm:py-2 rounded-full shadow-lg">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+                <div className="absolute -bottom-3 sm:-bottom-4 md:-bottom-3 lg:-bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-histown-accent to-histown-secondary text-white px-4 py-2 sm:px-6 sm:py-2 md:px-4 md:py-1.5 lg:px-6 lg:py-2 rounded-full shadow-lg">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-4 md:h-4 lg:w-5 lg:h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
                   </svg>
                 </div>
               </div>
-              <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-lg group-hover:shadow-xl group-active:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 group-active:-translate-y-2 min-h-[140px] sm:h-40 flex flex-col justify-between">
+              <div className="bg-white rounded-2xl p-5 sm:p-6 md:p-4 lg:p-6 shadow-lg group-hover:shadow-xl group-active:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 group-active:-translate-y-2 min-h-[140px] sm:h-40 md:h-36 lg:h-40 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-histown-text mb-2 sm:mb-3 group-hover:text-histown-primary group-active:text-histown-primary transition-colors duration-300" style={{ fontFamily: '"Rock Salt", cursive', fontWeight: 500 }}>Dancers</h3>
-                  <p className="text-histown-text-muted text-base sm:text-lg leading-relaxed">Inspiring movement and grace through artistic technique</p>
+                  <h3 className="text-xl sm:text-2xl md:text-lg lg:text-2xl font-bold text-histown-text mb-2 sm:mb-3 md:mb-2 lg:mb-3 group-hover:text-histown-primary group-active:text-histown-primary transition-colors duration-300" style={{ fontFamily: '"Rock Salt", cursive', fontWeight: 500 }}>Dancers</h3>
+                  <p className="text-histown-text-muted text-base sm:text-lg md:text-sm lg:text-lg leading-relaxed">Inspiring movement and grace through artistic technique</p>
                 </div>
               </div>
             </Link>
 
             {/* Musicians */}
             <Link to="/about/team" className="group text-center animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out block min-h-[44px]" style={{ transitionDelay: '600ms' }}>
-              <div className="relative mb-6 sm:mb-8">
-                <div className="w-64 h-64 sm:w-72 sm:h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl group-active:shadow-3xl transition-all duration-500 transform group-hover:scale-105 group-active:scale-105 bg-gradient-to-br from-histown-secondary/5 to-histown-primary/5 p-2" style={{ aspectRatio: '1/1' }}>
+              <div className="relative mb-6 sm:mb-8 md:mb-6 lg:mb-8">
+                <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-56 md:h-56 lg:w-72 lg:h-72 mx-auto rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl group-active:shadow-3xl transition-all duration-500 transform group-hover:scale-105 group-active:scale-105 bg-gradient-to-br from-histown-secondary/5 to-histown-primary/5 p-2" style={{ aspectRatio: '1/1' }}>
                   <div className="w-full h-full rounded-2xl overflow-hidden">
                     <LazyImage
                       src="https://res.cloudinary.com/dxqzby6fc/image/upload/v1762307104/zYc8QQs_no8iw4.png"
@@ -310,16 +310,16 @@ function App() {
                     />
                   </div>
                 </div>
-                <div className="absolute -bottom-3 sm:-bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-histown-secondary to-histown-primary text-white px-4 py-2 sm:px-6 sm:py-2 rounded-full shadow-lg">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+                <div className="absolute -bottom-3 sm:-bottom-4 md:-bottom-3 lg:-bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-histown-secondary to-histown-primary text-white px-4 py-2 sm:px-6 sm:py-2 md:px-4 md:py-1.5 lg:px-6 lg:py-2 rounded-full shadow-lg">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-4 md:h-4 lg:w-5 lg:h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.49 6-3.31 6-6.72h-1.7z"/>
                   </svg>
                 </div>
               </div>
-              <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-lg group-hover:shadow-xl group-active:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 group-active:-translate-y-2 min-h-[140px] sm:h-40 flex flex-col justify-between">
+              <div className="bg-white rounded-2xl p-5 sm:p-6 md:p-4 lg:p-6 shadow-lg group-hover:shadow-xl group-active:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2 group-active:-translate-y-2 min-h-[140px] sm:h-40 md:h-36 lg:h-40 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-histown-text mb-2 sm:mb-3 group-hover:text-histown-primary group-active:text-histown-primary transition-colors duration-300" style={{ fontFamily: '"Rock Salt", cursive', fontWeight: 500 }}>Musicians</h3>
-                  <p className="text-histown-text-muted text-base sm:text-lg leading-relaxed">Creating harmony and melody that touches hearts and souls</p>
+                  <h3 className="text-xl sm:text-2xl md:text-lg lg:text-2xl font-bold text-histown-text mb-2 sm:mb-3 md:mb-2 lg:mb-3 group-hover:text-histown-primary group-active:text-histown-primary transition-colors duration-300" style={{ fontFamily: '"Rock Salt", cursive', fontWeight: 500 }}>Musicians</h3>
+                  <p className="text-histown-text-muted text-base sm:text-lg md:text-sm lg:text-lg leading-relaxed">Creating harmony and melody that touches hearts and souls</p>
                 </div>
               </div>
             </Link>

@@ -22,18 +22,21 @@ export function Testimonials({
 }: TestimonialsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [loadedCount, setLoadedCount] = useState(0);
 
-  // Detect mobile viewport
+  // Detect mobile and tablet viewports
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < TABLET_BREAKPOINTS.SMALL);
+    const checkViewport = () => {
+      const width = window.innerWidth;
+      setIsMobile(width < BREAKPOINTS.MD);
+      setIsTablet(width >= BREAKPOINTS.MD && width < BREAKPOINTS.LG);
     };
     
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    checkViewport();
+    window.addEventListener('resize', checkViewport);
+    return () => window.removeEventListener('resize', checkViewport);
   }, []);
 
   // Progressive loading simulation for slow connections
@@ -63,7 +66,15 @@ export function Testimonials({
   };
 
   const handleNext = () => {
-    const maxIndex = isMobile ? testimonials.length - 1 : testimonials.length - 3;
+    let maxIndex;
+    if (isMobile) {
+      maxIndex = testimonials.length - 1; // Show 1 on mobile
+    } else if (isTablet) {
+      maxIndex = testimonials.length - 2; // Show 2 on tablet
+    } else {
+      maxIndex = testimonials.length - 3; // Show 3 on desktop
+    }
+    
     if (currentIndex >= maxIndex) {
       setCurrentIndex(0); // Loop back to beginning
     } else {
@@ -84,6 +95,9 @@ export function Testimonials({
     if (isMobile) {
       // Mobile: Full width minus padding
       return window.innerWidth - 64; // Account for container padding
+    } else if (isTablet) {
+      // Tablet: Half width minus padding and gap
+      return (window.innerWidth - 128) / 2; // Account for container padding and gap
     }
     return 352; // Desktop: w-80 (320px) + mx-4 (32px)
   };
@@ -97,7 +111,7 @@ export function Testimonials({
       style={{ marginTop: '-4rem', paddingTop: '6rem', marginBottom: '-4rem', paddingBottom: '10rem' }}
       data-component="Testimonials"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-12 lg:px-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-12 md:px-16 lg:px-20">
         {/* Title */}
         <div className="text-center mb-6 sm:mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
           <h2 className="text-4xl sm:text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block" style={{ fontWeight: 900, fontSize: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
@@ -166,7 +180,7 @@ export function Testimonials({
                   return (
                     <div 
                       key={`skeleton-${index}`}
-                      className={`flex-none ${isMobile ? 'w-full' : 'w-80'} ${isMobile ? 'px-2' : 'mx-4'}`}
+                      className={`flex-none ${isMobile ? 'w-full' : isTablet ? 'w-1/2' : 'w-80'} ${isMobile ? 'px-2' : isTablet ? 'px-2' : 'mx-4'}`}
                     >
                       <TestimonialSkeleton />
                     </div>
@@ -176,7 +190,7 @@ export function Testimonials({
                 return (
                   <div 
                     key={index}
-                    className={`flex-none ${isMobile ? 'w-full' : 'w-80'} ${isMobile ? 'px-2' : 'mx-4'} bg-white rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-6 min-h-64 sm:min-h-80 flex flex-col transition-opacity duration-300 ${isTestimonialLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    className={`flex-none ${isMobile ? 'w-full' : isTablet ? 'w-1/2' : 'w-80'} ${isMobile ? 'px-2' : isTablet ? 'px-2' : 'mx-4'} bg-white rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-6 min-h-64 sm:min-h-80 flex flex-col transition-opacity duration-300 ${isTestimonialLoaded ? 'opacity-100' : 'opacity-0'}`}
                   >
                     <div className="flex items-center mb-3 sm:mb-4">
                       <div className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3">
@@ -203,8 +217,8 @@ export function Testimonials({
             </div>
           </div>
 
-          {/* Mobile Navigation Dots */}
-          {isMobile && (
+          {/* Mobile and Tablet Navigation Dots */}
+          {(isMobile || isTablet) && (
             <div className="flex justify-center gap-2 mt-4">
               {testimonials.map((_, index) => (
                 <button

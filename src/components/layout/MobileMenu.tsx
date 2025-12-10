@@ -95,7 +95,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+        className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
         onClick={handleBackdropClick}
         aria-hidden="true"
       />
@@ -105,7 +105,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
         ref={menuRef}
         id="mobile-menu"
         className={`
-          fixed top-0 right-0 h-full w-80 max-w-sm bg-white shadow-strong z-50 md:hidden
+          fixed top-0 right-0 h-full w-80 max-w-sm bg-white shadow-strong z-50 lg:hidden
           transform transition-transform duration-300 ease-out
           ${isOpen ? 'translate-x-0' : 'translate-x-full'}
         `}

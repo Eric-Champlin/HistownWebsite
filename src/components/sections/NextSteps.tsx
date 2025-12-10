@@ -66,7 +66,7 @@ export function NextSteps({
   return (
     <section 
       data-component="NextSteps"
-      className="py-12 sm:py-20 md:py-32 relative overflow-hidden" 
+      className="py-12 sm:py-20 md:py-24 lg:py-32 relative overflow-hidden" 
       style={{ 
         clipPath: noSlant ? 'none' : 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)', 
         marginTop: noSlant ? '0' : '-4rem', 
@@ -84,12 +84,12 @@ export function NextSteps({
       {/* Dark overlay for better text contrast */}
       <div className="absolute inset-0 bg-black/20"></div>
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-12 lg:px-20">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-12 md:px-16 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16 items-center justify-items-center">
           
           {/* Left Side - Next Steps CTAs */}
           <div className="text-white blue-section-text animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out text-center w-full max-w-md">
-            <h2 className="text-4xl sm:text-4xl md:text-5xl font-black uppercase mb-2 relative inline-block text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
+            <h2 className="text-4xl sm:text-4xl md:text-4xl lg:text-5xl font-black uppercase mb-2 relative inline-block text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
               {title}
             </h2>
             <div className="flex items-center justify-center space-x-2 mb-4" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))' }}>

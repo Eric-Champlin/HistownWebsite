@@ -22,7 +22,7 @@ export const WhyUs: React.FC<WhyUsProps> = ({
   return (
     <section 
       data-component="WhyUs"
-      className="relative py-12 sm:py-16 md:py-24 overflow-hidden" 
+      className="relative py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden" 
       style={{ 
         clipPath: noSlant ? 'none' : 'polygon(0 0%, 100% 4%, 100% 100%, 0% 96%)', 
         marginTop: noSlant ? '0' : '-8rem', 
@@ -40,10 +40,10 @@ export const WhyUs: React.FC<WhyUsProps> = ({
       {/* Dark overlay for better text contrast */}
       <div className="absolute inset-0 bg-black/20"></div>
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-12 sm:px-16 lg:px-20">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-12 md:px-16 lg:px-20">
         {/* Title */}
         <div className="text-center mb-6 sm:mb-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out flex flex-col items-center">
-          <h2 className="text-4xl sm:text-4xl md:text-5xl font-black uppercase mb-2 text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
+          <h2 className="text-4xl sm:text-4xl md:text-4xl lg:text-5xl font-black uppercase mb-2 text-white blue-section-text" style={{ fontWeight: 900, fontSize: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
             {title}
           </h2>
           <div className="flex items-center justify-center space-x-2 mb-4" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))' }}>
@@ -62,12 +62,14 @@ export const WhyUs: React.FC<WhyUsProps> = ({
           </p>
         </div>
 
-        {/* Why Us Grid - Stack vertically on mobile, 3 columns on desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        {/* Why Us Grid - Stack vertically on mobile, 2 columns on tablet, 3 columns on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
           {values.map((value, index) => (
             <div 
               key={index}
-              className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out" 
+              className={`animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out ${
+                value.title === "HIS GLORY" ? "hidden md:hidden lg:block" : ""
+              }`}
               style={{ transitionDelay: `${400 + index * 200}ms` }}
             >
               <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-2 rounded-2xl shadow-lg">
