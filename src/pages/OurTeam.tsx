@@ -55,7 +55,7 @@ const OurTeam: React.FC = () => {
       <Navigation />
 
       {/* Hero Section - Mobile optimized */}
-      <section className="relative h-[40vh] min-h-[350px] sm:h-[45vh] sm:min-h-[400px] flex items-start lg:items-center justify-center overflow-hidden section-divider-mobile pt-12 sm:pt-20 lg:pt-28">
+      <section className="relative h-[40vh] min-h-[350px] sm:h-[45vh] sm:min-h-[400px] md:h-[50vh] md:min-h-[450px] flex items-start lg:items-center justify-center overflow-hidden section-divider-mobile pt-12 sm:pt-20 lg:pt-28">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -66,8 +66,8 @@ const OurTeam: React.FC = () => {
         
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
         
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-0 sm:pt-4 lg:pt-16">
-          <h1 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase mb-2 text-white" style={{ fontWeight: 900, textShadow: '0 4px 6px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3)' }}>
+        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-0 sm:pt-4 md:pt-8 lg:pt-16">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase mb-2 text-white" style={{ fontWeight: 900, textShadow: '0 4px 6px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3)' }}>
             OUR TEAM
           </h1>
           <div className="flex items-center justify-center space-x-2 mb-4 sm:mb-6">
@@ -98,7 +98,7 @@ const OurTeam: React.FC = () => {
         <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'radial-gradient(circle at 15% 25%, rgba(14, 116, 144, 0.25) 0%, transparent 45%), radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.25) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 55%)' }}></div>
         <div className="absolute inset-0 opacity-25" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%230891b2\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z\' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }}></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-12 md:px-16 lg:px-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 md:gap-8 lg:gap-12">
             
             {teamMembers.map((member, index) => (
               <div 
@@ -106,7 +106,7 @@ const OurTeam: React.FC = () => {
                 className="group rounded-3xl overflow-visible animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out flex flex-col" 
                 style={{ transitionDelay: `${(index % 3) * 200 + 200}ms` }}
               >
-                <div className="relative h-64 sm:h-80 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500">
+                <div className="relative h-64 sm:h-80 md:h-72 lg:h-80 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500">
                   <img 
                     src={member.image}
                     alt={member.name}
@@ -114,15 +114,18 @@ const OurTeam: React.FC = () => {
                     style={{ objectPosition: member.position }}
                   />
                 </div>
-                <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 relative z-10 flex flex-col flex-1">
-                  <div className="p-4 sm:p-6 rounded-2xl flex flex-col flex-1" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-black text-gray-800 mb-3 sm:mb-4" style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)', lineHeight: '1.2', fontFamily: '"Rock Salt", cursive', fontWeight: 500 }}>
+                <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 md:mx-2 lg:mx-4 relative z-10 flex flex-col flex-1">
+                  <div className="p-4 sm:p-6 md:p-4 lg:p-6 rounded-2xl flex flex-col flex-1 min-h-[120px] md:min-h-[140px] lg:min-h-[120px]" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
+                    <h3 className="text-lg sm:text-xl md:text-lg lg:text-xl font-black text-gray-800 mb-2 sm:mb-3 md:mb-2 lg:mb-4" style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', lineHeight: '1.2', fontFamily: '"Rock Salt", cursive', fontWeight: 500 }}>
                       {member.name}
                     </h3>
-                    <div className="h-1 w-full max-w-[14rem] bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-3 sm:mb-4"></div>
+                    <p className="text-xs sm:text-sm md:text-xs lg:text-sm text-gray-600 mb-2 sm:mb-3 md:mb-2 lg:mb-3 flex-1">
+                      {member.role}
+                    </p>
+                    <div className="h-1 w-full max-w-[10rem] md:max-w-[8rem] lg:max-w-[14rem] bg-gradient-to-r from-histown-primary via-histown-accent to-transparent rounded-full mb-2 sm:mb-3 md:mb-2 lg:mb-4"></div>
                     <button 
                       onClick={() => setSelectedMember(member)}
-                      className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-6 py-3 sm:py-2 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 w-full min-h-[44px]"
+                      className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-4 sm:px-6 md:px-4 lg:px-6 py-2 sm:py-3 md:py-2 lg:py-2 rounded-lg font-bold uppercase text-xs sm:text-sm md:text-xs lg:text-sm hover:scale-105 transform transition-all duration-300 w-full min-h-[40px] md:min-h-[36px] lg:min-h-[44px] mt-auto"
                     >
                       BIOGRAPHY →
                     </button>

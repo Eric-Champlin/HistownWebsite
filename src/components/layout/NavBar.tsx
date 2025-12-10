@@ -49,7 +49,7 @@ const NavBar: React.FC<NavBarProps> = ({ onMobileMenuToggle, isMobileMenuOpen })
               <img
                 src={navigation.logo.src}
                 alt={navigation.logo.alt}
-                className="h-20 sm:h-24 lg:h-32 w-auto object-contain"
+                className="h-20 sm:h-24 md:h-28 lg:h-32 w-auto object-contain"
                 style={{
                   marginTop: '-15px',
                   marginBottom: '-15px',
