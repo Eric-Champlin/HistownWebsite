@@ -52,7 +52,7 @@ const DanceClasses: React.FC = () => {
       <Navigation />
 
       {/* Hero Section - Mobile optimized */}
-      <section className="relative h-[40vh] min-h-[350px] sm:h-[45vh] sm:min-h-[400px] md:h-[50vh] md:min-h-[450px] flex items-start lg:items-center justify-center overflow-hidden section-divider-mobile pt-12 sm:pt-20 lg:pt-28">
+      <section className="relative h-[30vh] min-h-[280px] sm:h-[45vh] sm:min-h-[400px] md:h-[50vh] md:min-h-[450px] flex items-start lg:items-center justify-center overflow-hidden section-divider-mobile pt-12 sm:pt-20 lg:pt-28">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
