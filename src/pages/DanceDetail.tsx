@@ -4,7 +4,7 @@ import Navigation from '../components/layout/Navigation';
 import { homeContent } from '../content/home';
 import { Footer } from '../components/layout/Footer';
 
-const danceData: Record<string, { name: string; description: string; image: string; bannerImage: string; position: string; longDescription: string }> = {
+const danceData: Record<string, { name: string; description: string; image: string; bannerImage: string; position: string; bannerPosition?: string; longDescription: string }> = {
   'acro': {
     name: 'Acro',
     description: 'Combining dance technique with acrobatic elements',
@@ -52,6 +52,7 @@ const danceData: Record<string, { name: string; description: string; image: stri
     image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825372/HipHop_yzzsxu.png',
     bannerImage: 'https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=1600&q=80',
     position: 'center 30%',
+    bannerPosition: 'center 70%',
     longDescription: 'Hip-Hop dance brings high energy, urban style, and contemporary street dance culture to our studio. Students learn various hip-hop styles including popping, locking, breaking, and freestyle. Classes focus on musicality, rhythm, and developing your own unique style while learning current choreography. Hip-hop emphasizes confidence, self-expression, and having fun while dancing. Our instructors teach age-appropriate movements and music, ensuring a positive environment where students can explore this dynamic dance form. Perfect for dancers who love energetic movement and contemporary music.'
   },
   'jazz': {
@@ -90,8 +91,9 @@ const danceData: Record<string, { name: string; description: string; image: stri
     name: 'Tap',
     description: 'Rhythmic tap dance technique',
     image: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1762825362/Tap_dnxfal.jpg',
-    bannerImage: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=1600&q=80',
+    bannerImage: 'https://res.cloudinary.com/dxqzby6fc/image/upload/v1768172252/photo-1601556655238-3e490ffcee28_jyl7ug.avif',
     position: 'center center',
+    bannerPosition: 'center 90%',
     longDescription: 'Tap dance is a unique percussive dance form where dancers create rhythm and music with their feet. Students learn fundamental tap techniques including shuffles, flaps, cramp rolls, and time steps while developing musicality and rhythm. Tap dance improves coordination, timing, and listening skills as dancers become musicians with their feet. Our classes progress from basic steps to complex rhythmic patterns and combinations. Tap is perfect for students who love rhythm and music, offering a fun and challenging way to develop both dance skills and musical understanding.'
   }
 };
@@ -228,14 +230,14 @@ const DanceDetail: React.FC = () => {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url(${dance.bannerImage})`,
-            backgroundPosition: 'center center',
+            backgroundPosition: (dance as any).bannerPosition || 'center center',
             filter: 'brightness(0.7)'
           }}
         ></div>
         
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
         
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-0 sm:pt-4 md:pt-8 lg:pt-16">
+        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-0 sm:pt-4 md:pt-8 lg:pt-0">
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase mb-2 text-white" style={{ fontWeight: 900, textShadow: '0 4px 6px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3)' }}>
             {dance.name}
           </h1>

@@ -49,7 +49,7 @@ const About: React.FC = () => {
           className="absolute inset-0 bg-cover"
           style={{
             backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/v1762910666/About_Us_tgzrww.jpg)',
-            backgroundPosition: 'center 80%',
+            backgroundPosition: 'center 20%',
             filter: 'brightness(0.7)'
           }}
         ></div>

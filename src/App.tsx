@@ -56,10 +56,11 @@ function App() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center mt-6 sm:mt-8 hero-fade-in opacity-0 translate-y-8 transition-all duration-1000 ease-out px-4 max-w-md sm:max-w-none mx-auto">
           <a 
             href={homeContent.hero.primaryCta.href}
-            className="btn-primary text-center transform hover:scale-105 active:scale-95 transition-all duration-300 w-full sm:w-auto py-4 sm:py-3 px-6 sm:px-8 min-h-[44px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-histown-primary focus:ring-offset-2"
+            className="text-center transform hover:scale-105 active:scale-95 transition-all duration-300 w-full sm:w-auto py-4 sm:py-3 px-6 sm:px-8 min-h-[44px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-histown-primary focus:ring-offset-2 rounded-lg font-medium"
             style={{
               background: 'linear-gradient(to right, #0e7490, #0891b2)',
-              color: 'white'
+              color: 'white',
+              filter: 'drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1))'
             }}
           >
             {homeContent.hero.primaryCta.label}

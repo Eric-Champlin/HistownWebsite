@@ -96,11 +96,11 @@ const DressCode: React.FC = () => {
       <Navigation />
 
       {/* Hero Section - Mobile optimized */}
-      <section className="relative h-[40vh] min-h-[350px] sm:h-[45vh] sm:min-h-[400px] md:h-[50vh] md:min-h-[450px] flex items-start lg:items-center justify-center overflow-hidden section-divider-mobile pt-12 sm:pt-20 lg:pt-28">
+      <section className="relative h-[30vh] min-h-[280px] sm:h-[45vh] sm:min-h-[400px] md:h-[50vh] md:min-h-[450px] flex items-start lg:items-center justify-center overflow-hidden section-divider-mobile pt-12 sm:pt-20 lg:pt-28">
         <div 
           className="absolute inset-0 bg-cover"
           style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=1920&q=80)',
+            backgroundImage: 'url(https://res.cloudinary.com/dxqzby6fc/image/upload/v1768173369/photo-1524282745852-a463fa495a7f_g2y58h.avif)',
             backgroundPosition: 'center center',
             filter: 'brightness(0.7)'
           }}

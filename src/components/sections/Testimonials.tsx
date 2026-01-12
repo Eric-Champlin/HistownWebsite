@@ -66,19 +66,25 @@ export function Testimonials({
   };
 
   const handleNext = () => {
-    let maxIndex;
     if (isMobile) {
-      maxIndex = testimonials.length - 1; // Show 1 on mobile
+      if (currentIndex >= testimonials.length - 1) {
+        setCurrentIndex(0);
+      } else {
+        setCurrentIndex(currentIndex + 1);
+      }
     } else if (isTablet) {
-      maxIndex = testimonials.length - 2; // Show 2 on tablet
+      // Tablet: Force max index to 22 (shows testimonials 22,23 including Amanda Cooper)
+      if (currentIndex >= 22) {
+        setCurrentIndex(0);
+      } else {
+        setCurrentIndex(currentIndex + 1);
+      }
     } else {
-      maxIndex = testimonials.length - 3; // Show 3 on desktop
-    }
-    
-    if (currentIndex >= maxIndex) {
-      setCurrentIndex(0); // Loop back to beginning
-    } else {
-      setCurrentIndex(currentIndex + 1);
+      if (currentIndex >= testimonials.length - 3) {
+        setCurrentIndex(0);
+      } else {
+        setCurrentIndex(currentIndex + 1);
+      }
     }
   };
 
@@ -97,13 +103,25 @@ export function Testimonials({
       return window.innerWidth - 64; // Account for container padding
     } else if (isTablet) {
       // Tablet: Half width minus padding and gap
-      return (window.innerWidth - 128) / 2; // Account for container padding and gap
+      return (window.innerWidth - 128 - 16) / 2; // Account for container padding and gap between cards
     }
     return 352; // Desktop: w-80 (320px) + mx-4 (32px)
   };
 
   const cardWidth = getCardWidth();
-  const translateX = -currentIndex * cardWidth;
+  
+  // Calculate translateX with bounds checking
+  let safeCurrentIndex = currentIndex;
+  if (isTablet) {
+    // On tablet, ensure we never go beyond index 22 (which shows testimonials 22 and 23)
+    safeCurrentIndex = Math.min(currentIndex, 22);
+  } else if (isMobile) {
+    safeCurrentIndex = Math.min(currentIndex, testimonials.length - 1);
+  } else {
+    safeCurrentIndex = Math.min(currentIndex, testimonials.length - 3);
+  }
+  
+  const translateX = -safeCurrentIndex * cardWidth;
 
   return (
     <section 
@@ -220,10 +238,15 @@ export function Testimonials({
           {/* Mobile and Tablet Navigation Dots */}
           {(isMobile || isTablet) && (
             <div className="flex justify-center gap-2 mt-4">
-              {testimonials.map((_, index) => (
+              {Array.from({ 
+                length: isMobile ? testimonials.length : 23
+              }, (_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentIndex(index)}
+                  onClick={() => {
+                    if (isTablet && index > 22) return; // Prevent clicking beyond position 22 on tablets
+                    setCurrentIndex(index);
+                  }}
                   className={`w-2 h-2 rounded-full transition-all duration-200 ${
                     index === currentIndex ? 'bg-histown-primary w-6' : 'bg-gray-300'
                   }`}

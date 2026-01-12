@@ -68,7 +68,7 @@ export const WhyUs: React.FC<WhyUsProps> = ({
             <div 
               key={index}
               className={`animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out ${
-                value.title === "HIS GLORY" ? "hidden md:hidden lg:block" : ""
+                value.title === "HIS GLORY" ? "md:hidden lg:block" : ""
               }`}
               style={{ transitionDelay: `${400 + index * 200}ms` }}
             >

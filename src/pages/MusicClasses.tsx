@@ -114,7 +114,7 @@ const MusicClasses: React.FC = () => {
                     </p>
                     <Link 
                       to={`/classes/music/${musicClass.id}`}
-                      className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-bold uppercase text-xs sm:text-sm hover:scale-105 transform transition-all duration-300 w-full text-center block"
+                      className="bg-gradient-to-r from-histown-accent to-histown-primary text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-bold uppercase text-sm hover:scale-105 transform transition-all duration-300 w-full text-center block flex items-center justify-center"
                       style={{ minHeight: '44px' }}
                     >
                       LEARN MORE →
