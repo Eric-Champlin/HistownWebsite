@@ -41,8 +41,21 @@ const musicData: Record<string, { name: string; description: string; image: stri
 
 const MusicDetail: React.FC = () => {
   const { musicId } = useParams<{ musicId: string }>();
+  const [isTablet, setIsTablet] = React.useState(false);
   
   const music = musicId ? musicData[musicId] : null;
+
+  // Detect tablet viewport
+  useEffect(() => {
+    const checkViewport = () => {
+      const width = window.innerWidth;
+      setIsTablet(width >= 768 && width < 1024);
+    };
+    
+    checkViewport();
+    window.addEventListener('resize', checkViewport);
+    return () => window.removeEventListener('resize', checkViewport);
+  }, []);
 
   if (!music) {
     return <div>Music class not found</div>;
@@ -164,7 +177,9 @@ const MusicDetail: React.FC = () => {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url(${music.bannerImage})`,
-            backgroundPosition: 'center center',
+            backgroundPosition: isTablet && (musicId === 'piano' || musicId === 'guitar') 
+              ? 'center 70%' 
+              : 'center center',
             filter: 'brightness(0.7)'
           }}
         ></div>
@@ -212,7 +227,13 @@ const MusicDetail: React.FC = () => {
                 src={music.image}
                 alt={music.name}
                 className="w-full h-full object-cover"
-                style={{ objectPosition: music.position }}
+                style={{ 
+                  objectPosition: isTablet && musicId === 'guitar'
+                    ? 'center 20%'
+                    : isTablet && musicId === 'piano'
+                    ? 'center 30%'
+                    : music.position 
+                }}
               />
             </div>
             
