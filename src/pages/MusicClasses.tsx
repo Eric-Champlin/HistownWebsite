@@ -9,6 +9,19 @@ import { whyUsValues } from '../data/whyUsValues';
 import { Footer } from '../components/layout/Footer';
 
 const MusicClasses: React.FC = () => {
+  const [isTablet, setIsTablet] = React.useState(false);
+
+  // Detect tablet viewport
+  useEffect(() => {
+    const checkViewport = () => {
+      const width = window.innerWidth;
+      setIsTablet(width >= 768 && width < 1024);
+    };
+    
+    checkViewport();
+    window.addEventListener('resize', checkViewport);
+    return () => window.removeEventListener('resize', checkViewport);
+  }, []);
 
   const musicClasses = [
     { id: 'piano', name: 'Piano', description: 'Master the keys with classical and contemporary piano instruction that develops technique, musicality, and expression', image: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=800', position: 'center center' },
@@ -100,7 +113,11 @@ const MusicClasses: React.FC = () => {
                     src={musicClass.image}
                     alt={musicClass.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    style={{ objectPosition: musicClass.position }}
+                    style={{ 
+                      objectPosition: isTablet && (musicClass.id === 'piano' || musicClass.id === 'guitar') 
+                        ? 'center 70%' 
+                        : musicClass.position 
+                    }}
                   />
                 </div>
                 <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-2 sm:mx-4 relative z-10 flex flex-col flex-1">

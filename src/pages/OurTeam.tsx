@@ -114,7 +114,7 @@ const OurTeam: React.FC = () => {
                     style={{ objectPosition: member.position }}
                   />
                 </div>
-                <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 md:mx-2 lg:mx-4 relative z-10 flex flex-col flex-1">
+                <div className="bg-gradient-to-br from-histown-primary/40 to-histown-accent/40 p-1.5 rounded-3xl shadow-lg -mt-8 mx-4 md:mx-0 lg:mx-4 relative z-10 flex flex-col flex-1">
                   <div className="p-4 sm:p-6 md:p-4 lg:p-6 rounded-2xl flex flex-col flex-1 min-h-[120px] md:min-h-[140px] lg:min-h-[120px]" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #fafcfe 30%, #f5fafd 60%, #f0f9ff 85%, #fafcfe 100%)' }}>
                     <h3 className="text-lg sm:text-xl md:text-lg lg:text-xl font-black text-gray-800 mb-2 sm:mb-3 md:mb-2 lg:mb-4" style={{ fontSize: 'clamp(0.9rem, 2vw, 1.25rem)', lineHeight: '1.2', fontFamily: '"Rock Salt", cursive', fontWeight: 500 }}>
                       {member.name}
